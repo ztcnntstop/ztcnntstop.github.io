@@ -92,7 +92,7 @@
         startDelay: 0,
         typeSpeed: 200,
         loop: true,
-        backSpeed: 100,
+        backSpeed: 65,
         showCursor: true
       });
     } catch (err) {
@@ -105,19 +105,6 @@
   
   
   
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
-</div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
 
 <style>
     .notice {
