@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>测试一</title>
+    <title>这是一篇测试</title>
     <url>/2022/09/07/%E6%B5%8B%E8%AF%95%E4%B8%80/</url>
-    <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！</p>
+    <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！<br>我还不能用markdown编辑所以这个是个简陋的文本</p>
 ]]></content>
   </entry>
 </search>
