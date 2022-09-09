@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>UE4学习笔记</title>
+    <url>/2022/09/09/unreal/</url>
+    <content><![CDATA[<p>这是一篇UE的学习笔记占位，我也会加油更新的！</p>
+]]></content>
+      <categories>
+        <category>-UE4</category>
+      </categories>
+      <tags>
+        <tag>-学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>houdini学习记录</title>
+    <url>/2022/09/09/houdini/</url>
+    <content><![CDATA[<p>这是一篇houdini学习文章的占位，我会努力更新的！</p>
+]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>这是一篇测试</title>
     <url>/2022/09/07/%E6%B5%8B%E8%AF%95%E4%B8%80/</url>
     <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！<br>这里只是一个简陋的文本所以跳过就行</p>
