@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>houdini学习记录</title>
+    <title>houdini学习列表总集</title>
     <url>/2022/09/09/houdini/</url>
-    <content><![CDATA[<p>这是一篇houdini学习文章的占位，我会努力更新的！</p>
-]]></content>
+    <content><![CDATA[<p>这篇是我的Houdini学习记录了，也算是我的Houdini学习置顶占位。<br>然后写的不一定是教程笔记哈，有些别的好的我也会随意写写放上来！<br>详细如下，都有各个的部分的站内链接，每篇写好了就会更新！<br>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</p>
+<hr>
+<h1 id="PCG部分"><a href="#PCG部分" class="headerlink" title="PCG部分"></a>PCG部分</h1><h2 id="一：湖边小屋学习记录"><a href="#一：湖边小屋学习记录" class="headerlink" title="一：湖边小屋学习记录"></a>一：湖边小屋学习记录</h2><p>老经典了，还没看过兄弟姐妹的我不允许你还没看过！这是<a href="https://www.bilibili.com/video/BV1rW411j7fo?spm_id_from=333.337.search-card.all.click&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接</a></p>
+<p><strong>湖边小屋第一篇站内link：</strong></p>
+<a href="/2022/09/13/houdini_lakeHouse_p1/" title="Houdini湖边小屋学习（一）">Houdini湖边小屋学习（一）</a>
+
+<p><strong>湖边小屋第二篇站内link：</strong><br><strong>湖边小屋第三篇站内link：</strong></p>
+<hr>
+<h1 id="Vex部分："><a href="#Vex部分：" class="headerlink" title="Vex部分："></a>Vex部分：</h1>]]></content>
       <categories>
         <category>-Houdini</category>
       </categories>
@@ -13,10 +20,297 @@
       </tags>
   </entry>
   <entry>
+    <title>Houdini湖边小屋学习（一）</title>
+    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
+    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
+<hr>
+<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-PCG</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown基本语法</title>
+    <url>/2022/09/13/markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="注明备忘：这里使用的编辑器是vscode，下载的拓展包有三个，分别是："><a href="#注明备忘：这里使用的编辑器是vscode，下载的拓展包有三个，分别是：" class="headerlink" title="注明备忘：这里使用的编辑器是vscode，下载的拓展包有三个，分别是："></a>注明备忘：这里使用的编辑器是vscode，下载的拓展包有三个，分别是：</h3><ol>
+<li>markdown all in one</li>
+<li>markdown preview Enhanced</li>
+<li>pasted Image    &#x2F;&#x2F;这个跟别的博主学的，用于方便copy网页图片。个人来说如果单纯本地预览确实超级方便，但是对于我来说有点鸡肋，然后放在本地并不是很好管理。</li>
+</ol>
+<p><strong>学到了新的我也会持续更新加在后面</strong></p>
+<hr>
+<h1 id="一：标题："><a href="#一：标题：" class="headerlink" title="一：标题："></a>一：标题：</h1><p><strong>markdown部分：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 这篇文章用来学习markdown语法，这是一级标题。#H1</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 这篇文章用来学习markdown语法，这是二级标题。#H2</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 这篇文章用来学习markdown语法，这是三级标题。#H3</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 其实切换起来多加几个#号就可以了，这里是四级标题。#H4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong></p>
+<h1 id="这篇文章用来学习markdown语法，这是一级标题。-H1"><a href="#这篇文章用来学习markdown语法，这是一级标题。-H1" class="headerlink" title="这篇文章用来学习markdown语法，这是一级标题。#H1"></a>这篇文章用来学习markdown语法，这是一级标题。#H1</h1><h2 id="这篇文章用来学习markdown语法，这是二级标题。-H2"><a href="#这篇文章用来学习markdown语法，这是二级标题。-H2" class="headerlink" title="这篇文章用来学习markdown语法，这是二级标题。#H2"></a>这篇文章用来学习markdown语法，这是二级标题。#H2</h2><h3 id="这篇文章用来学习markdown语法，这是三级标题。-H3"><a href="#这篇文章用来学习markdown语法，这是三级标题。-H3" class="headerlink" title="这篇文章用来学习markdown语法，这是三级标题。#H3"></a>这篇文章用来学习markdown语法，这是三级标题。#H3</h3><h4 id="其实切换起来多加几个-号就可以了，这里是四级标题。-H4"><a href="#其实切换起来多加几个-号就可以了，这里是四级标题。-H4" class="headerlink" title="其实切换起来多加几个#号就可以了，这里是四级标题。#H4"></a>其实切换起来多加几个#号就可以了，这里是四级标题。#H4</h4><hr>
+<h1 id="二：正文："><a href="#二：正文：" class="headerlink" title="二：正文："></a>二：正文：</h1><p>这样直接写就是正文。<br>末尾添加多余两个空格再回车，实现创建换行</p>
+<p>换了一行<br>又换了一行   </p>
+<p>空一行，换了一段。（换行换段我这里自动识别了）</p>
+<hr>
+<h1 id="三：加粗，斜体，斜体加粗，删除线："><a href="#三：加粗，斜体，斜体加粗，删除线：" class="headerlink" title="三：加粗，斜体，斜体加粗，删除线："></a>三：加粗，斜体，斜体加粗，删除线：</h1><p><strong>tips：（ctl+shift+home是选中当前行鼠标前内容，end当前行末，home当前行首）</strong></p>
+<h3 id="加粗："><a href="#加粗：" class="headerlink" title="加粗："></a>加粗：</h3><p>加粗前后各（** ）包住</p>
+<p><strong>markdown部分：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**我现在变粗体了**</span></span><br><span class="line"><span class="strong">**也可也ctl+b加粗**</span></span><br></pre></td></tr></table></figure>
+<p><strong>渲染效果：</strong><br><strong>我现在变粗体了</strong><br><strong>也可也ctl+b加粗</strong></p>
+<hr>
+<h3 id="斜体，斜体加粗："><a href="#斜体，斜体加粗：" class="headerlink" title="斜体，斜体加粗："></a>斜体，斜体加粗：</h3><p>斜体前后各（* )包住<br>斜体并加粗就是前后各(*** )包住</p>
+<p><strong>markdown部分：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*我现在歪了*</span>   //斜体</span><br><span class="line"><span class="strong">**<span class="emphasis">*也可也ctl+i选中变成斜体，然后再ctl+b加粗*</span>**</span> //<span class="strong">**<span class="emphasis">*这样三个是斜体加粗</span></span></span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong><br><em>我现在歪了</em><br><em><strong>也可也ctl+i选中变成斜体</strong></em></p>
+<hr>
+<h3 id="删除线："><a href="#删除线：" class="headerlink" title="删除线："></a>删除线：</h3><p>要加删除线的文字左右分别用两个~~号包起来</p>
+<p><strong>markdown部分：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">~~我被杠掉了~~</span><br></pre></td></tr></table></figure>
+<p><strong>渲染效果：</strong><br><del>我被杠掉了</del></p>
+<hr>
+<h1 id="四：引用，分割线："><a href="#四：引用，分割线：" class="headerlink" title="四：引用，分割线："></a>四：引用，分割线：</h1><p>引用：在引用的文字前加&gt;就行。引用也可以嵌套，只要不断&gt;&gt;&gt;&gt;&gt;&gt;就行。<br>分割线：分割线就是三个或以上的-或者*</p>
+<p><strong>markdown部分：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br><span class="line"><span class="section">---                          //分割线</span></span><br><span class="line"><span class="section">----</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*                          //分割线</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">*</span>**</span><span class="strong">****</span><span class="strong">****</span><span class="strong">****</span><span class="strong">**<span class="emphasis">*</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>渲染效果：</strong></p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>这是引用的内容</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<h1 id="五：序号，段落小圆点："><a href="#五：序号，段落小圆点：" class="headerlink" title="五：序号，段落小圆点："></a>五：序号，段落小圆点：</h1><p><strong>markdown部分：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">   1.</span> 这样是有序，（1.+空格），换行会自动添加第二个序号</span><br><span class="line"><span class="bullet">   2.</span> 这样就有第二个序号</span><br><span class="line"><span class="bullet">   3.</span> - 第三行打个这样形式的</span><br><span class="line"><span class="bullet">      1.</span> tab，二级序号</span><br><span class="line"><span class="bullet">      2.</span> 二级序号第二个</span><br><span class="line"><span class="bullet">      3.</span> 二级序号第三个</span><br><span class="line"><span class="bullet">      4.</span> 第四</span><br><span class="line"><span class="code">          如果直接换一行，换行是这样的。</span></span><br><span class="line"><span class="code">如果这样加一些文字，即使没有缩进，渲染出来也还会是在二级序号的段落内</span></span><br><span class="line"><span class="code">         1. 三级序号</span></span><br><span class="line"><span class="code">         66. 如果乱打序号，渲染出来的序号其实还会是正确的。比如这一行打的66，渲染还会是2号</span></span><br><span class="line"><span class="code">         - 这样打是个小圆点点（-加一个空格）</span></span><br><span class="line"><span class="code">         - 换行会自动给你补全这个小圆点</span></span><br><span class="line"><span class="code">         </span></span><br></pre></td></tr></table></figure>
+<p><strong>渲染效果：</strong></p>
+<ol>
+<li>这样是有序，（1.+空格），换行会自动添加第二个序号</li>
+<li>这样就有第二个序号</li>
+<li><ul>
+<li>第三行打个这样形式的</li>
+</ul>
+<ol>
+<li>tab，二级序号</li>
+<li>二级序号第二个</li>
+<li>二级序号第三个</li>
+<li>第四<br> 如果直接换一行，换行是这样的。<br>如果这样加一些文字，即使没有缩进，渲染出来也还会是在二级序号的段落内<ol>
+<li>三级序号</li>
+<li>如果乱打序号，渲染出来的序号其实还会是正确的。比如这一行打的66，渲染还会是2号</li>
+</ol>
+<ul>
+<li>这样打是个小圆点点（-加一个空格）</li>
+<li>换行会自动给你补全这个小圆点</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h1 id="六：添加图片："><a href="#六：添加图片：" class="headerlink" title="六：添加图片："></a>六：添加图片：</h1><p><strong>网络图片链接：</strong><br>ctl+alt+v，粘贴从在线网页上复制的内容，使用了拓展包，所以默认会加载到正在编辑的markdown的文件夹下<br>网络图片可以直接使用它的链接（不过网络图片连接很可能不知道啥时候就挂了，我自己用的图床是阿里云OSS，先测试几个月看看效果）</p>
+<p><strong>markdown源码（此图片来自网络，如侵权，可联系删除）：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">beishangwa</span>](<span class="link">https://img.zcool.cn/community/0121c859e056fea80121ae0c405fd6.jpg@1280w_1l_2o_100sh.jpg</span>)</span><br></pre></td></tr></table></figure>
+<p>下面的图就是网页上copy下来的悲伤蛙渲染效果。使用 ![]() 来链接图片。</p>
+<p><img src="https://img.zcool.cn/community/0121c859e056fea80121ae0c405fd6.jpg@1280w_1l_2o_100sh.jpg" alt="beishangwa"></p>
+<p><strong>本地图片链接方式：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![](<span class="link">./beishangwa.png</span>)</span><br></pre></td></tr></table></figure>
+<p>如果这样的话就可以使用本地的悲伤蛙（找不到路径需要.&#x2F;一下，vs可以识别路径里的图，这里估计会挂，我本地应该不在这个路径，建议放在相应的md文件夹内方便定义路径）</p>
+<hr>
+<h1 id="七：转义字符："><a href="#七：转义字符：" class="headerlink" title="七：转义字符："></a>七：转义字符：</h1><p><strong>markdown部分：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| character | name     |</span><br><span class="line">| --------- | -------- |</span><br><span class="line">| \\        | 反斜杠   |</span><br><span class="line">| \`        | 反引号   |</span><br><span class="line">| \<span class="emphasis">*        | 星号     |</span></span><br><span class="line"><span class="emphasis">| \_        | 下划线   |</span></span><br><span class="line"><span class="emphasis">| \&#123;\&#125;      | 大括号   |</span></span><br><span class="line"><span class="emphasis">| \[\]      | 中括号   |</span></span><br><span class="line"><span class="emphasis">| \(\)      | 小括号   |</span></span><br><span class="line"><span class="emphasis">| \#        | 井号     |</span></span><br><span class="line"><span class="emphasis">| \+        | 加号     |</span></span><br><span class="line"><span class="emphasis">| \-        | 减号     |</span></span><br><span class="line"><span class="emphasis">| \.        | 英文句号 |</span></span><br><span class="line"><span class="emphasis">| \!        | 感叹号   |</span></span><br></pre></td></tr></table></figure>
+<p><strong>渲染效果：</strong></p>
+<table>
+<thead>
+<tr>
+<th>character</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\</td>
+<td>反斜杠</td>
+</tr>
+<tr>
+<td>`</td>
+<td>反引号</td>
+</tr>
+<tr>
+<td>*</td>
+<td>星号</td>
+</tr>
+<tr>
+<td>_</td>
+<td>下划线</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>大括号</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>中括号</td>
+</tr>
+<tr>
+<td>()</td>
+<td>小括号</td>
+</tr>
+<tr>
+<td>#</td>
+<td>井号</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加号</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减号</td>
+</tr>
+<tr>
+<td>.</td>
+<td>英文句号</td>
+</tr>
+<tr>
+<td>!</td>
+<td>感叹号</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="八：表格"><a href="#八：表格" class="headerlink" title="八：表格"></a>八：表格</h1><p>(源码在vs显示的格式化修改：alt+shift+f)<br>表格中均默认左对齐，右对齐使用—后加：，或者居中对齐使用—前后各：：</p>
+<p><strong>markdown部分：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">##### 左对齐：</span></span><br><span class="line">| 姓名   | 颜色 | 种族类型 |</span><br><span class="line">| ------ | ---- | -------- |</span><br><span class="line">| 悲伤蛙 | 绿   | 蛙子     |</span><br><span class="line">| 哈士奇 | 黑白 | 狗子     |</span><br><span class="line"></span><br><span class="line"><span class="section">##### 右对齐：</span></span><br><span class="line">| 姓名   | 颜色 | 种族类型 |</span><br><span class="line">| ------ | ---: | -------: |</span><br><span class="line">| 悲伤蛙 |   绿 |     蛙子 |</span><br><span class="line">| 哈士奇 |   黑 |     狗子 |</span><br><span class="line"></span><br><span class="line"><span class="section">##### 居中对齐：</span></span><br><span class="line">| 姓名   | 颜色  | 种族类型 |</span><br><span class="line">| ------ | :---: | :------: |</span><br><span class="line">| 悲伤蛙 |  绿   |   蛙子   |</span><br><span class="line">| 哈士奇 |  黑   |   狗子   |</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>渲染效果：</strong></p>
+<h5 id="左对齐："><a href="#左对齐：" class="headerlink" title="左对齐："></a>左对齐：</h5><table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>颜色</th>
+<th>种族类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>悲伤蛙</td>
+<td>绿</td>
+<td>蛙子</td>
+</tr>
+<tr>
+<td>哈士奇</td>
+<td>黑白</td>
+<td>狗子</td>
+</tr>
+</tbody></table>
+<h5 id="右对齐："><a href="#右对齐：" class="headerlink" title="右对齐："></a>右对齐：</h5><table>
+<thead>
+<tr>
+<th>姓名</th>
+<th align="right">颜色</th>
+<th align="right">种族类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>悲伤蛙</td>
+<td align="right">绿</td>
+<td align="right">蛙子</td>
+</tr>
+<tr>
+<td>哈士奇</td>
+<td align="right">黑</td>
+<td align="right">狗子</td>
+</tr>
+</tbody></table>
+<h5 id="居中对齐："><a href="#居中对齐：" class="headerlink" title="居中对齐："></a>居中对齐：</h5><table>
+<thead>
+<tr>
+<th>姓名</th>
+<th align="center">颜色</th>
+<th align="center">种族类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>悲伤蛙</td>
+<td align="center">绿</td>
+<td align="center">蛙子</td>
+</tr>
+<tr>
+<td>哈士奇</td>
+<td align="center">黑</td>
+<td align="center">狗子</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="九：正文对齐方式："><a href="#九：正文对齐方式：" class="headerlink" title="九：正文对齐方式："></a>九：正文对齐方式：</h1><p>markdown我查了一下好像是没有对齐的，但是它基本支持html的语法，所以我们可以写成：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">**居中对齐：**</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span>帅哥美女一键三连<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line"></span><br><span class="line">**左对齐：**</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;left&quot;</span>&gt;</span>帅哥美女一键三连<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">**右对齐：**</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;right&quot;</span>&gt;</span>帅哥美女一键三连<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>渲染效果：</strong></p>
+<p><strong>居中对齐：</strong></p>
+<center>帅哥美女一键三连</center>
+
+<p><strong>左对齐：</strong></p>
+<p align="left">帅哥美女一键三连</p>
+
+<p><strong>右对齐：</strong></p>
+<p align="right">帅哥美女一键三连</p>
+
+<hr>
+<h1 id="十：插入链接"><a href="#十：插入链接" class="headerlink" title="十：插入链接"></a>十：插入链接</h1><p>还是ctl + C 然后选中需要添加链接的文字ctl + V<br>这是一个<a href="https://markdown.com.cn/basic-syntax/">markdown语法</a>链接</p>
+<hr>
+<h1 id="十一：代码框"><a href="#十一：代码框" class="headerlink" title="十一：代码框"></a>十一：代码框</h1><p>代码前后使用&#96;&#96;&#96;包裹,并指定一种语言</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\  <span class="code">```markdown</span></span><br><span class="line"><span class="code">      中间是内容</span></span><br><span class="line"><span class="code">\  ```</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>渲染效果：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">中间是内容</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="十二-hexo内插入网页视频"><a href="#十二-hexo内插入网页视频" class="headerlink" title="十二: hexo内插入网页视频"></a>十二: hexo内插入网页视频</h1><h5 id="目前是使用raw的方式：（markdown应该不可以直接渲染预览，但是hexo是支持的，自适应方面还阔以）"><a href="#目前是使用raw的方式：（markdown应该不可以直接渲染预览，但是hexo是支持的，自适应方面还阔以）" class="headerlink" title="目前是使用raw的方式：（markdown应该不可以直接渲染预览，但是hexo是支持的，自适应方面还阔以）"></a>目前是使用raw的方式：（markdown应该不可以直接渲染预览，但是hexo是支持的，自适应方面还阔以）</h5><p><strong>markdown部分：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">iframe</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=939470868&amp;bvid=BV1VT4y1B7QL&amp;cid=731375438&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span> <span class="attr">style</span>=<span class="string">&quot;position: absolute; width: 100%; </span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">height: 100%; left: 0; top: 0;&quot;</span>&gt;</span></span> <span class="language-xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&#123;% endraw %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>渲染效果：</strong></p>
+
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
+src="//player.bilibili.com/player.html?aid=939470868&bvid=BV1VT4y1B7QL&cid=731375438&page=1" scrolling="no" border="0" 
+frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
+height: 100%; left: 0; top: 0;"> </iframe></div>
+
+
+
+<hr>
+<h1 id="十三-emoji"><a href="#十三-emoji" class="headerlink" title="十三: emoji"></a>十三: emoji</h1><p>推荐网站<a href="https://emojipedia.org/">emojipedia</a><br>直接复制粘贴就好，可以正确渲染<br>示例：<br>🍇<br>🐗<br>🙃<br>🗻</p>
+<hr>
+<p>当然，也可以使用 <a href="https://unicode.org/emoji/charts/full-emoji-list.html">full emoji list</a><br>格式：<code>&amp;#x  +unicode + ;</code></p>
+<p>范例：<br><code>&amp;#x1F601;</code><br><code>&amp;#x1F602;</code></p>
+<p>渲染效果：<br>&amp;#x1F601;<br>&amp;#x1F602;</p>
+<hr>
+<h1 id="十四-图床"><a href="#十四-图床" class="headerlink" title="十四: 图床"></a>十四: 图床</h1><p>我配置的是阿里云OSS + PicGo + vscode的方案<br>由于我的编辑器是vscode，所以在vscode上传图片的快捷键如下：</p>
+<p>上传截图：ctl+alt+u</p>
+<hr>
+<p><strong><center>待续，学到后再加</center></strong></p>
+]]></content>
+      <categories>
+        <category>-Markdown</category>
+      </categories>
+      <tags>
+        <tag>-学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UE4学习笔记</title>
     <url>/2022/09/09/unreal/</url>
-    <content><![CDATA[<p>这是一篇UE的学习笔记占位，我也会加油更新的！</p>
-]]></content>
+    <content><![CDATA[<p>这篇是我的UE学习记录了，也算是我的UE学习置顶占位。2022是我学习UE的第一年，来记录一下<br>然后写的不一定是教程笔记哈，有些别的好的我也会随意写写放上来<br>详细如下，都有各个的部分的站内链接<br>每篇写好了就会更新！<br>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</p>
+<hr>
+<h1 id="材质基础"><a href="#材质基础" class="headerlink" title="材质基础"></a>材质基础</h1><h2 id="一：UE4官方材质课-基础篇"><a href="#一：UE4官方材质课-基础篇" class="headerlink" title="一：UE4官方材质课_基础篇"></a>一：UE4官方材质课_基础篇</h2><p><strong>站内link：</strong></p>
+<a href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇">UE4官方材质课_基础篇</a>
+
+<h2 id="二：UE4官方材质课-高级篇"><a href="#二：UE4官方材质课-高级篇" class="headerlink" title="二：UE4官方材质课_高级篇"></a>二：UE4官方材质课_高级篇</h2>]]></content>
       <categories>
         <category>-UE4</category>
       </categories>
@@ -29,5 +323,179 @@
     <url>/2022/09/07/%E6%B5%8B%E8%AF%95%E4%B8%80/</url>
     <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！<br>这里只是一个简陋的文本所以跳过就行</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>UE4官方材质课_基础篇</title>
+    <url>/2022/09/13/ue_MatClass_foundation/</url>
+    <content><![CDATA[<p>🐸本文为虚幻官方材质课的学习记录，并不完全，在此按我的个人需求记录了如下笔记。<strong>这一篇是基础篇</strong>。<br>🐸这里是基础篇<a href="https://www.bilibili.com/video/BV1fX4y1N7Fw?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接</a><br>🐸这里是高级篇<a href="https://www.bilibili.com/video/BV1sy4y127HZ/?spm_id_from=333.788.video.desc.click&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接</a><br>🐸<strong>加油 ！ 加油 ！</strong></p>
+<hr>
+<h1 id="UE4官方材质课-基础篇"><a href="#UE4官方材质课-基础篇" class="headerlink" title="UE4官方材质课_基础篇"></a>UE4官方材质课_基础篇</h1><h2 id="一：了解材质"><a href="#一：了解材质" class="headerlink" title="一：了解材质"></a>一：了解材质</h2><h3 id="🚩PBR（Physically-Based-Rendering）："><a href="#🚩PBR（Physically-Based-Rendering）：" class="headerlink" title="🚩PBR（Physically-Based Rendering）："></a>🚩PBR（Physically-Based Rendering）：</h3><p>基于物理的渲染。<br>它提供了一种光照和渲染方法，能够更精确的描绘光和表面之间的作用。<br>PBR流程能更真实的模拟光照和材质之间的物理交互效果。</p>
+<ul>
+<li>直观便于理解</li>
+<li>物理上更具准确性<ul>
+<li>pbr基于物理定律，如能量守恒定律和平方反比定律(Inverse-square law)</li>
+<li>pbr材质在不同的光照下会表现的更一致</li>
+</ul>
+</li>
+<li>使用真实的物理测量单位表示亮度<ul>
+<li>Lumens(流明),Lux（勒克斯）</li>
+</ul>
+</li>
+</ul>
+<p>💡简单来说基于物理的渲染本质上是通过：</p>
+<ul>
+<li>材质</li>
+<li>灯光</li>
+<li>曝光</li>
+</ul>
+<p>这三大部分控制的组合结果。</p>
+<h3 id="🚩Primary-PBR-Inputs："><a href="#🚩Primary-PBR-Inputs：" class="headerlink" title="🚩Primary PBR Inputs："></a>🚩Primary PBR Inputs：</h3><ul>
+<li>Base col</li>
+<li>Metallic</li>
+<li>Specular</li>
+<li>Roughness</li>
+</ul>
+<h4 id="🏕️Base-color（Albedo）"><a href="#🏕️Base-color（Albedo）" class="headerlink" title="🏕️Base color（Albedo）"></a>🏕️Base color（Albedo）</h4><ul>
+<li>flat color,没有任何光照信息（没有高光和阴影）</li>
+<li>只保存颜色信息</li>
+<li>可以是linear RGB，也可也是一个Vector3</li>
+<li>各个通道的数值位于0到1之间（纯白和纯黑会导致一些场景的曝光问题）</li>
+</ul>
+<h4 id="🏕️Metalic"><a href="#🏕️Metalic" class="headerlink" title="🏕️Metalic"></a>🏕️Metalic</h4><ul>
+<li>Gray scale</li>
+<li>数值在0 到 1的区间,不包含任何色彩信息</li>
+<li>金属最正确的设置方式是全开或全关<ul>
+<li>数值为0时，材质底色是diffuse</li>
+<li>数值为1时，材质底色是specular&#x2F;reflection color</li>
+<li>示例图：<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/metallic.png" alt="metallic"></li>
+</ul>
+</li>
+</ul>
+<h4 id="🏕️Roughness"><a href="#🏕️Roughness" class="headerlink" title="🏕️Roughness"></a>🏕️Roughness</h4><ul>
+<li>Gray scale</li>
+<li>数值在0 到 1的区间,不包含任何色彩信息<ul>
+<li>数值为0时，无限接近于镜面反射</li>
+<li>数值为1时，为粗糙表面</li>
+</ul>
+</li>
+</ul>
+<p>粗糙度是能量守恒的体现。</p>
+<h4 id="🏕️Specular"><a href="#🏕️Specular" class="headerlink" title="🏕️Specular"></a>🏕️Specular</h4><ul>
+<li>控制高光和反射（specular highlights and reflections）</li>
+<li>Gray scale</li>
+<li>一般情况下保持default value 0.5就可以了</li>
+<li>通常情况下，我们通过调整Roughness来调整高光质感</li>
+<li>正常世界中，所有物体都有一定程度的反射和高光效果</li>
+</ul>
+<p>示例图：<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/roughness.png" alt="roughness"></p>
+<h3 id="🚩UE支持的图片文件的格式（常用）："><a href="#🚩UE支持的图片文件的格式（常用）：" class="headerlink" title="🚩UE支持的图片文件的格式（常用）："></a>🚩UE支持的图片文件的格式（常用）：</h3><table>
+<thead>
+<tr>
+<th>未压缩格式</th>
+<th>压缩格式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BMP</td>
+<td>PNG（simple Alpha）</td>
+</tr>
+<tr>
+<td>TGA（Alpha）</td>
+<td>JPG</td>
+</tr>
+<tr>
+<td>PSD</td>
+<td>DDS</td>
+</tr>
+<tr>
+<td></td>
+<td>HDR</td>
+</tr>
+</tbody></table>
+<ul>
+<li>simple Alpha通常被用于植被</li>
+</ul>
+<h3 id="🚩贴图规则："><a href="#🚩贴图规则：" class="headerlink" title="🚩贴图规则："></a>🚩贴图规则：</h3><ul>
+<li>最大支持8k</li>
+<li>长宽必须是2的指数幂（512，1024，2048）</li>
+<li>roughness，metallic，specular均不需要rgb通道，所以直接储存为gray scale导入UE。这样他们就会被自动设置成灰度图，并且不会启动sRGB或者Linear的颜色空间</li>
+<li>Normal 贴图也同理，不需要使用sRGB</li>
+<li>HDR 也不需要使用sRGB，因为它的取值一般会超出范围</li>
+<li>sRGB只适用于颜色贴图（导入需要确保灰度图没有勾选sRGB）</li>
+<li>所有的灰度贴图只要储存形式正确，那么UE会直接自动设置为禁用sRGB</li>
+<li>所有的base col应当将压缩格式设置为DXT1（在贴图设置选项中，compression也可以自行更改，如果格式正确，那么UE会自动为你设置好它的compression setting）</li>
+</ul>
+<h3 id="🚩贴图导入方式："><a href="#🚩贴图导入方式：" class="headerlink" title="🚩贴图导入方式："></a>🚩贴图导入方式：</h3><ul>
+<li>直接拖入项目</li>
+<li>右键在content browser选择import Assets</li>
+</ul>
+<h3 id="🚩UE材质编辑器tips："><a href="#🚩UE材质编辑器tips：" class="headerlink" title="🚩UE材质编辑器tips："></a>🚩UE材质编辑器tips：</h3><ul>
+<li>双击节点之间的连线，创建dot整理节点</li>
+<li>c，创建comment</li>
+<li>ctl+拖动节点连线来改变节点连接输出的位置</li>
+<li>clean up删除此节点图中的孤立节点（unused node）</li>
+<li>connector改变节点显示方式</li>
+<li>T，创建texture sample</li>
+</ul>
+<h3 id="🚩混合模式："><a href="#🚩混合模式：" class="headerlink" title="🚩混合模式："></a>🚩混合模式：</h3><p>在Material中，可以找到<strong>Blend Mode</strong>和<strong>Shading Mode</strong>这两项，这两项十分重要</p>
+<h4 id="🍭Blend-Mode："><a href="#🍭Blend-Mode：" class="headerlink" title="🍭Blend Mode："></a>🍭Blend Mode：</h4><ul>
+<li><strong>Opaque 不透明</strong><ul>
+<li>多数不透明材质的基本设置</li>
+</ul>
+</li>
+<li><strong>masked 遮罩</strong><ul>
+<li>显示有mask遮罩的材质</li>
+<li>背面默认不显示，需要开启two sided</li>
+</ul>
+</li>
+<li><strong>Translucent 半透明</strong><ul>
+<li>通常使用在半透明材质，玻璃等有折射的材质</li>
+<li>同时控制opacity与refraction来调整效果</li>
+<li>Translucent一般情况下以最简单的方式计算半透明，以节约开销</li>
+<li>如果想提升半透明材质的效果，需要来到Translucency的选项下，勾选Screen SPace Reflection，并把Lighting Mode改成Surface ForwardShading；这两个选项能让我们获得最高质量的半透明材质。开启这两个选项后，着色器需要更长的时间编译。</li>
+</ul>
+</li>
+<li><strong>additive 叠加</strong></li>
+<li><strong>Modulate 调制</strong></li>
+<li><strong>AlphaComposite（Premultiplied Alpha） alpha复合（预乘Alpha）</strong></li>
+</ul>
+<p><strong>Translucent：</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/blendMode_Translucent.png" alt="blendMode_Translucent"></p>
+<h4 id="🍭Shading-Mode："><a href="#🍭Shading-Mode：" class="headerlink" title="🍭Shading Mode："></a>🍭Shading Mode：</h4><ul>
+<li><strong>Default Lit</strong><ul>
+<li>通常的光照设置，材质受光照影响</li>
+</ul>
+</li>
+<li><strong>Unlit</strong><ul>
+<li>材质不受光照影响；这种模式下允许表面产生自发光</li>
+</ul>
+</li>
+<li><strong>subsurface</strong><ul>
+<li>次表面散射，如皮肤和蜡烛</li>
+</ul>
+</li>
+<li><strong>clear coat</strong></li>
+<li><strong>two sided foliage</strong></li>
+<li><strong>hair</strong></li>
+<li><strong>cloth</strong></li>
+<li><strong>eye</strong></li>
+</ul>
+<h5 id="🍌subsurface-scattering"><a href="#🍌subsurface-scattering" class="headerlink" title="🍌subsurface scattering"></a>🍌subsurface scattering</h5><ul>
+<li>将Material的shading mode设置为subsurface</li>
+<li>主要使用两个矢量（base color和subsurface color）和两个标量（opacity和roughness）</li>
+</ul>
+<p>示例：<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/subsurfaceMat.png" alt="subsurfaceMat"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/subsurface.png" alt="subsurface"></p>
+<h2 id="二：创建材质"><a href="#二：创建材质" class="headerlink" title="二：创建材质"></a>二：创建材质</h2><ul>
+<li>当我们给mesh更换材质，或应用新材质时，需要在静态网格编辑器（Static Mesh Editor）中打开mesh，并且在右侧Detail面板下更换指定新材质</li>
+<li>UE支持多材质对象。一个mesh可以有多个elements并指定材质</li>
+<li>最好遵从材质命名规则，如Material最好以<strong>M_name</strong>这样以M为前缀来开头</li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>-UE4</category>
+      </categories>
+      <tags>
+        <tag>-材质</tag>
+      </tags>
   </entry>
 </search>
