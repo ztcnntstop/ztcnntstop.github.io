@@ -1,0 +1,445 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Light_a_Project_in_UE | ZeTiiCannotStop</title><meta name="keywords" content="-灯光"><meta name="author" content="ZeTii"><meta name="copyright" content="ZeTii"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="🍊这篇是UE的灯光与烘培的学习笔记，不大全面，有问题请随时指正🍊🍊这里是b站链接🍊  Unreal 灯光照明与烘培🚩【主要涵盖的话题】 技术和艺术的讨论 资产和场景的准备 灯光烘培设置 动态照明设置 图像基础的灯光设置 阴影 反射   🚩【一：目标媒介】 考虑项目是否会定义到移动设备，或者是在一些需要高保真的媒体设备使用 每个镜头都是独立的视频项目的编辑方案 对于24FPS，30FPS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Light_a_Project_in_UE">
+<meta property="og:url" content="http://example.com/2022/09/18/ue_Light_a_Project_in_UE/index.html">
+<meta property="og:site_name" content="ZeTiiCannotStop">
+<meta property="og:description" content="🍊这篇是UE的灯光与烘培的学习笔记，不大全面，有问题请随时指正🍊🍊这里是b站链接🍊  Unreal 灯光照明与烘培🚩【主要涵盖的话题】 技术和艺术的讨论 资产和场景的准备 灯光烘培设置 动态照明设置 图像基础的灯光设置 阴影 反射   🚩【一：目标媒介】 考虑项目是否会定义到移动设备，或者是在一些需要高保真的媒体设备使用 每个镜头都是独立的视频项目的编辑方案 对于24FPS，30FPS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/Zimage/UEtop.jpg">
+<meta property="article:published_time" content="2022-09-18T09:23:33.000Z">
+<meta property="article:modified_time" content="2022-09-18T14:07:23.576Z">
+<meta property="article:author" content="ZeTii">
+<meta property="article:tag" content="-灯光">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Zimage/UEtop.jpg"><link rel="shortcut icon" href="/img/faviconDog.ico"><link rel="canonical" href="http://example.com/2022/09/18/ue_Light_a_Project_in_UE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Light_a_Project_in_UE',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-18 22:07:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="ZeTiiCannotStop" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/longtao.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-ghost"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> video</span></a></li><li><a class="site-page child" href="/others/"><i class="fa-fw fas fa-cat"></i><span> other</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/Zimage/UEtop.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZeTiiCannotStop</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-ghost"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> video</span></a></li><li><a class="site-page child" href="/others/"><i class="fa-fw fas fa-cat"></i><span> other</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Light_a_Project_in_UE</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-18T09:23:33.000Z" title="发表于 2022-09-18 17:23:33">2022-09-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-18T14:07:23.576Z" title="更新于 2022-09-18 22:07:23">2022-09-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/UE4/">-UE4</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Light_a_Project_in_UE"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>🍊这篇是UE的灯光与烘培的学习笔记，不大全面，有问题请随时指正🍊</strong><br>🍊这里是b站<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17K4y1L7Gf/?spm_id_from=333.788.recommend_more_video.3&vd_source=95a1cfccd5b1e6779677de477b25aa31%5C">链接</a>🍊</p>
+<hr>
+<h1 id="Unreal-灯光照明与烘培"><a href="#Unreal-灯光照明与烘培" class="headerlink" title="Unreal 灯光照明与烘培"></a>Unreal 灯光照明与烘培</h1><h2 id="🚩【主要涵盖的话题】"><a href="#🚩【主要涵盖的话题】" class="headerlink" title="🚩【主要涵盖的话题】"></a>🚩【主要涵盖的话题】</h2><ol>
+<li>技术和艺术的讨论</li>
+<li>资产和场景的准备</li>
+<li>灯光烘培设置</li>
+<li>动态照明设置</li>
+<li>图像基础的灯光设置</li>
+<li>阴影</li>
+<li>反射</li>
+</ol>
+<hr>
+<h2 id="🚩【一：目标媒介】"><a href="#🚩【一：目标媒介】" class="headerlink" title="🚩【一：目标媒介】"></a>🚩【一：目标媒介】</h2><ul>
+<li>考虑项目是否会定义到移动设备，或者是在一些需要高保真的媒体设备使用</li>
+<li>每个镜头都是独立的视频项目的编辑方案</li>
+<li>对于24FPS，30FPS和60FPS的项目的不同处理的方案</li>
+<li>不需要完全实时渲染的项目</li>
+<li>如果整个项目都是静态的，那么可以预先烘培</li>
+<li>开放世界的灯光无法提前烘培，所以需要light map并使用动态照明处理</li>
+<li>考虑硬件的最低规格</li>
+</ul>
+<hr>
+<h2 id="🚩【二：Deferred-Renderer和Forward-Renderer】"><a href="#🚩【二：Deferred-Renderer和Forward-Renderer】" class="headerlink" title="🚩【二：Deferred Renderer和Forward Renderer】"></a>🚩【二：Deferred Renderer和Forward Renderer】</h2><h3 id="🥕Deferred-Renderer："><a href="#🥕Deferred-Renderer：" class="headerlink" title="🥕Deferred Renderer："></a>🥕Deferred Renderer：</h3><ul>
+<li>是UE4的默认渲染器</li>
+<li>它的工作方式就是储存所有原始数据在Screen Space Buffers（Color，Normal，Depth，…）然后将他们组合到一起成为Final Image</li>
+<li>照明灯光一起评估</li>
+<li>额外的screen space则会被用在更复杂的后处理效果与照明效果的组合</li>
+<li>支持所有的渲染功能</li>
+</ul>
+<h3 id="🥕Forward-Renderer："><a href="#🥕Forward-Renderer：" class="headerlink" title="🥕Forward Renderer："></a>🥕Forward Renderer：</h3><ul>
+<li>为了VR开发的</li>
+<li>所有的lighting和shading都在object draw time进行评估计算</li>
+<li>可以做特有的材质优化</li>
+<li>更多的抗锯齿操作</li>
+</ul>
+<hr>
+<h2 id="🚩【三：如何给一套好的照明准备资产】"><a href="#🚩【三：如何给一套好的照明准备资产】" class="headerlink" title="🚩【三：如何给一套好的照明准备资产】"></a>🚩【三：如何给一套好的照明准备资产】</h2><ol>
+<li><strong>确保材质是物理正确的</strong><br> <img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/matRef.png" alt="matRef"><br>   常见问题有：<ul>
+<li><ol>
+<li>base color太亮或太暗。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>金属度为了确认是不是金属最好保持是1或0。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>specular保持0到1之间的灰度，而不是颜色。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>最黑的常见物是碳（rgb：0.03），最白的是雪（rgb：0.9）。永远不会是纯白或纯黑。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>vantablack是世界上最黑的黑（rgb：0.0045, roughness:1）</li>
+</ol>
+</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vantablack.png" alt="vantablack"></li>
+</ul>
+</li>
+<li><strong>打灯前确保移除自动曝光</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/deactiveAutoExposure.png" alt="deactiveAutoExposure"></li>
+<li><strong>放置chrome sphere和grey sphere</strong><br> <img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/chromeSphere.png" alt="chromeSphere"><br> 保证它是纯反射物</li>
+<li><strong>设置一个3.14（pi）的 directional light，并且用color picker 查看灰度</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/50%Grey.png" alt="50%Grey"></li>
+</ol>
+<hr>
+<h2 id="🚩【四：烘培灯光-VS-动态灯光】"><a href="#🚩【四：烘培灯光-VS-动态灯光】" class="headerlink" title="🚩【四：烘培灯光 VS 动态灯光】"></a>🚩【四：烘培灯光 VS 动态灯光】</h2><h3 id="🥕Baked-Lighting："><a href="#🥕Baked-Lighting：" class="headerlink" title="🥕Baked Lighting："></a>🥕Baked Lighting：</h3><h4 id="🤓优势："><a href="#🤓优势：" class="headerlink" title="🤓优势："></a>🤓优势：</h4><ol>
+<li>GI</li>
+<li>cheap soft shadows，陈本低的阴影</li>
+<li>Less GPU demanding，较低的GPU需求</li>
+</ol>
+<h4 id="😈劣势："><a href="#😈劣势：" class="headerlink" title="😈劣势："></a>😈劣势：</h4><ol>
+<li>slower iteration，迭代变慢</li>
+<li>static lighting，是静态的，如果生成更多的资产则新资产不会对照明产生影响</li>
+<li>more maps in memory，需要储存空间来放light maps</li>
+</ol>
+<h3 id="🥕Dynamic-Lighting："><a href="#🥕Dynamic-Lighting：" class="headerlink" title="🥕Dynamic Lighting："></a>🥕Dynamic Lighting：</h3><h4 id="🤓优势：-1"><a href="#🤓优势：-1" class="headerlink" title="🤓优势："></a>🤓优势：</h4><ol>
+<li>what u see is what u get，所见及所得</li>
+<li>非静态的</li>
+</ol>
+<h4 id="😈劣势：-1"><a href="#😈劣势：-1" class="headerlink" title="😈劣势："></a>😈劣势：</h4><ol>
+<li>No GI</li>
+<li>GPU demanding，对GPU有要求</li>
+</ol>
+<hr>
+<h2 id="🚩【五：常用烘培灯光设置】"><a href="#🚩【五：常用烘培灯光设置】" class="headerlink" title="🚩【五：常用烘培灯光设置】"></a>🚩【五：常用烘培灯光设置】</h2><h3 id="基础灯光设置："><a href="#基础灯光设置：" class="headerlink" title="基础灯光设置："></a>基础灯光设置：</h3><ol>
+<li>Direction Light（Stationary）</li>
+<li>Lightmass Baking（GI）</li>
+<li>Skydome（static）</li>
+</ol>
+<h3 id="什么是light-map？"><a href="#什么是light-map？" class="headerlink" title="什么是light map？"></a>什么是light map？</h3><ul>
+<li>light maps以纹理贴图的形式储存了灯光信息</li>
+<li>它是HDR tecture并且储存了灯光方向</li>
+<li>它的好处是处理起来很快，阴影柔和，但是如果文件太小则会缺少阴影的细节清晰度。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lightasset2.png" alt="lightasset2"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lightasset.png" alt="lightasset"></li>
+<li>min lightmap resolution将定义UV islands（padding）之间的空间</li>
+<li>更小的padding会减少像素的浪费以及在相同的分辨率下得到更好的阴影效果</li>
+</ul>
+<hr>
+<h3 id="Lighting-Type："><a href="#Lighting-Type：" class="headerlink" title="Lighting Type："></a>Lighting Type：</h3><ul>
+<li>当烘培灯光时，一般只会使用static light（静态光） 或者是 stationary light（固定光）</li>
+<li>emit photons：<ul>
+<li>Directional light</li>
+<li>point light</li>
+<li>spot light</li>
+</ul>
+</li>
+<li>emit no photon：<ul>
+<li>sky light</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Lightmass-Setting："><a href="#Lightmass-Setting：" class="headerlink" title="Lightmass Setting："></a>Lightmass Setting：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lightmass.png" alt="lightmass"></p>
+<ul>
+<li>static Lighting Level Scale * Indirect Lighting Quality &#x3D; 1.0;</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lightmass_chart.png" alt="lightmass_chart"></p>
+<ul>
+<li>间接照明质量是最影响时长的</li>
+</ul>
+<hr>
+<ul>
+<li><strong>volume light sample scale</strong><ul>
+<li>降低static lighting level scale会增加volume lighting samples的数量</li>
+</ul>
+</li>
+<li><strong>lightmass Portal</strong><ul>
+<li>对门窗类型的照明十分有用</li>
+</ul>
+</li>
+<li><strong>lighting Scenarios</strong><ul>
+<li>只用编辑一个enviroment level</li>
+<li>照明方案会以light maps的形式分别储存</li>
+<li>一个时间使用一个照明方案（不存在过渡，不能同时拥有两种在一个场景）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="🚩【六：常用动态照明设置】"><a href="#🚩【六：常用动态照明设置】" class="headerlink" title="🚩【六：常用动态照明设置】"></a>🚩【六：常用动态照明设置】</h2><h3 id="基础灯光设置：-1"><a href="#基础灯光设置：-1" class="headerlink" title="基础灯光设置："></a>基础灯光设置：</h3><ol>
+<li>Direction Light（movable）</li>
+<li>SKydome（moveable）</li>
+<li>Distance Field AO</li>
+<li>Screen Space AO</li>
+</ol>
+<h3 id="什么是Distance-Field："><a href="#什么是Distance-Field：" class="headerlink" title="什么是Distance Field："></a>什么是Distance Field：</h3><ul>
+<li>Distance Field 储存了每个点到最近表面的距离</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/distanceField.png" alt="distanceField"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/df_setup.png" alt="df_setup"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/dfao.png" alt="dfao"></li>
+<li>需要避免过多的缩放</li>
+<li>很大的物体对于distance field 的支持不理想，需要拆分成较小的部分</li>
+</ul>
+<h2 id="🚩【七：图像基础的照明-IBL】"><a href="#🚩【七：图像基础的照明-IBL】" class="headerlink" title="🚩【七：图像基础的照明 IBL】"></a>🚩【七：图像基础的照明 IBL】</h2><h3 id="基础灯光设置：-2"><a href="#基础灯光设置：-2" class="headerlink" title="基础灯光设置："></a>基础灯光设置：</h3><ul>
+<li>设置场景，确保有一个平面可以投射并接受阴影</li>
+<li>有一个back plate（需要制作跟踪）（可以理解为UE里做nuke的事情）</li>
+<li>Directional light（moveable）</li>
+<li>Skylight with HDRI（moveable）</li>
+<li>fake steps shadow</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/backPlate.png" alt="backPlate"></li>
+<li>当人走向光照位置则激活阴影</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/IBL.png" alt="IBL"></li>
+</ul>
+<hr>
+<h2 id="🚩【八：shadow-maps，for-Dynamic-Shadowing】"><a href="#🚩【八：shadow-maps，for-Dynamic-Shadowing】" class="headerlink" title="🚩【八：shadow maps，for Dynamic Shadowing】"></a>🚩【八：shadow maps，for Dynamic Shadowing】</h2><ul>
+<li>Depth map，判断存在阴影的部分</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/depthMap.png" alt="depthMap"></li>
+<li>如果shadow map质量太低会有锯齿</li>
+<li>如果shadow map bias太高则会有漏光</li>
+<li>使用相机视锥来优化场景，近景给予更多的资源</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/camFrustum.png" alt="camFrustum"></li>
+</ul>
+<hr>
+<h2 id="🚩【九：Directional-Light-Stationary-area-shadows：】"><a href="#🚩【九：Directional-Light-Stationary-area-shadows：】" class="headerlink" title="🚩【九：Directional Light Stationary area shadows：】"></a>🚩【九：Directional Light Stationary area shadows：】</h2><ul>
+<li>激活Lightmass下的：use Area Shadows for Stationary Light</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/areaShadow.png" alt="areaShadow"></li>
+</ul>
+<hr>
+<h2 id="🚩【十：capsule-shadows：】"><a href="#🚩【十：capsule-shadows：】" class="headerlink" title="🚩【十：capsule shadows：】"></a>🚩【十：capsule shadows：】</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/capsuleshadows.png" alt="capsuleshadows"></p>
+<ul>
+<li>使用一个类似资产的外轮廓来创建一个十分柔和的阴影</li>
+</ul>
+<hr>
+<h2 id="🚩【十一：Raytraced-contact-shadows：】"><a href="#🚩【十一：Raytraced-contact-shadows：】" class="headerlink" title="🚩【十一：Raytraced contact shadows：】"></a>🚩【十一：Raytraced contact shadows：】</h2><ul>
+<li>将contact shadow length 设置的很小来获得细节上的阴影</li>
+<li>在比例很小的物体上很有用，但是比较耗费资源</li>
+</ul>
+<hr>
+<h2 id="🚩【十二：Reflections：】"><a href="#🚩【十二：Reflections：】" class="headerlink" title="🚩【十二：Reflections：】"></a>🚩【十二：Reflections：】</h2><ul>
+<li>反射较为资源</li>
+<li>使用planer reflection来得到平面的反射（本质是在镜像它），平面的物体适用，但此不适用于有机形状。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">ZeTii</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/09/18/ue_Light_a_Project_in_UE/">http://example.com/2022/09/18/ue_Light_a_Project_in_UE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">ZeTiiCannotStop</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%81%AF%E5%85%89/">-灯光</a></div><div class="post_share"><div class="social-share" data-image="/Zimage/UEtop.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/22/math_Essense_of_Linear_Algebra_P02/"><img class="prev-cover" src="/Zimage/a3Blue1Brown.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/13/ue_MatClass_foundation/"><img class="next-cover" src="/Zimage/uefoundation_cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">UE4官方材质课_基础篇</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/longtao.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ZeTii</div><div class="author-info__description">这个人很菜但是想法很多</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/552910222?spm_id_from=333.33.b_73656375726974794f75744c696e6b.1"><i class="fab fa-bilibili"></i><span>去Bilibili找我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://www.artstation.com/ztcnntstop" target="_blank" title="artstation"><i class="fab fa-artstation"></i></a><a class="social-icon" href="https://www.zhihu.com/people/ztcnntstop" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="/Zimage/longtaoqq.png" target="_blank" title="加我QQ请注明来意【2226925242】"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:lzyzen@163.com" target="_blank" title="Email我也可以【lzyzen@163.com】"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这人主要在哔哩哔哩闲逛，每天都会光好几圈并且点很多赞，这个人近期做的作品也在那里发布了，有啥问题可以直接哔哩哔哩去踢踢这人或者给这个人点点赞！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Unreal-%E7%81%AF%E5%85%89%E7%85%A7%E6%98%8E%E4%B8%8E%E7%83%98%E5%9F%B9"><span class="toc-number">1.</span> <span class="toc-text">Unreal 灯光照明与烘培</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E4%B8%BB%E8%A6%81%E6%B6%B5%E7%9B%96%E7%9A%84%E8%AF%9D%E9%A2%98%E3%80%91"><span class="toc-number">1.1.</span> <span class="toc-text">🚩【主要涵盖的话题】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E4%B8%80%EF%BC%9A%E7%9B%AE%E6%A0%87%E5%AA%92%E4%BB%8B%E3%80%91"><span class="toc-number">1.2.</span> <span class="toc-text">🚩【一：目标媒介】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E4%BA%8C%EF%BC%9ADeferred-Renderer%E5%92%8CForward-Renderer%E3%80%91"><span class="toc-number">1.3.</span> <span class="toc-text">🚩【二：Deferred Renderer和Forward Renderer】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A5%95Deferred-Renderer%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">🥕Deferred Renderer：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A5%95Forward-Renderer%EF%BC%9A"><span class="toc-number">1.3.2.</span> <span class="toc-text">🥕Forward Renderer：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E4%B8%89%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%99%E4%B8%80%E5%A5%97%E5%A5%BD%E7%9A%84%E7%85%A7%E6%98%8E%E5%87%86%E5%A4%87%E8%B5%84%E4%BA%A7%E3%80%91"><span class="toc-number">1.4.</span> <span class="toc-text">🚩【三：如何给一套好的照明准备资产】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E5%9B%9B%EF%BC%9A%E7%83%98%E5%9F%B9%E7%81%AF%E5%85%89-VS-%E5%8A%A8%E6%80%81%E7%81%AF%E5%85%89%E3%80%91"><span class="toc-number">1.5.</span> <span class="toc-text">🚩【四：烘培灯光 VS 动态灯光】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A5%95Baked-Lighting%EF%BC%9A"><span class="toc-number">1.5.1.</span> <span class="toc-text">🥕Baked Lighting：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%A4%93%E4%BC%98%E5%8A%BF%EF%BC%9A"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">🤓优势：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%98%88%E5%8A%A3%E5%8A%BF%EF%BC%9A"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">😈劣势：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A5%95Dynamic-Lighting%EF%BC%9A"><span class="toc-number">1.5.2.</span> <span class="toc-text">🥕Dynamic Lighting：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%A4%93%E4%BC%98%E5%8A%BF%EF%BC%9A-1"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">🤓优势：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%98%88%E5%8A%A3%E5%8A%BF%EF%BC%9A-1"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">😈劣势：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E4%BA%94%EF%BC%9A%E5%B8%B8%E7%94%A8%E7%83%98%E5%9F%B9%E7%81%AF%E5%85%89%E8%AE%BE%E7%BD%AE%E3%80%91"><span class="toc-number">1.6.</span> <span class="toc-text">🚩【五：常用烘培灯光设置】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%81%AF%E5%85%89%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="toc-number">1.6.1.</span> <span class="toc-text">基础灯光设置：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFlight-map%EF%BC%9F"><span class="toc-number">1.6.2.</span> <span class="toc-text">什么是light map？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lighting-Type%EF%BC%9A"><span class="toc-number">1.6.3.</span> <span class="toc-text">Lighting Type：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lightmass-Setting%EF%BC%9A"><span class="toc-number">1.6.4.</span> <span class="toc-text">Lightmass Setting：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E5%85%AD%EF%BC%9A%E5%B8%B8%E7%94%A8%E5%8A%A8%E6%80%81%E7%85%A7%E6%98%8E%E8%AE%BE%E7%BD%AE%E3%80%91"><span class="toc-number">1.7.</span> <span class="toc-text">🚩【六：常用动态照明设置】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%81%AF%E5%85%89%E8%AE%BE%E7%BD%AE%EF%BC%9A-1"><span class="toc-number">1.7.1.</span> <span class="toc-text">基础灯光设置：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFDistance-Field%EF%BC%9A"><span class="toc-number">1.7.2.</span> <span class="toc-text">什么是Distance Field：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E4%B8%83%EF%BC%9A%E5%9B%BE%E5%83%8F%E5%9F%BA%E7%A1%80%E7%9A%84%E7%85%A7%E6%98%8E-IBL%E3%80%91"><span class="toc-number">1.8.</span> <span class="toc-text">🚩【七：图像基础的照明 IBL】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%81%AF%E5%85%89%E8%AE%BE%E7%BD%AE%EF%BC%9A-2"><span class="toc-number">1.8.1.</span> <span class="toc-text">基础灯光设置：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E5%85%AB%EF%BC%9Ashadow-maps%EF%BC%8Cfor-Dynamic-Shadowing%E3%80%91"><span class="toc-number">1.9.</span> <span class="toc-text">🚩【八：shadow maps，for Dynamic Shadowing】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E4%B9%9D%EF%BC%9ADirectional-Light-Stationary-area-shadows%EF%BC%9A%E3%80%91"><span class="toc-number">1.10.</span> <span class="toc-text">🚩【九：Directional Light Stationary area shadows：】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E5%8D%81%EF%BC%9Acapsule-shadows%EF%BC%9A%E3%80%91"><span class="toc-number">1.11.</span> <span class="toc-text">🚩【十：capsule shadows：】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E5%8D%81%E4%B8%80%EF%BC%9ARaytraced-contact-shadows%EF%BC%9A%E3%80%91"><span class="toc-number">1.12.</span> <span class="toc-text">🚩【十一：Raytraced contact shadows：】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A9%E3%80%90%E5%8D%81%E4%BA%8C%EF%BC%9AReflections%EF%BC%9A%E3%80%91"><span class="toc-number">1.13.</span> <span class="toc-text">🚩【十二：Reflections：】</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/22/math_Essense_of_Linear_Algebra_P01/" title="3Blue1Brown_线代本质第一章：向量究竟是什么"><img src="/Zimage/a3Blue1Brown.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3Blue1Brown_线代本质第一章：向量究竟是什么"/></a><div class="content"><a class="title" href="/2022/09/22/math_Essense_of_Linear_Algebra_P01/" title="3Blue1Brown_线代本质第一章：向量究竟是什么">3Blue1Brown_线代本质第一章：向量究竟是什么</a><time datetime="2022-09-22T09:15:35.000Z" title="发表于 2022-09-22 17:15:35">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/22/math_Essense_of_Linear_Algebra_P02/" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"><img src="/Zimage/a3Blue1Brown.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"/></a><div class="content"><a class="title" href="/2022/09/22/math_Essense_of_Linear_Algebra_P02/" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基">3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</a><time datetime="2022-09-22T09:15:35.000Z" title="发表于 2022-09-22 17:15:35">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/18/ue_Light_a_Project_in_UE/" title="Light_a_Project_in_UE"><img src="/Zimage/UEtop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Light_a_Project_in_UE"/></a><div class="content"><a class="title" href="/2022/09/18/ue_Light_a_Project_in_UE/" title="Light_a_Project_in_UE">Light_a_Project_in_UE</a><time datetime="2022-09-18T09:23:33.000Z" title="发表于 2022-09-18 17:23:33">2022-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇"><img src="/Zimage/uefoundation_cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UE4官方材质课_基础篇"/></a><div class="content"><a class="title" href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇">UE4官方材质课_基础篇</a><time datetime="2022-09-13T10:32:14.000Z" title="发表于 2022-09-13 18:32:14">2022-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/13/houdini_foreach/" title="Houdini 中for-each 和for-loop 节点"><img src="/Zimage/htop2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Houdini 中for-each 和for-loop 节点"/></a><div class="content"><a class="title" href="/2022/09/13/houdini_foreach/" title="Houdini 中for-each 和for-loop 节点">Houdini 中for-each 和for-loop 节点</a><time datetime="2022-09-13T10:09:03.000Z" title="发表于 2022-09-13 18:09:03">2022-09-13</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/Zimage/UEtop.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By ZeTii</div><div class="footer_custom_text">---愿欧皇与你同在---</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'MD0IEN3s3MIbosASBnzJGQnG-gzGzoHsz',
+      appKey: 'FYV9eSIxljMIyxEW50dplfoh',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="暴击999" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

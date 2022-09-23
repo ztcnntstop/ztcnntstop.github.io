@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基 | ZeTiiCannotStop</title><meta name="keywords" content="-学数学"><meta name="author" content="ZeTii"><meta name="copyright" content="ZeTii"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基 我开始了3蓝1棕的线性代数本质的学习，我没什么基础所以在此做了笔记，这里是第二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！ 在b站它的链接在此。 官方一共将此系列分为12节，所以我也会分开写。 我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！ 这就是普通的记录，比较基础，没什么有新意的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基">
+<meta property="og:url" content="http://example.com/2022/09/22/math_Essense_of_Linear_Algebra_P02/index.html">
+<meta property="og:site_name" content="ZeTiiCannotStop">
+<meta property="og:description" content="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基 我开始了3蓝1棕的线性代数本质的学习，我没什么基础所以在此做了笔记，这里是第二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！ 在b站它的链接在此。 官方一共将此系列分为12节，所以我也会分开写。 我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！ 这就是普通的记录，比较基础，没什么有新意的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/Zimage/a3Blue1Brown.png">
+<meta property="article:published_time" content="2022-09-22T09:15:35.000Z">
+<meta property="article:modified_time" content="2022-09-23T08:36:53.476Z">
+<meta property="article:author" content="ZeTii">
+<meta property="article:tag" content="-学数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Zimage/a3Blue1Brown.png"><link rel="shortcut icon" href="/img/faviconDog.ico"><link rel="canonical" href="http://example.com/2022/09/22/math_Essense_of_Linear_Algebra_P02/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '3Blue1Brown_线代本质第二章：线性组合，张成的空间与基',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-23 16:36:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="ZeTiiCannotStop" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/longtao.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-ghost"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> video</span></a></li><li><a class="site-page child" href="/others/"><i class="fa-fw fas fa-cat"></i><span> other</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/Zimage/a3Blue1Brown.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZeTiiCannotStop</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-ghost"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> video</span></a></li><li><a class="site-page child" href="/others/"><i class="fa-fw fas fa-cat"></i><span> other</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-22T09:15:35.000Z" title="发表于 2022-09-22 17:15:35">2022-09-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-23T08:36:53.476Z" title="更新于 2022-09-23 16:36:53">2022-09-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/3Blue1Brown%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%9C%AC%E8%B4%A8/">-3Blue1Brown线性代数本质</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="3Blue1Brown-线代本质第二章：线性组合，张成的空间与基"><a href="#3Blue1Brown-线代本质第二章：线性组合，张成的空间与基" class="headerlink" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"></a>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️基向量："><a href="#✏️基向量：" class="headerlink" title="✏️基向量："></a>✏️基向量：</h2><h3 id="✍️在xy坐标系中两个特殊向量："><a href="#✍️在xy坐标系中两个特殊向量：" class="headerlink" title="✍️在xy坐标系中两个特殊向量："></a>✍️在xy坐标系中两个特殊向量：</h3><ul>
+<li>一个指向正右方，长度为1，通常被称为“i-hat”（i帽）或x方向的单位向量。</li>
+<li>另一个指向正上方，长度为1，通常被称为“j-hat”（j帽）或者y方向的单位向量。</li>
+<li><strong>i-hat与j-hat这两个向量有特殊的名称，他们是xy坐标轴的“基向量”（basis vector）。</strong></li>
+<li>这是在表述：当你把坐标看为标量时，基向量实际上就是这些标量的缩放对象。</li>
+</ul>
+<hr>
+<h3 id="✍️例子1："><a href="#✍️例子1：" class="headerlink" title="✍️例子1："></a>✍️例子1：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ihat_jhat.png" alt="ihat_jhat"></p>
+<ul>
+<li><strong>由上图示意看出，（3，-2）可以想象为</strong>：x坐标是一个标量，它将i帽拉升为原来的三倍；y坐标也是一个标量，它将j帽反向并拉伸为原来的两倍。从这个角度看，这个向量实际上是两个经过缩放的向量的和。</li>
+<li>“<strong>缩放向量并且相加</strong>”这一概念十分重要。</li>
+</ul>
+<hr>
+<h3 id="✍️如果我们选择不同的基向量会怎么样："><a href="#✍️如果我们选择不同的基向量会怎么样：" class="headerlink" title="✍️如果我们选择不同的基向量会怎么样："></a>✍️如果我们选择不同的基向量会怎么样：</h3><ul>
+<li><strong>我们完全可以选择不同的基向量，获得一个合理的新坐标系。</strong></li>
+<li>比如随便选一个指向右上方的向量，再随便选择一个指向右下方的向量，想象通过选择两个标量，分别用于缩放二者的其中一个， 然后把他们相加，就可以得到不同的结果。通过改变所选择的向量，我们可以得到所有向量。</li>
+<li>一对新的基向量，同样允许我们在一对数和二维向量之间自由转化。但是这种变化关系与我们之前使用的i帽和j帽的变化关系完全不同。</li>
+<li><strong>每当我们用数字描述向量的时候，它都依赖于我们正在使用的基。</strong></li>
+<li><strong>两个数乘向量的和被称为这两个向量的线性组合（Linear combination）。</strong></li>
+<li><strong>那么线性怎么来的可以考虑为：</strong> 如果固定其中一个标量，让另一个标量自由变化，所产生的终点会描述出一条直线，如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/linearCombination.png" alt="linearCombination"></li>
+</ul>
+<hr>
+<ul>
+<li><strong>如果让两个标量同时自由变换，考虑所有可得到的向量，可能有两种情况（实际是三种）：</strong><ol>
+<li>大部分情况下，对于一对初始向量，你能达到平面中每一个点；所有二维向量都尽在掌握。</li>
+<li>另一种较为糟糕的情况是，当两个初始向量恰好共线时，所产生的向量的终点被限制在一条过原点的直线上。</li>
+<li>事实上还有第三种情况就是，两个向量都是零向量,那就只能在原点了。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E5%8F%98%E6%8D%A2%E7%9A%84%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5.png" alt="向量变换的三种情况"></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="✏️张成空间（span）："><a href="#✏️张成空间（span）：" class="headerlink" title="✏️张成空间（span）："></a>✏️张成空间（span）：</h2><p><strong>概念：</strong><br>    - <strong>所有可以表示为给定向量线性组合的向量的集合，被成为给定向量张成的空间。</strong></p>
+<ul>
+<li>下图：向量全部线性组合构成的向量集合成为“张成的空间”，a与b在实数范围内变动。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4.png" alt="张成空间"></li>
+</ul>
+<h3 id="✍️二维空间内张成空间："><a href="#✍️二维空间内张成空间：" class="headerlink" title="✍️二维空间内张成空间："></a>✍️二维空间内张成空间：</h3><ul>
+<li>通常情况下，我们用向量的终点代表向量（起点是原点）；用这种方法来看，如果要考虑落在一条直线上所有向量的时候，只需要考虑直线本身就行了。所以也可以考虑为，如果同时考虑xy坐标系中所有向量，将每个向量抽象为它的终点，实际上就不用考虑所有的肩头了，只需要考虑无限大的二维平面本身即可。</li>
+<li>如果考虑一个向量，我们就可以把他看作箭头；如果考虑多个向量，则可以把他们都看作是点。</li>
+<li>对大部分二维向量来说，它们的张成空间是整个无限大的二维平面；但如果共线，他们的张成空间就是一条直线。</li>
+</ul>
+<hr>
+<h3 id="✍️三维空间内张成空间："><a href="#✍️三维空间内张成空间：" class="headerlink" title="✍️三维空间内张成空间："></a>✍️三维空间内张成空间：</h3><h4 id="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："><a href="#在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：" class="headerlink" title="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："></a>在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="两个向量在三维空间"></p>
+<ul>
+<li>这两个向量的张成空间就是他们所有可能的线性组合；也就是缩放再相加之后所有可得到的向量。</li>
+<li>逐渐改变线性组合中的这两个标量，把缩放后的向量相加，然后跟着最终向量的终点走，这个终点会画出三维空间中某个过原点的平面；这个平面就是这两个向量的张成空间。（所有终点落在这个平面上的向量集合是这两个向量的张成空间）</li>
+</ul>
+<h4 id="如果加上第三个向量，他们的张成空间是这样的："><a href="#如果加上第三个向量，他们的张成空间是这样的：" class="headerlink" title="如果加上第三个向量，他们的张成空间是这样的："></a>如果加上第三个向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="三个向量在三维空间"></p>
+<ul>
+<li>选择三个向量分别进行缩放，然后把结果相加。</li>
+<li>这三个向量所有可能的线性作何构成了他们的张成空间。</li>
+<li>如果第三个向量恰好落在前两个向量所张成的平面上，那么他们张成的空间并不改变，还是在这个平面中。</li>
+<li>但是如果随机选一个向量，他几乎不可能落在前两个向量所张成的平面中；这种情况下，由于第三个向量指向不同的方向，我们就能得到所有的三维向量。（可以考虑成：当我们缩放第三个向量的时候，他将前两个向量张成平面来回沿着它的方向移动，从而扫过整个三维空间。）</li>
+</ul>
+<hr>
+<h2 id="✏️Linearly-dependent-和-Linearly-Independent："><a href="#✏️Linearly-dependent-和-Linearly-Independent：" class="headerlink" title="✏️Linearly dependent 和 Linearly Independent："></a>✏️Linearly dependent 和 Linearly Independent：</h2><h4 id="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："><a href="#当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：" class="headerlink" title="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："></a>当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：</h4><ul>
+<li>这种情况说明一组向量中至少有一个是多余的，没有对张成空间做出任何贡献，我们取走这个多余的向量也不减少张成空间，这样的情况下，我们称它为“<strong>线性相关</strong>”（<strong>Linearly dependent</strong>）的。</li>
+</ul>
+<h4 id="如果所有向量都给张成空间添加了新的维度："><a href="#如果所有向量都给张成空间添加了新的维度：" class="headerlink" title="如果所有向量都给张成空间添加了新的维度："></a>如果所有向量都给张成空间添加了新的维度：</h4><ul>
+<li>这种情况就称之为“<strong>线性无关</strong>”（<strong>Linearly Independent</strong>）的。</li>
+</ul>
+<hr>
+<h2 id="✏️基的严格定义（Technical-definition-of-basis）："><a href="#✏️基的严格定义（Technical-definition-of-basis）：" class="headerlink" title="✏️基的严格定义（Technical definition of basis）："></a>✏️基的严格定义（Technical definition of basis）：</h2><ul>
+<li>The basis of a vector space is a set of linearly independent vectors that span the full space<br>(向量空间的一组基是张成该空间的一个线性无关向量集)<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89.png" alt="基的严格定义"></li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">ZeTii</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/09/22/math_Essense_of_Linear_Algebra_P02/">http://example.com/2022/09/22/math_Essense_of_Linear_Algebra_P02/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">ZeTiiCannotStop</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E6%95%B0%E5%AD%A6/">-学数学</a></div><div class="post_share"><div class="social-share" data-image="/Zimage/a3Blue1Brown.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/22/math_Essense_of_Linear_Algebra_P01/"><img class="prev-cover" src="/Zimage/a3Blue1Brown.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">3Blue1Brown_线代本质第一章：向量究竟是什么</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/18/ue_Light_a_Project_in_UE/"><img class="next-cover" src="/Zimage/UEtop.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Light_a_Project_in_UE</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/22/math_Essense_of_Linear_Algebra_P01/" title="3Blue1Brown_线代本质第一章：向量究竟是什么"><img class="cover" src="/Zimage/a3Blue1Brown.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-22</div><div class="title">3Blue1Brown_线代本质第一章：向量究竟是什么</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/longtao.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ZeTii</div><div class="author-info__description">这个人很菜但是想法很多</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/552910222?spm_id_from=333.33.b_73656375726974794f75744c696e6b.1"><i class="fab fa-bilibili"></i><span>去Bilibili找我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://www.artstation.com/ztcnntstop" target="_blank" title="artstation"><i class="fab fa-artstation"></i></a><a class="social-icon" href="https://www.zhihu.com/people/ztcnntstop" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="/Zimage/longtaoqq.png" target="_blank" title="加我QQ请注明来意【2226925242】"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:lzyzen@163.com" target="_blank" title="Email我也可以【lzyzen@163.com】"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这人主要在哔哩哔哩闲逛，每天都会光好几圈并且点很多赞，这个人近期做的作品也在那里发布了，有啥问题可以直接哔哩哔哩去踢踢这人或者给这个人点点赞！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#3Blue1Brown-%E7%BA%BF%E4%BB%A3%E6%9C%AC%E8%B4%A8%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%EF%BC%8C%E5%BC%A0%E6%88%90%E7%9A%84%E7%A9%BA%E9%97%B4%E4%B8%8E%E5%9F%BA"><span class="toc-number">1.</span> <span class="toc-text">3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%8F%EF%B8%8F%E5%9F%BA%E5%90%91%E9%87%8F%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">✏️基向量：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F%E5%9C%A8xy%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E4%B8%A4%E4%B8%AA%E7%89%B9%E6%AE%8A%E5%90%91%E9%87%8F%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">✍️在xy坐标系中两个特殊向量：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F%E4%BE%8B%E5%AD%901%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">✍️例子1：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F%E5%A6%82%E6%9E%9C%E6%88%91%E4%BB%AC%E9%80%89%E6%8B%A9%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%BA%E5%90%91%E9%87%8F%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7%EF%BC%9A"><span class="toc-number">1.1.3.</span> <span class="toc-text">✍️如果我们选择不同的基向量会怎么样：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%8F%EF%B8%8F%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4%EF%BC%88span%EF%BC%89%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">✏️张成空间（span）：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F%E4%BA%8C%E7%BB%B4%E7%A9%BA%E9%97%B4%E5%86%85%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">✍️二维空间内张成空间：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E5%86%85%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4%EF%BC%9A"><span class="toc-number">1.2.2.</span> <span class="toc-text">✍️三维空间内张成空间：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E4%B8%AD%E5%8F%96%E4%B8%A4%E4%B8%AA%E6%8C%87%E5%90%91%E4%B8%8D%E5%90%8C%E6%96%B9%E5%90%91%E7%9A%84%E5%90%91%E9%87%8F%EF%BC%8C%E4%BB%96%E4%BB%AC%E7%9A%84%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4%E6%98%AF%E8%BF%99%E6%A0%B7%E7%9A%84%EF%BC%9A"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E5%8A%A0%E4%B8%8A%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%90%91%E9%87%8F%EF%BC%8C%E4%BB%96%E4%BB%AC%E7%9A%84%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4%E6%98%AF%E8%BF%99%E6%A0%B7%E7%9A%84%EF%BC%9A"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">如果加上第三个向量，他们的张成空间是这样的：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%8F%EF%B8%8FLinearly-dependent-%E5%92%8C-Linearly-Independent%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">✏️Linearly dependent 和 Linearly Independent：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E5%90%91%E9%87%8F%E5%85%B1%E7%BA%BF%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%8C%E6%88%96%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%90%91%E9%87%8F%E6%81%B0%E5%A5%BD%E8%90%BD%E5%9C%A8%E4%B9%8B%E5%89%8D%E5%90%91%E9%87%8F%E7%94%9F%E6%88%90%E7%9A%84%E5%B9%B3%E9%9D%A2%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%9A"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%89%80%E6%9C%89%E5%90%91%E9%87%8F%E9%83%BD%E7%BB%99%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4%E6%B7%BB%E5%8A%A0%E4%BA%86%E6%96%B0%E7%9A%84%E7%BB%B4%E5%BA%A6%EF%BC%9A"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">如果所有向量都给张成空间添加了新的维度：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%8F%EF%B8%8F%E5%9F%BA%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89%EF%BC%88Technical-definition-of-basis%EF%BC%89%EF%BC%9A"><span class="toc-number">1.4.</span> <span class="toc-text">✏️基的严格定义（Technical definition of basis）：</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/22/math_Essense_of_Linear_Algebra_P01/" title="3Blue1Brown_线代本质第一章：向量究竟是什么"><img src="/Zimage/a3Blue1Brown.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3Blue1Brown_线代本质第一章：向量究竟是什么"/></a><div class="content"><a class="title" href="/2022/09/22/math_Essense_of_Linear_Algebra_P01/" title="3Blue1Brown_线代本质第一章：向量究竟是什么">3Blue1Brown_线代本质第一章：向量究竟是什么</a><time datetime="2022-09-22T09:15:35.000Z" title="发表于 2022-09-22 17:15:35">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/22/math_Essense_of_Linear_Algebra_P02/" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"><img src="/Zimage/a3Blue1Brown.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"/></a><div class="content"><a class="title" href="/2022/09/22/math_Essense_of_Linear_Algebra_P02/" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基">3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</a><time datetime="2022-09-22T09:15:35.000Z" title="发表于 2022-09-22 17:15:35">2022-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/18/ue_Light_a_Project_in_UE/" title="Light_a_Project_in_UE"><img src="/Zimage/UEtop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Light_a_Project_in_UE"/></a><div class="content"><a class="title" href="/2022/09/18/ue_Light_a_Project_in_UE/" title="Light_a_Project_in_UE">Light_a_Project_in_UE</a><time datetime="2022-09-18T09:23:33.000Z" title="发表于 2022-09-18 17:23:33">2022-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇"><img src="/Zimage/uefoundation_cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="UE4官方材质课_基础篇"/></a><div class="content"><a class="title" href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇">UE4官方材质课_基础篇</a><time datetime="2022-09-13T10:32:14.000Z" title="发表于 2022-09-13 18:32:14">2022-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/13/houdini_foreach/" title="Houdini 中for-each 和for-loop 节点"><img src="/Zimage/htop2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Houdini 中for-each 和for-loop 节点"/></a><div class="content"><a class="title" href="/2022/09/13/houdini_foreach/" title="Houdini 中for-each 和for-loop 节点">Houdini 中for-each 和for-loop 节点</a><time datetime="2022-09-13T10:09:03.000Z" title="发表于 2022-09-13 18:09:03">2022-09-13</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/Zimage/a3Blue1Brown.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 By ZeTii</div><div class="footer_custom_text">---愿欧皇与你同在---</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'MD0IEN3s3MIbosASBnzJGQnG-gzGzoHsz',
+      appKey: 'FYV9eSIxljMIyxEW50dplfoh',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="暴击999" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

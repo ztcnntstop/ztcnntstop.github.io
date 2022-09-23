@@ -1,6 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>houdini以及3D数学学习列表合辑</title>
+    <url>/2022/09/09/houdini/</url>
+    <content><![CDATA[<ul>
+<li>这篇是我的Houdini学习记录了，也算是我的Houdini学习置顶占位。</li>
+<li>同时为了补足我3D的知识，也在学习3D相关的数学（都是比较基础的部分）。</li>
+<li>然后写的不一定是教程笔记哈，有些别的好的素材以及我也会随意写写放上来！</li>
+<li>详细如下，都有各个的部分的站内链接，每篇写好了就会更新！</li>
+<li>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</li>
+</ul>
+<hr>
+<h1 id="🚩PCG部分"><a href="#🚩PCG部分" class="headerlink" title="🚩PCG部分"></a>🚩PCG部分</h1><h2 id="一：🏘️湖边小屋学习记录🏘️"><a href="#一：🏘️湖边小屋学习记录🏘️" class="headerlink" title="一：🏘️湖边小屋学习记录🏘️"></a>一：🏘️湖边小屋学习记录🏘️</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lakeHouse_top.png" alt="lakeHouse_top"><br>老经典了，还没看过兄弟姐妹的我不允许你还没看过！这是<a href="https://www.bilibili.com/video/BV1rW411j7fo?spm_id_from=333.337.search-card.all.click&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接</a></p>
+<blockquote>
+<p>（目前小屋笔记还在整理中，link内没东西。）</p>
+</blockquote>
+<p><strong>湖边小屋第一篇站内link：</strong></p>
+<a href="/2022/09/13/houdini_lakeHouse_p1/" title="Houdini湖边小屋学习（一）">Houdini湖边小屋学习（一）</a>
+
+<p><strong>湖边小屋第二篇站内link：</strong><br><strong>湖边小屋第三篇站内link：</strong></p>
+<hr>
+<h1 id="🚩Houdini节点知识学习以及补充部分"><a href="#🚩Houdini节点知识学习以及补充部分" class="headerlink" title="🚩Houdini节点知识学习以及补充部分"></a>🚩Houdini节点知识学习以及补充部分</h1><h2 id="一：➰关于forEach和forLoop在Houdini中的用法➰"><a href="#一：➰关于forEach和forLoop在Houdini中的用法➰" class="headerlink" title="一：➰关于forEach和forLoop在Houdini中的用法➰"></a>一：➰关于forEach和forLoop在Houdini中的用法➰</h2><p><strong>站内link：</strong></p>
+<a href="/2022/09/13/houdini_foreach/" title="Houdini 中for-each 和for-loop 节点">Houdini 中for-each 和for-loop 节点</a>
+
+<h2 id="二："><a href="#二：" class="headerlink" title="二："></a>二：</h2><hr>
+<h1 id="🚩3D数学部分"><a href="#🚩3D数学部分" class="headerlink" title="🚩3D数学部分"></a>🚩3D数学部分</h1><h2 id="一：🧮3Blue1Brown线性代数的本质🧮"><a href="#一：🧮3Blue1Brown线性代数的本质🧮" class="headerlink" title="一：🧮3Blue1Brown线性代数的本质🧮"></a>一：🧮3Blue1Brown线性代数的本质🧮</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/a3Blue1Brown.png" alt="a3Blue1Brown"><br><strong>第一节站内Link：</strong></p>
+<a href="/2022/09/22/math_Essense_of_Linear_Algebra_P01/" title="3Blue1Brown_线代本质第一章：向量究竟是什么">3Blue1Brown_线代本质第一章：向量究竟是什么</a>
+
+<p><strong>第二节站内Link：</strong></p>
+<a href="/2022/09/22/math_Essense_of_Linear_Algebra_P02/" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基">3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</a>
+
+<p><strong>第三节站内Link：</strong></p>
+]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Houdini 中for-each 和for-loop 节点</title>
+    <url>/2022/09/13/houdini_foreach/</url>
+    <content><![CDATA[<h1 id="Houdini-中for-each-和for-loop-节点"><a href="#Houdini-中for-each-和for-loop-节点" class="headerlink" title="Houdini 中for-each 和for-loop 节点"></a>Houdini 中for-each 和for-loop 节点</h1><p>学习houdini时间不长，刚入门的时候就一直对foreach的使用比较迷糊，在这里写一篇学习笔记来认识一下这个使用方式，比较基础 。如果有问题，请各位大佬及时补充和指正！</p>
+<hr>
+<h2 id="Houdini中关于循环的节点简介："><a href="#Houdini中关于循环的节点简介：" class="headerlink" title="Houdini中关于循环的节点简介："></a>Houdini中关于循环的节点简介：</h2><p>houdini中一共给了这6个框架：<br><strong>1. for-each Number<br>2. for-each point<br>3. for-each primitive<br>4. for-each connected Piece<br>5. for-each Named Primitive<br>6. for-loop with Feedback</strong></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach2.png" alt="foreach2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach1.png" alt="foreach1"><br>（在这里说明我用的是houdini 18之后的版本，如果版本太靠前应该foreach节点跟这个有所出入）</p>
+<ul>
+<li>这个框架它本身的作用就是实现for循环，如果不想用它的框架，也可以自己创建Block begin和Block end来搭建for循环。</li>
+<li>其中，<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>的构造是相似的，使用的方法也是一样的，只是针对的元素不同（点，面，name属性）</li>
+<li><strong>connectivity</strong>是创造了一个class属性，根据class属性处理导入这个元素。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220921233222.png" alt="foreach2"></li>
+<li>数据都是从Block Begin传入，我们中间可以任意添加节点来完成我们想要针对这个元素处理的操作，这个数据给每个元素循环处理后，最终由block end输出。end中可以选择Feedback Each Iteration来显示每一次结果，或者Merge Each Iteration来显示所有结果。</li>
+</ul>
+<h2 id="例子一：随机颜色："><a href="#例子一：随机颜色：" class="headerlink" title="例子一：随机颜色："></a>例子一：随机颜色：</h2><ul>
+<li>针对<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>这四个框架可以做出此示例。</li>
+<li>循环迭代次数不是自动给出的，需要通过Block Begin中的“Create meta import Node来创建；它的detail上会有iteration的参数。若我们希望使用foreach，来达到进入循环的元素被进行的处理或者操作有所变化，那么我们也是通过iteration来实现的。</li>
+</ul>
+<h3 id="for-each-point："><a href="#for-each-point：" class="headerlink" title="for-each point："></a>for-each point：</h3><ul>
+<li>使用vex做一个简单的颜色随机，注意iteration不要写错<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_pt.png" alt="foreach_randCol_pt"></li>
+</ul>
+<h3 id="for-each-primitive："><a href="#for-each-primitive：" class="headerlink" title="for-each primitive："></a>for-each primitive：</h3><ul>
+<li>对于primitive也是完全一样的<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_prim.png" alt="foreach_randCol_prim"></li>
+</ul>
+<h3 id="for-each-connected-Piece："><a href="#for-each-connected-Piece：" class="headerlink" title="for-each connected Piece："></a>for-each connected Piece：</h3><ul>
+<li>对于for-each connected Piece，则是根据它的class属性，处理它连续的元素。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_connPiec.png" alt="foreach_randCol_class"></li>
+</ul>
+<h3 id="for-each-Named-Primitive："><a href="#for-each-Named-Primitive：" class="headerlink" title="for-each Named Primitive："></a>for-each Named Primitive：</h3><ul>
+<li>for-each Named Primitive也是根据name属性来处理元素（属性是在piece attribute上的，可以更改，但必须保持输入输出的是一致的，否则不能匹配）</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_name.png" alt="foreach_randCol_name"></li>
+</ul>
+<h2 id="for-each-Number的用法："><a href="#for-each-Number的用法：" class="headerlink" title="for-each Number的用法："></a>for-each Number的用法：</h2><ul>
+<li>可以看出，它的Block Beginn中的method变成了“Fetch Input”，它的Block end中 Iteration Method变为了“By Count”。 他并不是对每个元素进行处理，而是对他本身进行拷贝，进入循环，它的迭代次数就是它的拷贝次数。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_number.png" alt="foreach_number"></li>
+<li>由上示例，它每次的循环均为它的input，根据iteration的次数来做重复。</li>
+</ul>
+<h2 id="for-Loop的用法："><a href="#for-Loop的用法：" class="headerlink" title="for-Loop的用法："></a>for-Loop的用法：</h2><ul>
+<li>for-loop with Feedback中，它的默认Block Beginn中的method是“Fetch FeedBack”，它的Block end中 Iteration Method是“By Count”；它的Gather Method则默认是Feedback Each Iteration。如果for-each Number是指对本身的元素进行处理，那么for-loop with Feedback就是对循环整体进行处理。</li>
+<li>它是以上一个循环的end的结果作为下一次循环的起点，进行再次循环，一直循环操作我们在循环内设置的指令，直到迭代次数结束。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop.png" alt="forLoop"></li>
+<li>由上图示例，这个rubbertoy朝着x轴正向移动，每次移动单位为1米，循环了五次，移动到现在5米的位置。</li>
+<li>下图是merge each iteration，显示每次循环结果，可以更清晰看出。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop_MergeEachIteration.png" alt="forLoop_MergeEachIteration"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-Houdini节点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Houdini湖边小屋学习（一）</title>
+    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
+    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
+<hr>
+<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-PCG</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown基本语法</title>
     <url>/2022/09/13/markdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h3 id="注明备忘：这里使用的编辑器是vscode，下载的拓展包有三个，分别是："><a href="#注明备忘：这里使用的编辑器是vscode，下载的拓展包有三个，分别是：" class="headerlink" title="注明备忘：这里使用的编辑器是vscode，下载的拓展包有三个，分别是："></a>注明备忘：这里使用的编辑器是vscode，下载的拓展包有三个，分别是：</h3><ol>
@@ -268,6 +373,120 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </categories>
       <tags>
         <tag>-学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3Blue1Brown_线代本质第一章：向量究竟是什么</title>
+    <url>/2022/09/22/math_Essense_of_Linear_Algebra_P01/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第一章：向量究竟是什么"><a href="#3Blue1Brown-线代本质第一章：向量究竟是什么" class="headerlink" title="3Blue1Brown_线代本质第一章：向量究竟是什么"></a>3Blue1Brown_线代本质第一章：向量究竟是什么</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️向量基本解释："><a href="#✏️向量基本解释：" class="headerlink" title="✏️向量基本解释："></a>✏️向量基本解释：</h2><ul>
+<li><strong>在线性代数中，最基础，最根源的组成部分就是向量</strong></li>
+<li><strong>一般来说，有三种看待向量的观点，他们看似不同却有所关联。</strong><ul>
+<li>物理专业的角度</li>
+<li>数学角度</li>
+<li>计算机角度</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vector.png" alt="vector"></p>
+<hr>
+<h3 id="📝物理专业的角度："><a href="#📝物理专业的角度：" class="headerlink" title="📝物理专业的角度："></a>📝物理专业的角度：</h3><ul>
+<li><strong>向量是空间中的箭头。</strong></li>
+<li>决定一个向量的是：<ol>
+<li>它的长度。</li>
+<li>它所指的方向。</li>
+</ol>
+</li>
+<li>只要上述两个特征不改变，就可以自由移动一个向量而保持它本身不被改变。</li>
+<li>处在平面中的向量是二维的。</li>
+<li>处在生活空间中的向量是三维的。</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/2vs3Dimensional.png" alt="2vs3Dimensional"></p>
+<hr>
+<h3 id="📝计算机角度："><a href="#📝计算机角度：" class="headerlink" title="📝计算机角度："></a>📝计算机角度：</h3><ul>
+<li><strong>向量是有序的数字列表。</strong></li>
+<li>比如你正在做一个有关房价的分析，你关心的只有两个特征：<ol>
+<li>房屋面积。</li>
+<li>房屋价格。</li>
+</ol>
+</li>
+<li>注意数字列表的<strong>数字顺序不可颠倒</strong></li>
+<li>在这个房屋的例子里可以表述为：用二维向量对房屋进行建模。</li>
+<li>在这里，向量只不过是列表的一个花哨的说法，这个向量是二维的因为它的列表长度是2。</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/cs_vector.png" alt="csStudent_vector"></p>
+<hr>
+<h3 id="📝数学角度："><a href="#📝数学角度：" class="headerlink" title="📝数学角度："></a>📝数学角度：</h3><ul>
+<li><strong>向量可以是任何东西，只要保证两个向量相加以及数字与向量相乘是有意义的即可。</strong></li>
+<li>这种方式看待向量就较为抽象了。这里可以看出，向量加法和向量数乘贯穿线性代数，二者起着很重要的作用。</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/math_vector.png" alt="math_vector"></p>
+<hr>
+<h2 id="✏️向量思考方式："><a href="#✏️向量思考方式：" class="headerlink" title="✏️向量思考方式："></a>✏️向量思考方式：</h2><ul>
+<li>首先考虑一个坐落在某个坐标系（例如x-y平面）中的箭头，箭头起点位于原点。</li>
+<li>在线性代数中，向量经常以原点作为起点；这与物理学理念（向量可以在空间中自由落脚）不同。</li>
+<li>一旦理解了【向量是空间中的箭头】，那么我们可以通过【向量坐标】来理解【向量是一个有序数字列表】</li>
+<li>因为这两种观念的碰撞，恰恰形成了线性代数中的重要概念。</li>
+</ul>
+<hr>
+<h3 id="📝平面空间内："><a href="#📝平面空间内：" class="headerlink" title="📝平面空间内："></a>📝平面空间内：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vector%E5%B9%B3%E9%9D%A2%E7%A9%BA%E9%97%B4.png" alt="vector平面空间"></p>
+<ul>
+<li>来看这个箭头在x-y平面空间内（每个间距单位为1），它的这对数指导我们如何从原点（向量起点）出发到达它的尖端（向量终点）。</li>
+<li>第一个数告诉我们沿着x轴走多远，正数代表向右移动，负数代表向左移动。</li>
+<li>第二个数告诉我们沿着y轴走多远。正数代表向上移动，负数代表向下移动。</li>
+<li>为了把向量和点区别开，向量采用的写法是将这对数竖着写，并用方括号括起来。（（-2，3）这样表示的向量也是可以的，没有区别）。</li>
+<li>每一对数给出为一一个向量（有且只有一个）。</li>
+<li>每一个向量恰好对应为一一对数。</li>
+</ul>
+<hr>
+<h3 id="📝三维空间内："><a href="#📝三维空间内：" class="headerlink" title="📝三维空间内："></a>📝三维空间内：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E5%90%91%E9%87%8F1.png" alt="三维空间向量1"></p>
+<ul>
+<li>三维空间内我们再添加一个垂直于x轴和y轴的第三根z轴</li>
+<li>这种情况下，每个向量就与一个有序的三元数组对应。</li>
+<li>第一个数告诉你沿平行x轴走多远，第二个数告诉你沿平行y轴走多远，第三个数告诉你沿平行z轴走多远。</li>
+<li>每个三元数组给出为一一个向量。</li>
+<li>每个向量对应唯一的三元数组。</li>
+</ul>
+<hr>
+<h3 id="📝向量加法和向量数乘："><a href="#📝向量加法和向量数乘：" class="headerlink" title="📝向量加法和向量数乘："></a>📝向量加法和向量数乘：</h3><ul>
+<li>线性代数中每一个主题都围绕着这两种运算。</li>
+</ul>
+<h4 id="✍️向量加法："><a href="#✍️向量加法：" class="headerlink" title="✍️向量加法："></a>✍️向量加法：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vectorSum.png" alt="vectorSum"></p>
+<ul>
+<li>向量加法：<ul>
+<li>我们通过平移第二个向量，使他的起点与第一个向量的终点重合；然后画一个向量，它从第一个向量的起点出发，指向第二个向量的终点；这个向量就是他们的和</li>
+</ul>
+</li>
+<li>向量加法的定义差不多是线代中唯一允许向量离开原点的情形。</li>
+<li>我们可以把向量加法看作数轴上加法的一种扩展。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E8%BD%B4%E5%8A%A0%E6%B3%95.png" alt="数轴加法"></li>
+<li>回到x-y平面内，我们可以以下图方式所思考向量的加法，即：它朝着x轴，y轴分别运动的总量；先完成它水平运动，再完成竖直运动。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97%E6%96%B9%E5%BC%8F.png" alt="向量加法运算方式"></li>
+</ul>
+<hr>
+<h4 id="✍️向量数乘："><a href="#✍️向量数乘：" class="headerlink" title="✍️向量数乘："></a>✍️向量数乘：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E6%95%B0%E4%B9%98.png" alt="向量数乘"></p>
+<ul>
+<li>向量与其他数（标量）相乘的方式叫做“Scaling”（缩放）。</li>
+<li>数字（标量）在线性代数的作用就是缩放向量；负数与向量相乘则会改变向量的方向。</li>
+</ul>
+<hr>
+<h3 id="📝总结："><a href="#📝总结：" class="headerlink" title="📝总结："></a>📝总结：</h3><ul>
+<li><strong>怎么看待向量都无所谓，它的实际作用也很少体现在这些观点的其中一个上，而是更多的体现在它能够在这些观点中相互转化。</strong></li>
+<li>线性代数为数据分析提供了一条将大量数据列表概念化，可视化的渠道。他让数据样式变得非常明晰，并让我们了解特定运算的意义。</li>
+<li>另一方面，线代给物理学家和计算机图形程序员提供了一种语言，让他们通过计算机能处理的数字来描述并操纵空间。</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
       </tags>
   </entry>
   <entry>
@@ -678,51 +897,292 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>houdini学习列表总集</title>
-    <url>/2022/09/09/houdini/</url>
-    <content><![CDATA[<p>这篇是我的Houdini学习记录了，也算是我的Houdini学习置顶占位。<br>然后写的不一定是教程笔记哈，有些别的好的我也会随意写写放上来！<br>详细如下，都有各个的部分的站内链接，每篇写好了就会更新！<br>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</p>
+    <title>Light_a_Project_in_UE</title>
+    <url>/2022/09/18/ue_Light_a_Project_in_UE/</url>
+    <content><![CDATA[<p><strong>🍊这篇是UE的灯光与烘培的学习笔记，不大全面，有问题请随时指正🍊</strong><br>🍊这里是b站<a href="https://www.bilibili.com/video/BV17K4y1L7Gf/?spm_id_from=333.788.recommend_more_video.3&vd_source=95a1cfccd5b1e6779677de477b25aa31%5C">链接</a>🍊</p>
 <hr>
-<h1 id="PCG部分"><a href="#PCG部分" class="headerlink" title="PCG部分"></a>PCG部分</h1><h2 id="一：湖边小屋学习记录"><a href="#一：湖边小屋学习记录" class="headerlink" title="一：湖边小屋学习记录"></a>一：湖边小屋学习记录</h2><p>老经典了，还没看过兄弟姐妹的我不允许你还没看过！这是<a href="https://www.bilibili.com/video/BV1rW411j7fo?spm_id_from=333.337.search-card.all.click&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接</a></p>
-<p><strong>湖边小屋第一篇站内link：</strong></p>
-<a href="/2022/09/13/houdini_lakeHouse_p1/" title="Houdini湖边小屋学习（一）">Houdini湖边小屋学习（一）</a>
-
-<p><strong>湖边小屋第二篇站内link：</strong><br><strong>湖边小屋第三篇站内link：</strong></p>
+<h1 id="Unreal-灯光照明与烘培"><a href="#Unreal-灯光照明与烘培" class="headerlink" title="Unreal 灯光照明与烘培"></a>Unreal 灯光照明与烘培</h1><h2 id="🚩【主要涵盖的话题】"><a href="#🚩【主要涵盖的话题】" class="headerlink" title="🚩【主要涵盖的话题】"></a>🚩【主要涵盖的话题】</h2><ol>
+<li>技术和艺术的讨论</li>
+<li>资产和场景的准备</li>
+<li>灯光烘培设置</li>
+<li>动态照明设置</li>
+<li>图像基础的灯光设置</li>
+<li>阴影</li>
+<li>反射</li>
+</ol>
 <hr>
-<h1 id="Vex部分："><a href="#Vex部分：" class="headerlink" title="Vex部分："></a>Vex部分：</h1>]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Houdini湖边小屋学习（一）</title>
-    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
-    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
+<h2 id="🚩【一：目标媒介】"><a href="#🚩【一：目标媒介】" class="headerlink" title="🚩【一：目标媒介】"></a>🚩【一：目标媒介】</h2><ul>
+<li>考虑项目是否会定义到移动设备，或者是在一些需要高保真的媒体设备使用</li>
+<li>每个镜头都是独立的视频项目的编辑方案</li>
+<li>对于24FPS，30FPS和60FPS的项目的不同处理的方案</li>
+<li>不需要完全实时渲染的项目</li>
+<li>如果整个项目都是静态的，那么可以预先烘培</li>
+<li>开放世界的灯光无法提前烘培，所以需要light map并使用动态照明处理</li>
+<li>考虑硬件的最低规格</li>
+</ul>
 <hr>
-<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-PCG</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UE4学习笔记</title>
-    <url>/2022/09/09/unreal/</url>
-    <content><![CDATA[<p>这篇是我的UE学习记录了，也算是我的UE学习置顶占位。2022是我学习UE的第一年，来记录一下<br>然后写的不一定是教程笔记哈，有些别的好的我也会随意写写放上来<br>详细如下，都有各个的部分的站内链接<br>每篇写好了就会更新！<br>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</p>
+<h2 id="🚩【二：Deferred-Renderer和Forward-Renderer】"><a href="#🚩【二：Deferred-Renderer和Forward-Renderer】" class="headerlink" title="🚩【二：Deferred Renderer和Forward Renderer】"></a>🚩【二：Deferred Renderer和Forward Renderer】</h2><h3 id="🥕Deferred-Renderer："><a href="#🥕Deferred-Renderer：" class="headerlink" title="🥕Deferred Renderer："></a>🥕Deferred Renderer：</h3><ul>
+<li>是UE4的默认渲染器</li>
+<li>它的工作方式就是储存所有原始数据在Screen Space Buffers（Color，Normal，Depth，…）然后将他们组合到一起成为Final Image</li>
+<li>照明灯光一起评估</li>
+<li>额外的screen space则会被用在更复杂的后处理效果与照明效果的组合</li>
+<li>支持所有的渲染功能</li>
+</ul>
+<h3 id="🥕Forward-Renderer："><a href="#🥕Forward-Renderer：" class="headerlink" title="🥕Forward Renderer："></a>🥕Forward Renderer：</h3><ul>
+<li>为了VR开发的</li>
+<li>所有的lighting和shading都在object draw time进行评估计算</li>
+<li>可以做特有的材质优化</li>
+<li>更多的抗锯齿操作</li>
+</ul>
 <hr>
-<h1 id="材质基础"><a href="#材质基础" class="headerlink" title="材质基础"></a>材质基础</h1><h2 id="一：UE4官方材质课-基础篇"><a href="#一：UE4官方材质课-基础篇" class="headerlink" title="一：UE4官方材质课_基础篇"></a>一：UE4官方材质课_基础篇</h2><p><strong>站内link：</strong></p>
-<a href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇">UE4官方材质课_基础篇</a>
-
-<h2 id="二：UE4官方材质课-高级篇"><a href="#二：UE4官方材质课-高级篇" class="headerlink" title="二：UE4官方材质课_高级篇"></a>二：UE4官方材质课_高级篇</h2>]]></content>
+<h2 id="🚩【三：如何给一套好的照明准备资产】"><a href="#🚩【三：如何给一套好的照明准备资产】" class="headerlink" title="🚩【三：如何给一套好的照明准备资产】"></a>🚩【三：如何给一套好的照明准备资产】</h2><ol>
+<li><strong>确保材质是物理正确的</strong><br> <img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/matRef.png" alt="matRef"><br>   常见问题有：<ul>
+<li><ol>
+<li>base color太亮或太暗。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>金属度为了确认是不是金属最好保持是1或0。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>specular保持0到1之间的灰度，而不是颜色。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>最黑的常见物是碳（rgb：0.03），最白的是雪（rgb：0.9）。永远不会是纯白或纯黑。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>vantablack是世界上最黑的黑（rgb：0.0045, roughness:1）</li>
+</ol>
+</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vantablack.png" alt="vantablack"></li>
+</ul>
+</li>
+<li><strong>打灯前确保移除自动曝光</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/deactiveAutoExposure.png" alt="deactiveAutoExposure"></li>
+<li><strong>放置chrome sphere和grey sphere</strong><br> <img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/chromeSphere.png" alt="chromeSphere"><br> 保证它是纯反射物</li>
+<li><strong>设置一个3.14（pi）的 directional light，并且用color picker 查看灰度</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/50%Grey.png" alt="50%Grey"></li>
+</ol>
+<hr>
+<h2 id="🚩【四：烘培灯光-VS-动态灯光】"><a href="#🚩【四：烘培灯光-VS-动态灯光】" class="headerlink" title="🚩【四：烘培灯光 VS 动态灯光】"></a>🚩【四：烘培灯光 VS 动态灯光】</h2><h3 id="🥕Baked-Lighting："><a href="#🥕Baked-Lighting：" class="headerlink" title="🥕Baked Lighting："></a>🥕Baked Lighting：</h3><h4 id="🤓优势："><a href="#🤓优势：" class="headerlink" title="🤓优势："></a>🤓优势：</h4><ol>
+<li>GI</li>
+<li>cheap soft shadows，陈本低的阴影</li>
+<li>Less GPU demanding，较低的GPU需求</li>
+</ol>
+<h4 id="😈劣势："><a href="#😈劣势：" class="headerlink" title="😈劣势："></a>😈劣势：</h4><ol>
+<li>slower iteration，迭代变慢</li>
+<li>static lighting，是静态的，如果生成更多的资产则新资产不会对照明产生影响</li>
+<li>more maps in memory，需要储存空间来放light maps</li>
+</ol>
+<h3 id="🥕Dynamic-Lighting："><a href="#🥕Dynamic-Lighting：" class="headerlink" title="🥕Dynamic Lighting："></a>🥕Dynamic Lighting：</h3><h4 id="🤓优势：-1"><a href="#🤓优势：-1" class="headerlink" title="🤓优势："></a>🤓优势：</h4><ol>
+<li>what u see is what u get，所见及所得</li>
+<li>非静态的</li>
+</ol>
+<h4 id="😈劣势：-1"><a href="#😈劣势：-1" class="headerlink" title="😈劣势："></a>😈劣势：</h4><ol>
+<li>No GI</li>
+<li>GPU demanding，对GPU有要求</li>
+</ol>
+<hr>
+<h2 id="🚩【五：常用烘培灯光设置】"><a href="#🚩【五：常用烘培灯光设置】" class="headerlink" title="🚩【五：常用烘培灯光设置】"></a>🚩【五：常用烘培灯光设置】</h2><h3 id="基础灯光设置："><a href="#基础灯光设置：" class="headerlink" title="基础灯光设置："></a>基础灯光设置：</h3><ol>
+<li>Direction Light（Stationary）</li>
+<li>Lightmass Baking（GI）</li>
+<li>Skydome（static）</li>
+</ol>
+<h3 id="什么是light-map？"><a href="#什么是light-map？" class="headerlink" title="什么是light map？"></a>什么是light map？</h3><ul>
+<li>light maps以纹理贴图的形式储存了灯光信息</li>
+<li>它是HDR tecture并且储存了灯光方向</li>
+<li>它的好处是处理起来很快，阴影柔和，但是如果文件太小则会缺少阴影的细节清晰度。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lightasset2.png" alt="lightasset2"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lightasset.png" alt="lightasset"></li>
+<li>min lightmap resolution将定义UV islands（padding）之间的空间</li>
+<li>更小的padding会减少像素的浪费以及在相同的分辨率下得到更好的阴影效果</li>
+</ul>
+<hr>
+<h3 id="Lighting-Type："><a href="#Lighting-Type：" class="headerlink" title="Lighting Type："></a>Lighting Type：</h3><ul>
+<li>当烘培灯光时，一般只会使用static light（静态光） 或者是 stationary light（固定光）</li>
+<li>emit photons：<ul>
+<li>Directional light</li>
+<li>point light</li>
+<li>spot light</li>
+</ul>
+</li>
+<li>emit no photon：<ul>
+<li>sky light</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Lightmass-Setting："><a href="#Lightmass-Setting：" class="headerlink" title="Lightmass Setting："></a>Lightmass Setting：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lightmass.png" alt="lightmass"></p>
+<ul>
+<li>static Lighting Level Scale * Indirect Lighting Quality &#x3D; 1.0;</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lightmass_chart.png" alt="lightmass_chart"></p>
+<ul>
+<li>间接照明质量是最影响时长的</li>
+</ul>
+<hr>
+<ul>
+<li><strong>volume light sample scale</strong><ul>
+<li>降低static lighting level scale会增加volume lighting samples的数量</li>
+</ul>
+</li>
+<li><strong>lightmass Portal</strong><ul>
+<li>对门窗类型的照明十分有用</li>
+</ul>
+</li>
+<li><strong>lighting Scenarios</strong><ul>
+<li>只用编辑一个enviroment level</li>
+<li>照明方案会以light maps的形式分别储存</li>
+<li>一个时间使用一个照明方案（不存在过渡，不能同时拥有两种在一个场景）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="🚩【六：常用动态照明设置】"><a href="#🚩【六：常用动态照明设置】" class="headerlink" title="🚩【六：常用动态照明设置】"></a>🚩【六：常用动态照明设置】</h2><h3 id="基础灯光设置：-1"><a href="#基础灯光设置：-1" class="headerlink" title="基础灯光设置："></a>基础灯光设置：</h3><ol>
+<li>Direction Light（movable）</li>
+<li>SKydome（moveable）</li>
+<li>Distance Field AO</li>
+<li>Screen Space AO</li>
+</ol>
+<h3 id="什么是Distance-Field："><a href="#什么是Distance-Field：" class="headerlink" title="什么是Distance Field："></a>什么是Distance Field：</h3><ul>
+<li>Distance Field 储存了每个点到最近表面的距离</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/distanceField.png" alt="distanceField"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/df_setup.png" alt="df_setup"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/dfao.png" alt="dfao"></li>
+<li>需要避免过多的缩放</li>
+<li>很大的物体对于distance field 的支持不理想，需要拆分成较小的部分</li>
+</ul>
+<h2 id="🚩【七：图像基础的照明-IBL】"><a href="#🚩【七：图像基础的照明-IBL】" class="headerlink" title="🚩【七：图像基础的照明 IBL】"></a>🚩【七：图像基础的照明 IBL】</h2><h3 id="基础灯光设置：-2"><a href="#基础灯光设置：-2" class="headerlink" title="基础灯光设置："></a>基础灯光设置：</h3><ul>
+<li>设置场景，确保有一个平面可以投射并接受阴影</li>
+<li>有一个back plate（需要制作跟踪）（可以理解为UE里做nuke的事情）</li>
+<li>Directional light（moveable）</li>
+<li>Skylight with HDRI（moveable）</li>
+<li>fake steps shadow</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/backPlate.png" alt="backPlate"></li>
+<li>当人走向光照位置则激活阴影</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/IBL.png" alt="IBL"></li>
+</ul>
+<hr>
+<h2 id="🚩【八：shadow-maps，for-Dynamic-Shadowing】"><a href="#🚩【八：shadow-maps，for-Dynamic-Shadowing】" class="headerlink" title="🚩【八：shadow maps，for Dynamic Shadowing】"></a>🚩【八：shadow maps，for Dynamic Shadowing】</h2><ul>
+<li>Depth map，判断存在阴影的部分</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/depthMap.png" alt="depthMap"></li>
+<li>如果shadow map质量太低会有锯齿</li>
+<li>如果shadow map bias太高则会有漏光</li>
+<li>使用相机视锥来优化场景，近景给予更多的资源</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/camFrustum.png" alt="camFrustum"></li>
+</ul>
+<hr>
+<h2 id="🚩【九：Directional-Light-Stationary-area-shadows：】"><a href="#🚩【九：Directional-Light-Stationary-area-shadows：】" class="headerlink" title="🚩【九：Directional Light Stationary area shadows：】"></a>🚩【九：Directional Light Stationary area shadows：】</h2><ul>
+<li>激活Lightmass下的：use Area Shadows for Stationary Light</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/areaShadow.png" alt="areaShadow"></li>
+</ul>
+<hr>
+<h2 id="🚩【十：capsule-shadows：】"><a href="#🚩【十：capsule-shadows：】" class="headerlink" title="🚩【十：capsule shadows：】"></a>🚩【十：capsule shadows：】</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/capsuleshadows.png" alt="capsuleshadows"></p>
+<ul>
+<li>使用一个类似资产的外轮廓来创建一个十分柔和的阴影</li>
+</ul>
+<hr>
+<h2 id="🚩【十一：Raytraced-contact-shadows：】"><a href="#🚩【十一：Raytraced-contact-shadows：】" class="headerlink" title="🚩【十一：Raytraced contact shadows：】"></a>🚩【十一：Raytraced contact shadows：】</h2><ul>
+<li>将contact shadow length 设置的很小来获得细节上的阴影</li>
+<li>在比例很小的物体上很有用，但是比较耗费资源</li>
+</ul>
+<hr>
+<h2 id="🚩【十二：Reflections：】"><a href="#🚩【十二：Reflections：】" class="headerlink" title="🚩【十二：Reflections：】"></a>🚩【十二：Reflections：】</h2><ul>
+<li>反射较为资源</li>
+<li>使用planer reflection来得到平面的反射（本质是在镜像它），平面的物体适用，但此不适用于有机形状。</li>
+</ul>
+]]></content>
       <categories>
         <category>-UE4</category>
       </categories>
       <tags>
-        <tag>-学习</tag>
+        <tag>-灯光</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</title>
+    <url>/2022/09/22/math_Essense_of_Linear_Algebra_P02/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第二章：线性组合，张成的空间与基"><a href="#3Blue1Brown-线代本质第二章：线性组合，张成的空间与基" class="headerlink" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"></a>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️基向量："><a href="#✏️基向量：" class="headerlink" title="✏️基向量："></a>✏️基向量：</h2><h3 id="✍️在xy坐标系中两个特殊向量："><a href="#✍️在xy坐标系中两个特殊向量：" class="headerlink" title="✍️在xy坐标系中两个特殊向量："></a>✍️在xy坐标系中两个特殊向量：</h3><ul>
+<li>一个指向正右方，长度为1，通常被称为“i-hat”（i帽）或x方向的单位向量。</li>
+<li>另一个指向正上方，长度为1，通常被称为“j-hat”（j帽）或者y方向的单位向量。</li>
+<li><strong>i-hat与j-hat这两个向量有特殊的名称，他们是xy坐标轴的“基向量”（basis vector）。</strong></li>
+<li>这是在表述：当你把坐标看为标量时，基向量实际上就是这些标量的缩放对象。</li>
+</ul>
+<hr>
+<h3 id="✍️例子1："><a href="#✍️例子1：" class="headerlink" title="✍️例子1："></a>✍️例子1：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ihat_jhat.png" alt="ihat_jhat"></p>
+<ul>
+<li><strong>由上图示意看出，（3，-2）可以想象为</strong>：x坐标是一个标量，它将i帽拉升为原来的三倍；y坐标也是一个标量，它将j帽反向并拉伸为原来的两倍。从这个角度看，这个向量实际上是两个经过缩放的向量的和。</li>
+<li>“<strong>缩放向量并且相加</strong>”这一概念十分重要。</li>
+</ul>
+<hr>
+<h3 id="✍️如果我们选择不同的基向量会怎么样："><a href="#✍️如果我们选择不同的基向量会怎么样：" class="headerlink" title="✍️如果我们选择不同的基向量会怎么样："></a>✍️如果我们选择不同的基向量会怎么样：</h3><ul>
+<li><strong>我们完全可以选择不同的基向量，获得一个合理的新坐标系。</strong></li>
+<li>比如随便选一个指向右上方的向量，再随便选择一个指向右下方的向量，想象通过选择两个标量，分别用于缩放二者的其中一个， 然后把他们相加，就可以得到不同的结果。通过改变所选择的向量，我们可以得到所有向量。</li>
+<li>一对新的基向量，同样允许我们在一对数和二维向量之间自由转化。但是这种变化关系与我们之前使用的i帽和j帽的变化关系完全不同。</li>
+<li><strong>每当我们用数字描述向量的时候，它都依赖于我们正在使用的基。</strong></li>
+<li><strong>两个数乘向量的和被称为这两个向量的线性组合（Linear combination）。</strong></li>
+<li><strong>那么线性怎么来的可以考虑为：</strong> 如果固定其中一个标量，让另一个标量自由变化，所产生的终点会描述出一条直线，如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/linearCombination.png" alt="linearCombination"></li>
+</ul>
+<hr>
+<ul>
+<li><strong>如果让两个标量同时自由变换，考虑所有可得到的向量，可能有两种情况（实际是三种）：</strong><ol>
+<li>大部分情况下，对于一对初始向量，你能达到平面中每一个点；所有二维向量都尽在掌握。</li>
+<li>另一种较为糟糕的情况是，当两个初始向量恰好共线时，所产生的向量的终点被限制在一条过原点的直线上。</li>
+<li>事实上还有第三种情况就是，两个向量都是零向量,那就只能在原点了。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E5%8F%98%E6%8D%A2%E7%9A%84%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5.png" alt="向量变换的三种情况"></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="✏️张成空间（span）："><a href="#✏️张成空间（span）：" class="headerlink" title="✏️张成空间（span）："></a>✏️张成空间（span）：</h2><p><strong>概念：</strong><br>    - <strong>所有可以表示为给定向量线性组合的向量的集合，被成为给定向量张成的空间。</strong></p>
+<ul>
+<li>下图：向量全部线性组合构成的向量集合成为“张成的空间”，a与b在实数范围内变动。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4.png" alt="张成空间"></li>
+</ul>
+<h3 id="✍️二维空间内张成空间："><a href="#✍️二维空间内张成空间：" class="headerlink" title="✍️二维空间内张成空间："></a>✍️二维空间内张成空间：</h3><ul>
+<li>通常情况下，我们用向量的终点代表向量（起点是原点）；用这种方法来看，如果要考虑落在一条直线上所有向量的时候，只需要考虑直线本身就行了。所以也可以考虑为，如果同时考虑xy坐标系中所有向量，将每个向量抽象为它的终点，实际上就不用考虑所有的肩头了，只需要考虑无限大的二维平面本身即可。</li>
+<li>如果考虑一个向量，我们就可以把他看作箭头；如果考虑多个向量，则可以把他们都看作是点。</li>
+<li>对大部分二维向量来说，它们的张成空间是整个无限大的二维平面；但如果共线，他们的张成空间就是一条直线。</li>
+</ul>
+<hr>
+<h3 id="✍️三维空间内张成空间："><a href="#✍️三维空间内张成空间：" class="headerlink" title="✍️三维空间内张成空间："></a>✍️三维空间内张成空间：</h3><h4 id="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："><a href="#在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：" class="headerlink" title="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："></a>在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="两个向量在三维空间"></p>
+<ul>
+<li>这两个向量的张成空间就是他们所有可能的线性组合；也就是缩放再相加之后所有可得到的向量。</li>
+<li>逐渐改变线性组合中的这两个标量，把缩放后的向量相加，然后跟着最终向量的终点走，这个终点会画出三维空间中某个过原点的平面；这个平面就是这两个向量的张成空间。（所有终点落在这个平面上的向量集合是这两个向量的张成空间）</li>
+</ul>
+<h4 id="如果加上第三个向量，他们的张成空间是这样的："><a href="#如果加上第三个向量，他们的张成空间是这样的：" class="headerlink" title="如果加上第三个向量，他们的张成空间是这样的："></a>如果加上第三个向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="三个向量在三维空间"></p>
+<ul>
+<li>选择三个向量分别进行缩放，然后把结果相加。</li>
+<li>这三个向量所有可能的线性作何构成了他们的张成空间。</li>
+<li>如果第三个向量恰好落在前两个向量所张成的平面上，那么他们张成的空间并不改变，还是在这个平面中。</li>
+<li>但是如果随机选一个向量，他几乎不可能落在前两个向量所张成的平面中；这种情况下，由于第三个向量指向不同的方向，我们就能得到所有的三维向量。（可以考虑成：当我们缩放第三个向量的时候，他将前两个向量张成平面来回沿着它的方向移动，从而扫过整个三维空间。）</li>
+</ul>
+<hr>
+<h2 id="✏️Linearly-dependent-和-Linearly-Independent："><a href="#✏️Linearly-dependent-和-Linearly-Independent：" class="headerlink" title="✏️Linearly dependent 和 Linearly Independent："></a>✏️Linearly dependent 和 Linearly Independent：</h2><h4 id="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："><a href="#当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：" class="headerlink" title="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："></a>当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：</h4><ul>
+<li>这种情况说明一组向量中至少有一个是多余的，没有对张成空间做出任何贡献，我们取走这个多余的向量也不减少张成空间，这样的情况下，我们称它为“<strong>线性相关</strong>”（<strong>Linearly dependent</strong>）的。</li>
+</ul>
+<h4 id="如果所有向量都给张成空间添加了新的维度："><a href="#如果所有向量都给张成空间添加了新的维度：" class="headerlink" title="如果所有向量都给张成空间添加了新的维度："></a>如果所有向量都给张成空间添加了新的维度：</h4><ul>
+<li>这种情况就称之为“<strong>线性无关</strong>”（<strong>Linearly Independent</strong>）的。</li>
+</ul>
+<hr>
+<h2 id="✏️基的严格定义（Technical-definition-of-basis）："><a href="#✏️基的严格定义（Technical-definition-of-basis）：" class="headerlink" title="✏️基的严格定义（Technical definition of basis）："></a>✏️基的严格定义（Technical definition of basis）：</h2><ul>
+<li>The basis of a vector space is a set of linearly independent vectors that span the full space<br>(向量空间的一组基是张成该空间的一个线性无关向量集)<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89.png" alt="基的严格定义"></li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
       </tags>
   </entry>
   <entry>
@@ -730,5 +1190,23 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
     <url>/2022/09/07/%E6%B5%8B%E8%AF%95%E4%B8%80/</url>
     <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！<br>这里只是一个简陋的文本所以跳过就行</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>UE4以及相关工具学习列表合辑</title>
+    <url>/2022/09/09/unreal/</url>
+    <content><![CDATA[<p>这篇是我的UE学习记录了，也算是我的UE学习置顶占位。2022是我学习UE的第一年，来记录一下<br>然后写的不一定是教程笔记哈，有些别的好的我也会随意写写放上来。<br>详细如下，都有各个的部分的站内链接<br>每篇写好了就会更新！<br>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</p>
+<hr>
+<h1 id="🚩UE材质基础"><a href="#🚩UE材质基础" class="headerlink" title="🚩UE材质基础"></a>🚩UE材质基础</h1><h2 id="一：UE4官方材质课-基础篇"><a href="#一：UE4官方材质课-基础篇" class="headerlink" title="一：UE4官方材质课_基础篇"></a>一：UE4官方材质课_基础篇</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/uefoundation_cover.png" alt="uefoundation_cover"><br><strong>站内link：</strong></p>
+<a href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇">UE4官方材质课_基础篇</a>
+
+<hr>
+<h1 id="🚩UE灯光技巧："><a href="#🚩UE灯光技巧：" class="headerlink" title="🚩UE灯光技巧："></a>🚩UE灯光技巧：</h1><h2 id="一：UE灯光流程以及方案（Light-a-project-in-UE）"><a href="#一：UE灯光流程以及方案（Light-a-project-in-UE）" class="headerlink" title="一：UE灯光流程以及方案（Light a project in UE）"></a>一：UE灯光流程以及方案（Light a project in UE）</h2><p><strong>站内link：</strong></p>
+<a href="/2022/09/18/ue_Light_a_Project_in_UE/" title="Light_a_Project_in_UE">Light_a_Project_in_UE</a>]]></content>
+      <categories>
+        <category>-UE4</category>
+      </categories>
+      <tags>
+        <tag>-学习</tag>
+      </tags>
   </entry>
 </search>
