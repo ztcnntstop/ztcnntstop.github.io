@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>3Blue1Brown_线代本质第五章：行列式 | ZeTiiCannotStop</title><meta name="keywords" content="-学数学"><meta name="author" content="ZeTii"><meta name="copyright" content="ZeTii"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="3Blue1Brown_线代本质第五章：行列式 我开始了3蓝1棕的线性代数本质的学习，我没什么基础所以在此做了笔记，这里是第五章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！ 在b站它的链接在此。 官方一共将此系列分为12节，所以我也会分开写。 我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！ 这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3Blue1Brown_线代本质第五章：行列式">
+<meta property="og:url" content="http://example.com/2022/09/26/math_Essense_of_Linear_Algebra_P05/index.html">
+<meta property="og:site_name" content="ZeTiiCannotStop">
+<meta property="og:description" content="3Blue1Brown_线代本质第五章：行列式 我开始了3蓝1棕的线性代数本质的学习，我没什么基础所以在此做了笔记，这里是第五章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！ 在b站它的链接在此。 官方一共将此系列分为12节，所以我也会分开写。 我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！ 这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/Zimage/a3Blue1Brown.png">
+<meta property="article:published_time" content="2022-09-26T09:15:35.000Z">
+<meta property="article:modified_time" content="2022-09-26T15:53:09.561Z">
+<meta property="article:author" content="ZeTii">
+<meta property="article:tag" content="-学数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Zimage/a3Blue1Brown.png"><link rel="shortcut icon" href="/img/faviconDog.ico"><link rel="canonical" href="http://example.com/2022/09/26/math_Essense_of_Linear_Algebra_P05/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '3Blue1Brown_线代本质第五章：行列式',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-26 23:53:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="ZeTiiCannotStop" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/longtao.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-ghost"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> video</span></a></li><li><a class="site-page child" href="/others/"><i class="fa-fw fas fa-cat"></i><span> other</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/Zimage/a3Blue1Brown.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ZeTiiCannotStop</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-ghost"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> video</span></a></li><li><a class="site-page child" href="/others/"><i class="fa-fw fas fa-cat"></i><span> other</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">3Blue1Brown_线代本质第五章：行列式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-26T09:15:35.000Z" title="发表于 2022-09-26 17:15:35">2022-09-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-26T15:53:09.561Z" title="更新于 2022-09-26 23:53:09">2022-09-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/3Blue1Brown%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%9C%AC%E8%B4%A8/">-3Blue1Brown线性代数本质</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="3Blue1Brown_线代本质第五章：行列式"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="3Blue1Brown-线代本质第五章：行列式"><a href="#3Blue1Brown-线代本质第五章：行列式" class="headerlink" title="3Blue1Brown_线代本质第五章：行列式"></a>3Blue1Brown_线代本质第五章：行列式</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第五章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️区域内面积增大减小："><a href="#✏️区域内面积增大减小：" class="headerlink" title="✏️区域内面积增大减小："></a>✏️区域内面积增大减小：</h2><ul>
+<li>想象一些线性空间，有的变换是向外拉伸空间（Generally stretches space），有的则是向内挤压（Generally squashes space）；有件事情对理解这些线性变换很有用，那就是测量这些变换究竟对空间有多少拉伸或挤压；也就是：<strong>测量一个给定区域面积增大或减小的比例。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%8F%98%E6%8D%A2%E5%90%8E%E7%9A%84%E9%9D%A2%E7%A7%AF.png" alt="变换后的面积"></li>
+<li>如上图所示，i帽从（1，0）变换为（3，0），j帽从（0，1）变换为（0，2）；则由i帽和j帽决定的单位正方形的面积从原先的1x1变成了现在的3x2；它的面积增大了6倍。所以我们说这个线性变换将它的面积变为6倍。</li>
+</ul>
+<hr>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%89%AA%E5%88%87%E7%9F%A9%E9%98%B5%E7%9A%84%E9%9D%A2%E7%A7%AF%E5%8F%98%E6%8D%A2.png" alt="剪切矩阵的面积变换"></p>
+<ul>
+<li>【<strong>剪切矩阵</strong>】则是i帽不变还是在（1，0），j帽从（0，1）变为（1，1）；此时由i帽和j帽决定的单位正方形在变换后倾斜为一个平行四边形，但是它的面积是不变的。所以说即便这个变换空间向右挤压，它并不改变面积。</li>
+<li>实际上，只要知道单位正方形面积变化的比例，他就能告诉你其他任意区域的面积变化比例（因为“网格线保持平行且等距分布”）。</li>
+</ul>
+<hr>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%BF%90%E7%94%A8%E8%BF%91%E4%BC%BC%E7%9A%84%E6%96%B9%E6%A0%BC%E7%BC%A9%E6%94%BE.png" alt="运用近似的方格缩放"></p>
+<ul>
+<li>对于不是方形网格的形状，我们可以用许多放个良好近似，只要使用的方格足够小，近似就能足够好。由于所有的小方格都是进行等比缩放，所以整个形状也进行了同样比例的缩放。</li>
+</ul>
+<hr>
+<h2 id="✏️线性变换的行列式（The-“deternminant”-of-a-transformation）："><a href="#✏️线性变换的行列式（The-“deternminant”-of-a-transformation）：" class="headerlink" title="✏️线性变换的行列式（The “deternminant” of a transformation）："></a>✏️线性变换的行列式（The “deternminant” of a transformation）：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt="线性变换行列式"></p>
+<ul>
+<li>比如说，一个线性变换的行列式是3，那么就是说他将一个区域的面积增加为原来的三倍。</li>
+<li>同理一个线性变换的行列式是1&#x2F;2，那么就说他将一个区域的面积减少为原来的二分之一。</li>
+<li>如果一个线性变换的行列式是0，那么说明它将整个平面压缩到一条线，甚至是一个点上。</li>
+<li>如果变换前j帽在i帽的左侧，变换后j帽变成i帽的右侧，那么此时空间定向就发生了改变（Orientation has been reversed）。</li>
+<li><strong>当空间定向改变，行列式为负</strong>，但是行列式的绝对值依然表示区域面积的缩放比例。</li>
+</ul>
+<hr>
+<h3 id="✍️负的面积为什么与定向改变相关？"><a href="#✍️负的面积为什么与定向改变相关？" class="headerlink" title="✍️负的面积为什么与定向改变相关？"></a>✍️负的面积为什么与定向改变相关？</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%BA%E8%B4%9F%E5%80%BC%E7%9A%84%E6%83%85%E5%86%B5.png" alt="行列式为负值的情况"></p>
+<ul>
+<li>考虑i帽靠近j帽时的变换，空间也被更厉害的压缩，意味着行列式趋近于0；当i帽与j帽完全重合时，行列式为0。如果i帽继续沿着这个方向运动，则行列式继续减小为负值。</li>
+</ul>
+<hr>
+<h2 id="✏️三维空间中行列式的变换："><a href="#✏️三维空间中行列式的变换：" class="headerlink" title="✏️三维空间中行列式的变换："></a>✏️三维空间中行列式的变换：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E5%86%85%E7%9A%84%E5%8F%98%E6%8D%A2.png" alt="行列式在三维空间内的变换"></p>
+<ul>
+<li>它告诉你的依然是变换前后的缩放比例，不过三维空间内缩放的是体积。</li>
+<li>在三维空间中我们可以用1x1x1，即i，j，k这三个基向量，这个特殊的立方体来观察行列式的变换。</li>
+<li>我们可以把行列式简单的看作这个平行六面体的体积<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%85%AD%E9%9D%A2%E4%BD%93%E7%9A%84%E4%BD%93%E7%A7%AF.png" alt="平行六面体的体积"></li>
+<li>行列式为0则意味着整个空间被压缩为零体积的东西。也就是一个平面，一条直线或一个点。</li>
+</ul>
+<hr>
+<h3 id="✍️如何计算行列式？："><a href="#✍️如何计算行列式？：" class="headerlink" title="✍️如何计算行列式？："></a>✍️如何计算行列式？：</h3><ul>
+<li>首先它必须得是方形矩阵（行列数相等）。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97%E6%8E%A8%E5%AF%BC.png" alt="行列式面积计算推导"></li>
+<li>ad是平行四边形的面积公式底乘以高，如果c不为0的情况下，这个bc项准确的告诉你平行四边形在对角线方向上拉伸或压缩了多少；则这个公式就可以计算出拉伸后的面积。</li>
+</ul>
+<h3 id="✍️三阶行列式计算公式："><a href="#✍️三阶行列式计算公式：" class="headerlink" title="✍️三阶行列式计算公式："></a>✍️三阶行列式计算公式：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png" alt="三阶行列式计算公式"></p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">ZeTii</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/09/26/math_Essense_of_Linear_Algebra_P05/">http://example.com/2022/09/26/math_Essense_of_Linear_Algebra_P05/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">ZeTiiCannotStop</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E6%95%B0%E5%AD%A6/">-学数学</a></div><div class="post_share"><div class="social-share" data-image="/Zimage/a3Blue1Brown.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/27/math_Essense_of_Linear_Algebra_P06/"><img class="prev-cover" src="/Zimage/a3Blue1Brown.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">3Blue1Brown_线代本质第六章：逆矩阵，列空间与零空间</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/25/math_Essense_of_Linear_Algebra_P04/"><img class="next-cover" src="/Zimage/a3Blue1Brown.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/22/math_Essense_of_Linear_Algebra_P02/" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"><img class="cover" src="/Zimage/a3Blue1Brown.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-22</div><div class="title">3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</div></div></a></div><div><a href="/2022/09/22/math_Essense_of_Linear_Algebra_P01/" title="3Blue1Brown_线代本质第一章：向量究竟是什么"><img class="cover" src="/Zimage/a3Blue1Brown.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-22</div><div class="title">3Blue1Brown_线代本质第一章：向量究竟是什么</div></div></a></div><div><a href="/2022/09/24/math_Essense_of_Linear_Algebra_P03/" title="3Blue1Brown_线代本质第三章：矩阵与线性变换"><img class="cover" src="/Zimage/a3Blue1Brown.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-24</div><div class="title">3Blue1Brown_线代本质第三章：矩阵与线性变换</div></div></a></div><div><a href="/2022/09/25/math_Essense_of_Linear_Algebra_P04/" title="3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换"><img class="cover" src="/Zimage/a3Blue1Brown.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-25</div><div class="title">3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换</div></div></a></div><div><a href="/2022/09/29/math_Essense_of_Linear_Algebra_P07/" title="3Blue1Brown_线代本质第七章：点积与对偶性"><img class="cover" src="/Zimage/a3Blue1Brown.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-29</div><div class="title">3Blue1Brown_线代本质第七章：点积与对偶性</div></div></a></div><div><a href="/2022/09/27/math_Essense_of_Linear_Algebra_P06/" title="3Blue1Brown_线代本质第六章：逆矩阵，列空间与零空间"><img class="cover" src="/Zimage/a3Blue1Brown.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-27</div><div class="title">3Blue1Brown_线代本质第六章：逆矩阵，列空间与零空间</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/longtao.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ZeTii</div><div class="author-info__description">这个人很菜但是想法很多</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/552910222?spm_id_from=333.33.b_73656375726974794f75744c696e6b.1"><i class="fab fa-bilibili"></i><span>去Bilibili找我吧</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://www.artstation.com/ztcnntstop" target="_blank" title="artstation"><i class="fab fa-artstation"></i></a><a class="social-icon" href="https://www.zhihu.com/people/ztcnntstop" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a><a class="social-icon" href="/Zimage/longtaoqq.png" target="_blank" title="加我QQ请注明来意【2226925242】"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:lzyzen@163.com" target="_blank" title="Email我也可以【lzyzen@163.com】"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这人主要在哔哩哔哩闲逛，每天都会光好几圈并且点很多赞，这个人近期做的作品也在那里发布了，有啥问题可以直接哔哩哔哩去踢踢这人或者给这个人点点赞！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#3Blue1Brown-%E7%BA%BF%E4%BB%A3%E6%9C%AC%E8%B4%A8%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">3Blue1Brown_线代本质第五章：行列式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%8F%EF%B8%8F%E5%8C%BA%E5%9F%9F%E5%86%85%E9%9D%A2%E7%A7%AF%E5%A2%9E%E5%A4%A7%E5%87%8F%E5%B0%8F%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">✏️区域内面积增大减小：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%8F%EF%B8%8F%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%EF%BC%88The-%E2%80%9Cdeternminant%E2%80%9D-of-a-transformation%EF%BC%89%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">✏️线性变换的行列式（The “deternminant” of a transformation）：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F%E8%B4%9F%E7%9A%84%E9%9D%A2%E7%A7%AF%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8E%E5%AE%9A%E5%90%91%E6%94%B9%E5%8F%98%E7%9B%B8%E5%85%B3%EF%BC%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">✍️负的面积为什么与定向改变相关？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%8F%EF%B8%8F%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E4%B8%AD%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%8F%98%E6%8D%A2%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">✏️三维空间中行列式的变换：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E8%A1%8C%E5%88%97%E5%BC%8F%EF%BC%9F%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">✍️如何计算行列式？：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F%E4%B8%89%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F%EF%BC%9A"><span class="toc-number">1.3.2.</span> <span class="toc-text">✍️三阶行列式计算公式：</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/10/03/math_Essense_of_Linear_Algebra_P08/" title="3Blue1Brown_线代本质第八章：叉积的标准介绍"><img src="/Zimage/a3Blue1Brown.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3Blue1Brown_线代本质第八章：叉积的标准介绍"/></a><div class="content"><a class="title" href="/2022/10/03/math_Essense_of_Linear_Algebra_P08/" title="3Blue1Brown_线代本质第八章：叉积的标准介绍">3Blue1Brown_线代本质第八章：叉积的标准介绍</a><time datetime="2022-10-03T09:15:35.000Z" title="发表于 2022-10-03 17:15:35">2022-10-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/29/math_Essense_of_Linear_Algebra_P07/" title="3Blue1Brown_线代本质第七章：点积与对偶性"><img src="/Zimage/a3Blue1Brown.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3Blue1Brown_线代本质第七章：点积与对偶性"/></a><div class="content"><a class="title" href="/2022/09/29/math_Essense_of_Linear_Algebra_P07/" title="3Blue1Brown_线代本质第七章：点积与对偶性">3Blue1Brown_线代本质第七章：点积与对偶性</a><time datetime="2022-09-29T09:15:35.000Z" title="发表于 2022-09-29 17:15:35">2022-09-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/27/math_Essense_of_Linear_Algebra_P06/" title="3Blue1Brown_线代本质第六章：逆矩阵，列空间与零空间"><img src="/Zimage/a3Blue1Brown.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3Blue1Brown_线代本质第六章：逆矩阵，列空间与零空间"/></a><div class="content"><a class="title" href="/2022/09/27/math_Essense_of_Linear_Algebra_P06/" title="3Blue1Brown_线代本质第六章：逆矩阵，列空间与零空间">3Blue1Brown_线代本质第六章：逆矩阵，列空间与零空间</a><time datetime="2022-09-27T14:15:35.000Z" title="发表于 2022-09-27 22:15:35">2022-09-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/26/math_Essense_of_Linear_Algebra_P05/" title="3Blue1Brown_线代本质第五章：行列式"><img src="/Zimage/a3Blue1Brown.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3Blue1Brown_线代本质第五章：行列式"/></a><div class="content"><a class="title" href="/2022/09/26/math_Essense_of_Linear_Algebra_P05/" title="3Blue1Brown_线代本质第五章：行列式">3Blue1Brown_线代本质第五章：行列式</a><time datetime="2022-09-26T09:15:35.000Z" title="发表于 2022-09-26 17:15:35">2022-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/25/math_Essense_of_Linear_Algebra_P04/" title="3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换"><img src="/Zimage/a3Blue1Brown.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换"/></a><div class="content"><a class="title" href="/2022/09/25/math_Essense_of_Linear_Algebra_P04/" title="3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换">3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换</a><time datetime="2022-09-25T09:15:35.000Z" title="发表于 2022-09-25 17:15:35">2022-09-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/Zimage/a3Blue1Brown.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 By ZeTii</div><div class="footer_custom_text">---愿欧皇与你同在---</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'MD0IEN3s3MIbosASBnzJGQnG-gzGzoHsz',
+      appKey: 'FYV9eSIxljMIyxEW50dplfoh',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="暴击999" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
