@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Houdini 中for-each 和for-loop 节点</title>
+    <url>/2022/09/13/houdini_foreach/</url>
+    <content><![CDATA[<h1 id="Houdini-中for-each-和for-loop-节点"><a href="#Houdini-中for-each-和for-loop-节点" class="headerlink" title="Houdini 中for-each 和for-loop 节点"></a>Houdini 中for-each 和for-loop 节点</h1><p>学习houdini时间不长，刚入门的时候就一直对foreach的使用比较迷糊，在这里写一篇学习笔记来认识一下这个使用方式，比较基础 。如果有问题，请各位大佬及时补充和指正！</p>
+<hr>
+<h2 id="Houdini中关于循环的节点简介："><a href="#Houdini中关于循环的节点简介：" class="headerlink" title="Houdini中关于循环的节点简介："></a>Houdini中关于循环的节点简介：</h2><p>houdini中一共给了这6个框架：<br><strong>1. for-each Number<br>2. for-each point<br>3. for-each primitive<br>4. for-each connected Piece<br>5. for-each Named Primitive<br>6. for-loop with Feedback</strong></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach2.png" alt="foreach2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach1.png" alt="foreach1"><br>（在这里说明我用的是houdini 18之后的版本，如果版本太靠前应该foreach节点跟这个有所出入）</p>
+<ul>
+<li>这个框架它本身的作用就是实现for循环，如果不想用它的框架，也可以自己创建Block begin和Block end来搭建for循环。</li>
+<li>其中，<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>的构造是相似的，使用的方法也是一样的，只是针对的元素不同（点，面，name属性）</li>
+<li><strong>connectivity</strong>是创造了一个class属性，根据class属性处理导入这个元素。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220921233222.png" alt="foreach2"></li>
+<li>数据都是从Block Begin传入，我们中间可以任意添加节点来完成我们想要针对这个元素处理的操作，这个数据给每个元素循环处理后，最终由block end输出。end中可以选择Feedback Each Iteration来显示每一次结果，或者Merge Each Iteration来显示所有结果。</li>
+</ul>
+<h2 id="例子一：随机颜色："><a href="#例子一：随机颜色：" class="headerlink" title="例子一：随机颜色："></a>例子一：随机颜色：</h2><ul>
+<li>针对<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>这四个框架可以做出此示例。</li>
+<li>循环迭代次数不是自动给出的，需要通过Block Begin中的“Create meta import Node来创建；它的detail上会有iteration的参数。若我们希望使用foreach，来达到进入循环的元素被进行的处理或者操作有所变化，那么我们也是通过iteration来实现的。</li>
+</ul>
+<h3 id="for-each-point："><a href="#for-each-point：" class="headerlink" title="for-each point："></a>for-each point：</h3><ul>
+<li>使用vex做一个简单的颜色随机，注意iteration不要写错<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_pt.png" alt="foreach_randCol_pt"></li>
+</ul>
+<h3 id="for-each-primitive："><a href="#for-each-primitive：" class="headerlink" title="for-each primitive："></a>for-each primitive：</h3><ul>
+<li>对于primitive也是完全一样的<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_prim.png" alt="foreach_randCol_prim"></li>
+</ul>
+<h3 id="for-each-connected-Piece："><a href="#for-each-connected-Piece：" class="headerlink" title="for-each connected Piece："></a>for-each connected Piece：</h3><ul>
+<li>对于for-each connected Piece，则是根据它的class属性，处理它连续的元素。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_connPiec.png" alt="foreach_randCol_class"></li>
+</ul>
+<h3 id="for-each-Named-Primitive："><a href="#for-each-Named-Primitive：" class="headerlink" title="for-each Named Primitive："></a>for-each Named Primitive：</h3><ul>
+<li>for-each Named Primitive也是根据name属性来处理元素（属性是在piece attribute上的，可以更改，但必须保持输入输出的是一致的，否则不能匹配）</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_name.png" alt="foreach_randCol_name"></li>
+</ul>
+<h2 id="for-each-Number的用法："><a href="#for-each-Number的用法：" class="headerlink" title="for-each Number的用法："></a>for-each Number的用法：</h2><ul>
+<li>可以看出，它的Block Beginn中的method变成了“Fetch Input”，它的Block end中 Iteration Method变为了“By Count”。 他并不是对每个元素进行处理，而是对他本身进行拷贝，进入循环，它的迭代次数就是它的拷贝次数。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_number.png" alt="foreach_number"></li>
+<li>由上示例，它每次的循环均为它的input，根据iteration的次数来做重复。</li>
+</ul>
+<h2 id="for-Loop的用法："><a href="#for-Loop的用法：" class="headerlink" title="for-Loop的用法："></a>for-Loop的用法：</h2><ul>
+<li>for-loop with Feedback中，它的默认Block Beginn中的method是“Fetch FeedBack”，它的Block end中 Iteration Method是“By Count”；它的Gather Method则默认是Feedback Each Iteration。如果for-each Number是指对本身的元素进行处理，那么for-loop with Feedback就是对循环整体进行处理。</li>
+<li>它是以上一个循环的end的结果作为下一次循环的起点，进行再次循环，一直循环操作我们在循环内设置的指令，直到迭代次数结束。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop.png" alt="forLoop"></li>
+<li>由上图示例，这个rubbertoy朝着x轴正向移动，每次移动单位为1米，循环了五次，移动到现在5米的位置。</li>
+<li>下图是merge each iteration，显示每次循环结果，可以更清晰看出。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop_MergeEachIteration.png" alt="forLoop_MergeEachIteration"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-Houdini节点</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>houdini以及3D数学学习列表合辑</title>
     <url>/2022/09/09/houdini/</url>
     <content><![CDATA[<ul>
@@ -65,59 +118,6 @@
       </categories>
       <tags>
         <tag>-学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Houdini 中for-each 和for-loop 节点</title>
-    <url>/2022/09/13/houdini_foreach/</url>
-    <content><![CDATA[<h1 id="Houdini-中for-each-和for-loop-节点"><a href="#Houdini-中for-each-和for-loop-节点" class="headerlink" title="Houdini 中for-each 和for-loop 节点"></a>Houdini 中for-each 和for-loop 节点</h1><p>学习houdini时间不长，刚入门的时候就一直对foreach的使用比较迷糊，在这里写一篇学习笔记来认识一下这个使用方式，比较基础 。如果有问题，请各位大佬及时补充和指正！</p>
-<hr>
-<h2 id="Houdini中关于循环的节点简介："><a href="#Houdini中关于循环的节点简介：" class="headerlink" title="Houdini中关于循环的节点简介："></a>Houdini中关于循环的节点简介：</h2><p>houdini中一共给了这6个框架：<br><strong>1. for-each Number<br>2. for-each point<br>3. for-each primitive<br>4. for-each connected Piece<br>5. for-each Named Primitive<br>6. for-loop with Feedback</strong></p>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach2.png" alt="foreach2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach1.png" alt="foreach1"><br>（在这里说明我用的是houdini 18之后的版本，如果版本太靠前应该foreach节点跟这个有所出入）</p>
-<ul>
-<li>这个框架它本身的作用就是实现for循环，如果不想用它的框架，也可以自己创建Block begin和Block end来搭建for循环。</li>
-<li>其中，<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>的构造是相似的，使用的方法也是一样的，只是针对的元素不同（点，面，name属性）</li>
-<li><strong>connectivity</strong>是创造了一个class属性，根据class属性处理导入这个元素。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220921233222.png" alt="foreach2"></li>
-<li>数据都是从Block Begin传入，我们中间可以任意添加节点来完成我们想要针对这个元素处理的操作，这个数据给每个元素循环处理后，最终由block end输出。end中可以选择Feedback Each Iteration来显示每一次结果，或者Merge Each Iteration来显示所有结果。</li>
-</ul>
-<h2 id="例子一：随机颜色："><a href="#例子一：随机颜色：" class="headerlink" title="例子一：随机颜色："></a>例子一：随机颜色：</h2><ul>
-<li>针对<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>这四个框架可以做出此示例。</li>
-<li>循环迭代次数不是自动给出的，需要通过Block Begin中的“Create meta import Node来创建；它的detail上会有iteration的参数。若我们希望使用foreach，来达到进入循环的元素被进行的处理或者操作有所变化，那么我们也是通过iteration来实现的。</li>
-</ul>
-<h3 id="for-each-point："><a href="#for-each-point：" class="headerlink" title="for-each point："></a>for-each point：</h3><ul>
-<li>使用vex做一个简单的颜色随机，注意iteration不要写错<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_pt.png" alt="foreach_randCol_pt"></li>
-</ul>
-<h3 id="for-each-primitive："><a href="#for-each-primitive：" class="headerlink" title="for-each primitive："></a>for-each primitive：</h3><ul>
-<li>对于primitive也是完全一样的<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_prim.png" alt="foreach_randCol_prim"></li>
-</ul>
-<h3 id="for-each-connected-Piece："><a href="#for-each-connected-Piece：" class="headerlink" title="for-each connected Piece："></a>for-each connected Piece：</h3><ul>
-<li>对于for-each connected Piece，则是根据它的class属性，处理它连续的元素。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_connPiec.png" alt="foreach_randCol_class"></li>
-</ul>
-<h3 id="for-each-Named-Primitive："><a href="#for-each-Named-Primitive：" class="headerlink" title="for-each Named Primitive："></a>for-each Named Primitive：</h3><ul>
-<li>for-each Named Primitive也是根据name属性来处理元素（属性是在piece attribute上的，可以更改，但必须保持输入输出的是一致的，否则不能匹配）</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_name.png" alt="foreach_randCol_name"></li>
-</ul>
-<h2 id="for-each-Number的用法："><a href="#for-each-Number的用法：" class="headerlink" title="for-each Number的用法："></a>for-each Number的用法：</h2><ul>
-<li>可以看出，它的Block Beginn中的method变成了“Fetch Input”，它的Block end中 Iteration Method变为了“By Count”。 他并不是对每个元素进行处理，而是对他本身进行拷贝，进入循环，它的迭代次数就是它的拷贝次数。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_number.png" alt="foreach_number"></li>
-<li>由上示例，它每次的循环均为它的input，根据iteration的次数来做重复。</li>
-</ul>
-<h2 id="for-Loop的用法："><a href="#for-Loop的用法：" class="headerlink" title="for-Loop的用法："></a>for-Loop的用法：</h2><ul>
-<li>for-loop with Feedback中，它的默认Block Beginn中的method是“Fetch FeedBack”，它的Block end中 Iteration Method是“By Count”；它的Gather Method则默认是Feedback Each Iteration。如果for-each Number是指对本身的元素进行处理，那么for-loop with Feedback就是对循环整体进行处理。</li>
-<li>它是以上一个循环的end的结果作为下一次循环的起点，进行再次循环，一直循环操作我们在循环内设置的指令，直到迭代次数结束。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop.png" alt="forLoop"></li>
-<li>由上图示例，这个rubbertoy朝着x轴正向移动，每次移动单位为1米，循环了五次，移动到现在5米的位置。</li>
-<li>下图是merge each iteration，显示每次循环结果，可以更清晰看出。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop_MergeEachIteration.png" alt="forLoop_MergeEachIteration"></li>
-</ul>
-]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-Houdini节点</tag>
       </tags>
   </entry>
   <entry>
@@ -391,19 +391,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>Houdini湖边小屋学习（一）</title>
-    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
-    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
-<hr>
-<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-PCG</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>3Blue1Brown_线代本质第一章：向量究竟是什么</title>
     <url>/2022/09/22/math_Essense_of_Linear_Algebra_P01/</url>
     <content><![CDATA[<h1 id="3Blue1Brown-线代本质第一章：向量究竟是什么"><a href="#3Blue1Brown-线代本质第一章：向量究竟是什么" class="headerlink" title="3Blue1Brown_线代本质第一章：向量究竟是什么"></a>3Blue1Brown_线代本质第一章：向量究竟是什么</h1><ul>
@@ -515,6 +502,19 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </categories>
       <tags>
         <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Houdini湖边小屋学习（一）</title>
+    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
+    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
+<hr>
+<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-PCG</tag>
       </tags>
   </entry>
   <entry>
@@ -1007,6 +1007,75 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
+    <title>3Blue1Brown_线代本质第九章：基变换</title>
+    <url>/2022/10/03/math_Essense_of_Linear_Algebra_P09/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第九章：基变换"><a href="#3Blue1Brown-线代本质第九章：基变换" class="headerlink" title="3Blue1Brown_线代本质第九章：基变换"></a>3Blue1Brown_线代本质第九章：基变换</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第九章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️基变换："><a href="#✏️基变换：" class="headerlink" title="✏️基变换："></a>✏️基变换：</h2><h3 id="✍️基的选择："><a href="#✍️基的选择：" class="headerlink" title="✍️基的选择："></a>✍️基的选择：</h3><ul>
+<li>发生在向量与一组数之间的任意一种转化，都被称为一个坐标系（coordinate system），而其中两个特殊的向量i帽和j帽，被我们称为这个标准坐标的基向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_01.png" alt="基变换_01"></li>
+<li>如上图所示，如果使用另一组不同的基向量，分别称之为b1和b2，它的第一个基向量b1指向右上方，第二个基向量b2指向左上方。如果在这个变换中，用坐标（5&#x2F;3.1&#x2F;3）来描述它，这意味着，根据他的两个基向量，获得那个向量的方法是b1乘以5&#x2F;3,b2乘以1&#x2F;3,再将两个结果相加。</li>
+<li>总之，无论何时，我们用坐标来描述一个向量，将第一个坐标乘以b1，第二个坐标乘以b2，然后将两者相加，他最终得到的向量 ，会和我们认为的相同坐标的向量完全不同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_02.png" alt="基变换_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_03.png" alt="基变换_03"></li>
+<li>如上图两个向量的表示方法看出，虽然我们都在关注空间中同一个向量，但可以用不同的语言（空间）和数字来描述它，使得结果大不相同。</li>
+<li>如果我们使用普通的坐标系，并用方形网格表示单位，那么<strong>这些网格只是提供了一个可视化坐标系的途径，因此，它依赖我们对基的选择。因为在空间中，本身是没有网格的</strong>。</li>
+<li><strong>如果用不同的方式绘制这个网格，它同样是一个框架，也只不过是有助于用另一种方式理解坐标含义的可视化工具。</strong></li>
+<li>但是无论如何绘制这个网格，<strong>大家的原点总会是在（0，0），因此大家的原点是重合的。</strong> 它就是任何向量乘以0时你所得到的坐标。</li>
+<li>但是，其他方式绘制的坐标轴的方向与网格间距有所不同，这依赖于它对基的选择。</li>
+</ul>
+<hr>
+<h3 id="✍️如何在不同的坐标系之间进行转化？："><a href="#✍️如何在不同的坐标系之间进行转化？：" class="headerlink" title="✍️如何在不同的坐标系之间进行转化？："></a>✍️如何在不同的坐标系之间进行转化？：</h3><ul>
+<li>一旦你将矩阵向量乘法理解为应用一个特定的线性变换，就会有一种非常直观的方法来考虑这里发生的事。</li>
+<li>一个矩阵列为某个特殊的基向量时，这个矩阵可以看作一个线性变换，它将我们的基向量i帽和j帽，也就是我们眼中的（1，0）和（0，1），变换为那个特殊的基向量，也就是特殊被重新定义的（1，0）和（0，1）.</li>
+<li>变换后的向量仍旧时相同的线性组合，不过使用的时新的基向量。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_04.png" alt="基变换_04"></li>
+</ul>
+<hr>
+<h3 id="✍️逆（Inverse）："><a href="#✍️逆（Inverse）：" class="headerlink" title="✍️逆（Inverse）："></a>✍️逆（Inverse）：</h3><ul>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_05.png" alt="基变换_05"></li>
+<li>一个变换的逆是一个新的变换，它将所选的变换逆向进行。实践当中，尤其是在超过二维空间中研究时，你可以用计算机来计算矩阵的逆。</li>
+<li>如果想知道一个矩阵变换的逆，那我们用这个基变换矩阵的逆乘以我们所使用的向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86_01.png" alt="基变换矩阵的逆_01"></li>
+<li>以上就是如何在坐标系之间对单个向量的描述进行相互转化。</li>
+<li>一个矩阵代表的是一个特殊的基向量，却用我们的坐标来描述；对于一个向量，这个矩阵将它的语言描述转化为我们的语言描述。</li>
+<li>逆矩阵则与之相反。</li>
+<li>向量并不是唯一用坐标表示的东西</li>
+</ul>
+<hr>
+<ul>
+<li>考虑某个线性变换，譬如逆时针旋转90度；用矩阵代表它的时候，我们是在跟踪i帽和j帽的去向；i帽变换后坐标是（0，1），j帽变换后坐标是（-1，0）；这些坐标也就成为了矩阵的列。</li>
+<li>但是这种表示与我们对基向量的选择密切相关，因为我们跟踪的是i帽和j帽，并且是在我们自己的坐标系中记录着他们的去向。</li>
+</ul>
+<h3 id="✍️如何转化一个矩阵？："><a href="#✍️如何转化一个矩阵？：" class="headerlink" title="✍️如何转化一个矩阵？："></a>✍️如何转化一个矩阵？：</h3><blockquote>
+<p>注：以下描述的我们的语言是我们使用的语言，代表我们使用的基向量和坐标系；另一种语言表述的变换暂用詹妮弗的语言代替，詹妮弗跟我们使用不同的坐标系和基向量。</p>
+</blockquote>
+<ol>
+<li>我们从詹妮弗的语言描述的任意向量出发。</li>
+<li>首先，我们不用它的语言描述这一过程，而是用基变换矩阵，转化为用我们的语言描述。这个矩阵的列代表是用我们的语言描述她的基向量。此时给出的是同一个向量，只不过是用我们的语言描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_01.png" alt="如何转化一个矩阵_01"></li>
+<li>然后，将所得结果左乘线性变换矩阵；此时给出的是变换后的向量，但仍然是我们的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_02.png" alt="如何转化一个矩阵_02"></li>
+<li>最后一步，像之前一样将所的结果左乘基变换矩阵的逆，从而得到变换后的向量，然而使用詹妮弗的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_03.png" alt="如何转化一个矩阵_03"></li>
+</ol>
+<ul>
+<li>因为我们能够对詹妮弗语言描述的任一向量做同样的事情，首先应用基变换，然后应用线性变换，最后应用基变换的逆。这三个矩阵的复合给出的就是用詹妮弗语言买哦书店线性变换矩阵。它接收由詹妮弗语言描述的向量。，并输出用詹妮弗语言描述的变换后的向量。</li>
+<li>所以如果詹妮弗用这个计算结果的矩阵与她坐标系中的一个向量相乘，结果就是在她坐标系中描述该向量旋转90度的结果。</li>
+</ul>
+<hr>
+<h3 id="✍️总结："><a href="#✍️总结：" class="headerlink" title="✍️总结："></a>✍️总结：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%AD%A6%E4%B8%8A%E7%9A%84%E8%BD%AC%E7%A7%BB%E4%BD%9C%E7%94%A8.png" alt="数学上的转移作用"></p>
+<ul>
+<li>每当你看到这样一个表达式：A逆乘以M乘以A，这就暗示着一种数学上的转移作用。中间的矩阵代表一种你所见的变换，而外侧两个矩阵代表着转移作用，也就是视角上的转化。矩阵乘积任然代表着同一个变换，只不过是从其他人的角度来看的。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>3Blue1Brown_线代本质第八章：叉积的标准介绍</title>
     <url>/2022/10/03/math_Essense_of_Linear_Algebra_P08/</url>
     <content><![CDATA[<h1 id="3Blue1Brown-线代本质第八章：叉积的标准介绍"><a href="#3Blue1Brown-线代本质第八章：叉积的标准介绍" class="headerlink" title="3Blue1Brown_线代本质第八章：叉积的标准介绍"></a>3Blue1Brown_线代本质第八章：叉积的标准介绍</h1><ul>
@@ -1091,65 +1160,74 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>3Blue1Brown_线代本质第九章：基变换</title>
-    <url>/2022/10/03/math_Essense_of_Linear_Algebra_P09/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第九章：基变换"><a href="#3Blue1Brown-线代本质第九章：基变换" class="headerlink" title="3Blue1Brown_线代本质第九章：基变换"></a>3Blue1Brown_线代本质第九章：基变换</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第九章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+    <title>3Blue1Brown_线代本质第十章：特征向量与特征值</title>
+    <url>/2022/10/06/math_Essense_of_Linear_Algebra_P10/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十章：特征向量与特征值"><a href="#3Blue1Brown-线代本质第十章：特征向量与特征值" class="headerlink" title="3Blue1Brown_线代本质第十章：特征向量与特征值"></a>3Blue1Brown_线代本质第十章：特征向量与特征值</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第十章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
 <li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
 <li>官方一共将此系列分为12节，所以我也会分开写。</li>
 <li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
 <li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
 </ul>
 <hr>
-<h2 id="✏️基变换："><a href="#✏️基变换：" class="headerlink" title="✏️基变换："></a>✏️基变换：</h2><h3 id="✍️基的选择："><a href="#✍️基的选择：" class="headerlink" title="✍️基的选择："></a>✍️基的选择：</h3><ul>
-<li>发生在向量与一组数之间的任意一种转化，都被称为一个坐标系（coordinate system），而其中两个特殊的向量i帽和j帽，被我们称为这个标准坐标的基向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_01.png" alt="基变换_01"></li>
-<li>如上图所示，如果使用另一组不同的基向量，分别称之为b1和b2，它的第一个基向量b1指向右上方，第二个基向量b2指向左上方。如果在这个变换中，用坐标（5&#x2F;3.1&#x2F;3）来描述它，这意味着，根据他的两个基向量，获得那个向量的方法是b1乘以5&#x2F;3,b2乘以1&#x2F;3,再将两个结果相加。</li>
-<li>总之，无论何时，我们用坐标来描述一个向量，将第一个坐标乘以b1，第二个坐标乘以b2，然后将两者相加，他最终得到的向量 ，会和我们认为的相同坐标的向量完全不同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_02.png" alt="基变换_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_03.png" alt="基变换_03"></li>
-<li>如上图两个向量的表示方法看出，虽然我们都在关注空间中同一个向量，但可以用不同的语言（空间）和数字来描述它，使得结果大不相同。</li>
-<li>如果我们使用普通的坐标系，并用方形网格表示单位，那么<strong>这些网格只是提供了一个可视化坐标系的途径，因此，它依赖我们对基的选择。因为在空间中，本身是没有网格的</strong>。</li>
-<li><strong>如果用不同的方式绘制这个网格，它同样是一个框架，也只不过是有助于用另一种方式理解坐标含义的可视化工具。</strong></li>
-<li>但是无论如何绘制这个网格，<strong>大家的原点总会是在（0，0），因此大家的原点是重合的。</strong> 它就是任何向量乘以0时你所得到的坐标。</li>
-<li>但是，其他方式绘制的坐标轴的方向与网格间距有所不同，这依赖于它对基的选择。</li>
+<h2 id="✏️特征向量与特征值（Eigenvectors-and-Eigenvalues）："><a href="#✏️特征向量与特征值（Eigenvectors-and-Eigenvalues）：" class="headerlink" title="✏️特征向量与特征值（Eigenvectors and Eigenvalues）："></a>✏️特征向量与特征值（Eigenvectors and Eigenvalues）：</h2><h3 id="✍️举例描述："><a href="#✍️举例描述：" class="headerlink" title="✍️举例描述："></a>✍️举例描述：</h3><ul>
+<li>首先，考虑二维空间中的某个线性变换，它将基向量i帽变换到坐标（3，0），j帽变换到坐标（1，2）。 我们关注它对一个特定向量的作用，并且考虑这个向量张成的空间，也就是通过原点和向量尖端的直线。大部分向量在变换中都离开了其张成的空间，意思是如果向量正好落在这条直线上，感觉更像是巧合。不过，某些特殊向量的确留在它们张成的空间里，与i围着矩阵对他的作用仅仅是拉伸或者压缩而已，如同一个标量。</li>
+<li>在上文提到的变换中，基向量i帽就是这样一个特殊向量；i帽张成的空间是x轴，从矩阵的第一列看出，i帽变成了原来的三倍，但任然留在x轴上。</li>
+<li>此外因为线性变换的性质，x轴上的任何其他向量都只是被拉伸为原来的三倍，因此也就留在它们张成的空间里。</li>
+<li>有一个略显隐蔽的向量（-1，1），它在变换中也留在自己张成的空间里；它最终被拉伸为原来的两倍。同上，线性性质暗示着一点，处在他所张成的对角线上的其他任何一个向量也仅仅被拉伸为原来的两倍。</li>
+<li>对这个变换而言，以上就是所拥有这一特殊性质（留在它们张成的空间里）的向量。x轴上的向量被拉伸为原来的三倍，而对角线上的向量被拉伸为原来的两倍。任何其他向量在变换中都有或多或少的旋转，从而离开它张成的直线。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_01.png" alt="特征向量_01"></li>
+<li><strong>这些特殊的向量就被称为变换的“特征向量”；每个特征向量都有一个所属的值，被称为“特征值”，即衡量特征向量在变换中拉伸或压缩比例的因子。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_02.png" alt="特征向量_02"></li>
 </ul>
 <hr>
-<h3 id="✍️如何在不同的坐标系之间进行转化？："><a href="#✍️如何在不同的坐标系之间进行转化？：" class="headerlink" title="✍️如何在不同的坐标系之间进行转化？："></a>✍️如何在不同的坐标系之间进行转化？：</h3><ul>
-<li>一旦你将矩阵向量乘法理解为应用一个特定的线性变换，就会有一种非常直观的方法来考虑这里发生的事。</li>
-<li>一个矩阵列为某个特殊的基向量时，这个矩阵可以看作一个线性变换，它将我们的基向量i帽和j帽，也就是我们眼中的（1，0）和（0，1），变换为那个特殊的基向量，也就是特殊被重新定义的（1，0）和（0，1）.</li>
-<li>变换后的向量仍旧时相同的线性组合，不过使用的时新的基向量。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_04.png" alt="基变换_04"></li>
+<h3 id="✍️特征值可以为负吗？："><a href="#✍️特征值可以为负吗？：" class="headerlink" title="✍️特征值可以为负吗？："></a>✍️特征值可以为负吗？：</h3><ul>
+<li>可以，并且与特征值为正的情况下并无差别。</li>
+<li>举个例子，你有一个特征值-1&#x2F;2的特征向量，意味着这给个向量被反向，并且被压缩成原来的一半。但是重点在于，它停留在它张成的直线上，并未发生旋转。</li>
+<li>考虑一个三维空间中的旋转，如果你能找到这个旋转的特征向量，也就是留在他张成空间里的向量，那么你找到的就是旋转轴（axis of rotation）。而且把一个三维旋转看成绕某个轴旋转一定角度，要比考虑相应的3x3矩阵直观的多。顺带一提，在这种情况下，相应的特征值必须为1，因为旋转并不缩放任何一个向量，所以向量的长度保持不变。</li>
+<li>对于任意矩阵描述的线性变换，你可以通过将矩阵的列看作变换后的基向量来理解它。但是理解线性变换作用的关键往往是较少依赖于你的特定坐标系；更好的方法是求出它的特征向量和特征值。</li>
 </ul>
 <hr>
-<h3 id="✍️逆（Inverse）："><a href="#✍️逆（Inverse）：" class="headerlink" title="✍️逆（Inverse）："></a>✍️逆（Inverse）：</h3><ul>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_05.png" alt="基变换_05"></li>
-<li>一个变换的逆是一个新的变换，它将所选的变换逆向进行。实践当中，尤其是在超过二维空间中研究时，你可以用计算机来计算矩阵的逆。</li>
-<li>如果想知道一个矩阵变换的逆，那我们用这个基变换矩阵的逆乘以我们所使用的向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86_01.png" alt="基变换矩阵的逆_01"></li>
-<li>以上就是如何在坐标系之间对单个向量的描述进行相互转化。</li>
-<li>一个矩阵代表的是一个特殊的基向量，却用我们的坐标来描述；对于一个向量，这个矩阵将它的语言描述转化为我们的语言描述。</li>
-<li>逆矩阵则与之相反。</li>
-<li>向量并不是唯一用坐标表示的东西</li>
+<h3 id="✍️计算思想："><a href="#✍️计算思想：" class="headerlink" title="✍️计算思想："></a>✍️计算思想：</h3><ul>
+<li>用符号表示的话，下图所示就是特征向量的概念。A是代表某个变换的矩阵，v是特征向量；λ（lambda）是一个数，也就是对应的特征值。</li>
+<li>这个等式也就是说：矩阵向量乘积，也就是A乘以v，等于特征向量v乘以某个数λ。</li>
+<li>因此求解矩阵A的特征向量和特征值，实际上就是求解使得这个等式成立的向量v和数λ。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_01.png" alt="特征向量_计算_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_02.png" alt="特征向量_计算_02"></li>
+<li>等号左侧代表的是矩阵向量乘积，但是等号右侧代表的是向量数乘。所以我们首先将等号右侧重写为某个矩阵向量乘积，其中，矩阵的作用效果是将任一向量乘以λ；这个矩阵的列代表着变换后的基向量，而每个基向量仅仅与λ相乘。所以这个矩阵的对角元素均为λ，而其余位置都是0。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_03.png" alt="特征向量_计算_03"></li>
+<li>通常的书写方式是提出因子λ，写作λ乘以I，这里的I就是单位矩阵，对角元均为1；现在两侧就都是矩阵向量乘积的形式。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_04.png" alt="特征向量_计算_04"></li>
 </ul>
 <hr>
 <ul>
-<li>考虑某个线性变换，譬如逆时针旋转90度；用矩阵代表它的时候，我们是在跟踪i帽和j帽的去向；i帽变换后坐标是（0，1），j帽变换后坐标是（-1，0）；这些坐标也就成为了矩阵的列。</li>
-<li>但是这种表示与我们对基向量的选择密切相关，因为我们跟踪的是i帽和j帽，并且是在我们自己的坐标系中记录着他们的去向。</li>
-</ul>
-<h3 id="✍️如何转化一个矩阵？："><a href="#✍️如何转化一个矩阵？：" class="headerlink" title="✍️如何转化一个矩阵？："></a>✍️如何转化一个矩阵？：</h3><blockquote>
-<p>注：以下描述的我们的语言是我们使用的语言，代表我们使用的基向量和坐标系；另一种语言表述的变换暂用詹妮弗的语言代替，詹妮弗跟我们使用不同的坐标系和基向量。</p>
-</blockquote>
-<ol>
-<li>我们从詹妮弗的语言描述的任意向量出发。</li>
-<li>首先，我们不用它的语言描述这一过程，而是用基变换矩阵，转化为用我们的语言描述。这个矩阵的列代表是用我们的语言描述她的基向量。此时给出的是同一个向量，只不过是用我们的语言描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_01.png" alt="如何转化一个矩阵_01"></li>
-<li>然后，将所得结果左乘线性变换矩阵；此时给出的是变换后的向量，但仍然是我们的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_02.png" alt="如何转化一个矩阵_02"></li>
-<li>最后一步，像之前一样将所的结果左乘基变换矩阵的逆，从而得到变换后的向量，然而使用詹妮弗的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_03.png" alt="如何转化一个矩阵_03"></li>
-</ol>
-<ul>
-<li>因为我们能够对詹妮弗语言描述的任一向量做同样的事情，首先应用基变换，然后应用线性变换，最后应用基变换的逆。这三个矩阵的复合给出的就是用詹妮弗语言买哦书店线性变换矩阵。它接收由詹妮弗语言描述的向量。，并输出用詹妮弗语言描述的变换后的向量。</li>
-<li>所以如果詹妮弗用这个计算结果的矩阵与她坐标系中的一个向量相乘，结果就是在她坐标系中描述该向量旋转90度的结果。</li>
+<li>如下图所示，此时，我们就能将等号右侧的东西移到左侧，然后提出因子v。现在我们得到的是一个新的矩阵：A减去λ乘以单位矩阵。我们就寻找一个向量v，使得这个新矩阵与v相乘结果为零向量。如果v本身就是零向量的话，这个等式恒成立，但这没什么意思，因为我们希望的是一个非零特征向量；所以我们寻找的是一个det（A-λI）&#x3D; 0 的情况。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_05.png" alt="特征向量_计算_05"></li>
+<li>所以，<strong>空间压缩，对应的就是矩阵的行列式为零的情况</strong>。举个例子，假设你有一个矩阵，列为（2，1）和（2，3），考虑每个对角元都减去某个变量λ；然后逐渐调整λ的值，当λ的值改变时，矩阵本身发生改变，因此行列式也在改变。目标在于找到一个λ使得这个行列式为零。也就是说调整后的变换将空间压缩到一个更低的维度上。在这个列子中，λ等于1时恰到好处。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_06.png" alt="特征向量_计算_06"></li>
+<li>当然，如果选择其他矩阵，那特征值不一定是1，λ就需要取其他的值来使行列式为零。</li>
+<li>当λ等于1时，A减去λ乘以单位矩阵将空间压缩到一条直线上，这意味着存在一个非零向量v，使得A减去λ乘以单位矩阵的结果乘以v等于零向量。记住一点就是：我们关注它是因为它意味着A乘以v等于λ乘以v。也就是说向量v是A的一个特征向量，在变换中停留在它张成的空间里。</li>
+<li>在上述的例子中，v对应的特征值是1，所以它实际上保持不变。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_07.png" alt="特征向量_计算_07"></li>
 </ul>
 <hr>
-<h3 id="✍️总结："><a href="#✍️总结：" class="headerlink" title="✍️总结："></a>✍️总结：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%AD%A6%E4%B8%8A%E7%9A%84%E8%BD%AC%E7%A7%BB%E4%BD%9C%E7%94%A8.png" alt="数学上的转移作用"></p>
+<h4 id="二维线性变换不一定有特征向量："><a href="#二维线性变换不一定有特征向量：" class="headerlink" title="二维线性变换不一定有特征向量："></a>二维线性变换不一定有特征向量：</h4><ul>
+<li>举例来说，想象一个90度旋转，它并没有特征向量，因为每一个向量都发生了旋转并离开了其张成的空间。</li>
+</ul>
+<h4 id="只有一个特征值，但是特征向量不止在一条直线上："><a href="#只有一个特征值，但是特征向量不止在一条直线上：" class="headerlink" title="只有一个特征值，但是特征向量不止在一条直线上："></a>只有一个特征值，但是特征向量不止在一条直线上：</h4><ul>
+<li>一个简单的例子：将所有向量变为两倍的矩阵，唯一的特征值是2，但是平面内每一个向量都是属于这个特征值的特征向量。</li>
+</ul>
+<hr>
+<h2 id="✏️特征基（Eigenbasis）："><a href="#✏️特征基（Eigenbasis）：" class="headerlink" title="✏️特征基（Eigenbasis）："></a>✏️特征基（Eigenbasis）：</h2><h4 id="如果基向量恰好是特征向量，会发生什么？"><a href="#如果基向量恰好是特征向量，会发生什么？" class="headerlink" title="如果基向量恰好是特征向量，会发生什么？"></a>如果基向量恰好是特征向量，会发生什么？</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%9F%BA_01.png" alt="特征基_01"></p>
 <ul>
-<li>每当你看到这样一个表达式：A逆乘以M乘以A，这就暗示着一种数学上的转移作用。中间的矩阵代表一种你所见的变换，而外侧两个矩阵代表着转移作用，也就是视角上的转化。矩阵乘积任然代表着同一个变换，只不过是从其他人的角度来看的。</li>
+<li>如上图所示，比如说，可能i帽变为原来的（-1）倍，j帽变为原来的2倍；将它们的新坐标作为矩阵的列，注意它们的倍数-1和2，也就是i帽和j帽所属的特征值，位于矩阵的对角线上，而其他的元素均为0。</li>
+<li>除了对角元素以外其他元素均为0的矩阵被称为<strong>对角矩阵</strong>（Diagonal Matrix）。解读它的方法是，所有的基向量都是特征向量。矩阵的对角元是它们所属的特征值。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5.png" alt="对角矩阵"></li>
+<li>对角矩阵在很多方面都更容易处理，其中一个重要方面是，矩阵与自己多次相乘的结果更容易计算；因为对角矩阵仅仅让基向量与某个特征值相乘，所以多次应用矩阵乘法，比如一百次，也只是将每个基向量与对应特征值的一百次幂相乘。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png" alt="对角矩阵乘法"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95_02.png" alt="对角矩阵乘法_02"></li>
+<li>相比之下，尝试计算一个非对角矩阵的一百次幂，就很不容易。</li>
+</ul>
+<hr>
+<ul>
+<li>我们知道了特征向量的计算更为简便，所以可以通过变换坐标系，使得特征向量就是基向量，并用特征向量作为基。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5_01.png" alt="基变换矩阵_01"></li>
+<li>取出你想用做新基的向量的坐标，在这里指的是两个特征向量，然后将坐标作为一个矩阵的列，这个矩阵就是<strong>基变换矩阵</strong>，在右侧写下基变换矩阵，在左侧写下基变换矩阵的逆，当你将原始的变换夹在两个矩阵中间时，所得的矩阵代表队是同一个变换，不过是从新基向量所构成的坐标系的角度来看的。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5_02.png" alt="基变换矩阵_02"></li>
+<li>用特征向量来完成这件事的意义在于，这个新矩必然是对角的，并且对角元为对应的特征值。这是因为，他所处的坐标系的基向量在变换中只进行了缩放。</li>
+<li><strong>一组基向量（同样是特征向量）构成的集合被称为一组“特征基”</strong>，这也非常合理。</li>
+<li>所以说，如果你要计算这个矩阵的一百次幂，一种更容易的做法是先变换到特征基，在那个坐标系中计算一百次幂之后，再转换回标准坐标系。</li>
+</ul>
+<h3 id="✍️并非所有矩阵都可以对角化"><a href="#✍️并非所有矩阵都可以对角化" class="headerlink" title="✍️并非所有矩阵都可以对角化"></a>✍️并非所有矩阵都可以对角化</h3><ul>
+<li>切记，并不是所有变换都能进行这一过程，并非所有矩阵都可以对角化。</li>
+<li>比如剪切变换，它的特征向量不够多，并不能张成全空间。</li>
+<li>如果你能找到一组特征基（能张成全空间的特征向量），矩阵运算就会变得非常轻松。</li>
 </ul>
 ]]></content>
       <categories>
@@ -1308,81 +1386,88 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>3Blue1Brown_线代本质第十章：特征向量与特征值</title>
-    <url>/2022/10/06/math_Essense_of_Linear_Algebra_P10/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十章：特征向量与特征值"><a href="#3Blue1Brown-线代本质第十章：特征向量与特征值" class="headerlink" title="3Blue1Brown_线代本质第十章：特征向量与特征值"></a>3Blue1Brown_线代本质第十章：特征向量与特征值</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第十章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+    <title>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</title>
+    <url>/2022/10/08/math_Essense_of_Linear_Algebra_P12/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释"><a href="#3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释" class="headerlink" title="3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释"></a>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第十二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>《<strong>线代本质》的内容在我的第十一章的笔记就是完结篇，这篇第十二章《克莱姆法则，几何解释》由于官方账号发在一起了，所以我也当作这个系列一起写了</strong></li>
 <li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
 <li>官方一共将此系列分为12节，所以我也会分开写。</li>
 <li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
 <li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
 </ul>
 <hr>
-<h2 id="✏️特征向量与特征值（Eigenvectors-and-Eigenvalues）："><a href="#✏️特征向量与特征值（Eigenvectors-and-Eigenvalues）：" class="headerlink" title="✏️特征向量与特征值（Eigenvectors and Eigenvalues）："></a>✏️特征向量与特征值（Eigenvectors and Eigenvalues）：</h2><h3 id="✍️举例描述："><a href="#✍️举例描述：" class="headerlink" title="✍️举例描述："></a>✍️举例描述：</h3><ul>
-<li>首先，考虑二维空间中的某个线性变换，它将基向量i帽变换到坐标（3，0），j帽变换到坐标（1，2）。 我们关注它对一个特定向量的作用，并且考虑这个向量张成的空间，也就是通过原点和向量尖端的直线。大部分向量在变换中都离开了其张成的空间，意思是如果向量正好落在这条直线上，感觉更像是巧合。不过，某些特殊向量的确留在它们张成的空间里，与i围着矩阵对他的作用仅仅是拉伸或者压缩而已，如同一个标量。</li>
-<li>在上文提到的变换中，基向量i帽就是这样一个特殊向量；i帽张成的空间是x轴，从矩阵的第一列看出，i帽变成了原来的三倍，但任然留在x轴上。</li>
-<li>此外因为线性变换的性质，x轴上的任何其他向量都只是被拉伸为原来的三倍，因此也就留在它们张成的空间里。</li>
-<li>有一个略显隐蔽的向量（-1，1），它在变换中也留在自己张成的空间里；它最终被拉伸为原来的两倍。同上，线性性质暗示着一点，处在他所张成的对角线上的其他任何一个向量也仅仅被拉伸为原来的两倍。</li>
-<li>对这个变换而言，以上就是所拥有这一特殊性质（留在它们张成的空间里）的向量。x轴上的向量被拉伸为原来的三倍，而对角线上的向量被拉伸为原来的两倍。任何其他向量在变换中都有或多或少的旋转，从而离开它张成的直线。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_01.png" alt="特征向量_01"></li>
-<li><strong>这些特殊的向量就被称为变换的“特征向量”；每个特征向量都有一个所属的值，被称为“特征值”，即衡量特征向量在变换中拉伸或压缩比例的因子。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_02.png" alt="特征向量_02"></li>
+<h2 id="✏️克莱姆法则，几何解释："><a href="#✏️克莱姆法则，几何解释：" class="headerlink" title="✏️克莱姆法则，几何解释："></a>✏️克莱姆法则，几何解释：</h2><h3 id="✍️克莱姆法则以及背后的几何原理："><a href="#✍️克莱姆法则以及背后的几何原理：" class="headerlink" title="✍️克莱姆法则以及背后的几何原理："></a>✍️克莱姆法则以及背后的几何原理：</h3><ul>
+<li><strong>克莱姆法则是线性代数中一个关于求解线性方程组的定理。它适用于变量和方程数目相等的线性方程组。</strong></li>
+<li>克莱姆法则并不是计算线性方程组最好的方法，比如高斯消元法（Gaussian Elimination）会算的更快。这一部分内容就可以当作是扩展视野，它会帮你加深对线性方程组的理解。</li>
+<li>在知道了这方面的知识后，你就会发现行列式或者线性方程组，这些知识都非常相关。</li>
+<li><strong>举例来说：这里有x和y两个未知数和两个方程，原则上来说，只要未知数和方程个数一样，我们所说的都适用。</strong></li>
+<li><strong>目前，我们将只讨论非零行列式的情况。这意味着线性变换后不改变维数。每个输入向量有且仅有一个输出向量；且每一个输出向量也仅对应一个输入向量。</strong></li>
 </ul>
 <hr>
-<h3 id="✍️特征值可以为负吗？："><a href="#✍️特征值可以为负吗？：" class="headerlink" title="✍️特征值可以为负吗？："></a>✍️特征值可以为负吗？：</h3><ul>
-<li>可以，并且与特征值为正的情况下并无差别。</li>
-<li>举个例子，你有一个特征值-1&#x2F;2的特征向量，意味着这给个向量被反向，并且被压缩成原来的一半。但是重点在于，它停留在它张成的直线上，并未发生旋转。</li>
-<li>考虑一个三维空间中的旋转，如果你能找到这个旋转的特征向量，也就是留在他张成空间里的向量，那么你找到的就是旋转轴（axis of rotation）。而且把一个三维旋转看成绕某个轴旋转一定角度，要比考虑相应的3x3矩阵直观的多。顺带一提，在这种情况下，相应的特征值必须为1，因为旋转并不缩放任何一个向量，所以向量的长度保持不变。</li>
-<li>对于任意矩阵描述的线性变换，你可以通过将矩阵的列看作变换后的基向量来理解它。但是理解线性变换作用的关键往往是较少依赖于你的特定坐标系；更好的方法是求出它的特征向量和特征值。</li>
+<h3 id="✍️正交变换（Orthonormal）："><a href="#✍️正交变换（Orthonormal）：" class="headerlink" title="✍️正交变换（Orthonormal）："></a>✍️正交变换（Orthonormal）：</h3><ul>
+<li>那些不改变点积的矩阵变换有一个特殊的名字：“正交变换”（Orthonormal）。它们使基向量在变化后依然保持单位长度且互相垂直。</li>
+<li>可以想象成是旋转矩阵，相当于刚体运动，没有拉伸，压缩或者变形。</li>
+<li>用正交矩阵来求解线性系统非常简单，因为点积保持不变，所以已知的输出向量和矩阵的列向量的点积，分别等同于未知输入向量和各个基向量的点积。也就是输入向量的每一个坐标。</li>
+<li>因此，在特殊情况下，x等于第一列向量已知向量的点积，y等于第二列向量与已知向量的点积。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2.png" alt="正交变换"></li>
+<li>注意：这个思路对于大多数线性方程组都不成立，但是他给了我们一个方向去思考：有没有另一种对输入向量坐标值的几何解释，能在矩阵变换后保持不变呢？</li>
 </ul>
 <hr>
-<h3 id="✍️计算思想："><a href="#✍️计算思想：" class="headerlink" title="✍️计算思想："></a>✍️计算思想：</h3><ul>
-<li>用符号表示的话，下图所示就是特征向量的概念。A是代表某个变换的矩阵，v是特征向量；λ（lambda）是一个数，也就是对应的特征值。</li>
-<li>这个等式也就是说：矩阵向量乘积，也就是A乘以v，等于特征向量v乘以某个数λ。</li>
-<li>因此求解矩阵A的特征向量和特征值，实际上就是求解使得这个等式成立的向量v和数λ。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_01.png" alt="特征向量_计算_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_02.png" alt="特征向量_计算_02"></li>
-<li>等号左侧代表的是矩阵向量乘积，但是等号右侧代表的是向量数乘。所以我们首先将等号右侧重写为某个矩阵向量乘积，其中，矩阵的作用效果是将任一向量乘以λ；这个矩阵的列代表着变换后的基向量，而每个基向量仅仅与λ相乘。所以这个矩阵的对角元素均为λ，而其余位置都是0。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_03.png" alt="特征向量_计算_03"></li>
-<li>通常的书写方式是提出因子λ，写作λ乘以I，这里的I就是单位矩阵，对角元均为1；现在两侧就都是矩阵向量乘积的形式。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_04.png" alt="特征向量_计算_04"></li>
+<h4 id="在二维空间中："><a href="#在二维空间中：" class="headerlink" title="在二维空间中："></a>在二维空间中：</h4><ul>
+<li>如果逆非常熟悉行列式，你可能会想到一个很棒的想法：这个由第一个基向量i和位置的输入向量[x；y]组成的平行四边形；面积是长度为1的底，乘上与底边垂直的高（也就是输入向量y的坐标值）。</li>
+<li>因此，我们拐了一个弯，用这个平行四边形的面积来表示y值。</li>
+<li>更准确的说，你应该考虑这个平行四边形的有向面积。如下图所示。</li>
+<li>正如行列式的那样，如果向量y的坐标为负，那么四边形的面积也为负。前提是你把基向量i放在第一位来定义平行四边形。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E7%9A%84%E6%9C%89%E5%90%91%E9%9D%A2%E7%A7%AF.png" alt="平行四边形的有向面积"></li>
+<li>同样，观察由未知的输入向量和第二基向量j组成的平行四边形；它的面积等于向量的x坐标。</li>
+<li>用这种方式表示x的值也有点奇怪。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E7%9A%84%E6%9C%89%E5%90%91%E9%9D%A2%E7%A7%AF%EF%BC%88%E4%BB%A5j%E4%B8%BA%E5%BA%95%EF%BC%89.png" alt="平行四边形的有向面积（以j为底）"></li>
 </ul>
 <hr>
+<h4 id="在三维空间中："><a href="#在三维空间中：" class="headerlink" title="在三维空间中："></a>在三维空间中：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%85%AD%E9%9D%A2%E4%BD%93%E9%9D%A2%E7%A7%AF.png" alt="平行六面体面积"></p>
 <ul>
-<li>如下图所示，此时，我们就能将等号右侧的东西移到左侧，然后提出因子v。现在我们得到的是一个新的矩阵：A减去λ乘以单位矩阵。我们就寻找一个向量v，使得这个新矩阵与v相乘结果为零向量。如果v本身就是零向量的话，这个等式恒成立，但这没什么意思，因为我们希望的是一个非零特征向量；所以我们寻找的是一个det（A-λI）&#x3D; 0 的情况。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_05.png" alt="特征向量_计算_05"></li>
-<li>所以，<strong>空间压缩，对应的就是矩阵的行列式为零的情况</strong>。举个例子，假设你有一个矩阵，列为（2，1）和（2，3），考虑每个对角元都减去某个变量λ；然后逐渐调整λ的值，当λ的值改变时，矩阵本身发生改变，因此行列式也在改变。目标在于找到一个λ使得这个行列式为零。也就是说调整后的变换将空间压缩到一个更低的维度上。在这个列子中，λ等于1时恰到好处。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_06.png" alt="特征向量_计算_06"></li>
-<li>当然，如果选择其他矩阵，那特征值不一定是1，λ就需要取其他的值来使行列式为零。</li>
-<li>当λ等于1时，A减去λ乘以单位矩阵将空间压缩到一条直线上，这意味着存在一个非零向量v，使得A减去λ乘以单位矩阵的结果乘以v等于零向量。记住一点就是：我们关注它是因为它意味着A乘以v等于λ乘以v。也就是说向量v是A的一个特征向量，在变换中停留在它张成的空间里。</li>
-<li>在上述的例子中，v对应的特征值是1，所以它实际上保持不变。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_07.png" alt="特征向量_计算_07"></li>
+<li>考虑向量与另外两个基向量i和j所组成的平行六面体，底面是由基向量i和j组成的正方形，面积是1；所以他的体积等于它的高，也就是我们这个向量的z坐标。</li>
+<li>同样的，用这个奇怪的方法来描述向量在某一个轴上的坐标值，可以先考虑向量，和除了这个轴紫外的两个基向量组成的平行六面体。然后其体积就是对应的坐标值。</li>
+<li>另外，我们可以讨论平行六面体的有向体积，就是之前在行列式中提到过的右手法则。这时，你列出的这三个向量的顺序就很重要了。这样就表明坐标的正负性也是有意义的。</li>
 </ul>
 <hr>
-<h4 id="二维线性变换不一定有特征向量："><a href="#二维线性变换不一定有特征向量：" class="headerlink" title="二维线性变换不一定有特征向量："></a>二维线性变换不一定有特征向量：</h4><ul>
-<li>举例来说，想象一个90度旋转，它并没有特征向量，因为每一个向量都发生了旋转并离开了其张成的空间。</li>
-</ul>
-<h4 id="只有一个特征值，但是特征向量不止在一条直线上："><a href="#只有一个特征值，但是特征向量不止在一条直线上：" class="headerlink" title="只有一个特征值，但是特征向量不止在一条直线上："></a>只有一个特征值，但是特征向量不止在一条直线上：</h4><ul>
-<li>一个简单的例子：将所有向量变为两倍的矩阵，唯一的特征值是2，但是平面内每一个向量都是属于这个特征值的特征向量。</li>
-</ul>
-<hr>
-<h2 id="✏️特征基（Eigenbasis）："><a href="#✏️特征基（Eigenbasis）：" class="headerlink" title="✏️特征基（Eigenbasis）："></a>✏️特征基（Eigenbasis）：</h2><h4 id="如果基向量恰好是特征向量，会发生什么？"><a href="#如果基向量恰好是特征向量，会发生什么？" class="headerlink" title="如果基向量恰好是特征向量，会发生什么？"></a>如果基向量恰好是特征向量，会发生什么？</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%9F%BA_01.png" alt="特征基_01"></p>
-<ul>
-<li>如上图所示，比如说，可能i帽变为原来的（-1）倍，j帽变为原来的2倍；将它们的新坐标作为矩阵的列，注意它们的倍数-1和2，也就是i帽和j帽所属的特征值，位于矩阵的对角线上，而其他的元素均为0。</li>
-<li>除了对角元素以外其他元素均为0的矩阵被称为<strong>对角矩阵</strong>（Diagonal Matrix）。解读它的方法是，所有的基向量都是特征向量。矩阵的对角元是它们所属的特征值。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5.png" alt="对角矩阵"></li>
-<li>对角矩阵在很多方面都更容易处理，其中一个重要方面是，矩阵与自己多次相乘的结果更容易计算；因为对角矩阵仅仅让基向量与某个特征值相乘，所以多次应用矩阵乘法，比如一百次，也只是将每个基向量与对应特征值的一百次幂相乘。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png" alt="对角矩阵乘法"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95_02.png" alt="对角矩阵乘法_02"></li>
-<li>相比之下，尝试计算一个非对角矩阵的一百次幂，就很不容易。</li>
+<h3 id="✍️将坐标值和面积或体积联系起来的意义："><a href="#✍️将坐标值和面积或体积联系起来的意义：" class="headerlink" title="✍️将坐标值和面积或体积联系起来的意义："></a>✍️将坐标值和面积或体积联系起来的意义：</h3><ul>
+<li>因为当你做矩阵变换后，平行四边形的面积不一定保持不变，可能成比例的增大或减小。但是，所有面积伸缩的比例都是一样的，都等于给定变换矩阵的行列式。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%89%80%E6%9C%89%E9%9D%A2%E7%A7%AF%E4%BC%B8%E7%BC%A9%E7%9A%84%E6%AF%94%E4%BE%8B%E9%83%BD%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt="所有面积伸缩的比例都等于给定行列式"></li>
+<li>考虑一个新的平行四边形；第一条边是变换后的第一基向量（也就是矩阵的第一列）；第二条边是变换后的[x,y]，那它的面积是多大呢？</li>
+<li>其实这就是我们之前提及的平行四边形的变换。变换前，面积是未知输入向量的y坐标值，所以变换后的面积等于矩阵的行列式乘以y值。</li>
+<li>所以可以用输出的平行四边形面积除以矩阵的行列式计算出y。既然我们已知最终变换后的向量，那么可以构造一个新矩阵，第一列和我们原先的矩阵相同，而第二列是输出向量，然后取新矩阵的行列式。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%96%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF.png" alt="新平行四边形面积"></li>
+<li>我们只需使用到变换后的两个向量，也就是矩阵的列向量和已知输出向量，就能计算出位置输入向量的y值，此时方程已经解好一半了。</li>
+<li>我们可以用相同的方法得出x值。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%96%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF_x.png" alt="新平行四边形面积_x"></li>
+<li><strong>这个线性方程组的解法，被称为克莱姆法则。</strong></li>
+<li>三维或者多维的计算结果也基本如此。</li>
 </ul>
 <hr>
-<ul>
-<li>我们知道了特征向量的计算更为简便，所以可以通过变换坐标系，使得特征向量就是基向量，并用特征向量作为基。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5_01.png" alt="基变换矩阵_01"></li>
-<li>取出你想用做新基的向量的坐标，在这里指的是两个特征向量，然后将坐标作为一个矩阵的列，这个矩阵就是<strong>基变换矩阵</strong>，在右侧写下基变换矩阵，在左侧写下基变换矩阵的逆，当你将原始的变换夹在两个矩阵中间时，所得的矩阵代表队是同一个变换，不过是从新基向量所构成的坐标系的角度来看的。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5_02.png" alt="基变换矩阵_02"></li>
-<li>用特征向量来完成这件事的意义在于，这个新矩必然是对角的，并且对角元为对应的特征值。这是因为，他所处的坐标系的基向量在变换中只进行了缩放。</li>
-<li><strong>一组基向量（同样是特征向量）构成的集合被称为一组“特征基”</strong>，这也非常合理。</li>
-<li>所以说，如果你要计算这个矩阵的一百次幂，一种更容易的做法是先变换到特征基，在那个坐标系中计算一百次幂之后，再转换回标准坐标系。</li>
-</ul>
-<h3 id="✍️并非所有矩阵都可以对角化"><a href="#✍️并非所有矩阵都可以对角化" class="headerlink" title="✍️并非所有矩阵都可以对角化"></a>✍️并非所有矩阵都可以对角化</h3><ul>
-<li>切记，并不是所有变换都能进行这一过程，并非所有矩阵都可以对角化。</li>
-<li>比如剪切变换，它的特征向量不够多，并不能张成全空间。</li>
-<li>如果你能找到一组特征基（能张成全空间的特征向量），矩阵运算就会变得非常轻松。</li>
-</ul>
 ]]></content>
       <categories>
         <category>-3Blue1Brown线性代数本质</category>
       </categories>
       <tags>
         <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE4以及相关工具学习列表合辑</title>
+    <url>/2022/09/09/unreal/</url>
+    <content><![CDATA[<p>这篇是我的UE学习记录了，也算是我的UE学习置顶占位。2022是我学习UE的第一年，来记录一下<br>然后写的不一定是教程笔记哈，有些别的好的我也会随意写写放上来。<br>详细如下，都有各个的部分的站内链接<br>每篇写好了就会更新！<br>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</p>
+<hr>
+<h1 id="🚩UE材质基础"><a href="#🚩UE材质基础" class="headerlink" title="🚩UE材质基础"></a>🚩UE材质基础</h1><h2 id="UE4官方材质课-基础篇"><a href="#UE4官方材质课-基础篇" class="headerlink" title="UE4官方材质课_基础篇"></a>UE4官方材质课_基础篇</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/uefoundation_cover.png" alt="uefoundation_cover"><br><strong>站内link：</strong></p>
+<a href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇">UE4官方材质课_基础篇</a>
+
+<hr>
+<h1 id="🚩WTF-is-Material？学习"><a href="#🚩WTF-is-Material？学习" class="headerlink" title="🚩WTF is Material？学习"></a>🚩WTF is Material？学习</h1><h2 id="UE4-虚幻引擎材质节点以及蓝图的学习"><a href="#UE4-虚幻引擎材质节点以及蓝图的学习" class="headerlink" title="UE4_虚幻引擎材质节点以及蓝图的学习"></a>UE4_虚幻引擎材质节点以及蓝图的学习</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wtfISMat.png" alt="wtfISMat"><br><strong>站内link：</strong></p>
+<a href="/2022/10/14/ue_WTF_is_Material_all/" title="UE4_虚幻引擎材质节点以及蓝图的学习">UE4_虚幻引擎材质节点以及蓝图的学习</a>
+
+<hr>
+<h1 id="🚩UE灯光技巧："><a href="#🚩UE灯光技巧：" class="headerlink" title="🚩UE灯光技巧："></a>🚩UE灯光技巧：</h1><h2 id="一：UE灯光流程以及方案（Light-a-project-in-UE）"><a href="#一：UE灯光流程以及方案（Light-a-project-in-UE）" class="headerlink" title="一：UE灯光流程以及方案（Light a project in UE）"></a>一：UE灯光流程以及方案（Light a project in UE）</h2><p><strong>站内link：</strong></p>
+<a href="/2022/09/18/ue_Light_a_Project_in_UE/" title="Light_a_Project_in_UE">Light_a_Project_in_UE</a>]]></content>
+      <categories>
+        <category>-UE4</category>
+      </categories>
+      <tags>
+        <tag>-学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1587,6 +1672,740 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </categories>
       <tags>
         <tag>-灯光</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE4_虚幻引擎材质节点以及蓝图的学习</title>
+    <url>/2022/10/14/ue_WTF_is_Material_all/</url>
+    <content><![CDATA[<h1 id="UE4-虚幻引擎材质节点以及蓝图的学习"><a href="#UE4-虚幻引擎材质节点以及蓝图的学习" class="headerlink" title="UE4_虚幻引擎材质节点以及蓝图的学习"></a>UE4_虚幻引擎材质节点以及蓝图的学习</h1><blockquote>
+<p>🍉本笔记是我的UE材质节点学习笔记，随手写一下，我是菜鸡的水平，如果很厉害的大佬就可以跳过了哈！如有错误请及时指正！<br>🤩学习主要来自WTF is Material的章节，也就是来自Mathew Wadstein的tutorials~~~ 请有兴趣就去关注原作者！<br>🍅还有一些杂七杂八的从各种地方学的我应该会一同写在一起了，大部分也去ue的document查了一圈，拿了一些示例。我正在学习ue的路上，这个系列应该会持续更，有兴趣的想要一起学习的也可以关注我的更新！</p>
+</blockquote>
+<hr>
+<h2 id="✏️材质节点键盘快捷键不全的大全："><a href="#✏️材质节点键盘快捷键不全的大全：" class="headerlink" title="✏️材质节点键盘快捷键不全的大全："></a>✏️材质节点键盘快捷键不全的大全：</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>Node Name</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>constant</td>
+<td>一维向量</td>
+</tr>
+<tr>
+<td>2</td>
+<td>constant2Vector</td>
+<td>二维向量</td>
+</tr>
+<tr>
+<td>3</td>
+<td>constant3Vector</td>
+<td>三维向量</td>
+</tr>
+<tr>
+<td>4</td>
+<td>constant4Vector</td>
+<td>四维向量</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Add</td>
+<td>加法</td>
+</tr>
+<tr>
+<td>M</td>
+<td>multiply</td>
+<td>混合，乘法</td>
+</tr>
+<tr>
+<td>D</td>
+<td>divide</td>
+<td>除法</td>
+</tr>
+<tr>
+<td>T</td>
+<td>TextureSample</td>
+<td>纹理贴图</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Panner</td>
+<td>坐标平移</td>
+</tr>
+<tr>
+<td>U</td>
+<td>TextureCoordinate</td>
+<td>纹理坐标</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Lerp</td>
+<td>插值函数</td>
+</tr>
+<tr>
+<td>I</td>
+<td>if</td>
+<td>参数判断</td>
+</tr>
+<tr>
+<td>C</td>
+<td>comment</td>
+<td>备注说明</td>
+</tr>
+<tr>
+<td>B</td>
+<td>BumpOffset</td>
+<td>视差贴图</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Normalize</td>
+<td>归一化函数</td>
+</tr>
+<tr>
+<td>E</td>
+<td>power</td>
+<td>幂</td>
+</tr>
+<tr>
+<td>O</td>
+<td>one-minus</td>
+<td>反向，反向颜色</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="✏️官方操作快捷键："><a href="#✏️官方操作快捷键：" class="headerlink" title="✏️官方操作快捷键："></a>✏️官方操作快捷键：</h2><ul>
+<li>图来自网络<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/hotKey_ue.png" alt="hotKey_ue"></li>
+</ul>
+<hr>
+<h2 id="✏️Actor-Position-WS（vectors）"><a href="#✏️Actor-Position-WS（vectors）" class="headerlink" title="✏️Actor Position WS（vectors）"></a>✏️Actor Position WS（vectors）</h2><h3 id="🍏【ActorPosition】："><a href="#🍏【ActorPosition】：" class="headerlink" title="🍏【ActorPosition】："></a>🍏【ActorPosition】：</h3><blockquote>
+<p>对象坐标值，输出的是vector3，指这个actor在世界空间中的位置（已经赋予此材质的对象）。它的整体变化是以actor的坐标为基准。</p>
+</blockquote>
+<ul>
+<li>下图是<strong>actorPosition</strong>的示例，图来自于YakSue的CSDN博客，<a href="https://yaksue.blog.csdn.net/article/details/110431700?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-110431700-blog-104868601.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-110431700-blog-104868601.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=1">链接在此</a>。（如侵权请联系删除）<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/actorPosition.gif" alt="actorPosition"></li>
+</ul>
+<h3 id="🍏【Object-Position】："><a href="#🍏【Object-Position】：" class="headerlink" title="🍏【Object Position】："></a>🍏【Object Position】：</h3><blockquote>
+<p>与他比较相似的是 Object Position，输出对象bound的世界场景空间<strong>中心</strong>位置。它的变化则是以整体中心为基准。</p>
+</blockquote>
+<ul>
+<li>下图是<strong>Object Position</strong>的示例，图来自于YakSue的CSDN博客。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/objectPosition.gif" alt="objectPosition"></li>
+</ul>
+<h3 id="🍏【Absolute-World-Position】："><a href="#🍏【Absolute-World-Position】：" class="headerlink" title="🍏【Absolute World Position】："></a>🍏【Absolute World Position】：</h3><blockquote>
+<p>Absolute World Position，表示在全局空间中的位置。</p>
+</blockquote>
+<ul>
+<li>下图是<strong>Absolute World Position</strong>的示例，图来自于YakSue的CSDN博客。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/AbsoluteWorldPosition.gif" alt="AbsoluteWorldPosition"></li>
+</ul>
+<hr>
+<h2 id="✏️Add（math）"><a href="#✏️Add（math）" class="headerlink" title="✏️Add（math）"></a>✏️Add（math）</h2><blockquote>
+<p>加法，常用于颜色亮暗的调节，或者使用于offset。 </p>
+</blockquote>
+<ul>
+<li>他所做的事情和数学一样，就是获取两个input并把他们values相加。如果使用多个通道传递，则每个通道分别相加。- 两个input的如果是多通道，那么通道必须数量相同；但是如给其中一个是单值常量则例外，单值浮点会与多通道每个通道相加并输出。</li>
+</ul>
+<hr>
+<h2 id="✏️AppendVector（math）"><a href="#✏️AppendVector（math）" class="headerlink" title="✏️AppendVector（math）"></a>✏️AppendVector（math）</h2><blockquote>
+<p>二维加法，将一个值加入（插入）到另一个值后端。允许你组合通道，比如你有一个二维向量，你可以通过append加入第三个向量。</p>
+</blockquote>
+<ul>
+<li>要注意它和add是完全不同的，它并不是数值上的相加。</li>
+</ul>
+<hr>
+<h2 id="✏️Abs（math）"><a href="#✏️Abs（math）" class="headerlink" title="✏️Abs（math）"></a>✏️Abs（math）</h2><blockquote>
+<p>absolute value，绝对值；它没有参数，但是涵盖一个很简单的函数。这个函数是取input的绝对值。这意味着它通过去掉负号把负数变成正数，而正数和零保持不变</p>
+</blockquote>
+<ul>
+<li>这个函数意味着它的output是没有负数的，大多数情况下使用于不想取到负值的情况下，将output的区间钳制在正数区间。</li>
+<li>一般配合点积使用，确定两个向量之间的角度关系，计算它是平行，垂直，还是介于两者之间。通常，当您得到两个向量的点积时，该值在1.0（对于两个平行向量）与-1.0（对于两个完全相反的向量）之间进行插值，中间点0表示这两个向量是垂直的。当您取这个点积的绝对值时，正值保持不变，而负值通过去掉负号变成正数。因此，结果在0（对于垂直向量）和1.0（对于平行向量，无论向量指向相同还是相反的方向）之间进行插值。这只是告诉您这两个向量距离正交有多远。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/abs.jpg" alt="abs"></li>
+</ul>
+<hr>
+<h2 id="✏️BlackBody（utility）"><a href="#✏️BlackBody（utility）" class="headerlink" title="✏️BlackBody（utility）"></a>✏️BlackBody（utility）</h2><blockquote>
+<p>黑体，用来在材质中模拟黑体辐射，运用开尔文温度，产生颜色和轻度来驱动basecolor和emissive，获得物理上准确的结果</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/BlackBody.jpg" alt="BlackBody"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%BC%80%E5%B0%94%E6%96%87%E9%A2%9C%E8%89%B2.png" alt="开尔文颜色"></p>
+<hr>
+<h2 id="✏️BumpOffset（function）"><a href="#✏️BumpOffset（function）" class="headerlink" title="✏️BumpOffset（function）"></a>✏️BumpOffset（function）</h2><blockquote>
+<p>高度视差，就是所谓的视差贴图。凹凸贴图偏移表达式可以使材质产生深度错觉，而不需要额外的几何体。凹凸贴图偏移材质使用灰阶高度贴图来提供深度信息。</p>
+</blockquote>
+<ul>
+<li>它有三个input：<ul>
+<li>coordinate</li>
+<li>height（一般情况下这个通道是必须的，需要一张灰度图，越黑代表距离越远，越白距离越近。）</li>
+<li>heightRatioInput（这个建议较小的数值，否则扭曲和拉伸会较为严重）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/BumpOffset.png" alt="BumpOffset"></p>
+<hr>
+<h2 id="✏️Camera-Position-WS（vectors）"><a href="#✏️Camera-Position-WS（vectors）" class="headerlink" title="✏️Camera Position WS（vectors）"></a>✏️Camera Position WS（vectors）</h2><blockquote>
+<p>相机坐标值，会输出一个三通道向量值，该值表示摄像机在世界场景空间中的位置.</p>
+</blockquote>
+<ul>
+<li>看如下案例，相机位置如果高于物体位置，呈现白色；如果低于物体位置，呈现黑色。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/cameraPosition.png" alt="cameraPosition"></li>
+</ul>
+<hr>
+<h2 id="✏️Clamp（math）"><a href="#✏️Clamp（math）" class="headerlink" title="✏️Clamp（math）"></a>✏️Clamp（math）</h2><blockquote>
+<p>范围限定；接受一个或多个值，并将它们约束到由最小值和最大值定义的指定范围内。如果最小值为0.0，最大值为0.5，则意味着结果值永远不会小于0.0，且永远不会大于0.5。</p>
+</blockquote>
+<ul>
+<li>有三个input<ul>
+<li>clamp mode（可以设定只有 max或只有 min）</li>
+<li>Min Default</li>
+<li>Max Default</li>
+</ul>
+</li>
+<li>它保证数值不会大于你自定义的max，也不会小于你自定义的min。</li>
+</ul>
+<hr>
+<h2 id="✏️Component-Mask（math）"><a href="#✏️Component-Mask（math）" class="headerlink" title="✏️Component Mask（math）"></a>✏️Component Mask（math）</h2><blockquote>
+<p>相当于参数提取，它允许你从输入中挑选某个通道子集（R、G、B和&#x2F;或A）并输出。</p>
+</blockquote>
+<ul>
+<li>下图示例： 如果ComponentMask的输入是(0.2,0.4,1.0)和G通道，输出将是(0.4)。如果是颜色向量，最终效果就是一个40%的明亮灰度值。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ComponentMaskExample.jpg" alt="ComponentMaskExample"></li>
+</ul>
+<hr>
+<h2 id="✏️Constant-Bias-Scale（math）"><a href="#✏️Constant-Bias-Scale（math）" class="headerlink" title="✏️Constant Bias Scale（math）"></a>✏️Constant Bias Scale（math）</h2><blockquote>
+<p>允许你按比例调整参数，它有两个参数，运算规则是：先加bias的数值，后与scale数值相乘。</p>
+</blockquote>
+<hr>
+<h2 id="✏️Constant类型（constant）"><a href="#✏️Constant类型（constant）" class="headerlink" title="✏️Constant类型（constant）"></a>✏️Constant类型（constant）</h2><blockquote>
+<p>constant实际上有一堆，分别是constant，constant2vector，constant3vector，constant4vector，他们都输出常量，只是通道数量不一样。他们按通道的个数分别是输出RGBA或者XYZW。</p>
+</blockquote>
+<hr>
+<h2 id="✏️Cross-Product（math）"><a href="#✏️Cross-Product（math）" class="headerlink" title="✏️Cross Product（math）"></a>✏️Cross Product（math）</h2><blockquote>
+<p>叉积，计算两个三通道向量值输入的交叉乘积，并输出产生的三通道向量值。假定空间中有两个向量，则交叉乘积是一个同时垂直于两个输入的向量。计算方式与数学上面的叉积没有区别。</p>
+</blockquote>
+<ul>
+<li>CrossProduct常用于计算垂直于另外两个方向的方向。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/cross-product.jpg" alt="cross-product"></li>
+</ul>
+<hr>
+<h2 id="✏️Custom-Rotator（texturing）"><a href="#✏️Custom-Rotator（texturing）" class="headerlink" title="✏️Custom Rotator（texturing）"></a>✏️Custom Rotator（texturing）</h2><blockquote>
+<p>自定义旋转，它会提供一个center，然后你可以实际运用这个center去定义不同的点，来进行旋转。</p>
+</blockquote>
+<ul>
+<li>它有三个input<ul>
+<li>UVs </li>
+<li>Rotation Center（这实际就是设置中心的地方）</li>
+<li>Roataton Angle（0-1的区间，360度）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="✏️Depth-Fade（texturing）"><a href="#✏️Depth-Fade（texturing）" class="headerlink" title="✏️Depth Fade（texturing）"></a>✏️Depth Fade（texturing）</h2><blockquote>
+<p>深度消退，用来隐藏半透明对象与不透明对象相交时出现的不美观接缝，起到柔化边缘相交处的接缝的作用。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/depthFade.png" alt="depthFade"></p>
+<ul>
+<li>注意选择合适的fade distance。</li>
+<li>depth fade在制作地形，植被时候可以用来改善相交处的接缝。</li>
+</ul>
+<hr>
+<h2 id="✏️Depth-of-Field-Funtion（Utility）"><a href="#✏️Depth-of-Field-Funtion（Utility）" class="headerlink" title="✏️Depth of Field Funtion（Utility）"></a>✏️Depth of Field Funtion（Utility）</h2><blockquote>
+<p>景深运算，根据景深设置你所要取的区间。</p>
+</blockquote>
+<ul>
+<li>0代表in focus；1代表out of focus</li>
+<li>可以使用它作为on 和 off；比如距离近的时候使用高分辨率的贴图之类的，使用dof function来判断是不是in focus。</li>
+</ul>
+<hr>
+<h2 id="✏️Desaturation（color）"><a href="#✏️Desaturation（color）" class="headerlink" title="✏️Desaturation（color）"></a>✏️Desaturation（color）</h2><blockquote>
+<p>去饱和度，对input进行饱和度去除，即根据特定百分比将其输入的颜色转换为灰色阴影</p>
+</blockquote>
+<ul>
+<li>它有两个input<ul>
+<li>Luminance Factors（指定每个通道对去饱和度颜色的影响量。此属性确保在去饱和度之后，绿色比红色亮，而红色比蓝色亮。）</li>
+<li>Fraction （指定要应用于输入的去饱和度数量。此百分比的范围是0.0（完全原始颜色，不去饱和度）到1.0（完全去饱和度）。）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="✏️Diamond-Gradient（miscellaneous）"><a href="#✏️Diamond-Gradient（miscellaneous）" class="headerlink" title="✏️Diamond Gradient（miscellaneous）"></a>✏️Diamond Gradient（miscellaneous）</h2><blockquote>
+<p>钻石型渐变图案。可以通过调整fall off 得到不同程度的衰减效果。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/diamondGradient.png" alt="diamondGradient"></p>
+<hr>
+<h2 id="✏️Distance（math）"><a href="#✏️Distance（math）" class="headerlink" title="✏️Distance（math）"></a>✏️Distance（math）</h2><blockquote>
+<p>距离计算，计算两个点&#x2F;颜色&#x2F;位置&#x2F;矢量之间的欧氏距离，并输出结果值。此表达式可作用于单分量、双分量、三分量和四分量矢量，但此表达式的两个输入必须具有相同数目的通道。</p>
+</blockquote>
+<ul>
+<li>可以理解为：Result &#x3D; length (A - B)<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/DistanceExample.jpg" alt="DistanceExample"></li>
+</ul>
+<hr>
+<h2 id="✏️Divide（math）"><a href="#✏️Divide（math）" class="headerlink" title="✏️Divide（math）"></a>✏️Divide（math）</h2><blockquote>
+<p>除法，取两个输入，将第一个输入除以第二个输入，并输出值。</p>
+</blockquote>
+<ul>
+<li>两个输入必须有相同数量的值，但其中一个值是单个浮点值时例外。在这种情况下，将多通道输入的每个通道除以单个浮点值，并将结果存储在输出值的单独通道中。</li>
+<li>如果使用多个通道传递值，每个通道将单独相除。</li>
+<li>如果除数在任何通道内都介于0和0.00001之间，则将其提升至0.00001。如果除数在任何通道内都介于0和-0.00001之间，则将其降低至-0.00001。这避免了出现除以零的错误可能性。但是，这也意味着通道的输出值可能非常大。</li>
+</ul>
+<hr>
+<h2 id="✏️Dot-Product（math）"><a href="#✏️Dot-Product（math）" class="headerlink" title="✏️Dot Product（math）"></a>✏️Dot Product（math）</h2><blockquote>
+<p>点积，点积可以描述为一个向量投影到另一个向量上的长度，也可以描述为两个向量之间的余弦乘以它们的幅值。许多技术使用这种算法来计算衰减。DotProduct要求两个向量输入具有相同数量的通道。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/dot-product.jpg" alt="dot-product"></p>
+<hr>
+<h2 id="✏️Feature-Level-Switch（math）"><a href="#✏️Feature-Level-Switch（math）" class="headerlink" title="✏️Feature Level Switch（math）"></a>✏️Feature Level Switch（math）</h2><blockquote>
+<p>特征等级切换，此节点允许你你使用相同的材质，但是可以基于不同的shader level去显示不同的东西，多用于设置材质用于不同设备时。</p>
+</blockquote>
+<ul>
+<li>举个例子来看，如下图，我们的preview Rendering Level是不同的；这个材质节点的作用就是当你有这样一些feature level的时候，它的inputs提供的选项允许你去自行设置先要输出的内容，如果它没有特殊被设置，那就会自行使用default。</li>
+<li>他必须使用一个default，否则无法工作。</li>
+<li>你可以通过此设置更轻量的东西去到移动端设备。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/FeatureLevelSwitch.png" alt="FeatureLevelSwitch"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/FeatureLevelSwitch_02.png" alt="FeatureLevelSwitch_02"></li>
+</ul>
+<hr>
+<h2 id="✏️Floor-and-Ceil（math）"><a href="#✏️Floor-and-Ceil（math）" class="headerlink" title="✏️Floor and Ceil（math）"></a>✏️Floor and Ceil（math）</h2><blockquote>
+<p><strong>Floor</strong>，舍去小数部分，<strong>向下取整</strong>。比如0.2向下舍入取整就是0.0；(0.2,1.6)向下舍入到(0.0, 1.0)。 </p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/floor.jpg" alt="floor"></p>
+<blockquote>
+<p><strong>Ceil</strong>，舍去小数部分，<strong>向上取整</strong>。比如0.2向上舍入取整就是1.0；(0.2,1.6)向上舍入到(1.0,2.0)。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ceil.jpg" alt="ceil"></p>
+<ul>
+<li>这两个节点可以理解为做相同的事情，但是结果相反，就像min和max一样。</li>
+<li>他们的名字也可以看出floor是向下，ceil则是向上。</li>
+</ul>
+<hr>
+<h2 id="✏️FMod（math）"><a href="#✏️FMod（math）" class="headerlink" title="✏️FMod（math）"></a>✏️FMod（math）</h2><blockquote>
+<p>除不尽的取取余数。也就是返回两个input的除法运算的浮点余数，第一个input可以是任何数，第二个input通常不为0（被除数不为0）</p>
+</blockquote>
+<ul>
+<li>它的常见的用例是制作一种材质，使其亮度上升到最大值，然后在下一帧中立即下降到最小值，然后再次开始向最大值攀升。</li>
+<li>如下图示例，FMod采用0到1的UV级数，并将其转换为绿色通道中X轴上每0.2个UV单元一次的重复循环。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/FmodExample.jpg" alt="FmodExample"></li>
+</ul>
+<hr>
+<h2 id="✏️Frac（math）"><a href="#✏️Frac（math）" class="headerlink" title="✏️Frac（math）"></a>✏️Frac（math）</h2><blockquote>
+<p>fractional，取小数；输入input，此节点返回input的小数部分。输出值将从0到1不等。</p>
+</blockquote>
+<ul>
+<li>举例来说：(0.2)的小数部分是(0.2)。(-0.2)的小数部分是(0.8)。(0.0,1.6,1.0)的小数部分是(0.0,0.6,0.0)。</li>
+<li>如下图示例，Frac节点将时间转换为一系列重复的0 - 1级数序列，导致颜色（通过Lerp）从绿色变为红色，然后返回绿色，无限重复。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/frac.jpg" alt="frac"></li>
+</ul>
+<hr>
+<h2 id="✏️Fresnel（utility）"><a href="#✏️Fresnel（utility）" class="headerlink" title="✏️Fresnel（utility）"></a>✏️Fresnel（utility）</h2><blockquote>
+<p>菲涅尔，根据表面法线与摄像机方向的标量积来计算衰减。当表面法线正对着摄像机时，输出值为0。当表面法线垂直于摄像机时，输出值为1。结果限制在[0,1]范围内，以确保不会在中央产生任何负颜色。</p>
+</blockquote>
+<ul>
+<li>它有两个属性：<ul>
+<li><strong>Exponent</strong>（指定输出值的衰减速度。值越大，意味着衰减越紧或越快。）</li>
+<li><strong>Base Reflect Fraction</strong>（指定从正对表面的方向查看表面时，镜面反射的小数。值为1将有效地禁用菲涅耳效果。）</li>
+</ul>
+</li>
+<li>它有三个inputs：<ul>
+<li><strong>ExponentIn</strong> （指定输出值的衰减速度。如果使用此输入，那么值将始终取代”指数”（Exponent）属性值。）</li>
+<li><strong>Base Reflect Fraction</strong>（如果使用此输入，那么值将始终取代”指数”（Exponent）属性值。）</li>
+<li><strong>Normal</strong>（该值代表表面在全局空间中的法线。要查看应用于菲涅耳对象表面的法线贴图的结果，请将该法线贴图连接到材质的”法线”（Normal）输入，然后连接一个PixelNormalWS 表达式到Fresnel上的此输入。如果未指定任何法线，那么将使用网格的切线法线。）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/FresnelExample.jpg" alt="FresnelExample"></p>
+<hr>
+<h2 id="✏️Generated-Band（miscellaneous）"><a href="#✏️Generated-Band（miscellaneous）" class="headerlink" title="✏️Generated Band（miscellaneous）"></a>✏️Generated Band（miscellaneous）</h2><blockquote>
+<p> 条形图案；允许我们生成一个条状的图案，可以调整宽度，锐度（可以为负），偏移，方向（横向纵向）等等。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/GeneratedBand.png" alt="GeneratedBand"></p>
+<hr>
+<h2 id="✏️Generated-Offest-Bands（miscellaneous）"><a href="#✏️Generated-Offest-Bands（miscellaneous）" class="headerlink" title="✏️Generated Offest Bands（miscellaneous）"></a>✏️Generated Offest Bands（miscellaneous）</h2><blockquote>
+<p>局部重复条形图案，参数使用与Generated Band几乎无差别，但有一个叫做band的额外参数；这使我们得到一对band（实际上在band这个参数为1,其他参数保持默认的时候，我们得到的是两对白色的band），而不是单个band。</p>
+</blockquote>
+<ul>
+<li>此时compare参数可以调整band之间的间距，为0时两两之间互相成对的band的间距最远，为1时最近。</li>
+<li>详细看图对比。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/GeneratedOffsetBand.png" alt="GeneratedOffsetBand"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/GeneratedOffsetBand%E5%AF%B9%E6%AF%94GeneratedBand.png" alt="GeneratedOffsetBand对比GeneratedBand"></li>
+</ul>
+<hr>
+<h2 id="✏️GIReplace（utility）"><a href="#✏️GIReplace（utility）" class="headerlink" title="✏️GIReplace（utility）"></a>✏️GIReplace（utility）</h2><blockquote>
+<p>全局光照替换；这个节点可以为材质提供在全局照明下产生不同间接反射效果的方式。它允许指定一个定值来取代间接反射颜色。</p>
+</blockquote>
+<ul>
+<li>它有三个inputs：<ul>
+<li>Default</li>
+<li>StaticIndirect</li>
+<li>DynamicIndirect</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/GIreplace.png" alt="GIreplace"></p>
+<hr>
+<h2 id="✏️If（math）"><a href="#✏️If（math）" class="headerlink" title="✏️If（math）"></a>✏️If（math）</h2><blockquote>
+<p>判断；比较两个输入，然后根据比较的结果传递其他三个输入值中的一个。两个比较的输入都必须是单一浮点值。</p>
+</blockquote>
+<ul>
+<li>如下图示例，if接受一个高度图，并根据高度是低于还是高于0.2的值来输出红色或绿色。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/IfExample.jpg" alt="IfExample"></li>
+</ul>
+<hr>
+<h2 id="✏️Interface-Previewing-Property（材质details）"><a href="#✏️Interface-Previewing-Property（材质details）" class="headerlink" title="✏️Interface Previewing Property（材质details）"></a>✏️Interface Previewing Property（材质details）</h2><blockquote>
+<p>修改预览网络，可以自定义材质节点编辑器中的预览mesh。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/InterfacePreviewingProperty_01.png" alt="InterfacePreviewingProperty_01"></p>
+<hr>
+<h2 id="✏️Lightmess-Property（材质details）"><a href="#✏️Lightmess-Property（材质details）" class="headerlink" title="✏️Lightmess Property（材质details）"></a>✏️Lightmess Property（材质details）</h2><blockquote>
+<p>Lightmess，你可以理解为它是static light system。它创建具有复杂光交互作用的光照图，例如区域阴影和漫反射。它用于预计算<strong>具有固定和静态运动性的光源的照明贡献部分。</strong></p>
+</blockquote>
+<ul>
+<li>你可以使用 cast shadow as masked或不使用它；它们的效果不同。</li>
+<li>如下图所示，左边是不勾选cast shadow as masked，阴影为绿色；右边是勾选此属性，半透明物体会使用遮罩，阴影为黑色，使它得到清晰的阴影以及轮廓；<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/LightmessProperty.png" alt="LightmessProperty"></li>
+<li><strong>diffuse boost</strong>，材质漫反射<strong>对静态光照影响量</strong>的增加和提升，更高的数值会更清晰明亮。（<strong>记住是static lighting的情况</strong>，而不是realtime，所有的光照都经过bake。）</li>
+<li><strong>Export Resolution Scale</strong>，导出该材质属性时的分辨率乘数。<strong>在需要详细信息时应增大此数值</strong>（计算时间也会增加）。</li>
+</ul>
+<hr>
+<h2 id="✏️Lightmess-Replace（utility）"><a href="#✏️Lightmess-Replace（utility）" class="headerlink" title="✏️Lightmess Replace（utility）"></a>✏️Lightmess Replace（utility）</h2><blockquote>
+<p>光照系统替换, 有两个inputs，来确定使用realtime（接收要传递以用于正常渲染的值）和使用lightmass（接收在导出材质到光照系统时要传递的值）时的输出效果。它可以避免使用导出版本无法正确处理的材质表达式，例如WorldPosition。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/LightmessReplace.png" alt="LightmessReplace"></p>
+<ul>
+<li>下图示例设置lightmass的情况<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/LightmessReplace_lightmass.png" alt="LightmessReplace_lightmass"></li>
+</ul>
+<hr>
+<h2 id="✏️Linear-Gradient（Gradient）"><a href="#✏️Linear-Gradient（Gradient）" class="headerlink" title="✏️Linear Gradient（Gradient）"></a>✏️Linear Gradient（Gradient）</h2><blockquote>
+<p>线性渐变；函数使用 UV 通道 0 在 U 或 V 方向上产生线性渐变，其中，方向取决于所使用的输出。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/LinearGradient.png" alt="LinearGradient"></p>
+<hr>
+<h2 id="✏️Linear-Interpolate（utility）"><a href="#✏️Linear-Interpolate（utility）" class="headerlink" title="✏️Linear Interpolate（utility）"></a>✏️Linear Interpolate（utility）</h2><blockquote>
+<p><strong>就是Lerp</strong>，线性插值；用作蒙版的第三个输入值，在两个输入值之间进行混合；蒙版Alpha（相当于a与b之间的mask）的强度确定从两个输入值获取颜色的比例。</p>
+</blockquote>
+<ul>
+<li>如果Alpha为0.0色，那么将使用第一个输入。如果Alpha为1.0，那么将使用第二个输入。如果Alpha介于0.0与1.0之间，那么输出是两个输入之间的混合。</li>
+<li>请记住，混合按通道进行。因此，如果Alpha为RGB颜色，那么Alpha的红色通道值定义A与B的红色通道之间的混合，而与Alpha的绿色通道 无关，该通道定义A与B的绿色通道之间的混合。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/LerpExample.jpg" alt="LerpExample"></li>
+</ul>
+<hr>
+<h2 id="✏️Min-and-Max（math）"><a href="#✏️Min-and-Max（math）" class="headerlink" title="✏️Min and Max（math）"></a>✏️Min and Max（math）</h2><blockquote>
+<p>Max ，最大值；有两个输入，输出其中较大的一个。结果类似于Photoshop中的 变亮 图层混合模式。<br>Min ， 最小值；有两个输入，输出其中较小的一个。结果类似于Photoshop中的 变暗 图层混合模式。</p>
+</blockquote>
+<hr>
+<h2 id="✏️Mobile-Property（材质属性界面，details）"><a href="#✏️Mobile-Property（材质属性界面，details）" class="headerlink" title="✏️Mobile Property（材质属性界面，details）"></a>✏️Mobile Property（材质属性界面，details）</h2><blockquote>
+<p>移动平台；多用于节约性能以便于移动端使用</p>
+</blockquote>
+<ul>
+<li><strong>Use Full Precision</strong> ，强制此材质在像素着色器中使用全（highp）精度。它的处理速度比默认设置（mediump）慢，但可用于解决与精度相关的渲染错误。此设置对不支持高精度的旧版移动设备无效。</li>
+<li><strong>Use Lightmap Directionality</strong>，此属性将使用光照图方向性和逐像素法线。如果禁用此属性，光照图中的光照将是平面的，但开销更低。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/MobileProperty.png" alt="MobileProperty"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/MobileProperty_02.png" alt="MobileProperty_02"></li>
+<li>（左侧Fully Rough off，Use Lightmap Directionality on。右侧效果Fully Rough on，Use Lightmap Directionality off）</li>
+</ul>
+<hr>
+<h2 id="✏️Multiply（math）"><a href="#✏️Multiply（math）" class="headerlink" title="✏️Multiply（math）"></a>✏️Multiply（math）</h2><blockquote>
+<p>乘法；数学计算的相乘。作为叠加来使用结果类似于Photoshop中的 正片叠底 图层混合模式的结果。</p>
+</blockquote>
+<ul>
+<li>两个输入必须有相同数量的值，但其中一个值是单个浮点值时例外。在这种情况下，将多通道输入的每个通道乘以单个浮点值，并将结果存储在输出值的单独通道中。</li>
+<li>E4中的材质不限于[0,1]。如果颜色&#x2F;值大于1，Multiply会使颜色变亮。</li>
+<li>Multiply常用于使颜色&#x2F;纹理变亮或变暗，或用于操作纹理UV。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/mult-01.jpg" alt="mult-01"></li>
+</ul>
+<hr>
+<h2 id="✏️Noise（math）"><a href="#✏️Noise（math）" class="headerlink" title="✏️Noise（math）"></a>✏️Noise（math）</h2><blockquote>
+<p>噪点，噪波； 它有很多可以设置的参数。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/NoiseExample.jpg" alt="NoiseExample"></p>
+<ul>
+<li>【<strong>它的参数</strong>】：<ul>
+<li><strong>Scale</strong>（更改噪点单元的整体大小。数字越小，噪点越大。）</li>
+<li><strong>Quality</strong>（外观&#x2F;性能设置。值越小，速度越快，但效果越差；值越大，速度越慢，但效果更好。）</li>
+<li><strong>function</strong>（噪波类型）<ul>
+<li>Simplex</li>
+<li>Gradient</li>
+<li>Fast Gradient</li>
+<li>Value</li>
+<li>Voronoi</li>
+</ul>
+</li>
+<li><strong>Turbulence</strong>（启用”干扰”（Turbulence）后，每个噪点倍频只会在结果中增加绝对值。改变视觉特征，并且会塑造出类似于清晰的山脊形状）</li>
+<li><strong>Levels</strong>（不同范围要合并的不同噪点级数量乘以级别数量的计算成本。）</li>
+<li><strong>Output Min</strong></li>
+<li><strong>Output Max</strong></li>
+<li><strong>Level Scale</strong></li>
+<li><strong>Tiling</strong></li>
+<li><strong>Repeat Size</strong></li>
+</ul>
+</li>
+<li>【<strong>它的input</strong>】：<ul>
+<li><strong>Position</strong>（允许通过 3D 矢量来调整纹理大小）</li>
+<li><strong>FilterWidth</strong>（实际上，控制应用于噪点纹理的模糊量）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="✏️Normalize（math）"><a href="#✏️Normalize（math）" class="headerlink" title="✏️Normalize（math）"></a>✏️Normalize（math）</h2><blockquote>
+<p>归一化；归一化向量（也称”单位向量”）的整体长度为1.0。这意味着输入的每个分量都除以向量的总大小（长度）。</p>
+</blockquote>
+<ul>
+<li>通过Normalize传递(0,2,0)或(0,0.2,0)都将输出(0,1,0)。通过Normalize传递(0,1,-1)将输出(0, 0.707, -0.707)。全零向量是唯一的例外，它不会改变。</li>
+<li>计算如下：先计算出长度d，再用每一个分量与长度d相除（x&#x2F;d,y&#x2F;d,z&#x2F;d），得到相应的归一化向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/normalize.png" alt="normalize"></li>
+</ul>
+<hr>
+<h2 id="✏️Object-Orientation（coordinates）"><a href="#✏️Object-Orientation（coordinates）" class="headerlink" title="✏️Object Orientation（coordinates）"></a>✏️Object Orientation（coordinates）</h2><blockquote>
+<p>输出object的世界场景向上向量(up)。换言之，对象的局部正z轴正指向此方向。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/object-orientation.jpg" alt="object-orientation"></p>
+<hr>
+<h2 id="✏️Object-Position-WS（coordinates）"><a href="#✏️Object-Position-WS（coordinates）" class="headerlink" title="✏️Object Position WS（coordinates）"></a>✏️Object Position WS（coordinates）</h2><blockquote>
+<p>输出对象边界的世界场景空间中心位置。它的变化则是以整体中心为基准。</p>
+</blockquote>
+<ul>
+<li>这对于为植物创建球形照明很有用。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/object-position-ws.jpg" alt="object-position-ws"></li>
+</ul>
+<hr>
+<h2 id="✏️Object-Radius（coordinates）"><a href="#✏️Object-Radius（coordinates）" class="headerlink" title="✏️Object Radius（coordinates）"></a>✏️Object Radius（coordinates）</h2><blockquote>
+<p>输出给定对象以 Unreal 单位计的半径值。系统会对比例缩放加以考虑，并且对于每个对象，结果可能是唯一的。</p>
+</blockquote>
+<ul>
+<li>比如可以根据radius调整贴图的tile来适配场景，而不会因为它等比增加或减少而导致贴图错误。</li>
+</ul>
+<hr>
+<h2 id="✏️One-Minus（math）"><a href="#✏️One-Minus（math）" class="headerlink" title="✏️One-Minus（math）"></a>✏️One-Minus（math）</h2><blockquote>
+<p>反向，反色；接受输入值”X”并输出”1 - X”。</p>
+</blockquote>
+<p>-当输入的颜色在[0,1]范围内时，OneMinus的效果与我们通常所说的”反色”是一样的，也就是说，OneMinus返回的是添加到输入时会产生白色的互补色。</p>
+<hr>
+<h2 id="✏️Packed-Textures"><a href="#✏️Packed-Textures" class="headerlink" title="✏️Packed Textures"></a>✏️Packed Textures</h2><blockquote>
+<p>打包，合并贴图；可以将metallic和roughness等灰度图合并到一起，分别放在rgb的相应通道中使用，以得到更好的性能（相比于多张分开的贴图）。</p>
+</blockquote>
+<hr>
+<h2 id="✏️Panner（coordinates）"><a href="#✏️Panner（coordinates）" class="headerlink" title="✏️Panner（coordinates）"></a>✏️Panner（coordinates）</h2><blockquote>
+<p>平移，输出可用于创建平移（或移动）纹理的 UV 纹理坐标。</p>
+</blockquote>
+<ul>
+<li>示例：调整speed使其变化<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/PannerExample.jpg" alt="PannerExample"></li>
+</ul>
+<hr>
+<h2 id="✏️Parameter-Collection（材质参数集合）"><a href="#✏️Parameter-Collection（材质参数集合）" class="headerlink" title="✏️Parameter Collection（材质参数集合）"></a>✏️Parameter Collection（材质参数集合）</h2><blockquote>
+<p>材质参数集合，是虚幻内部的一个item，属于一种资产。<br>它允许你在里面放置参数，并且可以跨越多种材质来使用它，可以一次性将这个全局性数据导入多个材质，并且允许你同时控制调整这个参数。</p>
+</blockquote>
+<ul>
+<li>它还有助于设置关卡中的效果，例如雪量、破坏程度、湿度等。如果不使用材质参数集合，你需要在关卡的不同材质实例中单独设置许多材质参数。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/create-mpc.jpg" alt="create-mpc"></li>
+<li>设置好后，可以去材质节点版面调用它。</li>
+<li>它的使用方法官方文档，<a href="https://docs.unrealengine.com/5.0/zh-CN/using-material-parameter-collections-in-unreal-engine/">链接在此</a></li>
+</ul>
+<hr>
+<h2 id="✏️Parameters（convert-to-Parameters）"><a href="#✏️Parameters（convert-to-Parameters）" class="headerlink" title="✏️Parameters（convert to Parameters）"></a>✏️Parameters（convert to Parameters）</h2><blockquote>
+<p>转为参数；它更多是指特定节点上的切换，允许他们在实例（instance）材质被使用。<br>基本上通俗的理解就是：转化原材质的参数，在复制后的代理材质也会拥有原材质一样的功能，可以被修改和实时调整，而不需要取重新打开材质版面修改再重新编译材质。</p>
+</blockquote>
+<ul>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/convertParameters.png" alt="convertParameters"></li>
+</ul>
+<hr>
+<h2 id="✏️Physical-Material（物理材质）"><a href="#✏️Physical-Material（物理材质）" class="headerlink" title="✏️Physical Material（物理材质）"></a>✏️Physical Material（物理材质）</h2><blockquote>
+<p>物理材质，用于定义物理对象在与世界场景动态交互时的响应。<br>物理材质非常容易使用。创建一个物理材质将提供一组默认值，这与应用于所有物理对象的默认物理材质相同。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/create_PhysicalMaterial.png" alt="create_PhysicalMaterial"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/parameters_PhysicalMaterial.png" alt="parameters_PhysicalMaterial"></p>
+<ul>
+<li>以上示例是创建物理材质以及双击编辑材质。使用物理材质的教学官方文档，<a href="https://docs.unrealengine.com/5.0/zh-CN/physical-materials-user-guide-for-unreal-engine/">链接在此</a></li>
+<li>它的物理材质属性在官方可以找到，<a href="https://docs.unrealengine.com/5.0/zh-CN/physical-materials-reference-for-unreal-engine/">链接在此</a></li>
+</ul>
+<hr>
+<h2 id="✏️Pixel-Depth（Depth）"><a href="#✏️Pixel-Depth（Depth）" class="headerlink" title="✏️Pixel Depth（Depth）"></a>✏️Pixel Depth（Depth）</h2><blockquote>
+<p>像素深度，输出当前所渲染像素的深度，即该像素与摄像机之间的距离。</p>
+</blockquote>
+<ul>
+<li>此表达式支持正数，不支持负数。这是因为在现代硬件上，渲染器依赖于保守深度优化来维持良好的性能。这就带来了额外的一点好处：如果深度可以 远离 摄像机，硬件深度抑制（hardware depth rejection）可以通过顶点着色器输出重复使用。否则，如果允许像素深度偏移 移向 摄像机，就可能导致对象戳穿一切，这样无论像素是否使用像素深度偏移进行遮挡，像素着色器都会处理这些像素。</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/PixelDepth.png" alt="PixelDepth"></p>
+<ul>
+<li>在此示例中，已将材质网络应用于地板。请注意当地板后退 2048 个以上单位时，线性插值在两种颜色之间是如何进行混合的。使用了 Power（幂）表达式来加强这两种颜色之间的对比，并产生更有意义的视觉效果。</li>
+</ul>
+<hr>
+<h2 id="✏️Pixel-Normal-WS（Coordinates）"><a href="#✏️Pixel-Normal-WS（Coordinates）" class="headerlink" title="✏️Pixel Normal WS（Coordinates）"></a>✏️Pixel Normal WS（Coordinates）</h2><blockquote>
+<p>根据当前法线输出向量数据，该数据表示像素所面对的方向。它在世界空间中，逐像素给出对应结果。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/pixel-normal-ws.jpg" alt="pixel-normal-ws"></p>
+<ul>
+<li>在此示例中，PixelNormalWS被输入到底色（Base Color）中。请注意，法线贴图用于给出逐像素结果。</li>
+</ul>
+<hr>
+<h2 id="✏️Post-Processing-Material-Property（后期材质）"><a href="#✏️Post-Processing-Material-Property（后期材质）" class="headerlink" title="✏️Post Processing Material Property（后期材质）"></a>✏️Post Processing Material Property（后期材质）</h2><blockquote>
+<p>后期材质，后期处理材质使你能够设置与后期处理一起使用的材质，以创建破坏的视觉屏幕效果、区域类型效果或 只能通过后置处理材质才能实现的游戏整体外观。</p>
+</blockquote>
+<ul>
+<li>在ue document中有详细介绍，<a href="https://docs.unrealengine.com/4.27/zh-CN/RenderingAndGraphics/PostProcessEffects/PostProcessMaterials/">链接在此</a></li>
+<li>以及一些效果示例，<a href="https://docs.unrealengine.com/4.27/zh-CN/RenderingAndGraphics/PostProcessEffects/PostProcessMaterials/PostProcessDemoMaterialOverview/">链接在此</a></li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/postProcess.png" alt="postProcess"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/postProcess_02.png" alt="postProcess_02"></p>
+<ul>
+<li>将材质设置为post process时，它的属性栏就会被激活。材质只能使用 自发光颜色（Emissive Color） 输出新颜色。此外，你还可以定义在后期处理过程中应在何处应用此通道， 如果有多个通道，则应按什么顺序处理（优先级）</li>
+</ul>
+<hr>
+<h2 id="✏️Power（math）"><a href="#✏️Power（math）" class="headerlink" title="✏️Power（math）"></a>✏️Power（math）</h2><blockquote>
+<p>幂，N次方；它接收两个输入：基值(Base)和指数(Exp)。它将基值提高到指数的幂，并输出结果。换句话说，它返回 Base 乘以自身 Exp 次。</p>
+</blockquote>
+<ul>
+<li>示例：当底数为0.5且指数为2.0时，幂为0.25。</li>
+</ul>
+<hr>
+<h2 id="✏️Property"><a href="#✏️Property" class="headerlink" title="✏️Property"></a>✏️Property</h2><blockquote>
+<p>材质属性；材质版面details可以具体调整材质的各种属性。</p>
+</blockquote>
+<ul>
+<li>它有很详细的官方文档，<a href="https://docs.unrealengine.com/5.0/zh-CN/unreal-engine-material-properties/">链接在此</a></li>
+<li>官方文档中，它的每一个属性以及下拉菜单都有详细介绍。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/material-properties-all.jpg" alt="material-properties-all"></li>
+</ul>
+<hr>
+<h2 id="✏️quality-switch（utility）"><a href="#✏️quality-switch（utility）" class="headerlink" title="✏️quality switch（utility）"></a>✏️quality switch（utility）</h2><blockquote>
+<p>质量开关；通过调整质量设置，来切换引擎质量的显示，来配合硬件的性能，适配对应相应的画质表现。允许设置low，mid，high。<br>允许根据引擎在不同质量级别之间的切换使用不同的网络，例如在较低端的设备上使用较低的质量。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/qualitySwitch.png" alt="qualitySwitch"></p>
+<hr>
+<h2 id="✏️Radial-Gradient-Exponential（Gradient）"><a href="#✏️Radial-Gradient-Exponential（Gradient）" class="headerlink" title="✏️Radial Gradient Exponential（Gradient）"></a>✏️Radial Gradient Exponential（Gradient）</h2><blockquote>
+<p>指数径向渐变；函数使用 UV 通道 0 来产生径向渐变，同时允许用户调整半径和中心点偏移。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/RadialGradientExponential_02.png" alt="RadialGradientExponential_02"></p>
+<hr>
+<h2 id="✏️Rotate-About-Axis（utility）"><a href="#✏️Rotate-About-Axis（utility）" class="headerlink" title="✏️Rotate About Axis（utility）"></a>✏️Rotate About Axis（utility）</h2><blockquote>
+<p>绕轴旋转，给定旋转轴、该轴上的某个点以及旋转角度的情况下，旋转三通道矢量输入。此表达式适合于使用”全局位置偏移”（WorldPositionOffset）产生简单剪切的动画。</p>
+</blockquote>
+<ul>
+<li>示例：预览平面将显示为绕着它的垂直轴旋转。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/RotateAboutAxisExample.jpg" alt="RotateAboutAxisExample"></li>
+</ul>
+<hr>
+<h2 id="✏️Rotator（coordinate）"><a href="#✏️Rotator（coordinate）" class="headerlink" title="✏️Rotator（coordinate）"></a>✏️Rotator（coordinate）</h2><blockquote>
+<p>旋转，以双通道向量值形式输出 UV 纹理坐标，该向量值可用来创建旋转纹理。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/rotatorExample.png" alt="rotatorExample"></p>
+<hr>
+<h2 id="✏️screen-Position（coordinate）"><a href="#✏️screen-Position（coordinate）" class="headerlink" title="✏️screen Position（coordinate）"></a>✏️screen Position（coordinate）</h2><blockquote>
+<p>屏幕位置，输出当前所渲染像素的屏幕空间位置。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/screen-position.jpg" alt="screen-position"></p>
+<hr>
+<h2 id="✏️sin和cosine（math）"><a href="#✏️sin和cosine（math）" class="headerlink" title="✏️sin和cosine（math）"></a>✏️sin和cosine（math）</h2><blockquote>
+<p>常见使用用途是输出某种有规律的waves。<br><strong>sine，正弦</strong>。表示输入范围和[-1, 1]的输出范围上反复输出正弦波的值。它与Cosine表达式的输出之间的区别是输出波形被四分之一的周期所抵消，这意味着”Cos(X)”等于”Sin(X + 0.25)”。<br>sine最常用于通过将一个 时间（Time） 表达式与其输入连接来输出连续的振荡波形，但它也可以用于在世界场景空间或屏幕空间或任何其他需要连续、平滑循环的应用中创建波纹。波形的可视化表示如下图所示，缩放到[0, 1]输出范围：</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/SineWave.jpg" alt="SineWave">、<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/SineExample.jpg" alt="SineExample"></p>
+<blockquote>
+<p><strong>cosine, 余弦</strong>；表示在[0, 1]的输入范围和[-1, 1]的输出范围上反复输出余弦波的值。<br>cosine最常用于通过将一个 时间 表达式与其输入连接来输出连续的振荡波形，但它也可以用于在世界场景空间或屏幕空间或任何其他需要连续、平滑循环的应用中创建波纹。波形的可视化表示如下图所示，缩放到[0, 1]输出范围：</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/CosineWave.jpg" alt="CosineWave"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/CosineExample.jpg" alt="CosineExample"></p>
+<hr>
+<h2 id="✏️sphere-mask（utility）"><a href="#✏️sphere-mask（utility）" class="headerlink" title="✏️sphere mask（utility）"></a>✏️sphere mask（utility）</h2><blockquote>
+<p>球体蒙版；根据距离计算来输出蒙版值。<br>如果某一个输出是某个点的位置，而另一输入是具有某半径的球体的中心，那么蒙版值将是0（位于球体外部）和1（位于球体内部），并存在一定的过渡区域。此表达式可作用于单分量、双分量、三分量和四分量矢量。</p>
+</blockquote>
+<ul>
+<li>示例：当摄像机距离预览对象超过256个单位时，该对象将平滑地渐变为黑色。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/SphereMaskExample.jpg" alt="SphereMaskExample"></li>
+</ul>
+<hr>
+<h2 id="✏️square-Root（math）"><a href="#✏️square-Root（math）" class="headerlink" title="✏️square Root（math）"></a>✏️square Root（math）</h2><blockquote>
+<p>平方根；。如果应用于向量，则每个分量将分别处理。输出的也是一个数学结果。</p>
+</blockquote>
+<ul>
+<li>对于0到1范围内的纹理，这会降低图像的对比度。例如，在下面的校准纹理中，深色值会变得更亮，白色值会向灰色转变。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/square-root.jpg" alt="square-root"></li>
+</ul>
+<hr>
+<h2 id="✏️substract（math）"><a href="#✏️substract（math）" class="headerlink" title="✏️substract（math）"></a>✏️substract（math）</h2><blockquote>
+<p>减法；接受两个输入，将第一个输入减去第二个输入，然后输出差值。</p>
+</blockquote>
+<ul>
+<li>两个输入必须有相同数量的值，但其中一个值是单个常量值时例外。在这种情况下，将多通道输入的每个通道减去常量值，并将结果存储在输出值的单独通道中。</li>
+<li><strong>示例</strong>：0.5与0.2相减得0.3；(0.2,-0.4,0.6)与(0.1,0.1,1.0)相减得(0.1,-0.5,-0.4)；(0.2,0.4,1.0)与0.2相减得(0.0,0.2,0.8)。</li>
+<li>Subtract可以用来加深颜色和偏移UV。</li>
+</ul>
+<hr>
+<h2 id="✏️swizzle（miscellaneous）"><a href="#✏️swizzle（miscellaneous）" class="headerlink" title="✏️swizzle（miscellaneous）"></a>✏️swizzle（miscellaneous）</h2><blockquote>
+<p>通道扰乱，主要作用是flip原来的x和y，比如xyz会变成yxz。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/swizzle.png" alt="swizzle"></p>
+<hr>
+<h2 id="✏️Time（constant）"><a href="#✏️Time（constant）" class="headerlink" title="✏️Time（constant）"></a>✏️Time（constant）</h2><blockquote>
+<p>时间；用来向材质（例如，Panner（平移）、Cosine（余弦） 或其他时间相关操作）添加经历时间。代表时间流逝，但是会不断更新。</p>
+</blockquote>
+<ul>
+<li>它有两个参数：<ul>
+<li>Ignore Pause（如果为 true，那么时间将一直推进，即使游戏暂停也是这样。）</li>
+<li>Period （如果为 true，那么这将是时间回绕前经过的时间量。针对移动材质，这将以全精度在 CPU 上执行周期计算，而在 GPU 上，将以半精度运行（处理长度超过一分钟的周期时，可能会产生问题））</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/TimeExample.jpg" alt="TimeExample"></p>
+<ul>
+<li>上图中说明的网络将创建一个随时间推移而变化的材质，从而连贯地展现白色与黑色之间的正弦曲线过渡。如果启用了时间段，那么将时间段设置为 0 会有效地停止过渡，而设置为 1 相当于时间段为 false。设置接近于 0 的数值将使材质更迅速地变化。</li>
+</ul>
+<hr>
+<h2 id="✏️Translucency-Property"><a href="#✏️Translucency-Property" class="headerlink" title="✏️Translucency Property"></a>✏️Translucency Property</h2><blockquote>
+<p>半透明属性；<br>最终颜色 &#x3D; 源颜色 不透明度 + 目标颜色 (1 - 不透明度)。此混合模式与动态光照 不 兼容。</p>
+</blockquote>
+<ul>
+<li>需要确保 screnn space reflcetions 为true，开启后支持半透明材质的屏幕空间反射。</li>
+<li>并且根据场景需求选择Translucency lighting mode，这可以控制半透明（Translucency）在该材质中使用的光照模式。下拉菜单越往下开销越大。</li>
+<li>材质属性详细查看document，<a href="https://docs.unrealengine.com/5.0/zh-CN/unreal-engine-material-properties/">链接在此</a></li>
+</ul>
+<hr>
+<h2 id="✏️Translucency-self-shadowing-Property"><a href="#✏️Translucency-self-shadowing-Property" class="headerlink" title="✏️Translucency self shadowing Property"></a>✏️Translucency self shadowing Property</h2><blockquote>
+<p>半透明自投影；<strong>半透明自身阴影是一种获得体积光照半透明对象（例如烟柱或蒸汽柱）的好方法</strong>。自投影分为两个主要部分：自身阴影密度（Self Shadow Density）和第二自身阴影密度（Second Self Shadow Density）。这两个部分的存在为变化提供了可能。你可以单独定义各个部分的密度，并使用它们之间的差异在整个自身阴影中获得你需要的模式。</p>
+</blockquote>
+<ul>
+<li>在translucent mode下使用，需要有一个base color</li>
+<li>材质属性详细查看document，<a href="https://docs.unrealengine.com/5.0/zh-CN/unreal-engine-material-properties/">链接在此</a><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/translucency-self-shadowing.jpg" alt="translucency-self-shadowing"></li>
+</ul>
+<hr>
+<h2 id="✏️Tesselation-Property"><a href="#✏️Tesselation-Property" class="headerlink" title="✏️Tesselation Property"></a>✏️Tesselation Property</h2><blockquote>
+<p>曲面细分；增加了额外的几何，用于添加更多物理细节。</p>
+</blockquote>
+<ul>
+<li>Flat Tessellation，曲面细分的简单形式。此模式会在不平滑网格体的前提下添加更多三角形。</li>
+<li>PN Triangles，使用基于样条的简单曲面细分，这种曲面细分虽然开销更高，但细节表现效果更佳。</li>
+<li>官方文档<a href="https://docs.unrealengine.com/4.26/zh-CN/RenderingAndGraphics/Materials/MaterialProperties/">链接在此</a></li>
+</ul>
+<hr>
+<h2 id="✏️Texture-Coordinate（coordinate）"><a href="#✏️Texture-Coordinate（coordinate）" class="headerlink" title="✏️Texture Coordinate（coordinate）"></a>✏️Texture Coordinate（coordinate）</h2><blockquote>
+<p>纹理坐标；双通道，输出uv纹理坐标，改变uv平铺。</p>
+</blockquote>
+<ul>
+<li>如需访问网格体的第二个 UV 通道，请创建一个 TextureCoordinate（纹理坐标）节点，将其”坐标索引”（CoordinateIndex）设置为 1（0 表示第一个通道，1 表示第二个通道，等等），并将其连接到 TextureSample（纹理取样）节点的 UV 输入。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/texture-coordinates.jpg" alt="texture-coordinates"></li>
+</ul>
+<hr>
+<h2 id="✏️Texture-sample（texture）"><a href="#✏️Texture-sample（texture）" class="headerlink" title="✏️Texture sample（texture）"></a>✏️Texture sample（texture）</h2><blockquote>
+<p>纹理贴图，输出input的纹理颜色，一般就是2d贴图为主</p>
+</blockquote>
+<ul>
+<li><strong>UVs</strong>，接收UV纹理坐标，以用于纹理。如果没有任何值输入到UV，那么将使用材质所应用到的网格体的纹理坐标</li>
+<li>**DDX(UVs)**，接收UV输入的DDX以用于各向异性过滤。默认情况下，硬件自动执行此过滤，并且速度更快。但是在某些情况下，可能需要使用DDX材质表达式显式地设置此项目，以避免延迟贴花的2x2像素块瑕疵之类的瑕疵。仅当 Mip值模式（MipValueMode） &#x3D; 导数（Derivative） 时才可用。</li>
+<li>**DDY(UVs)**，接收UV输入的DDY以用于各向异性过滤，这与DDX（UV）接收UV输入的DDX相同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/TextureSampleExample.jpg" alt="TextureSampleExample"></li>
+</ul>
+<hr>
+<h2 id="✏️value-step（gradient）"><a href="#✏️value-step（gradient）" class="headerlink" title="✏️value step（gradient）"></a>✏️value step（gradient）</h2><blockquote>
+<p>值阶；接收现有的纹理通道或渐变，并根据用户的输入来输出纯黑白色图像。结果是一个蒙版，它代表与输入值相等的渐变部分。</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/valueStep.png" alt="valueStep"></p>
+<hr>
+<h2 id="✏️vector-to-radial-value（miscellaneous）"><a href="#✏️vector-to-radial-value（miscellaneous）" class="headerlink" title="✏️vector to radial value（miscellaneous）"></a>✏️vector to radial value（miscellaneous）</h2><blockquote>
+<p>矢量到径向值；将”矢量 2”矢量转换为角度，或者将 UV 坐标数据转换为径向坐标。对于矢量，角度将在一个通道中输出，而矢量长度在另一通道中输出。</p>
+</blockquote>
+<ul>
+<li>Radial Coordinates（返回输入的径向坐标，对于矢量，角度将在一个通道中输出，而距离在另一通道中输出。）</li>
+<li>Vector Converted to Angle（返回输入矢量的角度，返回径向梯度）</li>
+<li>Linear Distance（返回输入矢量的线性长度，对于 UV，输出距离的径向梯度。）<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vectorToRadialValue.png" alt="vectorToRadialValue"></li>
+</ul>
+<hr>
+<h2 id="✏️vertex-Normal-WS（coordinate）"><a href="#✏️vertex-Normal-WS（coordinate）" class="headerlink" title="✏️vertex Normal WS（coordinate）"></a>✏️vertex Normal WS（coordinate）</h2><blockquote>
+<p>世界场景空间顶点法线；它只能用于在顶点着色器中执行的材质输入，例如WorldPositionOffset。<br>该表达式对于设置网格体增大或缩小很有用</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vertexNormalWS.png" alt="vertexNormalWS"></p>
+<ul>
+<li>如上示例，小球每个顶点的法线会在各自法线方向上移动，会随着正弦运动按比例放大和缩小。</li>
+</ul>
+<hr>
+<h2 id="✏️view-size（coordinate）"><a href="#✏️view-size（coordinate）" class="headerlink" title="✏️view size（coordinate）"></a>✏️view size（coordinate）</h2><blockquote>
+<p>视图大小；表达式输出一个 2D 向量，以给出当前视图的大小（以像素为单位）。<strong>这对于使材质根据当前屏幕分辨率产生各种变化来说非常有用。</strong></p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/viewsize.png" alt="viewsize"></p>
+<ul>
+<li>如示例，按照视图比例，来变换颜色。</li>
+</ul>
+<hr>
+<h2 id="✏️world-position（coordinate）"><a href="#✏️world-position（coordinate）" class="headerlink" title="✏️world position（coordinate）"></a>✏️world position（coordinate）</h2><blockquote>
+<p>全局位置，输出当前像素在全局空间中的位置。</p>
+</blockquote>
+<ul>
+<li>常见用法是确定从摄像机到像素的径向距离，而不是像 PixelDepth（像素深度）那样确定正交距离。WorldPosition（全局位置）也可用作纹理坐标，并让不相关的网格在它们彼此邻近时进行纹理坐标匹配。以下是使用 WorldPosition.xy 对纹理进行二维贴图的基本示例：</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/world-position-planar.jpg" alt="world-position-planar"></li>
+</ul>
+<hr>
+<p>wtf is material 全篇到这里就结束了，这一遍看的很粗略，不过收益很多！还会持续学习！</p>
+]]></content>
+      <categories>
+        <category>-UE4</category>
+      </categories>
+      <tags>
+        <tag>-材质</tag>
       </tags>
   </entry>
   <entry>
@@ -1994,483 +2813,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </categories>
       <tags>
         <tag>-材质</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</title>
-    <url>/2022/10/08/math_Essense_of_Linear_Algebra_P12/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释"><a href="#3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释" class="headerlink" title="3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释"></a>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第十二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
-<li>《<strong>线代本质》的内容在我的第十一章的笔记就是完结篇，这篇第十二章《克莱姆法则，几何解释》由于官方账号发在一起了，所以我也当作这个系列一起写了</strong></li>
-<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
-<li>官方一共将此系列分为12节，所以我也会分开写。</li>
-<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
-<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
-</ul>
-<hr>
-<h2 id="✏️克莱姆法则，几何解释："><a href="#✏️克莱姆法则，几何解释：" class="headerlink" title="✏️克莱姆法则，几何解释："></a>✏️克莱姆法则，几何解释：</h2><h3 id="✍️克莱姆法则以及背后的几何原理："><a href="#✍️克莱姆法则以及背后的几何原理：" class="headerlink" title="✍️克莱姆法则以及背后的几何原理："></a>✍️克莱姆法则以及背后的几何原理：</h3><ul>
-<li><strong>克莱姆法则是线性代数中一个关于求解线性方程组的定理。它适用于变量和方程数目相等的线性方程组。</strong></li>
-<li>克莱姆法则并不是计算线性方程组最好的方法，比如高斯消元法（Gaussian Elimination）会算的更快。这一部分内容就可以当作是扩展视野，它会帮你加深对线性方程组的理解。</li>
-<li>在知道了这方面的知识后，你就会发现行列式或者线性方程组，这些知识都非常相关。</li>
-<li><strong>举例来说：这里有x和y两个未知数和两个方程，原则上来说，只要未知数和方程个数一样，我们所说的都适用。</strong></li>
-<li><strong>目前，我们将只讨论非零行列式的情况。这意味着线性变换后不改变维数。每个输入向量有且仅有一个输出向量；且每一个输出向量也仅对应一个输入向量。</strong></li>
-</ul>
-<hr>
-<h3 id="✍️正交变换（Orthonormal）："><a href="#✍️正交变换（Orthonormal）：" class="headerlink" title="✍️正交变换（Orthonormal）："></a>✍️正交变换（Orthonormal）：</h3><ul>
-<li>那些不改变点积的矩阵变换有一个特殊的名字：“正交变换”（Orthonormal）。它们使基向量在变化后依然保持单位长度且互相垂直。</li>
-<li>可以想象成是旋转矩阵，相当于刚体运动，没有拉伸，压缩或者变形。</li>
-<li>用正交矩阵来求解线性系统非常简单，因为点积保持不变，所以已知的输出向量和矩阵的列向量的点积，分别等同于未知输入向量和各个基向量的点积。也就是输入向量的每一个坐标。</li>
-<li>因此，在特殊情况下，x等于第一列向量已知向量的点积，y等于第二列向量与已知向量的点积。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2.png" alt="正交变换"></li>
-<li>注意：这个思路对于大多数线性方程组都不成立，但是他给了我们一个方向去思考：有没有另一种对输入向量坐标值的几何解释，能在矩阵变换后保持不变呢？</li>
-</ul>
-<hr>
-<h4 id="在二维空间中："><a href="#在二维空间中：" class="headerlink" title="在二维空间中："></a>在二维空间中：</h4><ul>
-<li>如果逆非常熟悉行列式，你可能会想到一个很棒的想法：这个由第一个基向量i和位置的输入向量[x；y]组成的平行四边形；面积是长度为1的底，乘上与底边垂直的高（也就是输入向量y的坐标值）。</li>
-<li>因此，我们拐了一个弯，用这个平行四边形的面积来表示y值。</li>
-<li>更准确的说，你应该考虑这个平行四边形的有向面积。如下图所示。</li>
-<li>正如行列式的那样，如果向量y的坐标为负，那么四边形的面积也为负。前提是你把基向量i放在第一位来定义平行四边形。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E7%9A%84%E6%9C%89%E5%90%91%E9%9D%A2%E7%A7%AF.png" alt="平行四边形的有向面积"></li>
-<li>同样，观察由未知的输入向量和第二基向量j组成的平行四边形；它的面积等于向量的x坐标。</li>
-<li>用这种方式表示x的值也有点奇怪。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E7%9A%84%E6%9C%89%E5%90%91%E9%9D%A2%E7%A7%AF%EF%BC%88%E4%BB%A5j%E4%B8%BA%E5%BA%95%EF%BC%89.png" alt="平行四边形的有向面积（以j为底）"></li>
-</ul>
-<hr>
-<h4 id="在三维空间中："><a href="#在三维空间中：" class="headerlink" title="在三维空间中："></a>在三维空间中：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%85%AD%E9%9D%A2%E4%BD%93%E9%9D%A2%E7%A7%AF.png" alt="平行六面体面积"></p>
-<ul>
-<li>考虑向量与另外两个基向量i和j所组成的平行六面体，底面是由基向量i和j组成的正方形，面积是1；所以他的体积等于它的高，也就是我们这个向量的z坐标。</li>
-<li>同样的，用这个奇怪的方法来描述向量在某一个轴上的坐标值，可以先考虑向量，和除了这个轴紫外的两个基向量组成的平行六面体。然后其体积就是对应的坐标值。</li>
-<li>另外，我们可以讨论平行六面体的有向体积，就是之前在行列式中提到过的右手法则。这时，你列出的这三个向量的顺序就很重要了。这样就表明坐标的正负性也是有意义的。</li>
-</ul>
-<hr>
-<h3 id="✍️将坐标值和面积或体积联系起来的意义："><a href="#✍️将坐标值和面积或体积联系起来的意义：" class="headerlink" title="✍️将坐标值和面积或体积联系起来的意义："></a>✍️将坐标值和面积或体积联系起来的意义：</h3><ul>
-<li>因为当你做矩阵变换后，平行四边形的面积不一定保持不变，可能成比例的增大或减小。但是，所有面积伸缩的比例都是一样的，都等于给定变换矩阵的行列式。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%89%80%E6%9C%89%E9%9D%A2%E7%A7%AF%E4%BC%B8%E7%BC%A9%E7%9A%84%E6%AF%94%E4%BE%8B%E9%83%BD%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt="所有面积伸缩的比例都等于给定行列式"></li>
-<li>考虑一个新的平行四边形；第一条边是变换后的第一基向量（也就是矩阵的第一列）；第二条边是变换后的[x,y]，那它的面积是多大呢？</li>
-<li>其实这就是我们之前提及的平行四边形的变换。变换前，面积是未知输入向量的y坐标值，所以变换后的面积等于矩阵的行列式乘以y值。</li>
-<li>所以可以用输出的平行四边形面积除以矩阵的行列式计算出y。既然我们已知最终变换后的向量，那么可以构造一个新矩阵，第一列和我们原先的矩阵相同，而第二列是输出向量，然后取新矩阵的行列式。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%96%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF.png" alt="新平行四边形面积"></li>
-<li>我们只需使用到变换后的两个向量，也就是矩阵的列向量和已知输出向量，就能计算出位置输入向量的y值，此时方程已经解好一半了。</li>
-<li>我们可以用相同的方法得出x值。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%96%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF_x.png" alt="新平行四边形面积_x"></li>
-<li><strong>这个线性方程组的解法，被称为克莱姆法则。</strong></li>
-<li>三维或者多维的计算结果也基本如此。</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>-3Blue1Brown线性代数本质</category>
-      </categories>
-      <tags>
-        <tag>-学数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UE4_虚幻引擎材质节点以及蓝图的学习</title>
-    <url>/2022/10/14/ue_WTF_is_Material_all/</url>
-    <content><![CDATA[<h1 id="UE4-虚幻引擎材质节点以及蓝图的学习"><a href="#UE4-虚幻引擎材质节点以及蓝图的学习" class="headerlink" title="UE4_虚幻引擎材质节点以及蓝图的学习"></a>UE4_虚幻引擎材质节点以及蓝图的学习</h1><blockquote>
-<p>🍉本笔记是我的UE材质节点学习笔记，随手写一下，我是菜鸡的水平，如果很厉害的大佬就可以跳过了哈！如有错误请及时指正！<br>🤩学习主要来自WTF is Material的章节，也就是来自Mathew Wadstein的tutorials~~~ 请有兴趣就去关注原作者！<br>🍅还有一些杂七杂八的从各种地方学的我应该会一同写在一起了，大部分也去ue的document查了一圈，拿了一些示例。我正在学习ue的路上，这个系列应该会持续更，有兴趣的想要一起学习的也可以关注我的更新！</p>
-</blockquote>
-<hr>
-<h2 id="✏️材质节点键盘快捷键不全的大全："><a href="#✏️材质节点键盘快捷键不全的大全：" class="headerlink" title="✏️材质节点键盘快捷键不全的大全："></a>✏️材质节点键盘快捷键不全的大全：</h2><table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>Node Name</th>
-<th>中文</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>constant</td>
-<td>一维向量</td>
-</tr>
-<tr>
-<td>2</td>
-<td>constant2Vector</td>
-<td>二维向量</td>
-</tr>
-<tr>
-<td>3</td>
-<td>constant3Vector</td>
-<td>三维向量</td>
-</tr>
-<tr>
-<td>4</td>
-<td>constant4Vector</td>
-<td>四维向量</td>
-</tr>
-<tr>
-<td>A</td>
-<td>Add</td>
-<td>加法</td>
-</tr>
-<tr>
-<td>M</td>
-<td>multiply</td>
-<td>混合，乘法</td>
-</tr>
-<tr>
-<td>D</td>
-<td>divide</td>
-<td>除法</td>
-</tr>
-<tr>
-<td>T</td>
-<td>TextureSample</td>
-<td>纹理贴图</td>
-</tr>
-<tr>
-<td>P</td>
-<td>Panner</td>
-<td>坐标平移</td>
-</tr>
-<tr>
-<td>U</td>
-<td>TextureCoordinate</td>
-<td>纹理坐标</td>
-</tr>
-<tr>
-<td>L</td>
-<td>Lerp</td>
-<td>插值函数</td>
-</tr>
-<tr>
-<td>I</td>
-<td>if</td>
-<td>参数判断</td>
-</tr>
-<tr>
-<td>C</td>
-<td>comment</td>
-<td>备注说明</td>
-</tr>
-<tr>
-<td>B</td>
-<td>BumpOffset</td>
-<td>视差贴图</td>
-</tr>
-<tr>
-<td>N</td>
-<td>Normalize</td>
-<td>归一化函数</td>
-</tr>
-<tr>
-<td>E</td>
-<td>power</td>
-<td>幂</td>
-</tr>
-<tr>
-<td>O</td>
-<td>one-minus</td>
-<td>反向，反向颜色</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="✏️官方操作快捷键："><a href="#✏️官方操作快捷键：" class="headerlink" title="✏️官方操作快捷键："></a>✏️官方操作快捷键：</h2><ul>
-<li>图来自网络<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/hotKey_ue.png" alt="hotKey_ue"></li>
-</ul>
-<hr>
-<h2 id="✏️Actor-Position-WS（vectors）"><a href="#✏️Actor-Position-WS（vectors）" class="headerlink" title="✏️Actor Position WS（vectors）"></a>✏️Actor Position WS（vectors）</h2><h3 id="🍏【ActorPosition】："><a href="#🍏【ActorPosition】：" class="headerlink" title="🍏【ActorPosition】："></a>🍏【ActorPosition】：</h3><blockquote>
-<p>对象坐标值，输出的是vector3，指这个actor在世界空间中的位置（已经赋予此材质的对象）。它的整体变化是以actor的坐标为基准。</p>
-</blockquote>
-<ul>
-<li>下图是<strong>actorPosition</strong>的示例，图来自于YakSue的CSDN博客，<a href="https://yaksue.blog.csdn.net/article/details/110431700?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-110431700-blog-104868601.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-110431700-blog-104868601.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=1">链接在此</a>。（如侵权请联系删除）<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/actorPosition.gif" alt="actorPosition"></li>
-</ul>
-<h3 id="🍏【Object-Position】："><a href="#🍏【Object-Position】：" class="headerlink" title="🍏【Object Position】："></a>🍏【Object Position】：</h3><blockquote>
-<p>与他比较相似的是 Object Position，输出对象bound的世界场景空间<strong>中心</strong>位置。它的变化则是以整体中心为基准。</p>
-</blockquote>
-<ul>
-<li>下图是<strong>Object Position</strong>的示例，图来自于YakSue的CSDN博客。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/objectPosition.gif" alt="objectPosition"></li>
-</ul>
-<h3 id="🍏【Absolute-World-Position】："><a href="#🍏【Absolute-World-Position】：" class="headerlink" title="🍏【Absolute World Position】："></a>🍏【Absolute World Position】：</h3><blockquote>
-<p>Absolute World Position，表示在全局空间中的位置。</p>
-</blockquote>
-<ul>
-<li>下图是<strong>Absolute World Position</strong>的示例，图来自于YakSue的CSDN博客。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/AbsoluteWorldPosition.gif" alt="AbsoluteWorldPosition"></li>
-</ul>
-<hr>
-<h2 id="✏️Add（math）"><a href="#✏️Add（math）" class="headerlink" title="✏️Add（math）"></a>✏️Add（math）</h2><blockquote>
-<p>加法，常用于颜色亮暗的调节，或者使用于offset。 </p>
-</blockquote>
-<ul>
-<li>他所做的事情和数学一样，就是获取两个input并把他们values相加。如果使用多个通道传递，则每个通道分别相加。- 两个input的如果是多通道，那么通道必须数量相同；但是如给其中一个是单值常量则例外，单值浮点会与多通道每个通道相加并输出。</li>
-</ul>
-<hr>
-<h2 id="✏️AppendVector（math）"><a href="#✏️AppendVector（math）" class="headerlink" title="✏️AppendVector（math）"></a>✏️AppendVector（math）</h2><blockquote>
-<p>二维加法，将一个值加入（插入）到另一个值后端。允许你组合通道，比如你有一个二维向量，你可以通过append加入第三个向量。</p>
-</blockquote>
-<ul>
-<li>要注意它和add是完全不同的，它并不是数值上的相加。</li>
-</ul>
-<hr>
-<h2 id="✏️Abs（math）"><a href="#✏️Abs（math）" class="headerlink" title="✏️Abs（math）"></a>✏️Abs（math）</h2><blockquote>
-<p>absolute value，绝对值；它没有参数，但是涵盖一个很简单的函数。这个函数是取input的绝对值。这意味着它通过去掉负号把负数变成正数，而正数和零保持不变</p>
-</blockquote>
-<ul>
-<li>这个函数意味着它的output是没有负数的，大多数情况下使用于不想取到负值的情况下，将output的区间钳制在正数区间。</li>
-<li>一般配合点积使用，确定两个向量之间的角度关系，计算它是平行，垂直，还是介于两者之间。通常，当您得到两个向量的点积时，该值在1.0（对于两个平行向量）与-1.0（对于两个完全相反的向量）之间进行插值，中间点0表示这两个向量是垂直的。当您取这个点积的绝对值时，正值保持不变，而负值通过去掉负号变成正数。因此，结果在0（对于垂直向量）和1.0（对于平行向量，无论向量指向相同还是相反的方向）之间进行插值。这只是告诉您这两个向量距离正交有多远。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/abs.jpg" alt="abs"></li>
-</ul>
-<hr>
-<h2 id="✏️BlackBody（utility）"><a href="#✏️BlackBody（utility）" class="headerlink" title="✏️BlackBody（utility）"></a>✏️BlackBody（utility）</h2><blockquote>
-<p>黑体，用来在材质中模拟黑体辐射，运用开尔文温度，产生颜色和轻度来驱动basecolor和emissive，获得物理上准确的结果</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/BlackBody.jpg" alt="BlackBody"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%BC%80%E5%B0%94%E6%96%87%E9%A2%9C%E8%89%B2.png" alt="开尔文颜色"></p>
-<hr>
-<h2 id="✏️BumpOffset（function）"><a href="#✏️BumpOffset（function）" class="headerlink" title="✏️BumpOffset（function）"></a>✏️BumpOffset（function）</h2><blockquote>
-<p>高度视差，就是所谓的视差贴图。凹凸贴图偏移表达式可以使材质产生深度错觉，而不需要额外的几何体。凹凸贴图偏移材质使用灰阶高度贴图来提供深度信息。</p>
-</blockquote>
-<ul>
-<li>它有三个input：<ul>
-<li>coordinate</li>
-<li>height（一般情况下这个通道是必须的，需要一张灰度图，越黑代表距离越远，越白距离越近。）</li>
-<li>heightRatioInput（这个建议较小的数值，否则扭曲和拉伸会较为严重）</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/BumpOffset.png" alt="BumpOffset"></p>
-<hr>
-<h2 id="✏️Camera-Position-WS（vectors）"><a href="#✏️Camera-Position-WS（vectors）" class="headerlink" title="✏️Camera Position WS（vectors）"></a>✏️Camera Position WS（vectors）</h2><blockquote>
-<p>相机坐标值，会输出一个三通道向量值，该值表示摄像机在世界场景空间中的位置.</p>
-</blockquote>
-<ul>
-<li>看如下案例，相机位置如果高于物体位置，呈现白色；如果低于物体位置，呈现黑色。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/cameraPosition.png" alt="cameraPosition"></li>
-</ul>
-<hr>
-<h2 id="✏️Clamp（math）"><a href="#✏️Clamp（math）" class="headerlink" title="✏️Clamp（math）"></a>✏️Clamp（math）</h2><blockquote>
-<p>范围限定；接受一个或多个值，并将它们约束到由最小值和最大值定义的指定范围内。如果最小值为0.0，最大值为0.5，则意味着结果值永远不会小于0.0，且永远不会大于0.5。</p>
-</blockquote>
-<ul>
-<li>有三个input<ul>
-<li>clamp mode（可以设定只有 max或只有 min）</li>
-<li>Min Default</li>
-<li>Max Default</li>
-</ul>
-</li>
-<li>它保证数值不会大于你自定义的max，也不会小于你自定义的min。</li>
-</ul>
-<hr>
-<h2 id="✏️Component-Mask（math）"><a href="#✏️Component-Mask（math）" class="headerlink" title="✏️Component Mask（math）"></a>✏️Component Mask（math）</h2><blockquote>
-<p>相当于参数提取，它允许你从输入中挑选某个通道子集（R、G、B和&#x2F;或A）并输出。</p>
-</blockquote>
-<ul>
-<li>下图示例： 如果ComponentMask的输入是(0.2,0.4,1.0)和G通道，输出将是(0.4)。如果是颜色向量，最终效果就是一个40%的明亮灰度值。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ComponentMaskExample.jpg" alt="ComponentMaskExample"></li>
-</ul>
-<hr>
-<h2 id="✏️Constant-Bias-Scale（math）"><a href="#✏️Constant-Bias-Scale（math）" class="headerlink" title="✏️Constant Bias Scale（math）"></a>✏️Constant Bias Scale（math）</h2><blockquote>
-<p>允许你按比例调整参数，它有两个参数，运算规则是：先加bias的数值，后与scale数值相乘。</p>
-</blockquote>
-<hr>
-<h2 id="✏️Constant类型（constant）"><a href="#✏️Constant类型（constant）" class="headerlink" title="✏️Constant类型（constant）"></a>✏️Constant类型（constant）</h2><blockquote>
-<p>constant实际上有一堆，分别是constant，constant2vector，constant3vector，constant4vector，他们都输出常量，只是通道数量不一样。他们按通道的个数分别是输出RGBA或者XYZW。</p>
-</blockquote>
-<hr>
-<h2 id="✏️Cross-Product（math）"><a href="#✏️Cross-Product（math）" class="headerlink" title="✏️Cross Product（math）"></a>✏️Cross Product（math）</h2><blockquote>
-<p>叉积，计算两个三通道向量值输入的交叉乘积，并输出产生的三通道向量值。假定空间中有两个向量，则交叉乘积是一个同时垂直于两个输入的向量。计算方式与数学上面的叉积没有区别。</p>
-</blockquote>
-<ul>
-<li>CrossProduct常用于计算垂直于另外两个方向的方向。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/cross-product.jpg" alt="cross-product"></li>
-</ul>
-<hr>
-<h2 id="✏️Custom-Rotator（texturing）"><a href="#✏️Custom-Rotator（texturing）" class="headerlink" title="✏️Custom Rotator（texturing）"></a>✏️Custom Rotator（texturing）</h2><blockquote>
-<p>自定义旋转，它会提供一个center，然后你可以实际运用这个center去定义不同的点，来进行旋转。</p>
-</blockquote>
-<ul>
-<li>它有三个input<ul>
-<li>UVs </li>
-<li>Rotation Center（这实际就是设置中心的地方）</li>
-<li>Roataton Angle（0-1的区间，360度）</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="✏️Depth-Fade（texturing）"><a href="#✏️Depth-Fade（texturing）" class="headerlink" title="✏️Depth Fade（texturing）"></a>✏️Depth Fade（texturing）</h2><blockquote>
-<p>深度消退，用来隐藏半透明对象与不透明对象相交时出现的不美观接缝，起到柔化边缘相交处的接缝的作用。</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/depthFade.png" alt="depthFade"></p>
-<ul>
-<li>注意选择合适的fade distance。</li>
-<li>depth fade在制作地形，植被时候可以用来改善相交处的接缝。</li>
-</ul>
-<hr>
-<h2 id="✏️Depth-of-Field-Funtion（Utility）"><a href="#✏️Depth-of-Field-Funtion（Utility）" class="headerlink" title="✏️Depth of Field Funtion（Utility）"></a>✏️Depth of Field Funtion（Utility）</h2><blockquote>
-<p>景深运算，根据景深设置你所要取的区间。</p>
-</blockquote>
-<ul>
-<li>0代表in focus；1代表out of focus</li>
-<li>可以使用它作为on 和 off；比如距离近的时候使用高分辨率的贴图之类的，使用dof function来判断是不是in focus。</li>
-</ul>
-<hr>
-<h2 id="✏️Desaturation（color）"><a href="#✏️Desaturation（color）" class="headerlink" title="✏️Desaturation（color）"></a>✏️Desaturation（color）</h2><blockquote>
-<p>去饱和度，对input进行饱和度去除，即根据特定百分比将其输入的颜色转换为灰色阴影</p>
-</blockquote>
-<ul>
-<li>它有两个input<ul>
-<li>Luminance Factors（指定每个通道对去饱和度颜色的影响量。此属性确保在去饱和度之后，绿色比红色亮，而红色比蓝色亮。）</li>
-<li>Fraction （指定要应用于输入的去饱和度数量。此百分比的范围是0.0（完全原始颜色，不去饱和度）到1.0（完全去饱和度）。）</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="✏️Diamond-Gradient（miscellaneous）"><a href="#✏️Diamond-Gradient（miscellaneous）" class="headerlink" title="✏️Diamond Gradient（miscellaneous）"></a>✏️Diamond Gradient（miscellaneous）</h2><blockquote>
-<p>钻石型渐变图案。可以通过调整fall off 得到不同程度的衰减效果。</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/diamondGradient.png" alt="diamondGradient"></p>
-<hr>
-<h2 id="✏️Distance（math）"><a href="#✏️Distance（math）" class="headerlink" title="✏️Distance（math）"></a>✏️Distance（math）</h2><blockquote>
-<p>距离计算，计算两个点&#x2F;颜色&#x2F;位置&#x2F;矢量之间的欧氏距离，并输出结果值。此表达式可作用于单分量、双分量、三分量和四分量矢量，但此表达式的两个输入必须具有相同数目的通道。</p>
-</blockquote>
-<ul>
-<li>可以理解为：Result &#x3D; length (A - B)<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/DistanceExample.jpg" alt="DistanceExample"></li>
-</ul>
-<hr>
-<h2 id="✏️Divide（math）"><a href="#✏️Divide（math）" class="headerlink" title="✏️Divide（math）"></a>✏️Divide（math）</h2><blockquote>
-<p>除法，取两个输入，将第一个输入除以第二个输入，并输出值。</p>
-</blockquote>
-<ul>
-<li>两个输入必须有相同数量的值，但其中一个值是单个浮点值时例外。在这种情况下，将多通道输入的每个通道除以单个浮点值，并将结果存储在输出值的单独通道中。</li>
-<li>如果使用多个通道传递值，每个通道将单独相除。</li>
-<li>如果除数在任何通道内都介于0和0.00001之间，则将其提升至0.00001。如果除数在任何通道内都介于0和-0.00001之间，则将其降低至-0.00001。这避免了出现除以零的错误可能性。但是，这也意味着通道的输出值可能非常大。</li>
-</ul>
-<hr>
-<h2 id="✏️Dot-Product（math）"><a href="#✏️Dot-Product（math）" class="headerlink" title="✏️Dot Product（math）"></a>✏️Dot Product（math）</h2><blockquote>
-<p>点积，点积可以描述为一个向量投影到另一个向量上的长度，也可以描述为两个向量之间的余弦乘以它们的幅值。许多技术使用这种算法来计算衰减。DotProduct要求两个向量输入具有相同数量的通道。</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/dot-product.jpg" alt="dot-product"></p>
-<hr>
-<h2 id="✏️Feature-Level-Switch（math）"><a href="#✏️Feature-Level-Switch（math）" class="headerlink" title="✏️Feature Level Switch（math）"></a>✏️Feature Level Switch（math）</h2><blockquote>
-<p>特征等级切换，此节点允许你你使用相同的材质，但是可以基于不同的shader level去显示不同的东西，多用于设置材质用于不同设备时。</p>
-</blockquote>
-<ul>
-<li>举个例子来看，如下图，我们的preview Rendering Level是不同的；这个材质节点的作用就是当你有这样一些feature level的时候，它的inputs提供的选项允许你去自行设置先要输出的内容，如果它没有特殊被设置，那就会自行使用default。</li>
-<li>他必须使用一个default，否则无法工作。</li>
-<li>你可以通过此设置更轻量的东西去到移动端设备。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/FeatureLevelSwitch.png" alt="FeatureLevelSwitch"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/FeatureLevelSwitch_02.png" alt="FeatureLevelSwitch_02"></li>
-</ul>
-<hr>
-<h2 id="✏️Floor-and-Ceil（math）"><a href="#✏️Floor-and-Ceil（math）" class="headerlink" title="✏️Floor and Ceil（math）"></a>✏️Floor and Ceil（math）</h2><blockquote>
-<p><strong>Floor</strong>，舍去小数部分，<strong>向下取整</strong>。比如0.2向下舍入取整就是0.0；(0.2,1.6)向下舍入到(0.0, 1.0)。 </p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/floor.jpg" alt="floor"></p>
-<blockquote>
-<p><strong>Ceil</strong>，舍去小数部分，<strong>向上取整</strong>。比如0.2向上舍入取整就是1.0；(0.2,1.6)向上舍入到(1.0,2.0)。</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ceil.jpg" alt="ceil"></p>
-<ul>
-<li>这两个节点可以理解为做相同的事情，但是结果相反，就像min和max一样。</li>
-<li>他们的名字也可以看出floor是向下，ceil则是向上。</li>
-</ul>
-<hr>
-<h2 id="✏️FMod（math）"><a href="#✏️FMod（math）" class="headerlink" title="✏️FMod（math）"></a>✏️FMod（math）</h2><blockquote>
-<p>除不尽的取取余数。也就是返回两个input的除法运算的浮点余数，第一个input可以是任何数，第二个input通常不为0（被除数不为0）</p>
-</blockquote>
-<ul>
-<li>它的常见的用例是制作一种材质，使其亮度上升到最大值，然后在下一帧中立即下降到最小值，然后再次开始向最大值攀升。</li>
-<li>如下图示例，FMod采用0到1的UV级数，并将其转换为绿色通道中X轴上每0.2个UV单元一次的重复循环。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/FmodExample.jpg" alt="FmodExample"></li>
-</ul>
-<hr>
-<h2 id="✏️Frac（math）"><a href="#✏️Frac（math）" class="headerlink" title="✏️Frac（math）"></a>✏️Frac（math）</h2><blockquote>
-<p>fractional，取小数；输入input，此节点返回input的小数部分。输出值将从0到1不等。</p>
-</blockquote>
-<ul>
-<li>举例来说：(0.2)的小数部分是(0.2)。(-0.2)的小数部分是(0.8)。(0.0,1.6,1.0)的小数部分是(0.0,0.6,0.0)。</li>
-<li>如下图示例，Frac节点将时间转换为一系列重复的0 - 1级数序列，导致颜色（通过Lerp）从绿色变为红色，然后返回绿色，无限重复。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/frac.jpg" alt="frac"></li>
-</ul>
-<hr>
-<h2 id="✏️Fresnel（utility）"><a href="#✏️Fresnel（utility）" class="headerlink" title="✏️Fresnel（utility）"></a>✏️Fresnel（utility）</h2><blockquote>
-<p>菲涅尔，根据表面法线与摄像机方向的标量积来计算衰减。当表面法线正对着摄像机时，输出值为0。当表面法线垂直于摄像机时，输出值为1。结果限制在[0,1]范围内，以确保不会在中央产生任何负颜色。</p>
-</blockquote>
-<ul>
-<li>它有两个属性：<ul>
-<li><strong>Exponent</strong>（指定输出值的衰减速度。值越大，意味着衰减越紧或越快。）</li>
-<li><strong>Base Reflect Fraction</strong>（指定从正对表面的方向查看表面时，镜面反射的小数。值为1将有效地禁用菲涅耳效果。）</li>
-</ul>
-</li>
-<li>它有三个inputs：<ul>
-<li><strong>ExponentIn</strong> （指定输出值的衰减速度。如果使用此输入，那么值将始终取代”指数”（Exponent）属性值。）</li>
-<li><strong>Base Reflect Fraction</strong>（如果使用此输入，那么值将始终取代”指数”（Exponent）属性值。）</li>
-<li><strong>Normal</strong>（该值代表表面在全局空间中的法线。要查看应用于菲涅耳对象表面的法线贴图的结果，请将该法线贴图连接到材质的”法线”（Normal）输入，然后连接一个PixelNormalWS 表达式到Fresnel上的此输入。如果未指定任何法线，那么将使用网格的切线法线。）</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/FresnelExample.jpg" alt="FresnelExample"></p>
-<hr>
-<h2 id="✏️Generated-Band（miscellaneous）"><a href="#✏️Generated-Band（miscellaneous）" class="headerlink" title="✏️Generated Band（miscellaneous）"></a>✏️Generated Band（miscellaneous）</h2><blockquote>
-<p> 条形图案；允许我们生成一个条状的图案，可以调整宽度，锐度（可以为负），偏移，方向（横向纵向）等等。</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/GeneratedBand.png" alt="GeneratedBand"></p>
-<hr>
-<h2 id="✏️Generated-Offest-Bands（miscellaneous）"><a href="#✏️Generated-Offest-Bands（miscellaneous）" class="headerlink" title="✏️Generated Offest Bands（miscellaneous）"></a>✏️Generated Offest Bands（miscellaneous）</h2><blockquote>
-<p>局部重复条形图案，参数使用与Generated Band几乎无差别，但有一个叫做band的额外参数；这使我们得到一对band（实际上在band这个参数为1,其他参数保持默认的时候，我们得到的是两对白色的band），而不是单个band。</p>
-</blockquote>
-<ul>
-<li>此时compare参数可以调整band之间的间距，为0时两两之间互相成对的band的间距最远，为1时最近。</li>
-<li>详细看图对比。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/GeneratedOffsetBand.png" alt="GeneratedOffsetBand"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/GeneratedOffsetBand%E5%AF%B9%E6%AF%94GeneratedBand.png" alt="GeneratedOffsetBand对比GeneratedBand"></li>
-</ul>
-<hr>
-<h2 id="✏️GIReplace（utility）"><a href="#✏️GIReplace（utility）" class="headerlink" title="✏️GIReplace（utility）"></a>✏️GIReplace（utility）</h2><blockquote>
-<p>全局光照替换；这个节点可以为材质提供在全局照明下产生不同间接反射效果的方式。它允许指定一个定值来取代间接反射颜色。</p>
-</blockquote>
-<ul>
-<li>它有三个inputs：<ul>
-<li>Default</li>
-<li>StaticIndirect</li>
-<li>DynamicIndirect</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/GIreplace.png" alt="GIreplace"></p>
-<hr>
-<h2 id="✏️If（math）"><a href="#✏️If（math）" class="headerlink" title="✏️If（math）"></a>✏️If（math）</h2><blockquote>
-<p>判断；比较两个输入，然后根据比较的结果传递其他三个输入值中的一个。两个比较的输入都必须是单一浮点值。</p>
-</blockquote>
-<ul>
-<li>如下图示例，if接受一个高度图，并根据高度是低于还是高于0.2的值来输出红色或绿色。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/IfExample.jpg" alt="IfExample"></li>
-</ul>
-<hr>
-<h2 id="✏️Interface-Previewing-Property（材质details）"><a href="#✏️Interface-Previewing-Property（材质details）" class="headerlink" title="✏️Interface Previewing Property（材质details）"></a>✏️Interface Previewing Property（材质details）</h2><blockquote>
-<p>修改预览网络，可以自定义材质节点编辑器中的预览mesh。</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/InterfacePreviewingProperty_01.png" alt="InterfacePreviewingProperty_01"></p>
-<hr>
-<h2 id="✏️Lightmess-Property（材质details）"><a href="#✏️Lightmess-Property（材质details）" class="headerlink" title="✏️Lightmess Property（材质details）"></a>✏️Lightmess Property（材质details）</h2><blockquote>
-<p>Lightmess，你可以理解为它是static light system。它创建具有复杂光交互作用的光照图，例如区域阴影和漫反射。它用于预计算<strong>具有固定和静态运动性的光源的照明贡献部分。</strong></p>
-</blockquote>
-<ul>
-<li>你可以使用 cast shadow as masked或不使用它；它们的效果不同。</li>
-<li>如下图所示，左边是不勾选cast shadow as masked，阴影为绿色；右边是勾选此属性，半透明物体会使用遮罩，阴影为黑色，使它得到清晰的阴影以及轮廓；<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/LightmessProperty.png" alt="LightmessProperty"></li>
-<li><strong>diffuse boost</strong>，材质漫反射<strong>对静态光照影响量</strong>的增加和提升，更高的数值会更清晰明亮。（<strong>记住是static lighting的情况</strong>，而不是realtime，所有的光照都经过bake。）</li>
-<li><strong>Export Resolution Scale</strong>，导出该材质属性时的分辨率乘数。<strong>在需要详细信息时应增大此数值</strong>（计算时间也会增加）。</li>
-</ul>
-<hr>
-<h2 id="✏️Lightmess-Replace（utility）"><a href="#✏️Lightmess-Replace（utility）" class="headerlink" title="✏️Lightmess Replace（utility）"></a>✏️Lightmess Replace（utility）</h2><blockquote>
-<p>光照系统替换, 有两个inputs，来确定使用realtime（接收要传递以用于正常渲染的值）和使用lightmass（接收在导出材质到光照系统时要传递的值）时的输出效果。它可以避免使用导出版本无法正确处理的材质表达式，例如WorldPosition。</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/LightmessReplace.png" alt="LightmessReplace"></p>
-<ul>
-<li>下图示例设置lightmass的情况<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/LightmessReplace_lightmass.png" alt="LightmessReplace_lightmass"></li>
-</ul>
-]]></content>
-      <categories>
-        <category>-UE4</category>
-      </categories>
-      <tags>
-        <tag>-材质</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UE4以及相关工具学习列表合辑</title>
-    <url>/2022/09/09/unreal/</url>
-    <content><![CDATA[<p>这篇是我的UE学习记录了，也算是我的UE学习置顶占位。2022是我学习UE的第一年，来记录一下<br>然后写的不一定是教程笔记哈，有些别的好的我也会随意写写放上来。<br>详细如下，都有各个的部分的站内链接<br>每篇写好了就会更新！<br>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</p>
-<hr>
-<h1 id="🚩UE材质基础"><a href="#🚩UE材质基础" class="headerlink" title="🚩UE材质基础"></a>🚩UE材质基础</h1><h2 id="UE4官方材质课-基础篇"><a href="#UE4官方材质课-基础篇" class="headerlink" title="UE4官方材质课_基础篇"></a>UE4官方材质课_基础篇</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/uefoundation_cover.png" alt="uefoundation_cover"><br><strong>站内link：</strong></p>
-<a href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇">UE4官方材质课_基础篇</a>
-
-<hr>
-<h1 id="🚩WTF-is-Material？学习"><a href="#🚩WTF-is-Material？学习" class="headerlink" title="🚩WTF is Material？学习"></a>🚩WTF is Material？学习</h1><h2 id="UE4-虚幻引擎材质节点以及蓝图的学习"><a href="#UE4-虚幻引擎材质节点以及蓝图的学习" class="headerlink" title="UE4_虚幻引擎材质节点以及蓝图的学习"></a>UE4_虚幻引擎材质节点以及蓝图的学习</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wtfISMat.png" alt="wtfISMat"><br><strong>站内link：</strong></p>
-<a href="/2022/10/14/ue_WTF_is_Material_all/" title="UE4_虚幻引擎材质节点以及蓝图的学习">UE4_虚幻引擎材质节点以及蓝图的学习</a>
-
-<hr>
-<h1 id="🚩UE灯光技巧："><a href="#🚩UE灯光技巧：" class="headerlink" title="🚩UE灯光技巧："></a>🚩UE灯光技巧：</h1><h2 id="一：UE灯光流程以及方案（Light-a-project-in-UE）"><a href="#一：UE灯光流程以及方案（Light-a-project-in-UE）" class="headerlink" title="一：UE灯光流程以及方案（Light a project in UE）"></a>一：UE灯光流程以及方案（Light a project in UE）</h2><p><strong>站内link：</strong></p>
-<a href="/2022/09/18/ue_Light_a_Project_in_UE/" title="Light_a_Project_in_UE">Light_a_Project_in_UE</a>]]></content>
-      <categories>
-        <category>-UE4</category>
-      </categories>
-      <tags>
-        <tag>-学习</tag>
       </tags>
   </entry>
   <entry>
