@@ -50,6 +50,59 @@
       </tags>
   </entry>
   <entry>
+    <title>Houdini 中for-each 和for-loop 节点</title>
+    <url>/2022/09/13/houdini_foreach/</url>
+    <content><![CDATA[<h1 id="Houdini-中for-each-和for-loop-节点"><a href="#Houdini-中for-each-和for-loop-节点" class="headerlink" title="Houdini 中for-each 和for-loop 节点"></a>Houdini 中for-each 和for-loop 节点</h1><p>学习houdini时间不长，刚入门的时候就一直对foreach的使用比较迷糊，在这里写一篇学习笔记来认识一下这个使用方式，比较基础 。如果有问题，请各位大佬及时补充和指正！</p>
+<hr>
+<h2 id="Houdini中关于循环的节点简介："><a href="#Houdini中关于循环的节点简介：" class="headerlink" title="Houdini中关于循环的节点简介："></a>Houdini中关于循环的节点简介：</h2><p>houdini中一共给了这6个框架：<br><strong>1. for-each Number<br>2. for-each point<br>3. for-each primitive<br>4. for-each connected Piece<br>5. for-each Named Primitive<br>6. for-loop with Feedback</strong></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach2.png" alt="foreach2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach1.png" alt="foreach1"><br>（在这里说明我用的是houdini 18之后的版本，如果版本太靠前应该foreach节点跟这个有所出入）</p>
+<ul>
+<li>这个框架它本身的作用就是实现for循环，如果不想用它的框架，也可以自己创建Block begin和Block end来搭建for循环。</li>
+<li>其中，<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>的构造是相似的，使用的方法也是一样的，只是针对的元素不同（点，面，name属性）</li>
+<li><strong>connectivity</strong>是创造了一个class属性，根据class属性处理导入这个元素。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220921233222.png" alt="foreach2"></li>
+<li>数据都是从Block Begin传入，我们中间可以任意添加节点来完成我们想要针对这个元素处理的操作，这个数据给每个元素循环处理后，最终由block end输出。end中可以选择Feedback Each Iteration来显示每一次结果，或者Merge Each Iteration来显示所有结果。</li>
+</ul>
+<h2 id="例子一：随机颜色："><a href="#例子一：随机颜色：" class="headerlink" title="例子一：随机颜色："></a>例子一：随机颜色：</h2><ul>
+<li>针对<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>这四个框架可以做出此示例。</li>
+<li>循环迭代次数不是自动给出的，需要通过Block Begin中的“Create meta import Node来创建；它的detail上会有iteration的参数。若我们希望使用foreach，来达到进入循环的元素被进行的处理或者操作有所变化，那么我们也是通过iteration来实现的。</li>
+</ul>
+<h3 id="for-each-point："><a href="#for-each-point：" class="headerlink" title="for-each point："></a>for-each point：</h3><ul>
+<li>使用vex做一个简单的颜色随机，注意iteration不要写错<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_pt.png" alt="foreach_randCol_pt"></li>
+</ul>
+<h3 id="for-each-primitive："><a href="#for-each-primitive：" class="headerlink" title="for-each primitive："></a>for-each primitive：</h3><ul>
+<li>对于primitive也是完全一样的<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_prim.png" alt="foreach_randCol_prim"></li>
+</ul>
+<h3 id="for-each-connected-Piece："><a href="#for-each-connected-Piece：" class="headerlink" title="for-each connected Piece："></a>for-each connected Piece：</h3><ul>
+<li>对于for-each connected Piece，则是根据它的class属性，处理它连续的元素。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_connPiec.png" alt="foreach_randCol_class"></li>
+</ul>
+<h3 id="for-each-Named-Primitive："><a href="#for-each-Named-Primitive：" class="headerlink" title="for-each Named Primitive："></a>for-each Named Primitive：</h3><ul>
+<li>for-each Named Primitive也是根据name属性来处理元素（属性是在piece attribute上的，可以更改，但必须保持输入输出的是一致的，否则不能匹配）</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_name.png" alt="foreach_randCol_name"></li>
+</ul>
+<h2 id="for-each-Number的用法："><a href="#for-each-Number的用法：" class="headerlink" title="for-each Number的用法："></a>for-each Number的用法：</h2><ul>
+<li>可以看出，它的Block Beginn中的method变成了“Fetch Input”，它的Block end中 Iteration Method变为了“By Count”。 他并不是对每个元素进行处理，而是对他本身进行拷贝，进入循环，它的迭代次数就是它的拷贝次数。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_number.png" alt="foreach_number"></li>
+<li>由上示例，它每次的循环均为它的input，根据iteration的次数来做重复。</li>
+</ul>
+<h2 id="for-Loop的用法："><a href="#for-Loop的用法：" class="headerlink" title="for-Loop的用法："></a>for-Loop的用法：</h2><ul>
+<li>for-loop with Feedback中，它的默认Block Beginn中的method是“Fetch FeedBack”，它的Block end中 Iteration Method是“By Count”；它的Gather Method则默认是Feedback Each Iteration。如果for-each Number是指对本身的元素进行处理，那么for-loop with Feedback就是对循环整体进行处理。</li>
+<li>它是以上一个循环的end的结果作为下一次循环的起点，进行再次循环，一直循环操作我们在循环内设置的指令，直到迭代次数结束。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop.png" alt="forLoop"></li>
+<li>由上图示例，这个rubbertoy朝着x轴正向移动，每次移动单位为1米，循环了五次，移动到现在5米的位置。</li>
+<li>下图是merge each iteration，显示每次循环结果，可以更清晰看出。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop_MergeEachIteration.png" alt="forLoop_MergeEachIteration"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-Houdini节点</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>houdini以及3D数学学习列表合辑</title>
     <url>/2022/09/09/houdini/</url>
     <content><![CDATA[<ul>
@@ -114,72 +167,6 @@
       </categories>
       <tags>
         <tag>-学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Houdini湖边小屋学习（一）</title>
-    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
-    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
-<hr>
-<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-PCG</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Houdini 中for-each 和for-loop 节点</title>
-    <url>/2022/09/13/houdini_foreach/</url>
-    <content><![CDATA[<h1 id="Houdini-中for-each-和for-loop-节点"><a href="#Houdini-中for-each-和for-loop-节点" class="headerlink" title="Houdini 中for-each 和for-loop 节点"></a>Houdini 中for-each 和for-loop 节点</h1><p>学习houdini时间不长，刚入门的时候就一直对foreach的使用比较迷糊，在这里写一篇学习笔记来认识一下这个使用方式，比较基础 。如果有问题，请各位大佬及时补充和指正！</p>
-<hr>
-<h2 id="Houdini中关于循环的节点简介："><a href="#Houdini中关于循环的节点简介：" class="headerlink" title="Houdini中关于循环的节点简介："></a>Houdini中关于循环的节点简介：</h2><p>houdini中一共给了这6个框架：<br><strong>1. for-each Number<br>2. for-each point<br>3. for-each primitive<br>4. for-each connected Piece<br>5. for-each Named Primitive<br>6. for-loop with Feedback</strong></p>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach2.png" alt="foreach2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach1.png" alt="foreach1"><br>（在这里说明我用的是houdini 18之后的版本，如果版本太靠前应该foreach节点跟这个有所出入）</p>
-<ul>
-<li>这个框架它本身的作用就是实现for循环，如果不想用它的框架，也可以自己创建Block begin和Block end来搭建for循环。</li>
-<li>其中，<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>的构造是相似的，使用的方法也是一样的，只是针对的元素不同（点，面，name属性）</li>
-<li><strong>connectivity</strong>是创造了一个class属性，根据class属性处理导入这个元素。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220921233222.png" alt="foreach2"></li>
-<li>数据都是从Block Begin传入，我们中间可以任意添加节点来完成我们想要针对这个元素处理的操作，这个数据给每个元素循环处理后，最终由block end输出。end中可以选择Feedback Each Iteration来显示每一次结果，或者Merge Each Iteration来显示所有结果。</li>
-</ul>
-<h2 id="例子一：随机颜色："><a href="#例子一：随机颜色：" class="headerlink" title="例子一：随机颜色："></a>例子一：随机颜色：</h2><ul>
-<li>针对<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>这四个框架可以做出此示例。</li>
-<li>循环迭代次数不是自动给出的，需要通过Block Begin中的“Create meta import Node来创建；它的detail上会有iteration的参数。若我们希望使用foreach，来达到进入循环的元素被进行的处理或者操作有所变化，那么我们也是通过iteration来实现的。</li>
-</ul>
-<h3 id="for-each-point："><a href="#for-each-point：" class="headerlink" title="for-each point："></a>for-each point：</h3><ul>
-<li>使用vex做一个简单的颜色随机，注意iteration不要写错<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_pt.png" alt="foreach_randCol_pt"></li>
-</ul>
-<h3 id="for-each-primitive："><a href="#for-each-primitive：" class="headerlink" title="for-each primitive："></a>for-each primitive：</h3><ul>
-<li>对于primitive也是完全一样的<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_prim.png" alt="foreach_randCol_prim"></li>
-</ul>
-<h3 id="for-each-connected-Piece："><a href="#for-each-connected-Piece：" class="headerlink" title="for-each connected Piece："></a>for-each connected Piece：</h3><ul>
-<li>对于for-each connected Piece，则是根据它的class属性，处理它连续的元素。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_connPiec.png" alt="foreach_randCol_class"></li>
-</ul>
-<h3 id="for-each-Named-Primitive："><a href="#for-each-Named-Primitive：" class="headerlink" title="for-each Named Primitive："></a>for-each Named Primitive：</h3><ul>
-<li>for-each Named Primitive也是根据name属性来处理元素（属性是在piece attribute上的，可以更改，但必须保持输入输出的是一致的，否则不能匹配）</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_name.png" alt="foreach_randCol_name"></li>
-</ul>
-<h2 id="for-each-Number的用法："><a href="#for-each-Number的用法：" class="headerlink" title="for-each Number的用法："></a>for-each Number的用法：</h2><ul>
-<li>可以看出，它的Block Beginn中的method变成了“Fetch Input”，它的Block end中 Iteration Method变为了“By Count”。 他并不是对每个元素进行处理，而是对他本身进行拷贝，进入循环，它的迭代次数就是它的拷贝次数。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_number.png" alt="foreach_number"></li>
-<li>由上示例，它每次的循环均为它的input，根据iteration的次数来做重复。</li>
-</ul>
-<h2 id="for-Loop的用法："><a href="#for-Loop的用法：" class="headerlink" title="for-Loop的用法："></a>for-Loop的用法：</h2><ul>
-<li>for-loop with Feedback中，它的默认Block Beginn中的method是“Fetch FeedBack”，它的Block end中 Iteration Method是“By Count”；它的Gather Method则默认是Feedback Each Iteration。如果for-each Number是指对本身的元素进行处理，那么for-loop with Feedback就是对循环整体进行处理。</li>
-<li>它是以上一个循环的end的结果作为下一次循环的起点，进行再次循环，一直循环操作我们在循环内设置的指令，直到迭代次数结束。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop.png" alt="forLoop"></li>
-<li>由上图示例，这个rubbertoy朝着x轴正向移动，每次移动单位为1米，循环了五次，移动到现在5米的位置。</li>
-<li>下图是merge each iteration，显示每次循环结果，可以更清晰看出。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop_MergeEachIteration.png" alt="forLoop_MergeEachIteration"></li>
-</ul>
-]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-Houdini节点</tag>
       </tags>
   </entry>
   <entry>
@@ -453,6 +440,104 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
+    <title>Houdini湖边小屋学习（一）</title>
+    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
+    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
+<hr>
+<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-PCG</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</title>
+    <url>/2022/09/22/math_Essense_of_Linear_Algebra_P02/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第二章：线性组合，张成的空间与基"><a href="#3Blue1Brown-线代本质第二章：线性组合，张成的空间与基" class="headerlink" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"></a>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️基向量："><a href="#✏️基向量：" class="headerlink" title="✏️基向量："></a>✏️基向量：</h2><h3 id="✍️在xy坐标系中两个特殊向量："><a href="#✍️在xy坐标系中两个特殊向量：" class="headerlink" title="✍️在xy坐标系中两个特殊向量："></a>✍️在xy坐标系中两个特殊向量：</h3><ul>
+<li>一个指向正右方，长度为1，通常被称为“i-hat”（i帽）或x方向的单位向量。</li>
+<li>另一个指向正上方，长度为1，通常被称为“j-hat”（j帽）或者y方向的单位向量。</li>
+<li><strong>i-hat与j-hat这两个向量有特殊的名称，他们是xy坐标轴的“基向量”（basis vector）。</strong></li>
+<li>这是在表述：当你把坐标看为标量时，基向量实际上就是这些标量的缩放对象。</li>
+</ul>
+<hr>
+<h3 id="✍️例子1："><a href="#✍️例子1：" class="headerlink" title="✍️例子1："></a>✍️例子1：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ihat_jhat.png" alt="ihat_jhat"></p>
+<ul>
+<li><strong>由上图示意看出，（3，-2）可以想象为</strong>：x坐标是一个标量，它将i帽拉升为原来的三倍；y坐标也是一个标量，它将j帽反向并拉伸为原来的两倍。从这个角度看，这个向量实际上是两个经过缩放的向量的和。</li>
+<li>“<strong>缩放向量并且相加</strong>”这一概念十分重要。</li>
+</ul>
+<hr>
+<h3 id="✍️如果我们选择不同的基向量会怎么样："><a href="#✍️如果我们选择不同的基向量会怎么样：" class="headerlink" title="✍️如果我们选择不同的基向量会怎么样："></a>✍️如果我们选择不同的基向量会怎么样：</h3><ul>
+<li><strong>我们完全可以选择不同的基向量，获得一个合理的新坐标系。</strong></li>
+<li>比如随便选一个指向右上方的向量，再随便选择一个指向右下方的向量，想象通过选择两个标量，分别用于缩放二者的其中一个， 然后把他们相加，就可以得到不同的结果。通过改变所选择的向量，我们可以得到所有向量。</li>
+<li>一对新的基向量，同样允许我们在一对数和二维向量之间自由转化。但是这种变化关系与我们之前使用的i帽和j帽的变化关系完全不同。</li>
+<li><strong>每当我们用数字描述向量的时候，它都依赖于我们正在使用的基。</strong></li>
+<li><strong>两个数乘向量的和被称为这两个向量的线性组合（Linear combination）。</strong></li>
+<li><strong>那么线性怎么来的可以考虑为：</strong> 如果固定其中一个标量，让另一个标量自由变化，所产生的终点会描述出一条直线，如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/linearCombination.png" alt="linearCombination"></li>
+</ul>
+<hr>
+<ul>
+<li><strong>如果让两个标量同时自由变换，考虑所有可得到的向量，可能有两种情况（实际是三种）：</strong><ol>
+<li>大部分情况下，对于一对初始向量，你能达到平面中每一个点；所有二维向量都尽在掌握。</li>
+<li>另一种较为糟糕的情况是，当两个初始向量恰好共线时，所产生的向量的终点被限制在一条过原点的直线上。</li>
+<li>事实上还有第三种情况就是，两个向量都是零向量,那就只能在原点了。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E5%8F%98%E6%8D%A2%E7%9A%84%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5.png" alt="向量变换的三种情况"></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="✏️张成空间（span）："><a href="#✏️张成空间（span）：" class="headerlink" title="✏️张成空间（span）："></a>✏️张成空间（span）：</h2><p><strong>概念：</strong><br>    - <strong>所有可以表示为给定向量线性组合的向量的集合，被成为给定向量张成的空间。</strong></p>
+<ul>
+<li>下图：向量全部线性组合构成的向量集合成为“张成的空间”，a与b在实数范围内变动。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4.png" alt="张成空间"></li>
+</ul>
+<h3 id="✍️二维空间内张成空间："><a href="#✍️二维空间内张成空间：" class="headerlink" title="✍️二维空间内张成空间："></a>✍️二维空间内张成空间：</h3><ul>
+<li>通常情况下，我们用向量的终点代表向量（起点是原点）；用这种方法来看，如果要考虑落在一条直线上所有向量的时候，只需要考虑直线本身就行了。所以也可以考虑为，如果同时考虑xy坐标系中所有向量，将每个向量抽象为它的终点，实际上就不用考虑所有的肩头了，只需要考虑无限大的二维平面本身即可。</li>
+<li>如果考虑一个向量，我们就可以把他看作箭头；如果考虑多个向量，则可以把他们都看作是点。</li>
+<li>对大部分二维向量来说，它们的张成空间是整个无限大的二维平面；但如果共线，他们的张成空间就是一条直线。</li>
+</ul>
+<hr>
+<h3 id="✍️三维空间内张成空间："><a href="#✍️三维空间内张成空间：" class="headerlink" title="✍️三维空间内张成空间："></a>✍️三维空间内张成空间：</h3><h4 id="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："><a href="#在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：" class="headerlink" title="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："></a>在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="两个向量在三维空间"></p>
+<ul>
+<li>这两个向量的张成空间就是他们所有可能的线性组合；也就是缩放再相加之后所有可得到的向量。</li>
+<li>逐渐改变线性组合中的这两个标量，把缩放后的向量相加，然后跟着最终向量的终点走，这个终点会画出三维空间中某个过原点的平面；这个平面就是这两个向量的张成空间。（所有终点落在这个平面上的向量集合是这两个向量的张成空间）</li>
+</ul>
+<h4 id="如果加上第三个向量，他们的张成空间是这样的："><a href="#如果加上第三个向量，他们的张成空间是这样的：" class="headerlink" title="如果加上第三个向量，他们的张成空间是这样的："></a>如果加上第三个向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="三个向量在三维空间"></p>
+<ul>
+<li>选择三个向量分别进行缩放，然后把结果相加。</li>
+<li>这三个向量所有可能的线性作何构成了他们的张成空间。</li>
+<li>如果第三个向量恰好落在前两个向量所张成的平面上，那么他们张成的空间并不改变，还是在这个平面中。</li>
+<li>但是如果随机选一个向量，他几乎不可能落在前两个向量所张成的平面中；这种情况下，由于第三个向量指向不同的方向，我们就能得到所有的三维向量。（可以考虑成：当我们缩放第三个向量的时候，他将前两个向量张成平面来回沿着它的方向移动，从而扫过整个三维空间。）</li>
+</ul>
+<hr>
+<h2 id="✏️Linearly-dependent-和-Linearly-Independent："><a href="#✏️Linearly-dependent-和-Linearly-Independent：" class="headerlink" title="✏️Linearly dependent 和 Linearly Independent："></a>✏️Linearly dependent 和 Linearly Independent：</h2><h4 id="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："><a href="#当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：" class="headerlink" title="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："></a>当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：</h4><ul>
+<li>这种情况说明一组向量中至少有一个是多余的，没有对张成空间做出任何贡献，我们取走这个多余的向量也不减少张成空间，这样的情况下，我们称它为“<strong>线性相关</strong>”（<strong>Linearly dependent</strong>）的。</li>
+</ul>
+<h4 id="如果所有向量都给张成空间添加了新的维度："><a href="#如果所有向量都给张成空间添加了新的维度：" class="headerlink" title="如果所有向量都给张成空间添加了新的维度："></a>如果所有向量都给张成空间添加了新的维度：</h4><ul>
+<li>这种情况就称之为“<strong>线性无关</strong>”（<strong>Linearly Independent</strong>）的。</li>
+</ul>
+<hr>
+<h2 id="✏️基的严格定义（Technical-definition-of-basis）："><a href="#✏️基的严格定义（Technical-definition-of-basis）：" class="headerlink" title="✏️基的严格定义（Technical definition of basis）："></a>✏️基的严格定义（Technical definition of basis）：</h2><ul>
+<li>The basis of a vector space is a set of linearly independent vectors that span the full space<br>(向量空间的一组基是张成该空间的一个线性无关向量集)<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89.png" alt="基的严格定义"></li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>3Blue1Brown_线代本质第一章：向量究竟是什么</title>
     <url>/2022/09/22/math_Essense_of_Linear_Algebra_P01/</url>
     <content><![CDATA[<h1 id="3Blue1Brown-线代本质第一章：向量究竟是什么"><a href="#3Blue1Brown-线代本质第一章：向量究竟是什么" class="headerlink" title="3Blue1Brown_线代本质第一章：向量究竟是什么"></a>3Blue1Brown_线代本质第一章：向量究竟是什么</h1><ul>
@@ -567,66 +652,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换</title>
-    <url>/2022/09/25/math_Essense_of_Linear_Algebra_P04/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第四章：矩阵乘法与线性变换复合"><a href="#3Blue1Brown-线代本质第四章：矩阵乘法与线性变换复合" class="headerlink" title="3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合"></a>3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第四章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
-<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
-<li>官方一共将此系列分为12节，所以我也会分开写。</li>
-<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
-<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
-</ul>
-<hr>
-<p>【<strong>注：本章笔记是第四章加附注一的笔记，也就是《矩阵乘法与线性变换复合》加《三维空间中的线性变换》。</strong>】</p>
-<h2 id="✏️线性复合变换："><a href="#✏️线性复合变换：" class="headerlink" title="✏️线性复合变换："></a>✏️线性复合变换：</h2><ul>
-<li>有时候，我们常常是想要做多种变换，比如“先旋转，后剪切”；这个新的线性变换通常被称为前两个独立变换的“<strong>复合变换</strong>”（Composition）。</li>
-<li>和其他变换一样，我们可以通过追踪i帽和j帽的变换，并用矩阵完全描述这个复合变换。</li>
-<li>两个矩阵相乘有着几何意义，也就是<strong>两个线性变换相继作用</strong>。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5.png" alt="复合矩阵"></li>
-<li>这个矩阵需要从右向左读；首先应用右侧矩阵所描述的变换，然后再应用左侧矩阵所描述的变换。</li>
-<li>它起源于函数的记号，因为我们将函数写在变量左侧。所以每次将两个函数复合的时候，我们需要从右往左读。</li>
-</ul>
-<hr>
-<h3 id="✍️复合矩阵的计算："><a href="#✍️复合矩阵的计算：" class="headerlink" title="✍️复合矩阵的计算："></a>✍️复合矩阵的计算：</h3><ul>
-<li>我们希望对复合矩阵进行计算的时候，计算结果的第一列我们首先要考虑：<strong>i帽去哪里了？</strong></li>
-<li>下图看出，i帽首先落在（1，1）。所以我们在计算时首先将示例中的M1的第一列（1，1）拿出来，与M2进行运算，将M2的变换作用于这个向量，得到最终计算结果的第一列。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5%E7%A4%BA%E4%BE%8B_i%E5%B8%BD%E5%8F%98%E6%8D%A2.png" alt="复合矩阵示例_i帽变换"></li>
-<li>其次，我们要考虑第二列：<strong>j帽去哪了？</strong></li>
-<li>与上文中提到的i帽的计算方式一样，j帽先落在（-2，0），所以我们在计算时将示例中的M1的第一列（-2，0）拿出来，与M2进行运算，将M2的变换作用于这个向量，得到最终计算结果的第二列。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5%E7%A4%BA%E4%BE%8B_j%E5%B8%BD%E5%8F%98%E6%8D%A2.png" alt="复合矩阵示例_j帽变换"></li>
-<li>这一推理具有普适性，对任意矩阵都适用。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F.png" alt="矩阵乘法公式"></li>
-</ul>
-<h3 id="✍️注意矩阵计算顺序不可对调："><a href="#✍️注意矩阵计算顺序不可对调：" class="headerlink" title="✍️注意矩阵计算顺序不可对调："></a>✍️注意矩阵计算顺序不可对调：</h3><ul>
-<li><strong>矩阵乘法不具有交换律。</strong></li>
-<li>如之前的推导公式中，M1M2≠M2M1；即在矩阵运算中“先剪切，后旋转”并不等于“先旋转，后剪切”。</li>
-<li>乘积顺序影响整体的计算。</li>
-</ul>
-<h3 id="✍️结合律（Associativity）："><a href="#✍️结合律（Associativity）：" class="headerlink" title="✍️结合律（Associativity）："></a>✍️结合律（Associativity）：</h3><ul>
-<li><strong>矩阵乘法满足结合律</strong>。</li>
-<li><strong>A（BC） &#x3D; （AB）C</strong></li>
-<li>空间变换来看，线性变换的作用对象是向量，这个计算是线性变换的复合，而不是指把一个作用于另一个。</li>
-<li>以上的等式左边是在说：首先应用C变换和B变换，然后应用A变换；等式右边还是在说：首先应用C变换，其次应用B变换和A变换。</li>
-<li>这只是将同样的三个变换用同样的顺序依次总用，换句话说就是：添加括号与结果无关，他们的计算顺序没有变化（记住矩阵变换始终是从右往左读的）。括号的意义在这里表示某两个要一起做，而不是他们做的顺序提前。</li>
-</ul>
-<hr>
-<hr>
-<hr>
-<h2 id="✏️三维空间中的线性变换："><a href="#✏️三维空间中的线性变换：" class="headerlink" title="✏️三维空间中的线性变换："></a>✏️三维空间中的线性变换：</h2><ul>
-<li>考虑这样一个线性变换，他以三维向量为输入，并以三维向量为输出；我们可以想象他在移动三维空间中的所有点，保持网格线平行且等距分布，并保持原点不动。</li>
-<li>和二维的情形一样，我们看见三维空间中每一个点实际上只是用来代表以它本身为终点的一个向量；而我们所做的变换只是将输入向量移动至对应向量。</li>
-<li>三维线性的变换由基向量的去向完全决定。</li>
-<li>此时就有3个基向量，分别是x方向的i帽，y方向的j帽，z方向的k帽。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E7%9A%84%E5%8F%98%E6%8D%A2.png" alt="三维空间的变换"></li>
-<li>将变换后的三个基向量的坐标记录在一个3x3的矩阵中。这九个数字就完全描述了一个线性变换。</li>
-<li>三维空间内向量的变换公式推导与二维空间几乎一致，它每个坐标都可以看作对相应基向量的缩放。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/3x3%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2.png" alt="3x3矩阵变换"></li>
-<li>3x3矩阵的运用十分广泛,如计算机图形学（Computer Graphics）与机器人学（Robotics）。</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>-3Blue1Brown线性代数本质</category>
-      </categories>
-      <tags>
-        <tag>-学数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>3Blue1Brown_线代本质第三章：矩阵与线性变换</title>
     <url>/2022/09/24/math_Essense_of_Linear_Algebra_P03/</url>
     <content><![CDATA[<h1 id="3Blue1Brown-线代本质第三章：矩阵与线性变换"><a href="#3Blue1Brown-线代本质第三章：矩阵与线性变换" class="headerlink" title="3Blue1Brown_线代本质第三章：矩阵与线性变换"></a>3Blue1Brown_线代本质第三章：矩阵与线性变换</h1><ul>
@@ -702,80 +727,55 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</title>
-    <url>/2022/09/22/math_Essense_of_Linear_Algebra_P02/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第二章：线性组合，张成的空间与基"><a href="#3Blue1Brown-线代本质第二章：线性组合，张成的空间与基" class="headerlink" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"></a>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+    <title>3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换</title>
+    <url>/2022/09/25/math_Essense_of_Linear_Algebra_P04/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第四章：矩阵乘法与线性变换复合"><a href="#3Blue1Brown-线代本质第四章：矩阵乘法与线性变换复合" class="headerlink" title="3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合"></a>3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第四章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
 <li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
 <li>官方一共将此系列分为12节，所以我也会分开写。</li>
 <li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
 <li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
 </ul>
 <hr>
-<h2 id="✏️基向量："><a href="#✏️基向量：" class="headerlink" title="✏️基向量："></a>✏️基向量：</h2><h3 id="✍️在xy坐标系中两个特殊向量："><a href="#✍️在xy坐标系中两个特殊向量：" class="headerlink" title="✍️在xy坐标系中两个特殊向量："></a>✍️在xy坐标系中两个特殊向量：</h3><ul>
-<li>一个指向正右方，长度为1，通常被称为“i-hat”（i帽）或x方向的单位向量。</li>
-<li>另一个指向正上方，长度为1，通常被称为“j-hat”（j帽）或者y方向的单位向量。</li>
-<li><strong>i-hat与j-hat这两个向量有特殊的名称，他们是xy坐标轴的“基向量”（basis vector）。</strong></li>
-<li>这是在表述：当你把坐标看为标量时，基向量实际上就是这些标量的缩放对象。</li>
+<p>【<strong>注：本章笔记是第四章加附注一的笔记，也就是《矩阵乘法与线性变换复合》加《三维空间中的线性变换》。</strong>】</p>
+<h2 id="✏️线性复合变换："><a href="#✏️线性复合变换：" class="headerlink" title="✏️线性复合变换："></a>✏️线性复合变换：</h2><ul>
+<li>有时候，我们常常是想要做多种变换，比如“先旋转，后剪切”；这个新的线性变换通常被称为前两个独立变换的“<strong>复合变换</strong>”（Composition）。</li>
+<li>和其他变换一样，我们可以通过追踪i帽和j帽的变换，并用矩阵完全描述这个复合变换。</li>
+<li>两个矩阵相乘有着几何意义，也就是<strong>两个线性变换相继作用</strong>。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5.png" alt="复合矩阵"></li>
+<li>这个矩阵需要从右向左读；首先应用右侧矩阵所描述的变换，然后再应用左侧矩阵所描述的变换。</li>
+<li>它起源于函数的记号，因为我们将函数写在变量左侧。所以每次将两个函数复合的时候，我们需要从右往左读。</li>
 </ul>
 <hr>
-<h3 id="✍️例子1："><a href="#✍️例子1：" class="headerlink" title="✍️例子1："></a>✍️例子1：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ihat_jhat.png" alt="ihat_jhat"></p>
-<ul>
-<li><strong>由上图示意看出，（3，-2）可以想象为</strong>：x坐标是一个标量，它将i帽拉升为原来的三倍；y坐标也是一个标量，它将j帽反向并拉伸为原来的两倍。从这个角度看，这个向量实际上是两个经过缩放的向量的和。</li>
-<li>“<strong>缩放向量并且相加</strong>”这一概念十分重要。</li>
+<h3 id="✍️复合矩阵的计算："><a href="#✍️复合矩阵的计算：" class="headerlink" title="✍️复合矩阵的计算："></a>✍️复合矩阵的计算：</h3><ul>
+<li>我们希望对复合矩阵进行计算的时候，计算结果的第一列我们首先要考虑：<strong>i帽去哪里了？</strong></li>
+<li>下图看出，i帽首先落在（1，1）。所以我们在计算时首先将示例中的M1的第一列（1，1）拿出来，与M2进行运算，将M2的变换作用于这个向量，得到最终计算结果的第一列。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5%E7%A4%BA%E4%BE%8B_i%E5%B8%BD%E5%8F%98%E6%8D%A2.png" alt="复合矩阵示例_i帽变换"></li>
+<li>其次，我们要考虑第二列：<strong>j帽去哪了？</strong></li>
+<li>与上文中提到的i帽的计算方式一样，j帽先落在（-2，0），所以我们在计算时将示例中的M1的第一列（-2，0）拿出来，与M2进行运算，将M2的变换作用于这个向量，得到最终计算结果的第二列。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5%E7%A4%BA%E4%BE%8B_j%E5%B8%BD%E5%8F%98%E6%8D%A2.png" alt="复合矩阵示例_j帽变换"></li>
+<li>这一推理具有普适性，对任意矩阵都适用。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F.png" alt="矩阵乘法公式"></li>
+</ul>
+<h3 id="✍️注意矩阵计算顺序不可对调："><a href="#✍️注意矩阵计算顺序不可对调：" class="headerlink" title="✍️注意矩阵计算顺序不可对调："></a>✍️注意矩阵计算顺序不可对调：</h3><ul>
+<li><strong>矩阵乘法不具有交换律。</strong></li>
+<li>如之前的推导公式中，M1M2≠M2M1；即在矩阵运算中“先剪切，后旋转”并不等于“先旋转，后剪切”。</li>
+<li>乘积顺序影响整体的计算。</li>
+</ul>
+<h3 id="✍️结合律（Associativity）："><a href="#✍️结合律（Associativity）：" class="headerlink" title="✍️结合律（Associativity）："></a>✍️结合律（Associativity）：</h3><ul>
+<li><strong>矩阵乘法满足结合律</strong>。</li>
+<li><strong>A（BC） &#x3D; （AB）C</strong></li>
+<li>空间变换来看，线性变换的作用对象是向量，这个计算是线性变换的复合，而不是指把一个作用于另一个。</li>
+<li>以上的等式左边是在说：首先应用C变换和B变换，然后应用A变换；等式右边还是在说：首先应用C变换，其次应用B变换和A变换。</li>
+<li>这只是将同样的三个变换用同样的顺序依次总用，换句话说就是：添加括号与结果无关，他们的计算顺序没有变化（记住矩阵变换始终是从右往左读的）。括号的意义在这里表示某两个要一起做，而不是他们做的顺序提前。</li>
 </ul>
 <hr>
-<h3 id="✍️如果我们选择不同的基向量会怎么样："><a href="#✍️如果我们选择不同的基向量会怎么样：" class="headerlink" title="✍️如果我们选择不同的基向量会怎么样："></a>✍️如果我们选择不同的基向量会怎么样：</h3><ul>
-<li><strong>我们完全可以选择不同的基向量，获得一个合理的新坐标系。</strong></li>
-<li>比如随便选一个指向右上方的向量，再随便选择一个指向右下方的向量，想象通过选择两个标量，分别用于缩放二者的其中一个， 然后把他们相加，就可以得到不同的结果。通过改变所选择的向量，我们可以得到所有向量。</li>
-<li>一对新的基向量，同样允许我们在一对数和二维向量之间自由转化。但是这种变化关系与我们之前使用的i帽和j帽的变化关系完全不同。</li>
-<li><strong>每当我们用数字描述向量的时候，它都依赖于我们正在使用的基。</strong></li>
-<li><strong>两个数乘向量的和被称为这两个向量的线性组合（Linear combination）。</strong></li>
-<li><strong>那么线性怎么来的可以考虑为：</strong> 如果固定其中一个标量，让另一个标量自由变化，所产生的终点会描述出一条直线，如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/linearCombination.png" alt="linearCombination"></li>
-</ul>
 <hr>
-<ul>
-<li><strong>如果让两个标量同时自由变换，考虑所有可得到的向量，可能有两种情况（实际是三种）：</strong><ol>
-<li>大部分情况下，对于一对初始向量，你能达到平面中每一个点；所有二维向量都尽在掌握。</li>
-<li>另一种较为糟糕的情况是，当两个初始向量恰好共线时，所产生的向量的终点被限制在一条过原点的直线上。</li>
-<li>事实上还有第三种情况就是，两个向量都是零向量,那就只能在原点了。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E5%8F%98%E6%8D%A2%E7%9A%84%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5.png" alt="向量变换的三种情况"></li>
-</ol>
-</li>
-</ul>
 <hr>
-<h2 id="✏️张成空间（span）："><a href="#✏️张成空间（span）：" class="headerlink" title="✏️张成空间（span）："></a>✏️张成空间（span）：</h2><p><strong>概念：</strong><br>    - <strong>所有可以表示为给定向量线性组合的向量的集合，被成为给定向量张成的空间。</strong></p>
-<ul>
-<li>下图：向量全部线性组合构成的向量集合成为“张成的空间”，a与b在实数范围内变动。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4.png" alt="张成空间"></li>
-</ul>
-<h3 id="✍️二维空间内张成空间："><a href="#✍️二维空间内张成空间：" class="headerlink" title="✍️二维空间内张成空间："></a>✍️二维空间内张成空间：</h3><ul>
-<li>通常情况下，我们用向量的终点代表向量（起点是原点）；用这种方法来看，如果要考虑落在一条直线上所有向量的时候，只需要考虑直线本身就行了。所以也可以考虑为，如果同时考虑xy坐标系中所有向量，将每个向量抽象为它的终点，实际上就不用考虑所有的肩头了，只需要考虑无限大的二维平面本身即可。</li>
-<li>如果考虑一个向量，我们就可以把他看作箭头；如果考虑多个向量，则可以把他们都看作是点。</li>
-<li>对大部分二维向量来说，它们的张成空间是整个无限大的二维平面；但如果共线，他们的张成空间就是一条直线。</li>
-</ul>
-<hr>
-<h3 id="✍️三维空间内张成空间："><a href="#✍️三维空间内张成空间：" class="headerlink" title="✍️三维空间内张成空间："></a>✍️三维空间内张成空间：</h3><h4 id="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："><a href="#在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：" class="headerlink" title="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："></a>在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="两个向量在三维空间"></p>
-<ul>
-<li>这两个向量的张成空间就是他们所有可能的线性组合；也就是缩放再相加之后所有可得到的向量。</li>
-<li>逐渐改变线性组合中的这两个标量，把缩放后的向量相加，然后跟着最终向量的终点走，这个终点会画出三维空间中某个过原点的平面；这个平面就是这两个向量的张成空间。（所有终点落在这个平面上的向量集合是这两个向量的张成空间）</li>
-</ul>
-<h4 id="如果加上第三个向量，他们的张成空间是这样的："><a href="#如果加上第三个向量，他们的张成空间是这样的：" class="headerlink" title="如果加上第三个向量，他们的张成空间是这样的："></a>如果加上第三个向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="三个向量在三维空间"></p>
-<ul>
-<li>选择三个向量分别进行缩放，然后把结果相加。</li>
-<li>这三个向量所有可能的线性作何构成了他们的张成空间。</li>
-<li>如果第三个向量恰好落在前两个向量所张成的平面上，那么他们张成的空间并不改变，还是在这个平面中。</li>
-<li>但是如果随机选一个向量，他几乎不可能落在前两个向量所张成的平面中；这种情况下，由于第三个向量指向不同的方向，我们就能得到所有的三维向量。（可以考虑成：当我们缩放第三个向量的时候，他将前两个向量张成平面来回沿着它的方向移动，从而扫过整个三维空间。）</li>
-</ul>
-<hr>
-<h2 id="✏️Linearly-dependent-和-Linearly-Independent："><a href="#✏️Linearly-dependent-和-Linearly-Independent：" class="headerlink" title="✏️Linearly dependent 和 Linearly Independent："></a>✏️Linearly dependent 和 Linearly Independent：</h2><h4 id="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："><a href="#当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：" class="headerlink" title="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："></a>当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：</h4><ul>
-<li>这种情况说明一组向量中至少有一个是多余的，没有对张成空间做出任何贡献，我们取走这个多余的向量也不减少张成空间，这样的情况下，我们称它为“<strong>线性相关</strong>”（<strong>Linearly dependent</strong>）的。</li>
-</ul>
-<h4 id="如果所有向量都给张成空间添加了新的维度："><a href="#如果所有向量都给张成空间添加了新的维度：" class="headerlink" title="如果所有向量都给张成空间添加了新的维度："></a>如果所有向量都给张成空间添加了新的维度：</h4><ul>
-<li>这种情况就称之为“<strong>线性无关</strong>”（<strong>Linearly Independent</strong>）的。</li>
-</ul>
-<hr>
-<h2 id="✏️基的严格定义（Technical-definition-of-basis）："><a href="#✏️基的严格定义（Technical-definition-of-basis）：" class="headerlink" title="✏️基的严格定义（Technical definition of basis）："></a>✏️基的严格定义（Technical definition of basis）：</h2><ul>
-<li>The basis of a vector space is a set of linearly independent vectors that span the full space<br>(向量空间的一组基是张成该空间的一个线性无关向量集)<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89.png" alt="基的严格定义"></li>
+<h2 id="✏️三维空间中的线性变换："><a href="#✏️三维空间中的线性变换：" class="headerlink" title="✏️三维空间中的线性变换："></a>✏️三维空间中的线性变换：</h2><ul>
+<li>考虑这样一个线性变换，他以三维向量为输入，并以三维向量为输出；我们可以想象他在移动三维空间中的所有点，保持网格线平行且等距分布，并保持原点不动。</li>
+<li>和二维的情形一样，我们看见三维空间中每一个点实际上只是用来代表以它本身为终点的一个向量；而我们所做的变换只是将输入向量移动至对应向量。</li>
+<li>三维线性的变换由基向量的去向完全决定。</li>
+<li>此时就有3个基向量，分别是x方向的i帽，y方向的j帽，z方向的k帽。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E7%9A%84%E5%8F%98%E6%8D%A2.png" alt="三维空间的变换"></li>
+<li>将变换后的三个基向量的坐标记录在一个3x3的矩阵中。这九个数字就完全描述了一个线性变换。</li>
+<li>三维空间内向量的变换公式推导与二维空间几乎一致，它每个坐标都可以看作对相应基向量的缩放。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/3x3%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2.png" alt="3x3矩阵变换"></li>
+<li>3x3矩阵的运用十分广泛,如计算机图形学（Computer Graphics）与机器人学（Robotics）。</li>
 </ul>
 <hr>
 ]]></content>
@@ -1056,75 +1056,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>3Blue1Brown_线代本质第九章：基变换</title>
-    <url>/2022/10/03/math_Essense_of_Linear_Algebra_P09/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第九章：基变换"><a href="#3Blue1Brown-线代本质第九章：基变换" class="headerlink" title="3Blue1Brown_线代本质第九章：基变换"></a>3Blue1Brown_线代本质第九章：基变换</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第九章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
-<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
-<li>官方一共将此系列分为12节，所以我也会分开写。</li>
-<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
-<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
-</ul>
-<hr>
-<h2 id="✏️基变换："><a href="#✏️基变换：" class="headerlink" title="✏️基变换："></a>✏️基变换：</h2><h3 id="✍️基的选择："><a href="#✍️基的选择：" class="headerlink" title="✍️基的选择："></a>✍️基的选择：</h3><ul>
-<li>发生在向量与一组数之间的任意一种转化，都被称为一个坐标系（coordinate system），而其中两个特殊的向量i帽和j帽，被我们称为这个标准坐标的基向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_01.png" alt="基变换_01"></li>
-<li>如上图所示，如果使用另一组不同的基向量，分别称之为b1和b2，它的第一个基向量b1指向右上方，第二个基向量b2指向左上方。如果在这个变换中，用坐标（5&#x2F;3.1&#x2F;3）来描述它，这意味着，根据他的两个基向量，获得那个向量的方法是b1乘以5&#x2F;3,b2乘以1&#x2F;3,再将两个结果相加。</li>
-<li>总之，无论何时，我们用坐标来描述一个向量，将第一个坐标乘以b1，第二个坐标乘以b2，然后将两者相加，他最终得到的向量 ，会和我们认为的相同坐标的向量完全不同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_02.png" alt="基变换_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_03.png" alt="基变换_03"></li>
-<li>如上图两个向量的表示方法看出，虽然我们都在关注空间中同一个向量，但可以用不同的语言（空间）和数字来描述它，使得结果大不相同。</li>
-<li>如果我们使用普通的坐标系，并用方形网格表示单位，那么<strong>这些网格只是提供了一个可视化坐标系的途径，因此，它依赖我们对基的选择。因为在空间中，本身是没有网格的</strong>。</li>
-<li><strong>如果用不同的方式绘制这个网格，它同样是一个框架，也只不过是有助于用另一种方式理解坐标含义的可视化工具。</strong></li>
-<li>但是无论如何绘制这个网格，<strong>大家的原点总会是在（0，0），因此大家的原点是重合的。</strong> 它就是任何向量乘以0时你所得到的坐标。</li>
-<li>但是，其他方式绘制的坐标轴的方向与网格间距有所不同，这依赖于它对基的选择。</li>
-</ul>
-<hr>
-<h3 id="✍️如何在不同的坐标系之间进行转化？："><a href="#✍️如何在不同的坐标系之间进行转化？：" class="headerlink" title="✍️如何在不同的坐标系之间进行转化？："></a>✍️如何在不同的坐标系之间进行转化？：</h3><ul>
-<li>一旦你将矩阵向量乘法理解为应用一个特定的线性变换，就会有一种非常直观的方法来考虑这里发生的事。</li>
-<li>一个矩阵列为某个特殊的基向量时，这个矩阵可以看作一个线性变换，它将我们的基向量i帽和j帽，也就是我们眼中的（1，0）和（0，1），变换为那个特殊的基向量，也就是特殊被重新定义的（1，0）和（0，1）.</li>
-<li>变换后的向量仍旧时相同的线性组合，不过使用的时新的基向量。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_04.png" alt="基变换_04"></li>
-</ul>
-<hr>
-<h3 id="✍️逆（Inverse）："><a href="#✍️逆（Inverse）：" class="headerlink" title="✍️逆（Inverse）："></a>✍️逆（Inverse）：</h3><ul>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_05.png" alt="基变换_05"></li>
-<li>一个变换的逆是一个新的变换，它将所选的变换逆向进行。实践当中，尤其是在超过二维空间中研究时，你可以用计算机来计算矩阵的逆。</li>
-<li>如果想知道一个矩阵变换的逆，那我们用这个基变换矩阵的逆乘以我们所使用的向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86_01.png" alt="基变换矩阵的逆_01"></li>
-<li>以上就是如何在坐标系之间对单个向量的描述进行相互转化。</li>
-<li>一个矩阵代表的是一个特殊的基向量，却用我们的坐标来描述；对于一个向量，这个矩阵将它的语言描述转化为我们的语言描述。</li>
-<li>逆矩阵则与之相反。</li>
-<li>向量并不是唯一用坐标表示的东西</li>
-</ul>
-<hr>
-<ul>
-<li>考虑某个线性变换，譬如逆时针旋转90度；用矩阵代表它的时候，我们是在跟踪i帽和j帽的去向；i帽变换后坐标是（0，1），j帽变换后坐标是（-1，0）；这些坐标也就成为了矩阵的列。</li>
-<li>但是这种表示与我们对基向量的选择密切相关，因为我们跟踪的是i帽和j帽，并且是在我们自己的坐标系中记录着他们的去向。</li>
-</ul>
-<h3 id="✍️如何转化一个矩阵？："><a href="#✍️如何转化一个矩阵？：" class="headerlink" title="✍️如何转化一个矩阵？："></a>✍️如何转化一个矩阵？：</h3><blockquote>
-<p>注：以下描述的我们的语言是我们使用的语言，代表我们使用的基向量和坐标系；另一种语言表述的变换暂用詹妮弗的语言代替，詹妮弗跟我们使用不同的坐标系和基向量。</p>
-</blockquote>
-<ol>
-<li>我们从詹妮弗的语言描述的任意向量出发。</li>
-<li>首先，我们不用它的语言描述这一过程，而是用基变换矩阵，转化为用我们的语言描述。这个矩阵的列代表是用我们的语言描述她的基向量。此时给出的是同一个向量，只不过是用我们的语言描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_01.png" alt="如何转化一个矩阵_01"></li>
-<li>然后，将所得结果左乘线性变换矩阵；此时给出的是变换后的向量，但仍然是我们的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_02.png" alt="如何转化一个矩阵_02"></li>
-<li>最后一步，像之前一样将所的结果左乘基变换矩阵的逆，从而得到变换后的向量，然而使用詹妮弗的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_03.png" alt="如何转化一个矩阵_03"></li>
-</ol>
-<ul>
-<li>因为我们能够对詹妮弗语言描述的任一向量做同样的事情，首先应用基变换，然后应用线性变换，最后应用基变换的逆。这三个矩阵的复合给出的就是用詹妮弗语言买哦书店线性变换矩阵。它接收由詹妮弗语言描述的向量。，并输出用詹妮弗语言描述的变换后的向量。</li>
-<li>所以如果詹妮弗用这个计算结果的矩阵与她坐标系中的一个向量相乘，结果就是在她坐标系中描述该向量旋转90度的结果。</li>
-</ul>
-<hr>
-<h3 id="✍️总结："><a href="#✍️总结：" class="headerlink" title="✍️总结："></a>✍️总结：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%AD%A6%E4%B8%8A%E7%9A%84%E8%BD%AC%E7%A7%BB%E4%BD%9C%E7%94%A8.png" alt="数学上的转移作用"></p>
-<ul>
-<li>每当你看到这样一个表达式：A逆乘以M乘以A，这就暗示着一种数学上的转移作用。中间的矩阵代表一种你所见的变换，而外侧两个矩阵代表着转移作用，也就是视角上的转化。矩阵乘积任然代表着同一个变换，只不过是从其他人的角度来看的。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>-3Blue1Brown线性代数本质</category>
-      </categories>
-      <tags>
-        <tag>-学数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>3Blue1Brown_线代本质第八章：叉积的标准介绍</title>
     <url>/2022/10/03/math_Essense_of_Linear_Algebra_P08/</url>
     <content><![CDATA[<h1 id="3Blue1Brown-线代本质第八章：叉积的标准介绍"><a href="#3Blue1Brown-线代本质第八章：叉积的标准介绍" class="headerlink" title="3Blue1Brown_线代本质第八章：叉积的标准介绍"></a>3Blue1Brown_线代本质第八章：叉积的标准介绍</h1><ul>
@@ -1199,6 +1130,75 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
 <li>更重要的是，如果你选择了合适的向量方向，点积为正的情况就会与（x，y，z），v和w满足右手定则的情况相吻合。</li>
 <li>这意味着我们找到了一个向量p，使得p与和某个向量（x，y，z）点乘时所得结果等于一个3x3矩阵的行列式；这个矩阵的三列分别为（x，y，z），v的坐标和w的坐标。</li>
 <li>因此我们之前通过特殊符号技巧进行计算所得到的向量必然在几何上与这个向量对应。这激素叉积的计算过程与几何解释有关的根本原因。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%BB%A5%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E7%9C%8B%E5%BE%85%E5%8F%89%E7%A7%AF_07.png" alt="以线性变换看待叉积_07"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3Blue1Brown_线代本质第九章：基变换</title>
+    <url>/2022/10/03/math_Essense_of_Linear_Algebra_P09/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第九章：基变换"><a href="#3Blue1Brown-线代本质第九章：基变换" class="headerlink" title="3Blue1Brown_线代本质第九章：基变换"></a>3Blue1Brown_线代本质第九章：基变换</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第九章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️基变换："><a href="#✏️基变换：" class="headerlink" title="✏️基变换："></a>✏️基变换：</h2><h3 id="✍️基的选择："><a href="#✍️基的选择：" class="headerlink" title="✍️基的选择："></a>✍️基的选择：</h3><ul>
+<li>发生在向量与一组数之间的任意一种转化，都被称为一个坐标系（coordinate system），而其中两个特殊的向量i帽和j帽，被我们称为这个标准坐标的基向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_01.png" alt="基变换_01"></li>
+<li>如上图所示，如果使用另一组不同的基向量，分别称之为b1和b2，它的第一个基向量b1指向右上方，第二个基向量b2指向左上方。如果在这个变换中，用坐标（5&#x2F;3.1&#x2F;3）来描述它，这意味着，根据他的两个基向量，获得那个向量的方法是b1乘以5&#x2F;3,b2乘以1&#x2F;3,再将两个结果相加。</li>
+<li>总之，无论何时，我们用坐标来描述一个向量，将第一个坐标乘以b1，第二个坐标乘以b2，然后将两者相加，他最终得到的向量 ，会和我们认为的相同坐标的向量完全不同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_02.png" alt="基变换_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_03.png" alt="基变换_03"></li>
+<li>如上图两个向量的表示方法看出，虽然我们都在关注空间中同一个向量，但可以用不同的语言（空间）和数字来描述它，使得结果大不相同。</li>
+<li>如果我们使用普通的坐标系，并用方形网格表示单位，那么<strong>这些网格只是提供了一个可视化坐标系的途径，因此，它依赖我们对基的选择。因为在空间中，本身是没有网格的</strong>。</li>
+<li><strong>如果用不同的方式绘制这个网格，它同样是一个框架，也只不过是有助于用另一种方式理解坐标含义的可视化工具。</strong></li>
+<li>但是无论如何绘制这个网格，<strong>大家的原点总会是在（0，0），因此大家的原点是重合的。</strong> 它就是任何向量乘以0时你所得到的坐标。</li>
+<li>但是，其他方式绘制的坐标轴的方向与网格间距有所不同，这依赖于它对基的选择。</li>
+</ul>
+<hr>
+<h3 id="✍️如何在不同的坐标系之间进行转化？："><a href="#✍️如何在不同的坐标系之间进行转化？：" class="headerlink" title="✍️如何在不同的坐标系之间进行转化？："></a>✍️如何在不同的坐标系之间进行转化？：</h3><ul>
+<li>一旦你将矩阵向量乘法理解为应用一个特定的线性变换，就会有一种非常直观的方法来考虑这里发生的事。</li>
+<li>一个矩阵列为某个特殊的基向量时，这个矩阵可以看作一个线性变换，它将我们的基向量i帽和j帽，也就是我们眼中的（1，0）和（0，1），变换为那个特殊的基向量，也就是特殊被重新定义的（1，0）和（0，1）.</li>
+<li>变换后的向量仍旧时相同的线性组合，不过使用的时新的基向量。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_04.png" alt="基变换_04"></li>
+</ul>
+<hr>
+<h3 id="✍️逆（Inverse）："><a href="#✍️逆（Inverse）：" class="headerlink" title="✍️逆（Inverse）："></a>✍️逆（Inverse）：</h3><ul>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_05.png" alt="基变换_05"></li>
+<li>一个变换的逆是一个新的变换，它将所选的变换逆向进行。实践当中，尤其是在超过二维空间中研究时，你可以用计算机来计算矩阵的逆。</li>
+<li>如果想知道一个矩阵变换的逆，那我们用这个基变换矩阵的逆乘以我们所使用的向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86_01.png" alt="基变换矩阵的逆_01"></li>
+<li>以上就是如何在坐标系之间对单个向量的描述进行相互转化。</li>
+<li>一个矩阵代表的是一个特殊的基向量，却用我们的坐标来描述；对于一个向量，这个矩阵将它的语言描述转化为我们的语言描述。</li>
+<li>逆矩阵则与之相反。</li>
+<li>向量并不是唯一用坐标表示的东西</li>
+</ul>
+<hr>
+<ul>
+<li>考虑某个线性变换，譬如逆时针旋转90度；用矩阵代表它的时候，我们是在跟踪i帽和j帽的去向；i帽变换后坐标是（0，1），j帽变换后坐标是（-1，0）；这些坐标也就成为了矩阵的列。</li>
+<li>但是这种表示与我们对基向量的选择密切相关，因为我们跟踪的是i帽和j帽，并且是在我们自己的坐标系中记录着他们的去向。</li>
+</ul>
+<h3 id="✍️如何转化一个矩阵？："><a href="#✍️如何转化一个矩阵？：" class="headerlink" title="✍️如何转化一个矩阵？："></a>✍️如何转化一个矩阵？：</h3><blockquote>
+<p>注：以下描述的我们的语言是我们使用的语言，代表我们使用的基向量和坐标系；另一种语言表述的变换暂用詹妮弗的语言代替，詹妮弗跟我们使用不同的坐标系和基向量。</p>
+</blockquote>
+<ol>
+<li>我们从詹妮弗的语言描述的任意向量出发。</li>
+<li>首先，我们不用它的语言描述这一过程，而是用基变换矩阵，转化为用我们的语言描述。这个矩阵的列代表是用我们的语言描述她的基向量。此时给出的是同一个向量，只不过是用我们的语言描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_01.png" alt="如何转化一个矩阵_01"></li>
+<li>然后，将所得结果左乘线性变换矩阵；此时给出的是变换后的向量，但仍然是我们的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_02.png" alt="如何转化一个矩阵_02"></li>
+<li>最后一步，像之前一样将所的结果左乘基变换矩阵的逆，从而得到变换后的向量，然而使用詹妮弗的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_03.png" alt="如何转化一个矩阵_03"></li>
+</ol>
+<ul>
+<li>因为我们能够对詹妮弗语言描述的任一向量做同样的事情，首先应用基变换，然后应用线性变换，最后应用基变换的逆。这三个矩阵的复合给出的就是用詹妮弗语言买哦书店线性变换矩阵。它接收由詹妮弗语言描述的向量。，并输出用詹妮弗语言描述的变换后的向量。</li>
+<li>所以如果詹妮弗用这个计算结果的矩阵与她坐标系中的一个向量相乘，结果就是在她坐标系中描述该向量旋转90度的结果。</li>
+</ul>
+<hr>
+<h3 id="✍️总结："><a href="#✍️总结：" class="headerlink" title="✍️总结："></a>✍️总结：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%AD%A6%E4%B8%8A%E7%9A%84%E8%BD%AC%E7%A7%BB%E4%BD%9C%E7%94%A8.png" alt="数学上的转移作用"></p>
+<ul>
+<li>每当你看到这样一个表达式：A逆乘以M乘以A，这就暗示着一种数学上的转移作用。中间的矩阵代表一种你所见的变换，而外侧两个矩阵代表着转移作用，也就是视角上的转化。矩阵乘积任然代表着同一个变换，只不过是从其他人的角度来看的。</li>
 </ul>
 ]]></content>
       <categories>
@@ -1435,26 +1435,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>Substance Designer这一阵子的练习汇总（一）</title>
-    <url>/2022/12/10/sd_sdPractice_woodPeeling/</url>
-    <content><![CDATA[<h1 id="这里是关于SD生成器的"><a href="#这里是关于SD生成器的" class="headerlink" title="这里是关于SD生成器的"></a><center>这里是关于SD生成器的</center></h1><h3 id="木漆剥落生成器以及水彩笔触生成器"><a href="#木漆剥落生成器以及水彩笔触生成器" class="headerlink" title="木漆剥落生成器以及水彩笔触生成器"></a><center>木漆剥落生成器以及水彩笔触生成器</center></h3>
-
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
-src="//player.bilibili.com/player.html?aid=390513592&bvid=BV1vd4y1t7Ca&cid=902733440&page=1" scrolling="no" border="0" 
-frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
-height: 100%; left: 0; top: 0;"> </iframe></div>
-
-
-
-]]></content>
-      <categories>
-        <category>-Substance Designer</category>
-      </categories>
-      <tags>
-        <tag>-Substance Designer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</title>
     <url>/2022/10/08/math_Essense_of_Linear_Algebra_P12/</url>
     <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释"><a href="#3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释" class="headerlink" title="3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释"></a>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</h1><ul>
@@ -1515,6 +1495,43 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </categories>
       <tags>
         <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Substance Designer这一阵子的练习汇总（一）</title>
+    <url>/2022/12/10/sd_sdPractice_woodPeeling/</url>
+    <content><![CDATA[<h1 id="这里是关于SD生成器的"><a href="#这里是关于SD生成器的" class="headerlink" title="这里是关于SD生成器的"></a><center>这里是关于SD生成器的</center></h1><h3 id="木漆剥落生成器以及水彩笔触生成器"><a href="#木漆剥落生成器以及水彩笔触生成器" class="headerlink" title="木漆剥落生成器以及水彩笔触生成器"></a><center>木漆剥落生成器以及水彩笔触生成器</center></h3>
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
+src="//player.bilibili.com/player.html?aid=390513592&bvid=BV1vd4y1t7Ca&cid=902733440&page=1" scrolling="no" border="0" 
+frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
+height: 100%; left: 0; top: 0;"> </iframe></div>
+
+
+
+]]></content>
+      <categories>
+        <category>-Substance Designer</category>
+      </categories>
+      <tags>
+        <tag>-Substance Designer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022/11月-2023/1月 SD练习</title>
+    <url>/2023/01/18/sd_practice001/</url>
+    <content><![CDATA[<h1 id="2022-x2F-11月-2023-x2F-1月-SD练习"><a href="#2022-x2F-11月-2023-x2F-1月-SD练习" class="headerlink" title="2022&#x2F;11月-2023&#x2F;1月 SD练习"></a>2022&#x2F;11月-2023&#x2F;1月 SD练习</h1><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTOP3.png" alt="sdTOP3"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTOP3_1.png" alt="sdTOP3_1"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wood_paint_peeling_render.png" alt="wood_paint_peeling_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wood_paint_peeling_render2.png" alt="wood_paint_peeling_render2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wood_paint_peeling_render3.png" alt="wood_paint_peeling_render3"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/tarmac_worn_roadMark_render.png" alt="tarmac_worn_roadMark_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/tarmac_worn_roadMark_render2.png" alt="tarmac_worn_roadMark_render2"></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTOP5.png" alt="sdTOP5"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/patches04_render_NObg3.png" alt="patches04_render_NObg3"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/patches05_render.png" alt="patches05_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/patches01_render.png" alt="patches01_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/patches03_render.png" alt="patches03_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/patches04_render.png" alt="patches04_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/patches02_render.png" alt="patches02_render"></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTOP6.png" alt="sdTOP6"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ji.png" alt="ji"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lowlow.png" alt="lowlow"></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTop_sand.png" alt="sdTop_sand"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sand_realistic001_render.png" alt="sand_realistic001_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sand_realistic001_render2.png" alt="sand_realistic001_render2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sand_stylized001_render.png" alt="sand_stylized001_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sand_stylized002_render.png" alt="sand_stylized002_render"></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTOP4.png" alt="sdTOP4"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wood_patterns_stylized01_render.png" alt="wood_patterns_stylized01_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Ground_woodPlanks01_render.png" alt="Ground_woodPlanks01_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/WOOD_wall_mix01_render.png" alt="WOOD_wall_mix01_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/WOOD_pattern02_render.png" alt="WOOD_pattern02_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/woodBoards001_scrachesPeeling_old_Render.png" alt="woodBoards001_scrachesPeeling_old_Render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/woodBoards001_scrachesPeeling_old_Render2.png" alt="woodBoards001_scrachesPeeling_old_Render2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/woodBoards002_horizontalBoards_colorMix_Render.png" alt="woodBoards002_horizontalBoards_colorMix_Render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/WOOD_board002_hotizontal_render.png" alt="WOOD_board002_hotizontal_render"></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/top.png" alt="top"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Ground_Tile2_render.png" alt="Ground_Tile2_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Ground_Tile0_render.png" alt="Ground_Tile0_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Bricks_Tile01_render.png" alt="Bricks_Tile01_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Ground_Tile1_render.png" alt="Ground_Tile1_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/metalPlates001_rustPeeling_Render.png" alt="metalPlates001_rustPeeling_Render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/metalPlates001_rustPeeling_Render2.png" alt="metalPlates001_rustPeeling_Render2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wall_smooth_render.png" alt="wall_smooth_render"></p>
+]]></content>
+      <categories>
+        <category>-Substance Designer</category>
+      </categories>
+      <tags>
+        <tag>-Substance Designer</tag>
       </tags>
   </entry>
   <entry>
@@ -1813,413 +1830,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </categories>
       <tags>
         <tag>-灯光</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UE4官方材质课_基础篇</title>
-    <url>/2022/09/13/ue_MatClass_foundation/</url>
-    <content><![CDATA[<p>🐸本文为虚幻官方材质课的学习记录，并不完全，在此按我的个人需求记录了如下笔记。<strong>这一篇是基础篇</strong>。<br>🐸这里是基础篇<a href="https://www.bilibili.com/video/BV1fX4y1N7Fw?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接</a><br>🐸这里是高级篇<a href="https://www.bilibili.com/video/BV1sy4y127HZ/?spm_id_from=333.788.video.desc.click&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接</a><br>🐸<strong>加油 ！ 加油 ！</strong></p>
-<hr>
-<h1 id="UE4官方材质课-基础篇"><a href="#UE4官方材质课-基础篇" class="headerlink" title="UE4官方材质课_基础篇"></a>UE4官方材质课_基础篇</h1><h2 id="一：了解材质："><a href="#一：了解材质：" class="headerlink" title="一：了解材质："></a>一：了解材质：</h2><h3 id="🚩PBR（Physically-Based-Rendering）："><a href="#🚩PBR（Physically-Based-Rendering）：" class="headerlink" title="🚩PBR（Physically-Based Rendering）："></a>🚩PBR（Physically-Based Rendering）：</h3><p>基于物理的渲染。<br>它提供了一种光照和渲染方法，能够更精确的描绘光和表面之间的作用。<br>PBR流程能更真实的模拟光照和材质之间的物理交互效果。</p>
-<ul>
-<li>直观便于理解</li>
-<li>物理上更具准确性<ul>
-<li>pbr基于物理定律，如能量守恒定律和平方反比定律(Inverse-square law)</li>
-<li>pbr材质在不同的光照下会表现的更一致</li>
-</ul>
-</li>
-<li>使用真实的物理测量单位表示亮度<ul>
-<li>Lumens(流明),Lux（勒克斯）</li>
-</ul>
-</li>
-</ul>
-<p>💡简单来说基于物理的渲染本质上是通过：</p>
-<ul>
-<li>材质</li>
-<li>灯光</li>
-<li>曝光</li>
-</ul>
-<p>这三大部分控制的组合结果。</p>
-<h3 id="🚩Primary-PBR-Inputs："><a href="#🚩Primary-PBR-Inputs：" class="headerlink" title="🚩Primary PBR Inputs："></a>🚩Primary PBR Inputs：</h3><ul>
-<li>Base col</li>
-<li>Metallic</li>
-<li>Specular</li>
-<li>Roughness</li>
-</ul>
-<h4 id="🏕️Base-color（Albedo）"><a href="#🏕️Base-color（Albedo）" class="headerlink" title="🏕️Base color（Albedo）"></a>🏕️Base color（Albedo）</h4><ul>
-<li>flat color,没有任何光照信息（没有高光和阴影）</li>
-<li>只保存颜色信息</li>
-<li>可以是linear RGB，也可也是一个Vector3</li>
-<li>各个通道的数值位于0到1之间（纯白和纯黑会导致一些场景的曝光问题）</li>
-</ul>
-<h4 id="🏕️Metalic"><a href="#🏕️Metalic" class="headerlink" title="🏕️Metalic"></a>🏕️Metalic</h4><ul>
-<li>Gray scale</li>
-<li>数值在0 到 1的区间,不包含任何色彩信息</li>
-<li>金属最正确的设置方式是全开或全关<ul>
-<li>数值为0时，材质底色是diffuse</li>
-<li>数值为1时，材质底色是specular&#x2F;reflection color</li>
-<li>示例图：<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/metallic.png" alt="metallic"></li>
-</ul>
-</li>
-</ul>
-<h4 id="🏕️Roughness"><a href="#🏕️Roughness" class="headerlink" title="🏕️Roughness"></a>🏕️Roughness</h4><ul>
-<li>Gray scale</li>
-<li>数值在0 到 1的区间,不包含任何色彩信息<ul>
-<li>数值为0时，无限接近于镜面反射</li>
-<li>数值为1时，为粗糙表面</li>
-</ul>
-</li>
-</ul>
-<p>粗糙度是能量守恒的体现。</p>
-<h4 id="🏕️Specular"><a href="#🏕️Specular" class="headerlink" title="🏕️Specular"></a>🏕️Specular</h4><ul>
-<li>控制高光和反射（specular highlights and reflections）</li>
-<li>Gray scale</li>
-<li>一般情况下保持default value 0.5就可以了</li>
-<li>通常情况下，我们通过调整Roughness来调整高光质感</li>
-<li>正常世界中，所有物体都有一定程度的反射和高光效果</li>
-</ul>
-<p>示例图：<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/roughness.png" alt="roughness"></p>
-<h3 id="🚩UE支持的图片文件的格式（常用）："><a href="#🚩UE支持的图片文件的格式（常用）：" class="headerlink" title="🚩UE支持的图片文件的格式（常用）："></a>🚩UE支持的图片文件的格式（常用）：</h3><table>
-<thead>
-<tr>
-<th>未压缩格式</th>
-<th>压缩格式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>BMP</td>
-<td>PNG（simple Alpha）</td>
-</tr>
-<tr>
-<td>TGA（Alpha）</td>
-<td>JPG</td>
-</tr>
-<tr>
-<td>PSD</td>
-<td>DDS</td>
-</tr>
-<tr>
-<td></td>
-<td>HDR</td>
-</tr>
-</tbody></table>
-<ul>
-<li>simple Alpha通常被用于植被</li>
-</ul>
-<h3 id="🚩贴图规则："><a href="#🚩贴图规则：" class="headerlink" title="🚩贴图规则："></a>🚩贴图规则：</h3><ul>
-<li>最大支持8k</li>
-<li>长宽必须是2的指数幂（512，1024，2048）</li>
-<li>roughness，metallic，specular均不需要rgb通道，所以直接储存为gray scale导入UE。这样他们就会被自动设置成灰度图，并且不会启动sRGB或者Linear的颜色空间</li>
-<li>Normal 贴图也同理，不需要使用sRGB</li>
-<li>HDR 也不需要使用sRGB，因为它的取值一般会超出范围</li>
-<li>sRGB只适用于颜色贴图（导入需要确保灰度图没有勾选sRGB）</li>
-<li>所有的灰度贴图只要储存形式正确，那么UE会直接自动设置为禁用sRGB</li>
-<li>所有的base col应当将压缩格式设置为DXT1（在贴图设置选项中，compression也可以自行更改，如果格式正确，那么UE会自动为你设置好它的compression setting）</li>
-</ul>
-<h3 id="🚩贴图导入方式："><a href="#🚩贴图导入方式：" class="headerlink" title="🚩贴图导入方式："></a>🚩贴图导入方式：</h3><ul>
-<li>直接拖入项目</li>
-<li>右键在content browser选择import Assets</li>
-</ul>
-<h3 id="🚩UE材质编辑器tips："><a href="#🚩UE材质编辑器tips：" class="headerlink" title="🚩UE材质编辑器tips："></a>🚩UE材质编辑器tips：</h3><ul>
-<li>双击节点之间的连线，创建dot整理节点</li>
-<li>c，创建comment</li>
-<li>ctl+拖动节点连线来改变节点连接输出的位置</li>
-<li>clean up删除此节点图中的孤立节点（unused node）</li>
-<li>connector改变节点显示方式</li>
-<li>T，创建texture sample</li>
-</ul>
-<h3 id="🚩混合模式："><a href="#🚩混合模式：" class="headerlink" title="🚩混合模式："></a>🚩混合模式：</h3><p>在Material中，可以找到<strong>Blend Mode</strong>和<strong>Shading Mode</strong>这两项，这两项十分重要</p>
-<h4 id="🍭Blend-Mode："><a href="#🍭Blend-Mode：" class="headerlink" title="🍭Blend Mode："></a>🍭Blend Mode：</h4><ul>
-<li><strong>Opaque 不透明</strong><ul>
-<li>多数不透明材质的基本设置</li>
-</ul>
-</li>
-<li><strong>masked 遮罩</strong><ul>
-<li>显示有mask遮罩的材质</li>
-<li>背面默认不显示，需要开启two sided</li>
-</ul>
-</li>
-<li><strong>Translucent 半透明</strong><ul>
-<li>通常使用在半透明材质，玻璃等有折射的材质</li>
-<li>同时控制opacity与refraction来调整效果</li>
-<li>Translucent一般情况下以最简单的方式计算半透明，以节约开销</li>
-<li>如果想提升半透明材质的效果，需要来到Translucency的选项下，勾选Screen SPace Reflection，并把Lighting Mode改成Surface ForwardShading；这两个选项能让我们获得最高质量的半透明材质。开启这两个选项后，着色器需要更长的时间编译。</li>
-</ul>
-</li>
-<li><strong>additive 叠加</strong></li>
-<li><strong>Modulate 调制</strong></li>
-<li><strong>AlphaComposite（Premultiplied Alpha） alpha复合（预乘Alpha）</strong></li>
-</ul>
-<p><strong>Translucent：</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/blendMode_Translucent.png" alt="blendMode_Translucent"></p>
-<h4 id="🍭Shading-Mode："><a href="#🍭Shading-Mode：" class="headerlink" title="🍭Shading Mode："></a>🍭Shading Mode：</h4><ul>
-<li><strong>Default Lit</strong><ul>
-<li>通常的光照设置，材质受光照影响</li>
-</ul>
-</li>
-<li><strong>Unlit</strong><ul>
-<li>材质不受光照影响；这种模式下允许表面产生自发光</li>
-</ul>
-</li>
-<li><strong>subsurface</strong><ul>
-<li>次表面散射，如皮肤和蜡烛</li>
-</ul>
-</li>
-<li><strong>clear coat</strong></li>
-<li><strong>two sided foliage</strong></li>
-<li><strong>hair</strong></li>
-<li><strong>cloth</strong></li>
-<li><strong>eye</strong></li>
-</ul>
-<h5 id="🍌subsurface-scattering"><a href="#🍌subsurface-scattering" class="headerlink" title="🍌subsurface scattering"></a>🍌subsurface scattering</h5><ul>
-<li>将Material的shading mode设置为subsurface</li>
-<li>主要使用两个矢量（base color和subsurface color）和两个标量（opacity和roughness）</li>
-</ul>
-<p>示例：<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/subsurfaceMat.png" alt="subsurfaceMat"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/subsurface.png" alt="subsurface"></p>
-<h3 id="🚩创建一个简单材质："><a href="#🚩创建一个简单材质：" class="headerlink" title="🚩创建一个简单材质："></a>🚩创建一个简单材质：</h3><ul>
-<li>当我们给mesh更换材质，或应用新材质时，需要在静态网格编辑器（Static Mesh Editor）中打开mesh，并且在右侧Detail面板下更换指定新材质</li>
-<li>UE支持多材质对象。一个mesh可以有多个elements并指定材质</li>
-<li>最好遵从材质命名规则，如Material最好以<strong>M_name</strong>这样以M为前缀来开头</li>
-<li>T for texture sample，选择我们需要的贴图</li>
-<li>基础材质创建使用的大多数是：base col， roughness， normal</li>
-</ul>
-<h3 id="🚩继续简单材质："><a href="#🚩继续简单材质：" class="headerlink" title="🚩继续简单材质："></a>🚩继续简单材质：</h3><ul>
-<li><p>如果希望在贴图中预览并使用到UE的content，则需要再texture的选项里打开<strong>show Engine Content</strong></p>
-<ul>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/showUEcontent.png" alt="showUEcontent"></li>
-</ul>
-</li>
-<li><p><strong>反转黑白可以使用（1-x）One Minus</strong></p>
-</li>
-<li><p><strong>混合：Multiply（M）</strong></p>
-</li>
-<li><p><strong>相加：Add（A</strong>）</p>
-</li>
-<li><p>使用constant与贴图Multiply，以达到控制灰度的效果，或使贴图与相应选区进行混合</p>
-</li>
-<li><p><strong>常用噪波：perlin noise</strong></p>
-</li>
-<li><p><strong>线性插值：Lerp</strong></p>
-<ul>
-<li>利用alpha通道混合a，b两个图层</li>
-</ul>
-</li>
-<li><p><strong>常用扁平法线：flatnormal</strong></p>
-</li>
-<li><p><strong>平铺纹理：Texture Coordinate</strong></p>
-</li>
-</ul>
-<h3 id="🚩使用DataSmith从其他DCC软件导入材质到UE："><a href="#🚩使用DataSmith从其他DCC软件导入材质到UE：" class="headerlink" title="🚩使用DataSmith从其他DCC软件导入材质到UE："></a>🚩使用DataSmith从其他DCC软件导入材质到UE：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vraytoUE_datasmith.png" alt="vraytoUE_datasmith"><br>简单解释就是其他的软件制作好的材质会被以一种datasmith提供的方式转换到ue中，但是有些情况下是无法正确转换的。需要额外自行修正，并且灯光也不会被预先烘培。</p>
-<hr>
-<h2 id="二：创建PBR材质（基础）"><a href="#二：创建PBR材质（基础）" class="headerlink" title="二：创建PBR材质（基础）"></a>二：创建PBR材质（基础）</h2><h3 id="🚩主材质实例："><a href="#🚩主材质实例：" class="headerlink" title="🚩主材质实例："></a>🚩主材质实例：</h3><ul>
-<li>实例化材质可以为我们的主材质创建副本，然后用来代替主材在项目中使用</li>
-<li>实例化材质的优点：<br>  1.节约时间，可以通过公开主材质的某些参数，进一步调整实例材质而无需重新编译着色器。<br>  2.对主材质进行的改动也会更新到所有的材质实例。<br>  3.仅需要根据材质特性创建主材质，然后实例化材质应用到所有的类似材质上。</li>
-</ul>
-<h3 id="🚩公开材质参数："><a href="#🚩公开材质参数：" class="headerlink" title="🚩公开材质参数："></a>🚩公开材质参数：</h3><ul>
-<li>右键相应节点，convert to parameter并重命名</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/convertParam.png" alt="convertParam"></li>
-</ul>
-<h3 id="🚩switch："><a href="#🚩switch：" class="headerlink" title="🚩switch："></a>🚩switch：</h3><ul>
-<li><strong>Static Switch Parameter</strong>，静态开关参数</li>
-<li>使我们开启或禁用某些功能<br><strong>示例：</strong><br>当True的时候，开启base color与纯色相乘，为False时则关闭相乘，仅显示base color<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/swichPara.png" alt="swichPara"></li>
-</ul>
-<h3 id="🚩实例材质的优先级以及参数最大最小值："><a href="#🚩实例材质的优先级以及参数最大最小值：" class="headerlink" title="🚩实例材质的优先级以及参数最大最小值："></a>🚩实例材质的优先级以及参数最大最小值：</h3><p><strong>当制作材质的时候，可以修改材质参数的优先级方便使用</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/groupandpior.png" alt="groupandpior"><br><strong>我们可以通过修改Group和sort Piriority来实现</strong></p>
-<ul>
-<li>只需要选中group中的“None”，将None改为我们需要的组名</li>
-<li>sort Piriority为0的组会优先出现再我们的分组中，依次是1，2，3的组</li>
-<li>分组需要按需求比如tex，utility，uv之类的功能不同的节点可以分开设置，并自行定义优先级</li>
-</ul>
-<p><strong>示例：</strong> 此时所有的参数就被归档在我们定义好的组中。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/groupPreview.png" alt="groupPreview"></p>
-<p><strong>✏️可以给参数滑块设置最大最小值，使可以调节的范围不超过我们设定的值</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/minMax.png" alt="minMax"></p>
-<h3 id="🚩动态材质："><a href="#🚩动态材质：" class="headerlink" title="🚩动态材质："></a>🚩动态材质：</h3><p><strong>材质一般在UE中分为两种：</strong></p>
-<ol>
-<li>静态材质</li>
-<li>动态材质<ul>
-<li>动态材质让我们在运行的时候实时调整</li>
-</ul>
-</li>
-</ol>
-<p><strong>Actor：</strong></p>
-<ul>
-<li>Actor与普通的mesh相比，它可以附加蓝图</li>
-<li>我们需要在Event Graph中创建我们的功能</li>
-<li>创建dynamic material，并在source Material中指定材质源</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpshaderball.png" alt="bpshaderball"></li>
-<li>之后再set texture parameter value ，使用我们指定的参数Diffuse</li>
-<li>再创建set scalar Parameter value， 控制Metallic</li>
-<li>最后需要set vector parameter value，设置Color</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpshaderball2.png" alt="bpshaderball2"></li>
-<li>因为我们或许希望color不会在创建出的时候即刻执行，我们希望用户再点击屏幕对象的时候改变这个参数，所以此时还需要“事件调度器（Event Dispatchers）”来完成它</li>
-<li>此时需要先创建变量，再set color</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpvriable.png" alt="bpvriable"></li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpvriableType.png" alt="bpvriableType"></li>
-<li>最后设置event Dispatchers，选择event。最后compile，此时编辑好了actor的材质。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpeventDisp2.png" alt="bpeventDisp2"></li>
-</ul>
-<h3 id="🚩编辑level-Blueprint："><a href="#🚩编辑level-Blueprint：" class="headerlink" title="🚩编辑level Blueprint："></a>🚩编辑level Blueprint：</h3><ul>
-<li>现在要做事情使编辑关卡的蓝图，使我们之前编辑的actor生效，效果达到：点击之前编辑的actor，并使它颜色发生改变</li>
-<li>进入level BP，创建get player controller，获取用户的动态，mouse cursor，click even看他是否对actor进行操作，然后再用事件调度器触发自定义事件</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lbp_clickeven.png" alt="lbp_clickeven"></li>
-<li>接着我们要判断用户是否点击到了正确的对象 ，然后再触发自定义事件，完成颜色替换的指令</li>
-<li>get hit result under cursor for object，然后确认object type，使用make Array，确认我们希望用户能够点击哪类对象。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lbp_clickeven2.png" alt="lbp_clickeven2"></li>
-<li>接着left mouse button获取鼠标的动态，看右键是否点击到了正确的目标。</li>
-<li>get class，class is child of，得到父类下正确的对象。如果结果是我们需要的对象，则返回True。</li>
-<li>cast to ，通过这个引用我们可以访问之前用于改变颜色的自定义事件。</li>
-<li>最后获取change color even，获取到我们之前定义的事件，并且设置随机颜色。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lbp_clickeven3.png" alt="lbp_clickeven3"></li>
-<li>compile，play。这样我们自定义的actor就会随着鼠标点击随机改变颜色。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lbp_clickeven4.png" alt="lbp_clickeven4"></li>
-</ul>
-<h3 id="🚩材质参数集合，创建全局参数集（Parameter-Collection）："><a href="#🚩材质参数集合，创建全局参数集（Parameter-Collection）：" class="headerlink" title="🚩材质参数集合，创建全局参数集（Parameter Collection）："></a>🚩材质参数集合，创建全局参数集（Parameter Collection）：</h3><ul>
-<li>有时候因为场景变化的需求，比如下雨天材质整体变得湿润，或者受到风力影响而相关材质摇曳的程度增强，或者自发光强度因为场景变化需要整体变强。</li>
-<li>如果一个一个调整则很花费时间。此时就要用到材质参数集，达到批量修改整体参数的目的。</li>
-<li>我们可以右键在content中创建Meterial Parameter Collection，再分别创建自己需要的全局标量和向量。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/mpc_setting.png" alt="mpc_setting"></li>
-<li>在Master Mat中，建立collection parameter，选择之前创建的参数集，与需要修改的参数相乘。</li>
-<li>如有float4的参数出现，则需要使用component Mask转换成float3，以免出现数据类型的不匹配</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/mpc_setting2.png" alt="mpc_setting2"></li>
-<li><strong>全局参数集相当于给所有设置全局变量的参数一个总控制，每个单独的材质也可以在自己的材质球下独立调节，但是总集控制所有材质的全局参数，如果在总集禁用，那么独立的材质的那个参数也会被禁用。</strong></li>
-</ul>
-<h3 id="🚩材质参数集合，第二部分："><a href="#🚩材质参数集合，第二部分：" class="headerlink" title="🚩材质参数集合，第二部分："></a>🚩材质参数集合，第二部分：</h3><ul>
-<li>现在想要实现：允许用户点击后，更改其中的一个全局参数</li>
-<li>需要在level BluePrint里进行编辑，与Actor部分相似，前半部分判断鼠标点击以及获取用户行为的蓝图操作是一样的（在我的基础篇笔记上篇）</li>
-<li>之后，判断点击对象，确保在视窗内选中正确对象然后 create reference带入蓝图</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/mpc__bpsetting.png" alt="mpc__bpsetting"></li>
-<li>选择正确的目标进行判断，并设置好rendom vector。</li>
-<li>compiled，此时play就会看见随着鼠标点击，全局对象也可以随机改变颜色了。</li>
-</ul>
-<h3 id="🚩材质函数："><a href="#🚩材质函数：" class="headerlink" title="🚩材质函数："></a>🚩材质函数：</h3><ul>
-<li>材质函数就是材质图表中可以反复使用的自定义代码片段</li>
-<li>它的好处是可以把复杂的材质图表转化成拥有单个输入输出的单个材质节点</li>
-<li>更改代码中的函数，所有实例也会同步修改</li>
-</ul>
-<h4 id="✏️此时的案例要实现的是uv-tiling。"><a href="#✏️此时的案例要实现的是uv-tiling。" class="headerlink" title="✏️此时的案例要实现的是uv tiling。"></a>✏️此时的案例要实现的是uv tiling。</h4><ul>
-<li>在content中创建Material Function，点击进去。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_func01.png" alt="m_func01"></li>
-<li>如上图，我们首先设置uv 平铺，其次设置旋转，再判断使用不使用rotation</li>
-<li>编辑好后需要单击面板，开启左侧列表中的“Expose to Library”，才能确保我们后续能正常搜索到它。</li>
-<li>接下来回到我们需要使用tiling的材质</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_func01_tiling.png" alt="m_func01_tiling"></li>
-<li>搜索我们之前创建的Function，并根据我们之前设置的变量来分别连接参数</li>
-<li>此时这个材质就有UV Tiling的选项。</li>
-</ul>
-<p><strong>数据迁移：</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_func_Migrate.png" alt="m_func_Migrate"></p>
-<ul>
-<li>此方式能够将做好的材质函数迁移到其他文件使用</li>
-<li>当然也可以通过这种方式迁移别的需要的资产</li>
-</ul>
-<h4 id="✏️另一种材质函数的方式：CustomNode"><a href="#✏️另一种材质函数的方式：CustomNode" class="headerlink" title="✏️另一种材质函数的方式：CustomNode"></a>✏️另一种材质函数的方式：CustomNode</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_customNode.png" alt="m_customNode"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_customN_name.png" alt="m_customN_name"></p>
-<ul>
-<li>这种方式通过hlsl语言来创建材质函数，得到自制的材质节点</li>
-<li>设置的input name需要与code的名字匹配</li>
-<li>定义hlsl并不像内置的材质表达式，且无法被优化</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_customN.png" alt="m_customN"></li>
-</ul>
-<hr>
-<h2 id="三：实例创建不同的材质演示："><a href="#三：实例创建不同的材质演示：" class="headerlink" title="三：实例创建不同的材质演示："></a>三：实例创建不同的材质演示：</h2><h3 id="🚩clear-coat制作类似车漆质感："><a href="#🚩clear-coat制作类似车漆质感：" class="headerlink" title="🚩clear coat制作类似车漆质感："></a>🚩clear coat制作类似车漆质感：</h3><ul>
-<li>将shading mode设置为clear coat后，Material会又clear coat和clear coat Roughness这两个选项</li>
-<li>它的显示方式与普通的材质较为相似，如果希望有光滑的表面，并且希望透明图层下的表面有凹凸效果，就可以选择clear coat来模拟</li>
-<li>如果要启用clear coat的第二层normal，则需要去setting中开启（默认是关闭的）</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/clearcoat_enableSecNormal.png" alt="clearcoat_enableSecNormal"></li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/btNormal.png" alt="btNormal"></li>
-<li>我们可以lerp两个scaler控制roughness，并用类似的方式控制设置表面的normal以及clear coat光滑表面下的bottom normal</li>
-<li><strong>示例：</strong></li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/clearcoatmat.png" alt="clearcoatmat"></li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/clearcoatmat_view.png" alt="clearcoatmat_view"></li>
-</ul>
-<h3 id="🚩Two-Sided-Foliage-双面植被："><a href="#🚩Two-Sided-Foliage-双面植被：" class="headerlink" title="🚩Two-Sided Foliage 双面植被："></a>🚩Two-Sided Foliage 双面植被：</h3><ul>
-<li>masked这种模式需要与shading mode下双面材质（two sided foliage）设置配合使用。（如果是default lit的模式下，则没有subsurface通道）</li>
-<li>这种着色方式实际上并不是半透明的，但他能很好的与蒙版混合模式搭配使用，并且借助subsurface color以更低的开销模拟半透明效果。</li>
-<li>其他的材质通道设置与普通材质没有很大区别,要注意的是使用opacity mask并且需要双面显示的话，一定要勾上two sided这个选项。</li>
-<li>借助wo Sided Texturing这个function可以分开控制双面材质正反两面的参数以及效果，最终的结果就是调节了subsurface以模拟光透过叶片的效果</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/twoSidedFunction.png" alt="twoSidedFunction"></li>
-<li><strong>示例：</strong></li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/twoSidedFoliage.png" alt="twoSidedFoliage"></li>
-</ul>
-<h3 id="🚩布料着色："><a href="#🚩布料着色：" class="headerlink" title="🚩布料着色："></a>🚩布料着色：</h3><blockquote>
-<p><strong>小tip</strong>：如果有时候近处被裁切影响放大观察，则可以去Output Log的cmd中输入：r.SetNearClipPlane 1,将相机近景裁切更改为1</p>
-</blockquote>
-<ul>
-<li>通常我们可以使用subsurface或者fresnel来实现布料的模拟。但是UE提供的 shading mode下就有 cloth这个选项，该着色模式使模拟布料的时候可以用于不同角度查看它的毛绒质感</li>
-<li>我们创建布料材质的时候，shading mode需要选择cloth，blend mode保持opaque；此时Material中就会有Fuzz color 和cloth这两个通道。cloth通道可以借助mask指定该材质哪些部分是布料。如果是窗帘这样需要双面的材质，则也需要勾选two sided。</li>
-<li>可以通过两个texture sample将布料纹理和布料图案分开设置，同理也可以将roughness和normal用一样的方式分开设置。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_cloth_basecol.png" alt="m_cloth_basecol"></li>
-<li>blend angle corrected normal，这个内置函数可以混合两张法线贴图</li>
-<li><strong>FuzzyShading</strong>，此函数可以使用于fuzz color，它支持我们控制菲涅尔</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_cloth_basecol.png" alt="m_cloth_basecol"></li>
-<li>我们通过调节这些参数的组合得到不同的效果</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_cloth_display.png" alt="m_cloth_display"></li>
-</ul>
-<h3 id="🚩染色玻璃："><a href="#🚩染色玻璃：" class="headerlink" title="🚩染色玻璃："></a>🚩染色玻璃：</h3><p><strong>方案步骤：</strong></p>
-<ol>
-<li>使用顶点色，来打造有色玻璃的效果，并且玻璃的着色颜色仅显示在最厚的部分</li>
-<li>使用UE中的内置函数，给玻璃表面添加磨砂或者模糊效果</li>
-</ol>
-<h4 id="🐢第一部分：创建基础玻璃"><a href="#🐢第一部分：创建基础玻璃" class="headerlink" title="🐢第一部分：创建基础玻璃"></a>🐢<strong>第一部分：创建基础玻璃</strong></h4><ul>
-<li>创建material，使用blendMode为 Translucent，shading mode保持Default Lit。</li>
-<li>随后去到Translucency的选项下，lighting Mode选择使用Surface ForwardShading或者Surface TranslucencyVolume，开启质量较高的着色选项。开启后可以发现material可以使用metallic，roughness等通道了。</li>
-<li>设置一个简单的折射控制，使用fresnel作为Lerp，alpha来设置边缘到中心的折射参数。玻璃的IOR差不多设置在1.2-1.52之间。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_refraction.png" alt="m_glass_refraction"></li>
-</ul>
-<h4 id="🐢第二部分：加上玻璃边缘的磨砂绿色质感"><a href="#🐢第二部分：加上玻璃边缘的磨砂绿色质感" class="headerlink" title="🐢第二部分：加上玻璃边缘的磨砂绿色质感"></a>🐢<strong>第二部分：加上玻璃边缘的磨砂绿色质感</strong></h4><ul>
-<li>这一部分使用Modes中的paint来绘制顶点色实现</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_vertexCol.png" alt="m_glass_vertexCol"></li>
-<li>我们仅仅需要影响桌子的边缘，再将绘制好的顶点信息导入材质，以确定哪些区域被采用并进行上色。绘制完成后记得保存此vertex color到内容浏览器中。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_vertexColBlend.png" alt="m_glass_vertexColBlend"></li>
-<li>添加使用vertex color</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_vertexColBlend2.png" alt="m_glass_vertexColBlend2"></li>
-</ul>
-<h4 id="🐢第三部分：使用菲涅尔改进色调真实度"><a href="#🐢第三部分：使用菲涅尔改进色调真实度" class="headerlink" title="🐢第三部分：使用菲涅尔改进色调真实度"></a>🐢<strong>第三部分：使用菲涅尔改进色调真实度</strong></h4><ul>
-<li>使用Fresnel_Function，使玻璃内部和外部可以分开调节</li>
-<li>使用Pixel NormalWS（像素法线世界空间）作为normal vector</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_Fresnel_Function2.png" alt="m_glass_Fresnel_Function2"></li>
-<li>使用substract，设置玻璃的边缘透明度</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_edgeOpacity.png" alt="m_glass_edgeOpacity"></li>
-<li>在视图窗口也可以使用Visual effect中的Planar Reflection来提升反射效果，得到更准确的反射（适用于平面，但不太适合其他有机形状）</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_table.png" alt="m_glass_table"></li>
-</ul>
-<h4 id="🐢第四部分：设置一些磨砂效果"><a href="#🐢第四部分：设置一些磨砂效果" class="headerlink" title="🐢第四部分：设置一些磨砂效果"></a>🐢<strong>第四部分：设置一些磨砂效果</strong></h4><ul>
-<li>spiralBlur-SceneTexture，我们需要用这个自带函数来控制材质的自发光颜色，并需要与Opacity的边缘控制也关联</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_spirlblur.png" alt="m_glass_spirlblur"></li>
-<li>现在我们需要反转之前绘制的vertex color再与spiralBlur相乘，来连接自发光颜色</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_spirlblur_emmisive.png" alt="m_glass_spirlblur_emmisive"></li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_frosted.png" alt="m_glass_frosted"></li>
-<li>切记多调整参数来得到满意的效果</li>
-</ul>
-<h3 id="🚩置换贴图，模拟毛毯地毯一类："><a href="#🚩置换贴图，模拟毛毯地毯一类：" class="headerlink" title="🚩置换贴图，模拟毛毯地毯一类："></a>🚩置换贴图，模拟毛毯地毯一类：</h3><blockquote>
-<p><strong>发布支持DX11显卡时，引入了一项全新的硬件功能：real-time Dynamic Tessellation Geometry。使我们能够使用置换纹理贴图在显卡上增加对象的多边形面数，由此显著提升了对象的物理细节而无需真正对此细节进行建模。</strong></p>
-</blockquote>
-<ul>
-<li>创建materail的时候，需要先开启细分。去Tessellation的选项下，D3D11Tesselation中选择Flat Tesselation。还要勾选Crack Free Displacement，保留Adaptive Tessellation。</li>
-<li>此时Material中有新增了两个通道：<ul>
-<li>World Displacement（用于连接displacement Map）</li>
-<li>Tessellation Multiplier（控制有多少polygon总数添加到对象，数量越大，置换效果越详细，但一般不建议开的很高）</li>
-</ul>
-</li>
-<li>一般情况下，displacement map使用普通灰度图即可。</li>
-<li>如果在displacement的数值很高的情况下，导致边缘会产生与主体分离的效果，可以使用绘制vertex color来绘制边缘的部分，让边缘的部分不受tessellation的影响来解决这一问题。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220917204344.png" alt="paintEdges"></li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_displacement.png" alt="m_displacement"></li>
-<li>使用置换贴图必须先确保基础模型的网格数不会太低。</li>
-<li>置换贴图也会对性能产生影响，所以要谨慎使用。</li>
-</ul>
-<h3 id="🚩顶点动画，创建窗帘随风吹动的效果："><a href="#🚩顶点动画，创建窗帘随风吹动的效果：" class="headerlink" title="🚩顶点动画，创建窗帘随风吹动的效果："></a>🚩顶点动画，创建窗帘随风吹动的效果：</h3><ul>
-<li>了解“世界场景位置偏移”（World Position offset）</li>
-<li>使用基本的material的设置创建布料材质作为基础，并使用World Position offset来创建窗帘的顶点动画</li>
-<li>使用panner来加入动画，使用vertex color绘制需要动画的部分，并加入材质控制</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_vertexAni_graph1.png" alt="m_vertexAni_graph1"></li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_vertexAni_graph2.png" alt="m_vertexAni_graph2"></li>
-<li>需要将这个模型对象设置为movable来获得正确的光照和阴影显示</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_vertexAni.png" alt="m_vertexAni"></li>
-</ul>
-<hr>
-<p>终于刷完了！受益匪浅！</p>
-]]></content>
-      <categories>
-        <category>-UE4</category>
-      </categories>
-      <tags>
-        <tag>-材质</tag>
       </tags>
   </entry>
   <entry>
@@ -2983,5 +2593,412 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
     <url>/2022/09/07/%E6%B5%8B%E8%AF%95%E4%B8%80/</url>
     <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！<br>这里只是一个简陋的文本所以跳过就行</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>UE4官方材质课_基础篇</title>
+    <url>/2022/09/13/ue_MatClass_foundation/</url>
+    <content><![CDATA[<p>🐸本文为虚幻官方材质课的学习记录，并不完全，在此按我的个人需求记录了如下笔记。<strong>这一篇是基础篇</strong>。<br>🐸这里是基础篇<a href="https://www.bilibili.com/video/BV1fX4y1N7Fw?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接</a><br>🐸这里是高级篇<a href="https://www.bilibili.com/video/BV1sy4y127HZ/?spm_id_from=333.788.video.desc.click&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接</a><br>🐸<strong>加油 ！ 加油 ！</strong></p>
+<hr>
+<h1 id="UE4官方材质课-基础篇"><a href="#UE4官方材质课-基础篇" class="headerlink" title="UE4官方材质课_基础篇"></a>UE4官方材质课_基础篇</h1><h2 id="一：了解材质："><a href="#一：了解材质：" class="headerlink" title="一：了解材质："></a>一：了解材质：</h2><h3 id="🚩PBR（Physically-Based-Rendering）："><a href="#🚩PBR（Physically-Based-Rendering）：" class="headerlink" title="🚩PBR（Physically-Based Rendering）："></a>🚩PBR（Physically-Based Rendering）：</h3><p>基于物理的渲染。<br>它提供了一种光照和渲染方法，能够更精确的描绘光和表面之间的作用。<br>PBR流程能更真实的模拟光照和材质之间的物理交互效果。</p>
+<ul>
+<li>直观便于理解</li>
+<li>物理上更具准确性<ul>
+<li>pbr基于物理定律，如能量守恒定律和平方反比定律(Inverse-square law)</li>
+<li>pbr材质在不同的光照下会表现的更一致</li>
+</ul>
+</li>
+<li>使用真实的物理测量单位表示亮度<ul>
+<li>Lumens(流明),Lux（勒克斯）</li>
+</ul>
+</li>
+</ul>
+<p>💡简单来说基于物理的渲染本质上是通过：</p>
+<ul>
+<li>材质</li>
+<li>灯光</li>
+<li>曝光</li>
+</ul>
+<p>这三大部分控制的组合结果。</p>
+<h3 id="🚩Primary-PBR-Inputs："><a href="#🚩Primary-PBR-Inputs：" class="headerlink" title="🚩Primary PBR Inputs："></a>🚩Primary PBR Inputs：</h3><ul>
+<li>Base col</li>
+<li>Metallic</li>
+<li>Specular</li>
+<li>Roughness</li>
+</ul>
+<h4 id="🏕️Base-color（Albedo）"><a href="#🏕️Base-color（Albedo）" class="headerlink" title="🏕️Base color（Albedo）"></a>🏕️Base color（Albedo）</h4><ul>
+<li>flat color,没有任何光照信息（没有高光和阴影）</li>
+<li>只保存颜色信息</li>
+<li>可以是linear RGB，也可也是一个Vector3</li>
+<li>各个通道的数值位于0到1之间（纯白和纯黑会导致一些场景的曝光问题）</li>
+</ul>
+<h4 id="🏕️Metalic"><a href="#🏕️Metalic" class="headerlink" title="🏕️Metalic"></a>🏕️Metalic</h4><ul>
+<li>Gray scale</li>
+<li>数值在0 到 1的区间,不包含任何色彩信息</li>
+<li>金属最正确的设置方式是全开或全关<ul>
+<li>数值为0时，材质底色是diffuse</li>
+<li>数值为1时，材质底色是specular&#x2F;reflection color</li>
+<li>示例图：<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/metallic.png" alt="metallic"></li>
+</ul>
+</li>
+</ul>
+<h4 id="🏕️Roughness"><a href="#🏕️Roughness" class="headerlink" title="🏕️Roughness"></a>🏕️Roughness</h4><ul>
+<li>Gray scale</li>
+<li>数值在0 到 1的区间,不包含任何色彩信息<ul>
+<li>数值为0时，无限接近于镜面反射</li>
+<li>数值为1时，为粗糙表面</li>
+</ul>
+</li>
+</ul>
+<p>粗糙度是能量守恒的体现。</p>
+<h4 id="🏕️Specular"><a href="#🏕️Specular" class="headerlink" title="🏕️Specular"></a>🏕️Specular</h4><ul>
+<li>控制高光和反射（specular highlights and reflections）</li>
+<li>Gray scale</li>
+<li>一般情况下保持default value 0.5就可以了</li>
+<li>通常情况下，我们通过调整Roughness来调整高光质感</li>
+<li>正常世界中，所有物体都有一定程度的反射和高光效果</li>
+</ul>
+<p>示例图：<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/roughness.png" alt="roughness"></p>
+<h3 id="🚩UE支持的图片文件的格式（常用）："><a href="#🚩UE支持的图片文件的格式（常用）：" class="headerlink" title="🚩UE支持的图片文件的格式（常用）："></a>🚩UE支持的图片文件的格式（常用）：</h3><table>
+<thead>
+<tr>
+<th>未压缩格式</th>
+<th>压缩格式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BMP</td>
+<td>PNG（simple Alpha）</td>
+</tr>
+<tr>
+<td>TGA（Alpha）</td>
+<td>JPG</td>
+</tr>
+<tr>
+<td>PSD</td>
+<td>DDS</td>
+</tr>
+<tr>
+<td></td>
+<td>HDR</td>
+</tr>
+</tbody></table>
+<ul>
+<li>simple Alpha通常被用于植被</li>
+</ul>
+<h3 id="🚩贴图规则："><a href="#🚩贴图规则：" class="headerlink" title="🚩贴图规则："></a>🚩贴图规则：</h3><ul>
+<li>最大支持8k</li>
+<li>长宽必须是2的指数幂（512，1024，2048）</li>
+<li>roughness，metallic，specular均不需要rgb通道，所以直接储存为gray scale导入UE。这样他们就会被自动设置成灰度图，并且不会启动sRGB或者Linear的颜色空间</li>
+<li>Normal 贴图也同理，不需要使用sRGB</li>
+<li>HDR 也不需要使用sRGB，因为它的取值一般会超出范围</li>
+<li>sRGB只适用于颜色贴图（导入需要确保灰度图没有勾选sRGB）</li>
+<li>所有的灰度贴图只要储存形式正确，那么UE会直接自动设置为禁用sRGB</li>
+<li>所有的base col应当将压缩格式设置为DXT1（在贴图设置选项中，compression也可以自行更改，如果格式正确，那么UE会自动为你设置好它的compression setting）</li>
+</ul>
+<h3 id="🚩贴图导入方式："><a href="#🚩贴图导入方式：" class="headerlink" title="🚩贴图导入方式："></a>🚩贴图导入方式：</h3><ul>
+<li>直接拖入项目</li>
+<li>右键在content browser选择import Assets</li>
+</ul>
+<h3 id="🚩UE材质编辑器tips："><a href="#🚩UE材质编辑器tips：" class="headerlink" title="🚩UE材质编辑器tips："></a>🚩UE材质编辑器tips：</h3><ul>
+<li>双击节点之间的连线，创建dot整理节点</li>
+<li>c，创建comment</li>
+<li>ctl+拖动节点连线来改变节点连接输出的位置</li>
+<li>clean up删除此节点图中的孤立节点（unused node）</li>
+<li>connector改变节点显示方式</li>
+<li>T，创建texture sample</li>
+</ul>
+<h3 id="🚩混合模式："><a href="#🚩混合模式：" class="headerlink" title="🚩混合模式："></a>🚩混合模式：</h3><p>在Material中，可以找到<strong>Blend Mode</strong>和<strong>Shading Mode</strong>这两项，这两项十分重要</p>
+<h4 id="🍭Blend-Mode："><a href="#🍭Blend-Mode：" class="headerlink" title="🍭Blend Mode："></a>🍭Blend Mode：</h4><ul>
+<li><strong>Opaque 不透明</strong><ul>
+<li>多数不透明材质的基本设置</li>
+</ul>
+</li>
+<li><strong>masked 遮罩</strong><ul>
+<li>显示有mask遮罩的材质</li>
+<li>背面默认不显示，需要开启two sided</li>
+</ul>
+</li>
+<li><strong>Translucent 半透明</strong><ul>
+<li>通常使用在半透明材质，玻璃等有折射的材质</li>
+<li>同时控制opacity与refraction来调整效果</li>
+<li>Translucent一般情况下以最简单的方式计算半透明，以节约开销</li>
+<li>如果想提升半透明材质的效果，需要来到Translucency的选项下，勾选Screen SPace Reflection，并把Lighting Mode改成Surface ForwardShading；这两个选项能让我们获得最高质量的半透明材质。开启这两个选项后，着色器需要更长的时间编译。</li>
+</ul>
+</li>
+<li><strong>additive 叠加</strong></li>
+<li><strong>Modulate 调制</strong></li>
+<li><strong>AlphaComposite（Premultiplied Alpha） alpha复合（预乘Alpha）</strong></li>
+</ul>
+<p><strong>Translucent：</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/blendMode_Translucent.png" alt="blendMode_Translucent"></p>
+<h4 id="🍭Shading-Mode："><a href="#🍭Shading-Mode：" class="headerlink" title="🍭Shading Mode："></a>🍭Shading Mode：</h4><ul>
+<li><strong>Default Lit</strong><ul>
+<li>通常的光照设置，材质受光照影响</li>
+</ul>
+</li>
+<li><strong>Unlit</strong><ul>
+<li>材质不受光照影响；这种模式下允许表面产生自发光</li>
+</ul>
+</li>
+<li><strong>subsurface</strong><ul>
+<li>次表面散射，如皮肤和蜡烛</li>
+</ul>
+</li>
+<li><strong>clear coat</strong></li>
+<li><strong>two sided foliage</strong></li>
+<li><strong>hair</strong></li>
+<li><strong>cloth</strong></li>
+<li><strong>eye</strong></li>
+</ul>
+<h5 id="🍌subsurface-scattering"><a href="#🍌subsurface-scattering" class="headerlink" title="🍌subsurface scattering"></a>🍌subsurface scattering</h5><ul>
+<li>将Material的shading mode设置为subsurface</li>
+<li>主要使用两个矢量（base color和subsurface color）和两个标量（opacity和roughness）</li>
+</ul>
+<p>示例：<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/subsurfaceMat.png" alt="subsurfaceMat"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/subsurface.png" alt="subsurface"></p>
+<h3 id="🚩创建一个简单材质："><a href="#🚩创建一个简单材质：" class="headerlink" title="🚩创建一个简单材质："></a>🚩创建一个简单材质：</h3><ul>
+<li>当我们给mesh更换材质，或应用新材质时，需要在静态网格编辑器（Static Mesh Editor）中打开mesh，并且在右侧Detail面板下更换指定新材质</li>
+<li>UE支持多材质对象。一个mesh可以有多个elements并指定材质</li>
+<li>最好遵从材质命名规则，如Material最好以<strong>M_name</strong>这样以M为前缀来开头</li>
+<li>T for texture sample，选择我们需要的贴图</li>
+<li>基础材质创建使用的大多数是：base col， roughness， normal</li>
+</ul>
+<h3 id="🚩继续简单材质："><a href="#🚩继续简单材质：" class="headerlink" title="🚩继续简单材质："></a>🚩继续简单材质：</h3><ul>
+<li><p>如果希望在贴图中预览并使用到UE的content，则需要再texture的选项里打开<strong>show Engine Content</strong></p>
+<ul>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/showUEcontent.png" alt="showUEcontent"></li>
+</ul>
+</li>
+<li><p><strong>反转黑白可以使用（1-x）One Minus</strong></p>
+</li>
+<li><p><strong>混合：Multiply（M）</strong></p>
+</li>
+<li><p><strong>相加：Add（A</strong>）</p>
+</li>
+<li><p>使用constant与贴图Multiply，以达到控制灰度的效果，或使贴图与相应选区进行混合</p>
+</li>
+<li><p><strong>常用噪波：perlin noise</strong></p>
+</li>
+<li><p><strong>线性插值：Lerp</strong></p>
+<ul>
+<li>利用alpha通道混合a，b两个图层</li>
+</ul>
+</li>
+<li><p><strong>常用扁平法线：flatnormal</strong></p>
+</li>
+<li><p><strong>平铺纹理：Texture Coordinate</strong></p>
+</li>
+</ul>
+<h3 id="🚩使用DataSmith从其他DCC软件导入材质到UE："><a href="#🚩使用DataSmith从其他DCC软件导入材质到UE：" class="headerlink" title="🚩使用DataSmith从其他DCC软件导入材质到UE："></a>🚩使用DataSmith从其他DCC软件导入材质到UE：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vraytoUE_datasmith.png" alt="vraytoUE_datasmith"><br>简单解释就是其他的软件制作好的材质会被以一种datasmith提供的方式转换到ue中，但是有些情况下是无法正确转换的。需要额外自行修正，并且灯光也不会被预先烘培。</p>
+<hr>
+<h2 id="二：创建PBR材质（基础）"><a href="#二：创建PBR材质（基础）" class="headerlink" title="二：创建PBR材质（基础）"></a>二：创建PBR材质（基础）</h2><h3 id="🚩主材质实例："><a href="#🚩主材质实例：" class="headerlink" title="🚩主材质实例："></a>🚩主材质实例：</h3><ul>
+<li>实例化材质可以为我们的主材质创建副本，然后用来代替主材在项目中使用</li>
+<li>实例化材质的优点：<br>  1.节约时间，可以通过公开主材质的某些参数，进一步调整实例材质而无需重新编译着色器。<br>  2.对主材质进行的改动也会更新到所有的材质实例。<br>  3.仅需要根据材质特性创建主材质，然后实例化材质应用到所有的类似材质上。</li>
+</ul>
+<h3 id="🚩公开材质参数："><a href="#🚩公开材质参数：" class="headerlink" title="🚩公开材质参数："></a>🚩公开材质参数：</h3><ul>
+<li>右键相应节点，convert to parameter并重命名</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/convertParam.png" alt="convertParam"></li>
+</ul>
+<h3 id="🚩switch："><a href="#🚩switch：" class="headerlink" title="🚩switch："></a>🚩switch：</h3><ul>
+<li><strong>Static Switch Parameter</strong>，静态开关参数</li>
+<li>使我们开启或禁用某些功能<br><strong>示例：</strong><br>当True的时候，开启base color与纯色相乘，为False时则关闭相乘，仅显示base color<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/swichPara.png" alt="swichPara"></li>
+</ul>
+<h3 id="🚩实例材质的优先级以及参数最大最小值："><a href="#🚩实例材质的优先级以及参数最大最小值：" class="headerlink" title="🚩实例材质的优先级以及参数最大最小值："></a>🚩实例材质的优先级以及参数最大最小值：</h3><p><strong>当制作材质的时候，可以修改材质参数的优先级方便使用</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/groupandpior.png" alt="groupandpior"><br><strong>我们可以通过修改Group和sort Piriority来实现</strong></p>
+<ul>
+<li>只需要选中group中的“None”，将None改为我们需要的组名</li>
+<li>sort Piriority为0的组会优先出现再我们的分组中，依次是1，2，3的组</li>
+<li>分组需要按需求比如tex，utility，uv之类的功能不同的节点可以分开设置，并自行定义优先级</li>
+</ul>
+<p><strong>示例：</strong> 此时所有的参数就被归档在我们定义好的组中。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/groupPreview.png" alt="groupPreview"></p>
+<p><strong>✏️可以给参数滑块设置最大最小值，使可以调节的范围不超过我们设定的值</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/minMax.png" alt="minMax"></p>
+<h3 id="🚩动态材质："><a href="#🚩动态材质：" class="headerlink" title="🚩动态材质："></a>🚩动态材质：</h3><p><strong>材质一般在UE中分为两种：</strong></p>
+<ol>
+<li>静态材质</li>
+<li>动态材质<ul>
+<li>动态材质让我们在运行的时候实时调整</li>
+</ul>
+</li>
+</ol>
+<p><strong>Actor：</strong></p>
+<ul>
+<li>Actor与普通的mesh相比，它可以附加蓝图</li>
+<li>我们需要在Event Graph中创建我们的功能</li>
+<li>创建dynamic material，并在source Material中指定材质源</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpshaderball.png" alt="bpshaderball"></li>
+<li>之后再set texture parameter value ，使用我们指定的参数Diffuse</li>
+<li>再创建set scalar Parameter value， 控制Metallic</li>
+<li>最后需要set vector parameter value，设置Color</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpshaderball2.png" alt="bpshaderball2"></li>
+<li>因为我们或许希望color不会在创建出的时候即刻执行，我们希望用户再点击屏幕对象的时候改变这个参数，所以此时还需要“事件调度器（Event Dispatchers）”来完成它</li>
+<li>此时需要先创建变量，再set color</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpvriable.png" alt="bpvriable"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpvriableType.png" alt="bpvriableType"></li>
+<li>最后设置event Dispatchers，选择event。最后compile，此时编辑好了actor的材质。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bpeventDisp2.png" alt="bpeventDisp2"></li>
+</ul>
+<h3 id="🚩编辑level-Blueprint："><a href="#🚩编辑level-Blueprint：" class="headerlink" title="🚩编辑level Blueprint："></a>🚩编辑level Blueprint：</h3><ul>
+<li>现在要做事情使编辑关卡的蓝图，使我们之前编辑的actor生效，效果达到：点击之前编辑的actor，并使它颜色发生改变</li>
+<li>进入level BP，创建get player controller，获取用户的动态，mouse cursor，click even看他是否对actor进行操作，然后再用事件调度器触发自定义事件</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lbp_clickeven.png" alt="lbp_clickeven"></li>
+<li>接着我们要判断用户是否点击到了正确的对象 ，然后再触发自定义事件，完成颜色替换的指令</li>
+<li>get hit result under cursor for object，然后确认object type，使用make Array，确认我们希望用户能够点击哪类对象。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lbp_clickeven2.png" alt="lbp_clickeven2"></li>
+<li>接着left mouse button获取鼠标的动态，看右键是否点击到了正确的目标。</li>
+<li>get class，class is child of，得到父类下正确的对象。如果结果是我们需要的对象，则返回True。</li>
+<li>cast to ，通过这个引用我们可以访问之前用于改变颜色的自定义事件。</li>
+<li>最后获取change color even，获取到我们之前定义的事件，并且设置随机颜色。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lbp_clickeven3.png" alt="lbp_clickeven3"></li>
+<li>compile，play。这样我们自定义的actor就会随着鼠标点击随机改变颜色。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/lbp_clickeven4.png" alt="lbp_clickeven4"></li>
+</ul>
+<h3 id="🚩材质参数集合，创建全局参数集（Parameter-Collection）："><a href="#🚩材质参数集合，创建全局参数集（Parameter-Collection）：" class="headerlink" title="🚩材质参数集合，创建全局参数集（Parameter Collection）："></a>🚩材质参数集合，创建全局参数集（Parameter Collection）：</h3><ul>
+<li>有时候因为场景变化的需求，比如下雨天材质整体变得湿润，或者受到风力影响而相关材质摇曳的程度增强，或者自发光强度因为场景变化需要整体变强。</li>
+<li>如果一个一个调整则很花费时间。此时就要用到材质参数集，达到批量修改整体参数的目的。</li>
+<li>我们可以右键在content中创建Meterial Parameter Collection，再分别创建自己需要的全局标量和向量。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/mpc_setting.png" alt="mpc_setting"></li>
+<li>在Master Mat中，建立collection parameter，选择之前创建的参数集，与需要修改的参数相乘。</li>
+<li>如有float4的参数出现，则需要使用component Mask转换成float3，以免出现数据类型的不匹配</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/mpc_setting2.png" alt="mpc_setting2"></li>
+<li><strong>全局参数集相当于给所有设置全局变量的参数一个总控制，每个单独的材质也可以在自己的材质球下独立调节，但是总集控制所有材质的全局参数，如果在总集禁用，那么独立的材质的那个参数也会被禁用。</strong></li>
+</ul>
+<h3 id="🚩材质参数集合，第二部分："><a href="#🚩材质参数集合，第二部分：" class="headerlink" title="🚩材质参数集合，第二部分："></a>🚩材质参数集合，第二部分：</h3><ul>
+<li>现在想要实现：允许用户点击后，更改其中的一个全局参数</li>
+<li>需要在level BluePrint里进行编辑，与Actor部分相似，前半部分判断鼠标点击以及获取用户行为的蓝图操作是一样的（在我的基础篇笔记上篇）</li>
+<li>之后，判断点击对象，确保在视窗内选中正确对象然后 create reference带入蓝图</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/mpc__bpsetting.png" alt="mpc__bpsetting"></li>
+<li>选择正确的目标进行判断，并设置好rendom vector。</li>
+<li>compiled，此时play就会看见随着鼠标点击，全局对象也可以随机改变颜色了。</li>
+</ul>
+<h3 id="🚩材质函数："><a href="#🚩材质函数：" class="headerlink" title="🚩材质函数："></a>🚩材质函数：</h3><ul>
+<li>材质函数就是材质图表中可以反复使用的自定义代码片段</li>
+<li>它的好处是可以把复杂的材质图表转化成拥有单个输入输出的单个材质节点</li>
+<li>更改代码中的函数，所有实例也会同步修改</li>
+</ul>
+<h4 id="✏️此时的案例要实现的是uv-tiling。"><a href="#✏️此时的案例要实现的是uv-tiling。" class="headerlink" title="✏️此时的案例要实现的是uv tiling。"></a>✏️此时的案例要实现的是uv tiling。</h4><ul>
+<li>在content中创建Material Function，点击进去。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_func01.png" alt="m_func01"></li>
+<li>如上图，我们首先设置uv 平铺，其次设置旋转，再判断使用不使用rotation</li>
+<li>编辑好后需要单击面板，开启左侧列表中的“Expose to Library”，才能确保我们后续能正常搜索到它。</li>
+<li>接下来回到我们需要使用tiling的材质</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_func01_tiling.png" alt="m_func01_tiling"></li>
+<li>搜索我们之前创建的Function，并根据我们之前设置的变量来分别连接参数</li>
+<li>此时这个材质就有UV Tiling的选项。</li>
+</ul>
+<p><strong>数据迁移：</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_func_Migrate.png" alt="m_func_Migrate"></p>
+<ul>
+<li>此方式能够将做好的材质函数迁移到其他文件使用</li>
+<li>当然也可以通过这种方式迁移别的需要的资产</li>
+</ul>
+<h4 id="✏️另一种材质函数的方式：CustomNode"><a href="#✏️另一种材质函数的方式：CustomNode" class="headerlink" title="✏️另一种材质函数的方式：CustomNode"></a>✏️另一种材质函数的方式：CustomNode</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_customNode.png" alt="m_customNode"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_customN_name.png" alt="m_customN_name"></p>
+<ul>
+<li>这种方式通过hlsl语言来创建材质函数，得到自制的材质节点</li>
+<li>设置的input name需要与code的名字匹配</li>
+<li>定义hlsl并不像内置的材质表达式，且无法被优化</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_customN.png" alt="m_customN"></li>
+</ul>
+<hr>
+<h2 id="三：实例创建不同的材质演示："><a href="#三：实例创建不同的材质演示：" class="headerlink" title="三：实例创建不同的材质演示："></a>三：实例创建不同的材质演示：</h2><h3 id="🚩clear-coat制作类似车漆质感："><a href="#🚩clear-coat制作类似车漆质感：" class="headerlink" title="🚩clear coat制作类似车漆质感："></a>🚩clear coat制作类似车漆质感：</h3><ul>
+<li>将shading mode设置为clear coat后，Material会又clear coat和clear coat Roughness这两个选项</li>
+<li>它的显示方式与普通的材质较为相似，如果希望有光滑的表面，并且希望透明图层下的表面有凹凸效果，就可以选择clear coat来模拟</li>
+<li>如果要启用clear coat的第二层normal，则需要去setting中开启（默认是关闭的）</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/clearcoat_enableSecNormal.png" alt="clearcoat_enableSecNormal"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/btNormal.png" alt="btNormal"></li>
+<li>我们可以lerp两个scaler控制roughness，并用类似的方式控制设置表面的normal以及clear coat光滑表面下的bottom normal</li>
+<li><strong>示例：</strong></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/clearcoatmat.png" alt="clearcoatmat"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/clearcoatmat_view.png" alt="clearcoatmat_view"></li>
+</ul>
+<h3 id="🚩Two-Sided-Foliage-双面植被："><a href="#🚩Two-Sided-Foliage-双面植被：" class="headerlink" title="🚩Two-Sided Foliage 双面植被："></a>🚩Two-Sided Foliage 双面植被：</h3><ul>
+<li>masked这种模式需要与shading mode下双面材质（two sided foliage）设置配合使用。（如果是default lit的模式下，则没有subsurface通道）</li>
+<li>这种着色方式实际上并不是半透明的，但他能很好的与蒙版混合模式搭配使用，并且借助subsurface color以更低的开销模拟半透明效果。</li>
+<li>其他的材质通道设置与普通材质没有很大区别,要注意的是使用opacity mask并且需要双面显示的话，一定要勾上two sided这个选项。</li>
+<li>借助wo Sided Texturing这个function可以分开控制双面材质正反两面的参数以及效果，最终的结果就是调节了subsurface以模拟光透过叶片的效果</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/twoSidedFunction.png" alt="twoSidedFunction"></li>
+<li><strong>示例：</strong></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/twoSidedFoliage.png" alt="twoSidedFoliage"></li>
+</ul>
+<h3 id="🚩布料着色："><a href="#🚩布料着色：" class="headerlink" title="🚩布料着色："></a>🚩布料着色：</h3><blockquote>
+<p><strong>小tip</strong>：如果有时候近处被裁切影响放大观察，则可以去Output Log的cmd中输入：r.SetNearClipPlane 1,将相机近景裁切更改为1</p>
+</blockquote>
+<ul>
+<li>通常我们可以使用subsurface或者fresnel来实现布料的模拟。但是UE提供的 shading mode下就有 cloth这个选项，该着色模式使模拟布料的时候可以用于不同角度查看它的毛绒质感</li>
+<li>我们创建布料材质的时候，shading mode需要选择cloth，blend mode保持opaque；此时Material中就会有Fuzz color 和cloth这两个通道。cloth通道可以借助mask指定该材质哪些部分是布料。如果是窗帘这样需要双面的材质，则也需要勾选two sided。</li>
+<li>可以通过两个texture sample将布料纹理和布料图案分开设置，同理也可以将roughness和normal用一样的方式分开设置。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_cloth_basecol.png" alt="m_cloth_basecol"></li>
+<li>blend angle corrected normal，这个内置函数可以混合两张法线贴图</li>
+<li><strong>FuzzyShading</strong>，此函数可以使用于fuzz color，它支持我们控制菲涅尔</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_cloth_basecol.png" alt="m_cloth_basecol"></li>
+<li>我们通过调节这些参数的组合得到不同的效果</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_cloth_display.png" alt="m_cloth_display"></li>
+</ul>
+<h3 id="🚩染色玻璃："><a href="#🚩染色玻璃：" class="headerlink" title="🚩染色玻璃："></a>🚩染色玻璃：</h3><p><strong>方案步骤：</strong></p>
+<ol>
+<li>使用顶点色，来打造有色玻璃的效果，并且玻璃的着色颜色仅显示在最厚的部分</li>
+<li>使用UE中的内置函数，给玻璃表面添加磨砂或者模糊效果</li>
+</ol>
+<h4 id="🐢第一部分：创建基础玻璃"><a href="#🐢第一部分：创建基础玻璃" class="headerlink" title="🐢第一部分：创建基础玻璃"></a>🐢<strong>第一部分：创建基础玻璃</strong></h4><ul>
+<li>创建material，使用blendMode为 Translucent，shading mode保持Default Lit。</li>
+<li>随后去到Translucency的选项下，lighting Mode选择使用Surface ForwardShading或者Surface TranslucencyVolume，开启质量较高的着色选项。开启后可以发现material可以使用metallic，roughness等通道了。</li>
+<li>设置一个简单的折射控制，使用fresnel作为Lerp，alpha来设置边缘到中心的折射参数。玻璃的IOR差不多设置在1.2-1.52之间。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_refraction.png" alt="m_glass_refraction"></li>
+</ul>
+<h4 id="🐢第二部分：加上玻璃边缘的磨砂绿色质感"><a href="#🐢第二部分：加上玻璃边缘的磨砂绿色质感" class="headerlink" title="🐢第二部分：加上玻璃边缘的磨砂绿色质感"></a>🐢<strong>第二部分：加上玻璃边缘的磨砂绿色质感</strong></h4><ul>
+<li>这一部分使用Modes中的paint来绘制顶点色实现</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_vertexCol.png" alt="m_glass_vertexCol"></li>
+<li>我们仅仅需要影响桌子的边缘，再将绘制好的顶点信息导入材质，以确定哪些区域被采用并进行上色。绘制完成后记得保存此vertex color到内容浏览器中。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_vertexColBlend.png" alt="m_glass_vertexColBlend"></li>
+<li>添加使用vertex color</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_vertexColBlend2.png" alt="m_glass_vertexColBlend2"></li>
+</ul>
+<h4 id="🐢第三部分：使用菲涅尔改进色调真实度"><a href="#🐢第三部分：使用菲涅尔改进色调真实度" class="headerlink" title="🐢第三部分：使用菲涅尔改进色调真实度"></a>🐢<strong>第三部分：使用菲涅尔改进色调真实度</strong></h4><ul>
+<li>使用Fresnel_Function，使玻璃内部和外部可以分开调节</li>
+<li>使用Pixel NormalWS（像素法线世界空间）作为normal vector</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_Fresnel_Function2.png" alt="m_glass_Fresnel_Function2"></li>
+<li>使用substract，设置玻璃的边缘透明度</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_edgeOpacity.png" alt="m_glass_edgeOpacity"></li>
+<li>在视图窗口也可以使用Visual effect中的Planar Reflection来提升反射效果，得到更准确的反射（适用于平面，但不太适合其他有机形状）</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_table.png" alt="m_glass_table"></li>
+</ul>
+<h4 id="🐢第四部分：设置一些磨砂效果"><a href="#🐢第四部分：设置一些磨砂效果" class="headerlink" title="🐢第四部分：设置一些磨砂效果"></a>🐢<strong>第四部分：设置一些磨砂效果</strong></h4><ul>
+<li>spiralBlur-SceneTexture，我们需要用这个自带函数来控制材质的自发光颜色，并需要与Opacity的边缘控制也关联</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_spirlblur.png" alt="m_glass_spirlblur"></li>
+<li>现在我们需要反转之前绘制的vertex color再与spiralBlur相乘，来连接自发光颜色</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_spirlblur_emmisive.png" alt="m_glass_spirlblur_emmisive"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_glass_frosted.png" alt="m_glass_frosted"></li>
+<li>切记多调整参数来得到满意的效果</li>
+</ul>
+<h3 id="🚩置换贴图，模拟毛毯地毯一类："><a href="#🚩置换贴图，模拟毛毯地毯一类：" class="headerlink" title="🚩置换贴图，模拟毛毯地毯一类："></a>🚩置换贴图，模拟毛毯地毯一类：</h3><blockquote>
+<p><strong>发布支持DX11显卡时，引入了一项全新的硬件功能：real-time Dynamic Tessellation Geometry。使我们能够使用置换纹理贴图在显卡上增加对象的多边形面数，由此显著提升了对象的物理细节而无需真正对此细节进行建模。</strong></p>
+</blockquote>
+<ul>
+<li>创建materail的时候，需要先开启细分。去Tessellation的选项下，D3D11Tesselation中选择Flat Tesselation。还要勾选Crack Free Displacement，保留Adaptive Tessellation。</li>
+<li>此时Material中有新增了两个通道：<ul>
+<li>World Displacement（用于连接displacement Map）</li>
+<li>Tessellation Multiplier（控制有多少polygon总数添加到对象，数量越大，置换效果越详细，但一般不建议开的很高）</li>
+</ul>
+</li>
+<li>一般情况下，displacement map使用普通灰度图即可。</li>
+<li>如果在displacement的数值很高的情况下，导致边缘会产生与主体分离的效果，可以使用绘制vertex color来绘制边缘的部分，让边缘的部分不受tessellation的影响来解决这一问题。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220917204344.png" alt="paintEdges"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_displacement.png" alt="m_displacement"></li>
+<li>使用置换贴图必须先确保基础模型的网格数不会太低。</li>
+<li>置换贴图也会对性能产生影响，所以要谨慎使用。</li>
+</ul>
+<h3 id="🚩顶点动画，创建窗帘随风吹动的效果："><a href="#🚩顶点动画，创建窗帘随风吹动的效果：" class="headerlink" title="🚩顶点动画，创建窗帘随风吹动的效果："></a>🚩顶点动画，创建窗帘随风吹动的效果：</h3><ul>
+<li>了解“世界场景位置偏移”（World Position offset）</li>
+<li>使用基本的material的设置创建布料材质作为基础，并使用World Position offset来创建窗帘的顶点动画</li>
+<li>使用panner来加入动画，使用vertex color绘制需要动画的部分，并加入材质控制</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_vertexAni_graph1.png" alt="m_vertexAni_graph1"></li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_vertexAni_graph2.png" alt="m_vertexAni_graph2"></li>
+<li>需要将这个模型对象设置为movable来获得正确的光照和阴影显示</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/m_vertexAni.png" alt="m_vertexAni"></li>
+</ul>
+<hr>
+<p>终于刷完了！受益匪浅！</p>
+]]></content>
+      <categories>
+        <category>-UE4</category>
+      </categories>
+      <tags>
+        <tag>-材质</tag>
+      </tags>
   </entry>
 </search>
