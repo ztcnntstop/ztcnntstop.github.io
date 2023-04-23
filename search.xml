@@ -181,6 +181,55 @@
       </tags>
   </entry>
   <entry>
+    <title>【Select Tool 使用文档】 （测试在线文档）</title>
+    <url>/2023/01/06/TAcourse_week06_selectTool_helpDoc/</url>
+    <content><![CDATA[<h1 id="【Select-Tool-使用文档】-（测试在线文档）"><a href="#【Select-Tool-使用文档】-（测试在线文档）" class="headerlink" title="【Select Tool 使用文档】 （测试在线文档）"></a><center>【Select Tool 使用文档】 （测试在线文档）</center></h1><h2 id="🐢工具介绍"><a href="#🐢工具介绍" class="headerlink" title="🐢工具介绍"></a>🐢工具介绍</h2><blockquote>
+<p>✨此工具用于选择不同类型的模型<br>✨按键之间都是独立的，不会混合选择的类型<br>✨被选中的模型会在工具中显示出来</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155106.png" alt="20230106155106"></p>
+<hr>
+<hr>
+<h2 id="🐢使用指南"><a href="#🐢使用指南" class="headerlink" title="🐢使用指南"></a>🐢使用指南</h2><blockquote>
+<p>🌻选择polymeshes如下图：  </p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155132.png" alt="20230106155132"></p>
+<hr>
+<blockquote>
+<p>🌻选择Nurbs Meshes如下图： </p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155358.png" alt="20230106155358"></p>
+<hr>
+<blockquote>
+<p>🌻选择Curves如下图：</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155500.png" alt="20230106155500"></p>
+<hr>
+<blockquote>
+<p>☃️若场景中没有此类选择的物体，会提示：Zero object of this type!</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155847.png" alt="20230106155847"></p>
+<hr>
+<blockquote>
+<p>☃️将鼠标悬停在按钮上会有功能的相应提示</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106161621.png" alt="20230106161621"></p>
+<hr>
+<blockquote>
+<p>☃️下拉help菜单可以阅读此工具的帮助文档（也就是这篇）</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106161816.png" alt="20230106161816"></p>
+<blockquote>
+<p>🐨以上就是select tool的介绍！<br>🐨此文档目前只用于托管在线文档测试！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>-Help Doc</category>
+      </categories>
+      <tags>
+        <tag>-Help Doc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>houdini以及3D数学学习列表合辑</title>
     <url>/2022/09/09/houdini/</url>
     <content><![CDATA[<ul>
@@ -245,55 +294,6 @@
       </categories>
       <tags>
         <tag>-学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Select Tool 使用文档】 （测试在线文档）</title>
-    <url>/2023/01/06/TAcourse_week06_selectTool_helpDoc/</url>
-    <content><![CDATA[<h1 id="【Select-Tool-使用文档】-（测试在线文档）"><a href="#【Select-Tool-使用文档】-（测试在线文档）" class="headerlink" title="【Select Tool 使用文档】 （测试在线文档）"></a><center>【Select Tool 使用文档】 （测试在线文档）</center></h1><h2 id="🐢工具介绍"><a href="#🐢工具介绍" class="headerlink" title="🐢工具介绍"></a>🐢工具介绍</h2><blockquote>
-<p>✨此工具用于选择不同类型的模型<br>✨按键之间都是独立的，不会混合选择的类型<br>✨被选中的模型会在工具中显示出来</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155106.png" alt="20230106155106"></p>
-<hr>
-<hr>
-<h2 id="🐢使用指南"><a href="#🐢使用指南" class="headerlink" title="🐢使用指南"></a>🐢使用指南</h2><blockquote>
-<p>🌻选择polymeshes如下图：  </p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155132.png" alt="20230106155132"></p>
-<hr>
-<blockquote>
-<p>🌻选择Nurbs Meshes如下图： </p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155358.png" alt="20230106155358"></p>
-<hr>
-<blockquote>
-<p>🌻选择Curves如下图：</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155500.png" alt="20230106155500"></p>
-<hr>
-<blockquote>
-<p>☃️若场景中没有此类选择的物体，会提示：Zero object of this type!</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155847.png" alt="20230106155847"></p>
-<hr>
-<blockquote>
-<p>☃️将鼠标悬停在按钮上会有功能的相应提示</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106161621.png" alt="20230106161621"></p>
-<hr>
-<blockquote>
-<p>☃️下拉help菜单可以阅读此工具的帮助文档（也就是这篇）</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106161816.png" alt="20230106161816"></p>
-<blockquote>
-<p>🐨以上就是select tool的介绍！<br>🐨此文档目前只用于托管在线文档测试！</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>-Help Doc</category>
-      </categories>
-      <tags>
-        <tag>-Help Doc</tag>
       </tags>
   </entry>
   <entry>
@@ -567,6 +567,72 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
+    <title>Houdini湖边小屋学习（一）</title>
+    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
+    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
+<hr>
+<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-PCG</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Houdini 中for-each 和for-loop 节点</title>
+    <url>/2022/09/13/houdini_foreach/</url>
+    <content><![CDATA[<h1 id="Houdini-中for-each-和for-loop-节点"><a href="#Houdini-中for-each-和for-loop-节点" class="headerlink" title="Houdini 中for-each 和for-loop 节点"></a>Houdini 中for-each 和for-loop 节点</h1><p>学习houdini时间不长，刚入门的时候就一直对foreach的使用比较迷糊，在这里写一篇学习笔记来认识一下这个使用方式，比较基础 。如果有问题，请各位大佬及时补充和指正！</p>
+<hr>
+<h2 id="Houdini中关于循环的节点简介："><a href="#Houdini中关于循环的节点简介：" class="headerlink" title="Houdini中关于循环的节点简介："></a>Houdini中关于循环的节点简介：</h2><p>houdini中一共给了这6个框架：<br><strong>1. for-each Number<br>2. for-each point<br>3. for-each primitive<br>4. for-each connected Piece<br>5. for-each Named Primitive<br>6. for-loop with Feedback</strong></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach2.png" alt="foreach2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach1.png" alt="foreach1"><br>（在这里说明我用的是houdini 18之后的版本，如果版本太靠前应该foreach节点跟这个有所出入）</p>
+<ul>
+<li>这个框架它本身的作用就是实现for循环，如果不想用它的框架，也可以自己创建Block begin和Block end来搭建for循环。</li>
+<li>其中，<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>的构造是相似的，使用的方法也是一样的，只是针对的元素不同（点，面，name属性）</li>
+<li><strong>connectivity</strong>是创造了一个class属性，根据class属性处理导入这个元素。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220921233222.png" alt="foreach2"></li>
+<li>数据都是从Block Begin传入，我们中间可以任意添加节点来完成我们想要针对这个元素处理的操作，这个数据给每个元素循环处理后，最终由block end输出。end中可以选择Feedback Each Iteration来显示每一次结果，或者Merge Each Iteration来显示所有结果。</li>
+</ul>
+<h2 id="例子一：随机颜色："><a href="#例子一：随机颜色：" class="headerlink" title="例子一：随机颜色："></a>例子一：随机颜色：</h2><ul>
+<li>针对<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>这四个框架可以做出此示例。</li>
+<li>循环迭代次数不是自动给出的，需要通过Block Begin中的“Create meta import Node来创建；它的detail上会有iteration的参数。若我们希望使用foreach，来达到进入循环的元素被进行的处理或者操作有所变化，那么我们也是通过iteration来实现的。</li>
+</ul>
+<h3 id="for-each-point："><a href="#for-each-point：" class="headerlink" title="for-each point："></a>for-each point：</h3><ul>
+<li>使用vex做一个简单的颜色随机，注意iteration不要写错<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_pt.png" alt="foreach_randCol_pt"></li>
+</ul>
+<h3 id="for-each-primitive："><a href="#for-each-primitive：" class="headerlink" title="for-each primitive："></a>for-each primitive：</h3><ul>
+<li>对于primitive也是完全一样的<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_prim.png" alt="foreach_randCol_prim"></li>
+</ul>
+<h3 id="for-each-connected-Piece："><a href="#for-each-connected-Piece：" class="headerlink" title="for-each connected Piece："></a>for-each connected Piece：</h3><ul>
+<li>对于for-each connected Piece，则是根据它的class属性，处理它连续的元素。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_connPiec.png" alt="foreach_randCol_class"></li>
+</ul>
+<h3 id="for-each-Named-Primitive："><a href="#for-each-Named-Primitive：" class="headerlink" title="for-each Named Primitive："></a>for-each Named Primitive：</h3><ul>
+<li>for-each Named Primitive也是根据name属性来处理元素（属性是在piece attribute上的，可以更改，但必须保持输入输出的是一致的，否则不能匹配）</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_name.png" alt="foreach_randCol_name"></li>
+</ul>
+<h2 id="for-each-Number的用法："><a href="#for-each-Number的用法：" class="headerlink" title="for-each Number的用法："></a>for-each Number的用法：</h2><ul>
+<li>可以看出，它的Block Beginn中的method变成了“Fetch Input”，它的Block end中 Iteration Method变为了“By Count”。 他并不是对每个元素进行处理，而是对他本身进行拷贝，进入循环，它的迭代次数就是它的拷贝次数。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_number.png" alt="foreach_number"></li>
+<li>由上示例，它每次的循环均为它的input，根据iteration的次数来做重复。</li>
+</ul>
+<h2 id="for-Loop的用法："><a href="#for-Loop的用法：" class="headerlink" title="for-Loop的用法："></a>for-Loop的用法：</h2><ul>
+<li>for-loop with Feedback中，它的默认Block Beginn中的method是“Fetch FeedBack”，它的Block end中 Iteration Method是“By Count”；它的Gather Method则默认是Feedback Each Iteration。如果for-each Number是指对本身的元素进行处理，那么for-loop with Feedback就是对循环整体进行处理。</li>
+<li>它是以上一个循环的end的结果作为下一次循环的起点，进行再次循环，一直循环操作我们在循环内设置的指令，直到迭代次数结束。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop.png" alt="forLoop"></li>
+<li>由上图示例，这个rubbertoy朝着x轴正向移动，每次移动单位为1米，循环了五次，移动到现在5米的位置。</li>
+<li>下图是merge each iteration，显示每次循环结果，可以更清晰看出。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop_MergeEachIteration.png" alt="forLoop_MergeEachIteration"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-Houdini节点</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>3Blue1Brown_线代本质第一章：向量究竟是什么</title>
     <url>/2022/09/22/math_Essense_of_Linear_Algebra_P01/</url>
     <content><![CDATA[<h1 id="3Blue1Brown-线代本质第一章：向量究竟是什么"><a href="#3Blue1Brown-线代本质第一章：向量究竟是什么" class="headerlink" title="3Blue1Brown_线代本质第一章：向量究竟是什么"></a>3Blue1Brown_线代本质第一章：向量究竟是什么</h1><ul>
@@ -678,72 +744,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </categories>
       <tags>
         <tag>-学数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Houdini 中for-each 和for-loop 节点</title>
-    <url>/2022/09/13/houdini_foreach/</url>
-    <content><![CDATA[<h1 id="Houdini-中for-each-和for-loop-节点"><a href="#Houdini-中for-each-和for-loop-节点" class="headerlink" title="Houdini 中for-each 和for-loop 节点"></a>Houdini 中for-each 和for-loop 节点</h1><p>学习houdini时间不长，刚入门的时候就一直对foreach的使用比较迷糊，在这里写一篇学习笔记来认识一下这个使用方式，比较基础 。如果有问题，请各位大佬及时补充和指正！</p>
-<hr>
-<h2 id="Houdini中关于循环的节点简介："><a href="#Houdini中关于循环的节点简介：" class="headerlink" title="Houdini中关于循环的节点简介："></a>Houdini中关于循环的节点简介：</h2><p>houdini中一共给了这6个框架：<br><strong>1. for-each Number<br>2. for-each point<br>3. for-each primitive<br>4. for-each connected Piece<br>5. for-each Named Primitive<br>6. for-loop with Feedback</strong></p>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach2.png" alt="foreach2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach1.png" alt="foreach1"><br>（在这里说明我用的是houdini 18之后的版本，如果版本太靠前应该foreach节点跟这个有所出入）</p>
-<ul>
-<li>这个框架它本身的作用就是实现for循环，如果不想用它的框架，也可以自己创建Block begin和Block end来搭建for循环。</li>
-<li>其中，<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>的构造是相似的，使用的方法也是一样的，只是针对的元素不同（点，面，name属性）</li>
-<li><strong>connectivity</strong>是创造了一个class属性，根据class属性处理导入这个元素。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220921233222.png" alt="foreach2"></li>
-<li>数据都是从Block Begin传入，我们中间可以任意添加节点来完成我们想要针对这个元素处理的操作，这个数据给每个元素循环处理后，最终由block end输出。end中可以选择Feedback Each Iteration来显示每一次结果，或者Merge Each Iteration来显示所有结果。</li>
-</ul>
-<h2 id="例子一：随机颜色："><a href="#例子一：随机颜色：" class="headerlink" title="例子一：随机颜色："></a>例子一：随机颜色：</h2><ul>
-<li>针对<strong>for-each point，for-each primitive，for-each connected Piece和for-each Named Primitive</strong>这四个框架可以做出此示例。</li>
-<li>循环迭代次数不是自动给出的，需要通过Block Begin中的“Create meta import Node来创建；它的detail上会有iteration的参数。若我们希望使用foreach，来达到进入循环的元素被进行的处理或者操作有所变化，那么我们也是通过iteration来实现的。</li>
-</ul>
-<h3 id="for-each-point："><a href="#for-each-point：" class="headerlink" title="for-each point："></a>for-each point：</h3><ul>
-<li>使用vex做一个简单的颜色随机，注意iteration不要写错<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_pt.png" alt="foreach_randCol_pt"></li>
-</ul>
-<h3 id="for-each-primitive："><a href="#for-each-primitive：" class="headerlink" title="for-each primitive："></a>for-each primitive：</h3><ul>
-<li>对于primitive也是完全一样的<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_prim.png" alt="foreach_randCol_prim"></li>
-</ul>
-<h3 id="for-each-connected-Piece："><a href="#for-each-connected-Piece：" class="headerlink" title="for-each connected Piece："></a>for-each connected Piece：</h3><ul>
-<li>对于for-each connected Piece，则是根据它的class属性，处理它连续的元素。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_connPiec.png" alt="foreach_randCol_class"></li>
-</ul>
-<h3 id="for-each-Named-Primitive："><a href="#for-each-Named-Primitive：" class="headerlink" title="for-each Named Primitive："></a>for-each Named Primitive：</h3><ul>
-<li>for-each Named Primitive也是根据name属性来处理元素（属性是在piece attribute上的，可以更改，但必须保持输入输出的是一致的，否则不能匹配）</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_randCol_name.png" alt="foreach_randCol_name"></li>
-</ul>
-<h2 id="for-each-Number的用法："><a href="#for-each-Number的用法：" class="headerlink" title="for-each Number的用法："></a>for-each Number的用法：</h2><ul>
-<li>可以看出，它的Block Beginn中的method变成了“Fetch Input”，它的Block end中 Iteration Method变为了“By Count”。 他并不是对每个元素进行处理，而是对他本身进行拷贝，进入循环，它的迭代次数就是它的拷贝次数。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/foreach_number.png" alt="foreach_number"></li>
-<li>由上示例，它每次的循环均为它的input，根据iteration的次数来做重复。</li>
-</ul>
-<h2 id="for-Loop的用法："><a href="#for-Loop的用法：" class="headerlink" title="for-Loop的用法："></a>for-Loop的用法：</h2><ul>
-<li>for-loop with Feedback中，它的默认Block Beginn中的method是“Fetch FeedBack”，它的Block end中 Iteration Method是“By Count”；它的Gather Method则默认是Feedback Each Iteration。如果for-each Number是指对本身的元素进行处理，那么for-loop with Feedback就是对循环整体进行处理。</li>
-<li>它是以上一个循环的end的结果作为下一次循环的起点，进行再次循环，一直循环操作我们在循环内设置的指令，直到迭代次数结束。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop.png" alt="forLoop"></li>
-<li>由上图示例，这个rubbertoy朝着x轴正向移动，每次移动单位为1米，循环了五次，移动到现在5米的位置。</li>
-<li>下图是merge each iteration，显示每次循环结果，可以更清晰看出。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/forLoop_MergeEachIteration.png" alt="forLoop_MergeEachIteration"></li>
-</ul>
-]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-Houdini节点</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Houdini湖边小屋学习（一）</title>
-    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
-    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
-<hr>
-<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-PCG</tag>
       </tags>
   </entry>
   <entry>
@@ -967,6 +967,69 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
+    <title>3Blue1Brown_线代本质第五章：行列式</title>
+    <url>/2022/09/26/math_Essense_of_Linear_Algebra_P05/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第五章：行列式"><a href="#3Blue1Brown-线代本质第五章：行列式" class="headerlink" title="3Blue1Brown_线代本质第五章：行列式"></a>3Blue1Brown_线代本质第五章：行列式</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第五章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️区域内面积增大减小："><a href="#✏️区域内面积增大减小：" class="headerlink" title="✏️区域内面积增大减小："></a>✏️区域内面积增大减小：</h2><ul>
+<li>想象一些线性空间，有的变换是向外拉伸空间（Generally stretches space），有的则是向内挤压（Generally squashes space）；有件事情对理解这些线性变换很有用，那就是测量这些变换究竟对空间有多少拉伸或挤压；也就是：<strong>测量一个给定区域面积增大或减小的比例。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%8F%98%E6%8D%A2%E5%90%8E%E7%9A%84%E9%9D%A2%E7%A7%AF.png" alt="变换后的面积"></li>
+<li>如上图所示，i帽从（1，0）变换为（3，0），j帽从（0，1）变换为（0，2）；则由i帽和j帽决定的单位正方形的面积从原先的1x1变成了现在的3x2；它的面积增大了6倍。所以我们说这个线性变换将它的面积变为6倍。</li>
+</ul>
+<hr>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%89%AA%E5%88%87%E7%9F%A9%E9%98%B5%E7%9A%84%E9%9D%A2%E7%A7%AF%E5%8F%98%E6%8D%A2.png" alt="剪切矩阵的面积变换"></p>
+<ul>
+<li>【<strong>剪切矩阵</strong>】则是i帽不变还是在（1，0），j帽从（0，1）变为（1，1）；此时由i帽和j帽决定的单位正方形在变换后倾斜为一个平行四边形，但是它的面积是不变的。所以说即便这个变换空间向右挤压，它并不改变面积。</li>
+<li>实际上，只要知道单位正方形面积变化的比例，他就能告诉你其他任意区域的面积变化比例（因为“网格线保持平行且等距分布”）。</li>
+</ul>
+<hr>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%BF%90%E7%94%A8%E8%BF%91%E4%BC%BC%E7%9A%84%E6%96%B9%E6%A0%BC%E7%BC%A9%E6%94%BE.png" alt="运用近似的方格缩放"></p>
+<ul>
+<li>对于不是方形网格的形状，我们可以用许多放个良好近似，只要使用的方格足够小，近似就能足够好。由于所有的小方格都是进行等比缩放，所以整个形状也进行了同样比例的缩放。</li>
+</ul>
+<hr>
+<h2 id="✏️线性变换的行列式（The-“deternminant”-of-a-transformation）："><a href="#✏️线性变换的行列式（The-“deternminant”-of-a-transformation）：" class="headerlink" title="✏️线性变换的行列式（The “deternminant” of a transformation）："></a>✏️线性变换的行列式（The “deternminant” of a transformation）：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt="线性变换行列式"></p>
+<ul>
+<li>比如说，一个线性变换的行列式是3，那么就是说他将一个区域的面积增加为原来的三倍。</li>
+<li>同理一个线性变换的行列式是1&#x2F;2，那么就说他将一个区域的面积减少为原来的二分之一。</li>
+<li>如果一个线性变换的行列式是0，那么说明它将整个平面压缩到一条线，甚至是一个点上。</li>
+<li>如果变换前j帽在i帽的左侧，变换后j帽变成i帽的右侧，那么此时空间定向就发生了改变（Orientation has been reversed）。</li>
+<li><strong>当空间定向改变，行列式为负</strong>，但是行列式的绝对值依然表示区域面积的缩放比例。</li>
+</ul>
+<hr>
+<h3 id="✍️负的面积为什么与定向改变相关？"><a href="#✍️负的面积为什么与定向改变相关？" class="headerlink" title="✍️负的面积为什么与定向改变相关？"></a>✍️负的面积为什么与定向改变相关？</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%BA%E8%B4%9F%E5%80%BC%E7%9A%84%E6%83%85%E5%86%B5.png" alt="行列式为负值的情况"></p>
+<ul>
+<li>考虑i帽靠近j帽时的变换，空间也被更厉害的压缩，意味着行列式趋近于0；当i帽与j帽完全重合时，行列式为0。如果i帽继续沿着这个方向运动，则行列式继续减小为负值。</li>
+</ul>
+<hr>
+<h2 id="✏️三维空间中行列式的变换："><a href="#✏️三维空间中行列式的变换：" class="headerlink" title="✏️三维空间中行列式的变换："></a>✏️三维空间中行列式的变换：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E5%86%85%E7%9A%84%E5%8F%98%E6%8D%A2.png" alt="行列式在三维空间内的变换"></p>
+<ul>
+<li>它告诉你的依然是变换前后的缩放比例，不过三维空间内缩放的是体积。</li>
+<li>在三维空间中我们可以用1x1x1，即i，j，k这三个基向量，这个特殊的立方体来观察行列式的变换。</li>
+<li>我们可以把行列式简单的看作这个平行六面体的体积<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%85%AD%E9%9D%A2%E4%BD%93%E7%9A%84%E4%BD%93%E7%A7%AF.png" alt="平行六面体的体积"></li>
+<li>行列式为0则意味着整个空间被压缩为零体积的东西。也就是一个平面，一条直线或一个点。</li>
+</ul>
+<hr>
+<h3 id="✍️如何计算行列式？："><a href="#✍️如何计算行列式？：" class="headerlink" title="✍️如何计算行列式？："></a>✍️如何计算行列式？：</h3><ul>
+<li>首先它必须得是方形矩阵（行列数相等）。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97%E6%8E%A8%E5%AF%BC.png" alt="行列式面积计算推导"></li>
+<li>ad是平行四边形的面积公式底乘以高，如果c不为0的情况下，这个bc项准确的告诉你平行四边形在对角线方向上拉伸或压缩了多少；则这个公式就可以计算出拉伸后的面积。</li>
+</ul>
+<h3 id="✍️三阶行列式计算公式："><a href="#✍️三阶行列式计算公式：" class="headerlink" title="✍️三阶行列式计算公式："></a>✍️三阶行列式计算公式：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png" alt="三阶行列式计算公式"></p>
+<hr>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>3Blue1Brown_线代本质第六章：逆矩阵，列空间与零空间</title>
     <url>/2022/09/27/math_Essense_of_Linear_Algebra_P06/</url>
     <content><![CDATA[<blockquote>
@@ -1072,69 +1135,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
 <li>这里可以理解为如果一条直线上有一系列等距分布的点，在映射到数轴之后，他们将保持等距分布，这样的变换也可以用一个1x2矩阵表示，而这个矩阵的两列都只有一个数，这两列分别代表了变换后的基向量。</li>
 <li>实际上这是一类非常有意义的变换，它与点积紧密相关。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/1x2%E7%9F%A9%E9%98%B5.png" alt="1x2矩阵"></li>
 </ul>
-]]></content>
-      <categories>
-        <category>-3Blue1Brown线性代数本质</category>
-      </categories>
-      <tags>
-        <tag>-学数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3Blue1Brown_线代本质第五章：行列式</title>
-    <url>/2022/09/26/math_Essense_of_Linear_Algebra_P05/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第五章：行列式"><a href="#3Blue1Brown-线代本质第五章：行列式" class="headerlink" title="3Blue1Brown_线代本质第五章：行列式"></a>3Blue1Brown_线代本质第五章：行列式</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第五章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
-<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
-<li>官方一共将此系列分为12节，所以我也会分开写。</li>
-<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
-<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
-</ul>
-<hr>
-<h2 id="✏️区域内面积增大减小："><a href="#✏️区域内面积增大减小：" class="headerlink" title="✏️区域内面积增大减小："></a>✏️区域内面积增大减小：</h2><ul>
-<li>想象一些线性空间，有的变换是向外拉伸空间（Generally stretches space），有的则是向内挤压（Generally squashes space）；有件事情对理解这些线性变换很有用，那就是测量这些变换究竟对空间有多少拉伸或挤压；也就是：<strong>测量一个给定区域面积增大或减小的比例。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%8F%98%E6%8D%A2%E5%90%8E%E7%9A%84%E9%9D%A2%E7%A7%AF.png" alt="变换后的面积"></li>
-<li>如上图所示，i帽从（1，0）变换为（3，0），j帽从（0，1）变换为（0，2）；则由i帽和j帽决定的单位正方形的面积从原先的1x1变成了现在的3x2；它的面积增大了6倍。所以我们说这个线性变换将它的面积变为6倍。</li>
-</ul>
-<hr>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%89%AA%E5%88%87%E7%9F%A9%E9%98%B5%E7%9A%84%E9%9D%A2%E7%A7%AF%E5%8F%98%E6%8D%A2.png" alt="剪切矩阵的面积变换"></p>
-<ul>
-<li>【<strong>剪切矩阵</strong>】则是i帽不变还是在（1，0），j帽从（0，1）变为（1，1）；此时由i帽和j帽决定的单位正方形在变换后倾斜为一个平行四边形，但是它的面积是不变的。所以说即便这个变换空间向右挤压，它并不改变面积。</li>
-<li>实际上，只要知道单位正方形面积变化的比例，他就能告诉你其他任意区域的面积变化比例（因为“网格线保持平行且等距分布”）。</li>
-</ul>
-<hr>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%BF%90%E7%94%A8%E8%BF%91%E4%BC%BC%E7%9A%84%E6%96%B9%E6%A0%BC%E7%BC%A9%E6%94%BE.png" alt="运用近似的方格缩放"></p>
-<ul>
-<li>对于不是方形网格的形状，我们可以用许多放个良好近似，只要使用的方格足够小，近似就能足够好。由于所有的小方格都是进行等比缩放，所以整个形状也进行了同样比例的缩放。</li>
-</ul>
-<hr>
-<h2 id="✏️线性变换的行列式（The-“deternminant”-of-a-transformation）："><a href="#✏️线性变换的行列式（The-“deternminant”-of-a-transformation）：" class="headerlink" title="✏️线性变换的行列式（The “deternminant” of a transformation）："></a>✏️线性变换的行列式（The “deternminant” of a transformation）：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt="线性变换行列式"></p>
-<ul>
-<li>比如说，一个线性变换的行列式是3，那么就是说他将一个区域的面积增加为原来的三倍。</li>
-<li>同理一个线性变换的行列式是1&#x2F;2，那么就说他将一个区域的面积减少为原来的二分之一。</li>
-<li>如果一个线性变换的行列式是0，那么说明它将整个平面压缩到一条线，甚至是一个点上。</li>
-<li>如果变换前j帽在i帽的左侧，变换后j帽变成i帽的右侧，那么此时空间定向就发生了改变（Orientation has been reversed）。</li>
-<li><strong>当空间定向改变，行列式为负</strong>，但是行列式的绝对值依然表示区域面积的缩放比例。</li>
-</ul>
-<hr>
-<h3 id="✍️负的面积为什么与定向改变相关？"><a href="#✍️负的面积为什么与定向改变相关？" class="headerlink" title="✍️负的面积为什么与定向改变相关？"></a>✍️负的面积为什么与定向改变相关？</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%BA%E8%B4%9F%E5%80%BC%E7%9A%84%E6%83%85%E5%86%B5.png" alt="行列式为负值的情况"></p>
-<ul>
-<li>考虑i帽靠近j帽时的变换，空间也被更厉害的压缩，意味着行列式趋近于0；当i帽与j帽完全重合时，行列式为0。如果i帽继续沿着这个方向运动，则行列式继续减小为负值。</li>
-</ul>
-<hr>
-<h2 id="✏️三维空间中行列式的变换："><a href="#✏️三维空间中行列式的变换：" class="headerlink" title="✏️三维空间中行列式的变换："></a>✏️三维空间中行列式的变换：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E5%86%85%E7%9A%84%E5%8F%98%E6%8D%A2.png" alt="行列式在三维空间内的变换"></p>
-<ul>
-<li>它告诉你的依然是变换前后的缩放比例，不过三维空间内缩放的是体积。</li>
-<li>在三维空间中我们可以用1x1x1，即i，j，k这三个基向量，这个特殊的立方体来观察行列式的变换。</li>
-<li>我们可以把行列式简单的看作这个平行六面体的体积<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%85%AD%E9%9D%A2%E4%BD%93%E7%9A%84%E4%BD%93%E7%A7%AF.png" alt="平行六面体的体积"></li>
-<li>行列式为0则意味着整个空间被压缩为零体积的东西。也就是一个平面，一条直线或一个点。</li>
-</ul>
-<hr>
-<h3 id="✍️如何计算行列式？："><a href="#✍️如何计算行列式？：" class="headerlink" title="✍️如何计算行列式？："></a>✍️如何计算行列式？：</h3><ul>
-<li>首先它必须得是方形矩阵（行列数相等）。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97%E6%8E%A8%E5%AF%BC.png" alt="行列式面积计算推导"></li>
-<li>ad是平行四边形的面积公式底乘以高，如果c不为0的情况下，这个bc项准确的告诉你平行四边形在对角线方向上拉伸或压缩了多少；则这个公式就可以计算出拉伸后的面积。</li>
-</ul>
-<h3 id="✍️三阶行列式计算公式："><a href="#✍️三阶行列式计算公式：" class="headerlink" title="✍️三阶行列式计算公式："></a>✍️三阶行列式计算公式：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png" alt="三阶行列式计算公式"></p>
-<hr>
 ]]></content>
       <categories>
         <category>-3Blue1Brown线性代数本质</category>
@@ -1615,6 +1615,26 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
+    <title>Substance Designer这一阵子的练习汇总（一）</title>
+    <url>/2022/12/10/sd_sdPractice_woodPeeling/</url>
+    <content><![CDATA[<h1 id="这里是关于SD生成器的"><a href="#这里是关于SD生成器的" class="headerlink" title="这里是关于SD生成器的"></a><center>这里是关于SD生成器的</center></h1><h3 id="木漆剥落生成器以及水彩笔触生成器"><a href="#木漆剥落生成器以及水彩笔触生成器" class="headerlink" title="木漆剥落生成器以及水彩笔触生成器"></a><center>木漆剥落生成器以及水彩笔触生成器</center></h3>
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
+src="//player.bilibili.com/player.html?aid=390513592&bvid=BV1vd4y1t7Ca&cid=902733440&page=1" scrolling="no" border="0" 
+frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
+height: 100%; left: 0; top: 0;"> </iframe></div>
+
+
+
+]]></content>
+      <categories>
+        <category>-Substance Designer</category>
+      </categories>
+      <tags>
+        <tag>-Substance Designer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</title>
     <url>/2022/10/08/math_Essense_of_Linear_Algebra_P12/</url>
     <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释"><a href="#3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释" class="headerlink" title="3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释"></a>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</h1><ul>
@@ -1695,17 +1715,31 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>Substance Designer这一阵子的练习汇总（一）</title>
-    <url>/2022/12/10/sd_sdPractice_woodPeeling/</url>
-    <content><![CDATA[<h1 id="这里是关于SD生成器的"><a href="#这里是关于SD生成器的" class="headerlink" title="这里是关于SD生成器的"></a><center>这里是关于SD生成器的</center></h1><h3 id="木漆剥落生成器以及水彩笔触生成器"><a href="#木漆剥落生成器以及水彩笔触生成器" class="headerlink" title="木漆剥落生成器以及水彩笔触生成器"></a><center>木漆剥落生成器以及水彩笔触生成器</center></h3>
+    <title>SD贴纸翻折效果复现</title>
+    <url>/2023/04/23/sd_stickerRoll/</url>
+    <content><![CDATA[<h1 id="SD贴纸翻折效果复现"><a href="#SD贴纸翻折效果复现" class="headerlink" title="SD贴纸翻折效果复现"></a><center>SD贴纸翻折效果复现</center></h1><h3 id="实现贴纸或者叶片一类的效果"><a href="#实现贴纸或者叶片一类的效果" class="headerlink" title="实现贴纸或者叶片一类的效果"></a><center>实现贴纸或者叶片一类的效果</center></h3><ul>
+<li>先看视频链接：
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
-src="//player.bilibili.com/player.html?aid=390513592&bvid=BV1vd4y1t7Ca&cid=902733440&page=1" scrolling="no" border="0" 
+src="//player.bilibili.com/player.html?aid=994290041&bvid=BV1Bs4y1D7AZ&cid=1075703165&page=1" scrolling="no" border="0" 
 frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
 height: 100%; left: 0; top: 0;"> </iframe></div>
 
-
-
+</li>
+</ul>
+<h2 id="图片示意"><a href="#图片示意" class="headerlink" title="图片示意"></a>图片示意</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTOP12_1.png" alt="sdTOP12_1"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/st_02.png" alt="st_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/st_03.png" alt="st_03"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/st_04.png" alt="st_04"></p>
+<h2 id="实现方式："><a href="#实现方式：" class="headerlink" title="实现方式："></a>实现方式：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/2023423-195718.png" alt="2023423-195718"></p>
+<ul>
+<li>参考哔哩哔哩大佬的方案：<strong>程序化螺丝钉</strong></li>
+<li>主要是通过旋转角度配合位移矩阵，再配合value processsor对offset的数值进行同步处理，然后将遮罩的部分反转，将offset变换后再挪回去<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423200345.png" alt="20230423200345"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423200412.png" alt="20230423200412"></li>
+<li>翻折的部分实际上是x到-x的变换，过渡是一个白到黑的gradient mask做出视觉上的凸起。</li>
+<li>总体的过程只是一个视觉上的trick，还是挺奇妙的。</li>
+<li>参数也很简单，就是翻折角度（起始点）；以及剥落的距离（offset）<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423201208.png" alt="20230423201208"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423201225.png" alt="20230423201225"></li>
+</ul>
+<h2 id="之后对于此类效果的改进计划："><a href="#之后对于此类效果的改进计划：" class="headerlink" title="之后对于此类效果的改进计划："></a>之后对于此类效果的改进计划：</h2><ul>
+<li>之后会完成对于position的改进，由滑杆的处理方式变为position定位点。</li>
+<li>其次准备实现卷曲效果，像是树叶枯萎后卷起来的样子的程序化处理</li>
+</ul>
 ]]></content>
       <categories>
         <category>-Substance Designer</category>
@@ -2418,12 +2452,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       <tags>
         <tag>-材质</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>这是一篇测试</title>
-    <url>/2022/09/07/%E6%B5%8B%E8%AF%95%E4%B8%80/</url>
-    <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！<br>这里只是一个简陋的文本所以跳过就行</p>
-]]></content>
   </entry>
   <entry>
     <title>UE4以及相关工具学习列表合辑</title>
@@ -3180,5 +3208,11 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       <tags>
         <tag>-材质</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>这是一篇测试</title>
+    <url>/2022/09/07/%E6%B5%8B%E8%AF%95%E4%B8%80/</url>
+    <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！<br>这里只是一个简陋的文本所以跳过就行</p>
+]]></content>
   </entry>
 </search>
