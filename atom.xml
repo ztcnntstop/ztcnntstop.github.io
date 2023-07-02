@@ -46,7 +46,7 @@
     <link href="http://example.com/2023/06/19/houdini_procedural_modeling2022/"/>
     <id>http://example.com/2023/06/19/houdini_procedural_modeling2022/</id>
     <published>2023-06-19T03:09:03.000Z</published>
-    <updated>2023-07-02T17:36:21.357Z</updated>
+    <updated>2023-07-02T17:45:40.588Z</updated>
     
     <content type="html"><![CDATA[<h1 id="😈总结一下去年（2022）的Houdini"><a href="#😈总结一下去年（2022）的Houdini" class="headerlink" title="😈总结一下去年（2022）的Houdini~"></a>😈总结一下去年（2022）的Houdini~</h1><blockquote><p>🍺最开始做Houdini程序化资产的时候还没有现在这个个人网站，于是现在填补一下发发，总结一下<br>🍺嘛~ 现在有一阵子没碰houdini了，希望最近继续富有激情的学习Houdini~</p></blockquote><ul><li>以下的Breakdown均发在bilibili了，连接也会在下面放出~ 其实都是最开始接触Houdini的时候做的，当时最感兴趣的还得是Sop模块，现在看来我做的不太好，只能说今年还会继续改进。</li><li>当然了~ 目前已经开始着手学习Houdini到UE5这一流程，请期待后续的更新！</li></ul><h2 id="👻BreakDown视频"><a href="#👻BreakDown视频" class="headerlink" title="👻BreakDown视频"></a>👻BreakDown视频</h2><blockquote><p>以下是三个Breakdown,具体放在我的Blibili了，可以点击查看~<br><a href="https://www.bilibili.com/video/BV1VT4y1B7QL/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">1.City In The Sky</a><br><a href="https://www.bilibili.com/video/BV1vW4y1U7Ly/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">2.TrainNight</a><br><a href="https://www.bilibili.com/video/BV1te411u7TE/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">3.Env</a></p></blockquote><h2 id="👻BreakDown图文"><a href="#👻BreakDown图文" class="headerlink" title="👻BreakDown图文"></a>👻BreakDown图文</h2><h3 id="City-In-the-Sky"><a href="#City-In-the-Sky" class="headerlink" title="City In the Sky"></a>City In the Sky</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_01.png" alt="Tech_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_02.png" alt="Tech_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ivyTool.gif" alt="ivyTool"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bricksGenerator.gif" alt="bricksGenerator"></p><hr><h3 id="TrainNight"><a href="#TrainNight" class="headerlink" title="TrainNight"></a>TrainNight</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_03.png" alt="Tech_03"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_04.png" alt="Tech_04"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/nt-bdgenerator.gif" alt="nt-bdgenerator"></p><hr><h3 id="Env"><a href="#Env" class="headerlink" title="Env"></a>Env</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_05.png" alt="Tech_05"></p><ul><li>详细展示可以查阅我的b站<a href="https://space.bilibili.com/552910222?spm_id_from=333.788.0.0">ZeTiiCannotStop</a>，也欢迎去b站私信我与我讨论~</li></ul>]]></content>
     
@@ -58,7 +58,7 @@
     
     
     
-    <category term="-houdini" scheme="http://example.com/categories/houdini/"/>
+    <category term="-Houdini" scheme="http://example.com/categories/Houdini/"/>
     
     
     <category term="-procedural modeling" scheme="http://example.com/tags/procedural-modeling/"/>
