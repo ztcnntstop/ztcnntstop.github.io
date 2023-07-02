@@ -42,6 +42,30 @@
   </entry>
   
   <entry>
+    <title>Houdini去年（2022）的程序化生成总结~</title>
+    <link href="http://example.com/2023/06/19/houdini_procedural_modeling2022/"/>
+    <id>http://example.com/2023/06/19/houdini_procedural_modeling2022/</id>
+    <published>2023-06-19T03:09:03.000Z</published>
+    <updated>2023-07-02T17:36:21.357Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="😈总结一下去年（2022）的Houdini"><a href="#😈总结一下去年（2022）的Houdini" class="headerlink" title="😈总结一下去年（2022）的Houdini~"></a>😈总结一下去年（2022）的Houdini~</h1><blockquote><p>🍺最开始做Houdini程序化资产的时候还没有现在这个个人网站，于是现在填补一下发发，总结一下<br>🍺嘛~ 现在有一阵子没碰houdini了，希望最近继续富有激情的学习Houdini~</p></blockquote><ul><li>以下的Breakdown均发在bilibili了，连接也会在下面放出~ 其实都是最开始接触Houdini的时候做的，当时最感兴趣的还得是Sop模块，现在看来我做的不太好，只能说今年还会继续改进。</li><li>当然了~ 目前已经开始着手学习Houdini到UE5这一流程，请期待后续的更新！</li></ul><h2 id="👻BreakDown视频"><a href="#👻BreakDown视频" class="headerlink" title="👻BreakDown视频"></a>👻BreakDown视频</h2><blockquote><p>以下是三个Breakdown,具体放在我的Blibili了，可以点击查看~<br><a href="https://www.bilibili.com/video/BV1VT4y1B7QL/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">1.City In The Sky</a><br><a href="https://www.bilibili.com/video/BV1vW4y1U7Ly/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">2.TrainNight</a><br><a href="https://www.bilibili.com/video/BV1te411u7TE/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">3.Env</a></p></blockquote><h2 id="👻BreakDown图文"><a href="#👻BreakDown图文" class="headerlink" title="👻BreakDown图文"></a>👻BreakDown图文</h2><h3 id="City-In-the-Sky"><a href="#City-In-the-Sky" class="headerlink" title="City In the Sky"></a>City In the Sky</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_01.png" alt="Tech_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_02.png" alt="Tech_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ivyTool.gif" alt="ivyTool"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bricksGenerator.gif" alt="bricksGenerator"></p><hr><h3 id="TrainNight"><a href="#TrainNight" class="headerlink" title="TrainNight"></a>TrainNight</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_03.png" alt="Tech_03"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_04.png" alt="Tech_04"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/nt-bdgenerator.gif" alt="nt-bdgenerator"></p><hr><h3 id="Env"><a href="#Env" class="headerlink" title="Env"></a>Env</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_05.png" alt="Tech_05"></p><ul><li>详细展示可以查阅我的b站<a href="https://space.bilibili.com/552910222?spm_id_from=333.788.0.0">ZeTiiCannotStop</a>，也欢迎去b站私信我与我讨论~</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;😈总结一下去年（2022）的Houdini&quot;&gt;&lt;a href=&quot;#😈总结一下去年（2022）的Houdini&quot; class=&quot;headerlink&quot; title=&quot;😈总结一下去年（2022）的Houdini~&quot;&gt;&lt;/a&gt;😈总结一下去年（2022）的Houd</summary>
+      
+    
+    
+    
+    <category term="-houdini" scheme="http://example.com/categories/houdini/"/>
+    
+    
+    <category term="-procedural modeling" scheme="http://example.com/tags/procedural-modeling/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2023阶段作品集</title>
     <link href="http://example.com/2023/04/28/protfolio_2023/"/>
     <id>http://example.com/2023/04/28/protfolio_2023/</id>
@@ -308,30 +332,6 @@
   </entry>
   
   <entry>
-    <title>3Blue1Brown_线代本质第九章：基变换</title>
-    <link href="http://example.com/2022/10/03/math_Essense_of_Linear_Algebra_P09/"/>
-    <id>http://example.com/2022/10/03/math_Essense_of_Linear_Algebra_P09/</id>
-    <published>2022-10-03T09:15:35.000Z</published>
-    <updated>2022-10-06T09:46:18.449Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="3Blue1Brown-线代本质第九章：基变换"><a href="#3Blue1Brown-线代本质第九章：基变换" class="headerlink" title="3Blue1Brown_线代本质第九章：基变换"></a>3Blue1Brown_线代本质第九章：基变换</h1><ul><li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第九章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li><li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li><li>官方一共将此系列分为12节，所以我也会分开写。</li><li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li><li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li></ul><hr><h2 id="✏️基变换："><a href="#✏️基变换：" class="headerlink" title="✏️基变换："></a>✏️基变换：</h2><h3 id="✍️基的选择："><a href="#✍️基的选择：" class="headerlink" title="✍️基的选择："></a>✍️基的选择：</h3><ul><li>发生在向量与一组数之间的任意一种转化，都被称为一个坐标系（coordinate system），而其中两个特殊的向量i帽和j帽，被我们称为这个标准坐标的基向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_01.png" alt="基变换_01"></li><li>如上图所示，如果使用另一组不同的基向量，分别称之为b1和b2，它的第一个基向量b1指向右上方，第二个基向量b2指向左上方。如果在这个变换中，用坐标（5&#x2F;3.1&#x2F;3）来描述它，这意味着，根据他的两个基向量，获得那个向量的方法是b1乘以5&#x2F;3,b2乘以1&#x2F;3,再将两个结果相加。</li><li>总之，无论何时，我们用坐标来描述一个向量，将第一个坐标乘以b1，第二个坐标乘以b2，然后将两者相加，他最终得到的向量 ，会和我们认为的相同坐标的向量完全不同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_02.png" alt="基变换_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_03.png" alt="基变换_03"></li><li>如上图两个向量的表示方法看出，虽然我们都在关注空间中同一个向量，但可以用不同的语言（空间）和数字来描述它，使得结果大不相同。</li><li>如果我们使用普通的坐标系，并用方形网格表示单位，那么<strong>这些网格只是提供了一个可视化坐标系的途径，因此，它依赖我们对基的选择。因为在空间中，本身是没有网格的</strong>。</li><li><strong>如果用不同的方式绘制这个网格，它同样是一个框架，也只不过是有助于用另一种方式理解坐标含义的可视化工具。</strong></li><li>但是无论如何绘制这个网格，<strong>大家的原点总会是在（0，0），因此大家的原点是重合的。</strong> 它就是任何向量乘以0时你所得到的坐标。</li><li>但是，其他方式绘制的坐标轴的方向与网格间距有所不同，这依赖于它对基的选择。</li></ul><hr><h3 id="✍️如何在不同的坐标系之间进行转化？："><a href="#✍️如何在不同的坐标系之间进行转化？：" class="headerlink" title="✍️如何在不同的坐标系之间进行转化？："></a>✍️如何在不同的坐标系之间进行转化？：</h3><ul><li>一旦你将矩阵向量乘法理解为应用一个特定的线性变换，就会有一种非常直观的方法来考虑这里发生的事。</li><li>一个矩阵列为某个特殊的基向量时，这个矩阵可以看作一个线性变换，它将我们的基向量i帽和j帽，也就是我们眼中的（1，0）和（0，1），变换为那个特殊的基向量，也就是特殊被重新定义的（1，0）和（0，1）.</li><li>变换后的向量仍旧时相同的线性组合，不过使用的时新的基向量。</li><li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_04.png" alt="基变换_04"></li></ul><hr><h3 id="✍️逆（Inverse）："><a href="#✍️逆（Inverse）：" class="headerlink" title="✍️逆（Inverse）："></a>✍️逆（Inverse）：</h3><ul><li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_05.png" alt="基变换_05"></li><li>一个变换的逆是一个新的变换，它将所选的变换逆向进行。实践当中，尤其是在超过二维空间中研究时，你可以用计算机来计算矩阵的逆。</li><li>如果想知道一个矩阵变换的逆，那我们用这个基变换矩阵的逆乘以我们所使用的向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86_01.png" alt="基变换矩阵的逆_01"></li><li>以上就是如何在坐标系之间对单个向量的描述进行相互转化。</li><li>一个矩阵代表的是一个特殊的基向量，却用我们的坐标来描述；对于一个向量，这个矩阵将它的语言描述转化为我们的语言描述。</li><li>逆矩阵则与之相反。</li><li>向量并不是唯一用坐标表示的东西</li></ul><hr><ul><li>考虑某个线性变换，譬如逆时针旋转90度；用矩阵代表它的时候，我们是在跟踪i帽和j帽的去向；i帽变换后坐标是（0，1），j帽变换后坐标是（-1，0）；这些坐标也就成为了矩阵的列。</li><li>但是这种表示与我们对基向量的选择密切相关，因为我们跟踪的是i帽和j帽，并且是在我们自己的坐标系中记录着他们的去向。</li></ul><h3 id="✍️如何转化一个矩阵？："><a href="#✍️如何转化一个矩阵？：" class="headerlink" title="✍️如何转化一个矩阵？："></a>✍️如何转化一个矩阵？：</h3><blockquote><p>注：以下描述的我们的语言是我们使用的语言，代表我们使用的基向量和坐标系；另一种语言表述的变换暂用詹妮弗的语言代替，詹妮弗跟我们使用不同的坐标系和基向量。</p></blockquote><ol><li>我们从詹妮弗的语言描述的任意向量出发。</li><li>首先，我们不用它的语言描述这一过程，而是用基变换矩阵，转化为用我们的语言描述。这个矩阵的列代表是用我们的语言描述她的基向量。此时给出的是同一个向量，只不过是用我们的语言描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_01.png" alt="如何转化一个矩阵_01"></li><li>然后，将所得结果左乘线性变换矩阵；此时给出的是变换后的向量，但仍然是我们的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_02.png" alt="如何转化一个矩阵_02"></li><li>最后一步，像之前一样将所的结果左乘基变换矩阵的逆，从而得到变换后的向量，然而使用詹妮弗的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_03.png" alt="如何转化一个矩阵_03"></li></ol><ul><li>因为我们能够对詹妮弗语言描述的任一向量做同样的事情，首先应用基变换，然后应用线性变换，最后应用基变换的逆。这三个矩阵的复合给出的就是用詹妮弗语言买哦书店线性变换矩阵。它接收由詹妮弗语言描述的向量。，并输出用詹妮弗语言描述的变换后的向量。</li><li>所以如果詹妮弗用这个计算结果的矩阵与她坐标系中的一个向量相乘，结果就是在她坐标系中描述该向量旋转90度的结果。</li></ul><hr><h3 id="✍️总结："><a href="#✍️总结：" class="headerlink" title="✍️总结："></a>✍️总结：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%AD%A6%E4%B8%8A%E7%9A%84%E8%BD%AC%E7%A7%BB%E4%BD%9C%E7%94%A8.png" alt="数学上的转移作用"></p><ul><li>每当你看到这样一个表达式：A逆乘以M乘以A，这就暗示着一种数学上的转移作用。中间的矩阵代表一种你所见的变换，而外侧两个矩阵代表着转移作用，也就是视角上的转化。矩阵乘积任然代表着同一个变换，只不过是从其他人的角度来看的。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;3Blue1Brown-线代本质第九章：基变换&quot;&gt;&lt;a href=&quot;#3Blue1Brown-线代本质第九章：基变换&quot; class=&quot;headerlink&quot; title=&quot;3Blue1Brown_线代本质第九章：基变换&quot;&gt;&lt;/a&gt;3Blue1Brown_线代本质第</summary>
-      
-    
-    
-    
-    <category term="-3Blue1Brown线性代数本质" scheme="http://example.com/categories/3Blue1Brown%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%9C%AC%E8%B4%A8/"/>
-    
-    
-    <category term="-学数学" scheme="http://example.com/tags/%E5%AD%A6%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>3Blue1Brown_线代本质第八章：叉积的标准介绍</title>
     <link href="http://example.com/2022/10/03/math_Essense_of_Linear_Algebra_P08/"/>
     <id>http://example.com/2022/10/03/math_Essense_of_Linear_Algebra_P08/</id>
@@ -344,6 +344,30 @@
       
       
     <summary type="html">&lt;h1 id=&quot;3Blue1Brown-线代本质第八章：叉积的标准介绍&quot;&gt;&lt;a href=&quot;#3Blue1Brown-线代本质第八章：叉积的标准介绍&quot; class=&quot;headerlink&quot; title=&quot;3Blue1Brown_线代本质第八章：叉积的标准介绍&quot;&gt;&lt;/a&gt;3Blue</summary>
+      
+    
+    
+    
+    <category term="-3Blue1Brown线性代数本质" scheme="http://example.com/categories/3Blue1Brown%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%9C%AC%E8%B4%A8/"/>
+    
+    
+    <category term="-学数学" scheme="http://example.com/tags/%E5%AD%A6%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>3Blue1Brown_线代本质第九章：基变换</title>
+    <link href="http://example.com/2022/10/03/math_Essense_of_Linear_Algebra_P09/"/>
+    <id>http://example.com/2022/10/03/math_Essense_of_Linear_Algebra_P09/</id>
+    <published>2022-10-03T09:15:35.000Z</published>
+    <updated>2022-10-06T09:46:18.449Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="3Blue1Brown-线代本质第九章：基变换"><a href="#3Blue1Brown-线代本质第九章：基变换" class="headerlink" title="3Blue1Brown_线代本质第九章：基变换"></a>3Blue1Brown_线代本质第九章：基变换</h1><ul><li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第九章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li><li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li><li>官方一共将此系列分为12节，所以我也会分开写。</li><li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li><li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li></ul><hr><h2 id="✏️基变换："><a href="#✏️基变换：" class="headerlink" title="✏️基变换："></a>✏️基变换：</h2><h3 id="✍️基的选择："><a href="#✍️基的选择：" class="headerlink" title="✍️基的选择："></a>✍️基的选择：</h3><ul><li>发生在向量与一组数之间的任意一种转化，都被称为一个坐标系（coordinate system），而其中两个特殊的向量i帽和j帽，被我们称为这个标准坐标的基向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_01.png" alt="基变换_01"></li><li>如上图所示，如果使用另一组不同的基向量，分别称之为b1和b2，它的第一个基向量b1指向右上方，第二个基向量b2指向左上方。如果在这个变换中，用坐标（5&#x2F;3.1&#x2F;3）来描述它，这意味着，根据他的两个基向量，获得那个向量的方法是b1乘以5&#x2F;3,b2乘以1&#x2F;3,再将两个结果相加。</li><li>总之，无论何时，我们用坐标来描述一个向量，将第一个坐标乘以b1，第二个坐标乘以b2，然后将两者相加，他最终得到的向量 ，会和我们认为的相同坐标的向量完全不同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_02.png" alt="基变换_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_03.png" alt="基变换_03"></li><li>如上图两个向量的表示方法看出，虽然我们都在关注空间中同一个向量，但可以用不同的语言（空间）和数字来描述它，使得结果大不相同。</li><li>如果我们使用普通的坐标系，并用方形网格表示单位，那么<strong>这些网格只是提供了一个可视化坐标系的途径，因此，它依赖我们对基的选择。因为在空间中，本身是没有网格的</strong>。</li><li><strong>如果用不同的方式绘制这个网格，它同样是一个框架，也只不过是有助于用另一种方式理解坐标含义的可视化工具。</strong></li><li>但是无论如何绘制这个网格，<strong>大家的原点总会是在（0，0），因此大家的原点是重合的。</strong> 它就是任何向量乘以0时你所得到的坐标。</li><li>但是，其他方式绘制的坐标轴的方向与网格间距有所不同，这依赖于它对基的选择。</li></ul><hr><h3 id="✍️如何在不同的坐标系之间进行转化？："><a href="#✍️如何在不同的坐标系之间进行转化？：" class="headerlink" title="✍️如何在不同的坐标系之间进行转化？："></a>✍️如何在不同的坐标系之间进行转化？：</h3><ul><li>一旦你将矩阵向量乘法理解为应用一个特定的线性变换，就会有一种非常直观的方法来考虑这里发生的事。</li><li>一个矩阵列为某个特殊的基向量时，这个矩阵可以看作一个线性变换，它将我们的基向量i帽和j帽，也就是我们眼中的（1，0）和（0，1），变换为那个特殊的基向量，也就是特殊被重新定义的（1，0）和（0，1）.</li><li>变换后的向量仍旧时相同的线性组合，不过使用的时新的基向量。</li><li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_04.png" alt="基变换_04"></li></ul><hr><h3 id="✍️逆（Inverse）："><a href="#✍️逆（Inverse）：" class="headerlink" title="✍️逆（Inverse）："></a>✍️逆（Inverse）：</h3><ul><li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_05.png" alt="基变换_05"></li><li>一个变换的逆是一个新的变换，它将所选的变换逆向进行。实践当中，尤其是在超过二维空间中研究时，你可以用计算机来计算矩阵的逆。</li><li>如果想知道一个矩阵变换的逆，那我们用这个基变换矩阵的逆乘以我们所使用的向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86_01.png" alt="基变换矩阵的逆_01"></li><li>以上就是如何在坐标系之间对单个向量的描述进行相互转化。</li><li>一个矩阵代表的是一个特殊的基向量，却用我们的坐标来描述；对于一个向量，这个矩阵将它的语言描述转化为我们的语言描述。</li><li>逆矩阵则与之相反。</li><li>向量并不是唯一用坐标表示的东西</li></ul><hr><ul><li>考虑某个线性变换，譬如逆时针旋转90度；用矩阵代表它的时候，我们是在跟踪i帽和j帽的去向；i帽变换后坐标是（0，1），j帽变换后坐标是（-1，0）；这些坐标也就成为了矩阵的列。</li><li>但是这种表示与我们对基向量的选择密切相关，因为我们跟踪的是i帽和j帽，并且是在我们自己的坐标系中记录着他们的去向。</li></ul><h3 id="✍️如何转化一个矩阵？："><a href="#✍️如何转化一个矩阵？：" class="headerlink" title="✍️如何转化一个矩阵？："></a>✍️如何转化一个矩阵？：</h3><blockquote><p>注：以下描述的我们的语言是我们使用的语言，代表我们使用的基向量和坐标系；另一种语言表述的变换暂用詹妮弗的语言代替，詹妮弗跟我们使用不同的坐标系和基向量。</p></blockquote><ol><li>我们从詹妮弗的语言描述的任意向量出发。</li><li>首先，我们不用它的语言描述这一过程，而是用基变换矩阵，转化为用我们的语言描述。这个矩阵的列代表是用我们的语言描述她的基向量。此时给出的是同一个向量，只不过是用我们的语言描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_01.png" alt="如何转化一个矩阵_01"></li><li>然后，将所得结果左乘线性变换矩阵；此时给出的是变换后的向量，但仍然是我们的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_02.png" alt="如何转化一个矩阵_02"></li><li>最后一步，像之前一样将所的结果左乘基变换矩阵的逆，从而得到变换后的向量，然而使用詹妮弗的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_03.png" alt="如何转化一个矩阵_03"></li></ol><ul><li>因为我们能够对詹妮弗语言描述的任一向量做同样的事情，首先应用基变换，然后应用线性变换，最后应用基变换的逆。这三个矩阵的复合给出的就是用詹妮弗语言买哦书店线性变换矩阵。它接收由詹妮弗语言描述的向量。，并输出用詹妮弗语言描述的变换后的向量。</li><li>所以如果詹妮弗用这个计算结果的矩阵与她坐标系中的一个向量相乘，结果就是在她坐标系中描述该向量旋转90度的结果。</li></ul><hr><h3 id="✍️总结："><a href="#✍️总结：" class="headerlink" title="✍️总结："></a>✍️总结：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%AD%A6%E4%B8%8A%E7%9A%84%E8%BD%AC%E7%A7%BB%E4%BD%9C%E7%94%A8.png" alt="数学上的转移作用"></p><ul><li>每当你看到这样一个表达式：A逆乘以M乘以A，这就暗示着一种数学上的转移作用。中间的矩阵代表一种你所见的变换，而外侧两个矩阵代表着转移作用，也就是视角上的转化。矩阵乘积任然代表着同一个变换，只不过是从其他人的角度来看的。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;3Blue1Brown-线代本质第九章：基变换&quot;&gt;&lt;a href=&quot;#3Blue1Brown-线代本质第九章：基变换&quot; class=&quot;headerlink&quot; title=&quot;3Blue1Brown_线代本质第九章：基变换&quot;&gt;&lt;/a&gt;3Blue1Brown_线代本质第</summary>
       
     
     
@@ -467,30 +491,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;3Blue1Brown-线代本质第三章：矩阵与线性变换&quot;&gt;&lt;a href=&quot;#3Blue1Brown-线代本质第三章：矩阵与线性变换&quot; class=&quot;headerlink&quot; title=&quot;3Blue1Brown_线代本质第三章：矩阵与线性变换&quot;&gt;&lt;/a&gt;3Blue</summary>
-      
-    
-    
-    
-    <category term="-3Blue1Brown线性代数本质" scheme="http://example.com/categories/3Blue1Brown%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%9C%AC%E8%B4%A8/"/>
-    
-    
-    <category term="-学数学" scheme="http://example.com/tags/%E5%AD%A6%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>3Blue1Brown_线代本质第一章：向量究竟是什么</title>
-    <link href="http://example.com/2022/09/22/math_Essense_of_Linear_Algebra_P01/"/>
-    <id>http://example.com/2022/09/22/math_Essense_of_Linear_Algebra_P01/</id>
-    <published>2022-09-22T09:15:35.000Z</published>
-    <updated>2022-09-23T08:42:37.930Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="3Blue1Brown-线代本质第一章：向量究竟是什么"><a href="#3Blue1Brown-线代本质第一章：向量究竟是什么" class="headerlink" title="3Blue1Brown_线代本质第一章：向量究竟是什么"></a>3Blue1Brown_线代本质第一章：向量究竟是什么</h1><ul><li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li><li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li><li>官方一共将此系列分为12节，所以我也会分开写。</li><li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li><li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li></ul><hr><h2 id="✏️向量基本解释："><a href="#✏️向量基本解释：" class="headerlink" title="✏️向量基本解释："></a>✏️向量基本解释：</h2><ul><li><strong>在线性代数中，最基础，最根源的组成部分就是向量</strong></li><li><strong>一般来说，有三种看待向量的观点，他们看似不同却有所关联。</strong><ul><li>物理专业的角度</li><li>数学角度</li><li>计算机角度</li></ul></li></ul><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vector.png" alt="vector"></p><hr><h3 id="📝物理专业的角度："><a href="#📝物理专业的角度：" class="headerlink" title="📝物理专业的角度："></a>📝物理专业的角度：</h3><ul><li><strong>向量是空间中的箭头。</strong></li><li>决定一个向量的是：<ol><li>它的长度。</li><li>它所指的方向。</li></ol></li><li>只要上述两个特征不改变，就可以自由移动一个向量而保持它本身不被改变。</li><li>处在平面中的向量是二维的。</li><li>处在生活空间中的向量是三维的。</li></ul><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/2vs3Dimensional.png" alt="2vs3Dimensional"></p><hr><h3 id="📝计算机角度："><a href="#📝计算机角度：" class="headerlink" title="📝计算机角度："></a>📝计算机角度：</h3><ul><li><strong>向量是有序的数字列表。</strong></li><li>比如你正在做一个有关房价的分析，你关心的只有两个特征：<ol><li>房屋面积。</li><li>房屋价格。</li></ol></li><li>注意数字列表的<strong>数字顺序不可颠倒</strong></li><li>在这个房屋的例子里可以表述为：用二维向量对房屋进行建模。</li><li>在这里，向量只不过是列表的一个花哨的说法，这个向量是二维的因为它的列表长度是2。</li></ul><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/cs_vector.png" alt="csStudent_vector"></p><hr><h3 id="📝数学角度："><a href="#📝数学角度：" class="headerlink" title="📝数学角度："></a>📝数学角度：</h3><ul><li><strong>向量可以是任何东西，只要保证两个向量相加以及数字与向量相乘是有意义的即可。</strong></li><li>这种方式看待向量就较为抽象了。这里可以看出，向量加法和向量数乘贯穿线性代数，二者起着很重要的作用。</li></ul><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/math_vector.png" alt="math_vector"></p><hr><h2 id="✏️向量思考方式："><a href="#✏️向量思考方式：" class="headerlink" title="✏️向量思考方式："></a>✏️向量思考方式：</h2><ul><li>首先考虑一个坐落在某个坐标系（例如x-y平面）中的箭头，箭头起点位于原点。</li><li>在线性代数中，向量经常以原点作为起点；这与物理学理念（向量可以在空间中自由落脚）不同。</li><li>一旦理解了【向量是空间中的箭头】，那么我们可以通过【向量坐标】来理解【向量是一个有序数字列表】</li><li>因为这两种观念的碰撞，恰恰形成了线性代数中的重要概念。</li></ul><hr><h3 id="📝平面空间内："><a href="#📝平面空间内：" class="headerlink" title="📝平面空间内："></a>📝平面空间内：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vector%E5%B9%B3%E9%9D%A2%E7%A9%BA%E9%97%B4.png" alt="vector平面空间"></p><ul><li>来看这个箭头在x-y平面空间内（每个间距单位为1），它的这对数指导我们如何从原点（向量起点）出发到达它的尖端（向量终点）。</li><li>第一个数告诉我们沿着x轴走多远，正数代表向右移动，负数代表向左移动。</li><li>第二个数告诉我们沿着y轴走多远。正数代表向上移动，负数代表向下移动。</li><li>为了把向量和点区别开，向量采用的写法是将这对数竖着写，并用方括号括起来。（（-2，3）这样表示的向量也是可以的，没有区别）。</li><li>每一对数给出为一一个向量（有且只有一个）。</li><li>每一个向量恰好对应为一一对数。</li></ul><hr><h3 id="📝三维空间内："><a href="#📝三维空间内：" class="headerlink" title="📝三维空间内："></a>📝三维空间内：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E5%90%91%E9%87%8F1.png" alt="三维空间向量1"></p><ul><li>三维空间内我们再添加一个垂直于x轴和y轴的第三根z轴</li><li>这种情况下，每个向量就与一个有序的三元数组对应。</li><li>第一个数告诉你沿平行x轴走多远，第二个数告诉你沿平行y轴走多远，第三个数告诉你沿平行z轴走多远。</li><li>每个三元数组给出为一一个向量。</li><li>每个向量对应唯一的三元数组。</li></ul><hr><h3 id="📝向量加法和向量数乘："><a href="#📝向量加法和向量数乘：" class="headerlink" title="📝向量加法和向量数乘："></a>📝向量加法和向量数乘：</h3><ul><li>线性代数中每一个主题都围绕着这两种运算。</li></ul><h4 id="✍️向量加法："><a href="#✍️向量加法：" class="headerlink" title="✍️向量加法："></a>✍️向量加法：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/vectorSum.png" alt="vectorSum"></p><ul><li>向量加法：<ul><li>我们通过平移第二个向量，使他的起点与第一个向量的终点重合；然后画一个向量，它从第一个向量的起点出发，指向第二个向量的终点；这个向量就是他们的和</li></ul></li><li>向量加法的定义差不多是线代中唯一允许向量离开原点的情形。</li><li>我们可以把向量加法看作数轴上加法的一种扩展。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E8%BD%B4%E5%8A%A0%E6%B3%95.png" alt="数轴加法"></li><li>回到x-y平面内，我们可以以下图方式所思考向量的加法，即：它朝着x轴，y轴分别运动的总量；先完成它水平运动，再完成竖直运动。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97%E6%96%B9%E5%BC%8F.png" alt="向量加法运算方式"></li></ul><hr><h4 id="✍️向量数乘："><a href="#✍️向量数乘：" class="headerlink" title="✍️向量数乘："></a>✍️向量数乘：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E6%95%B0%E4%B9%98.png" alt="向量数乘"></p><ul><li>向量与其他数（标量）相乘的方式叫做“Scaling”（缩放）。</li><li>数字（标量）在线性代数的作用就是缩放向量；负数与向量相乘则会改变向量的方向。</li></ul><hr><h3 id="📝总结："><a href="#📝总结：" class="headerlink" title="📝总结："></a>📝总结：</h3><ul><li><strong>怎么看待向量都无所谓，它的实际作用也很少体现在这些观点的其中一个上，而是更多的体现在它能够在这些观点中相互转化。</strong></li><li>线性代数为数据分析提供了一条将大量数据列表概念化，可视化的渠道。他让数据样式变得非常明晰，并让我们了解特定运算的意义。</li><li>另一方面，线代给物理学家和计算机图形程序员提供了一种语言，让他们通过计算机能处理的数字来描述并操纵空间。</li></ul><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;3Blue1Brown-线代本质第一章：向量究竟是什么&quot;&gt;&lt;a href=&quot;#3Blue1Brown-线代本质第一章：向量究竟是什么&quot; class=&quot;headerlink&quot; title=&quot;3Blue1Brown_线代本质第一章：向量究竟是什么&quot;&gt;&lt;/a&gt;3Blue</summary>
       
     
     
