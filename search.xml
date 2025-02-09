@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Houdini湖边小屋学习（一）</title>
+    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
+    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
+<hr>
+<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-PCG</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Select Tool 使用文档】 （测试在线文档）</title>
+    <url>/2023/01/06/TAcourse_week06_selectTool_helpDoc/</url>
+    <content><![CDATA[<h1 id="【Select-Tool-使用文档】-（测试在线文档）"><a href="#【Select-Tool-使用文档】-（测试在线文档）" class="headerlink" title="【Select Tool 使用文档】 （测试在线文档）"></a><center>【Select Tool 使用文档】 （测试在线文档）</center></h1><h2 id="🐢工具介绍"><a href="#🐢工具介绍" class="headerlink" title="🐢工具介绍"></a>🐢工具介绍</h2><blockquote>
+<p>✨此工具用于选择不同类型的模型<br>✨按键之间都是独立的，不会混合选择的类型<br>✨被选中的模型会在工具中显示出来</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155106.png" alt="20230106155106"></p>
+<hr>
+<hr>
+<h2 id="🐢使用指南"><a href="#🐢使用指南" class="headerlink" title="🐢使用指南"></a>🐢使用指南</h2><blockquote>
+<p>🌻选择polymeshes如下图：  </p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155132.png" alt="20230106155132"></p>
+<hr>
+<blockquote>
+<p>🌻选择Nurbs Meshes如下图： </p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155358.png" alt="20230106155358"></p>
+<hr>
+<blockquote>
+<p>🌻选择Curves如下图：</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155500.png" alt="20230106155500"></p>
+<hr>
+<blockquote>
+<p>☃️若场景中没有此类选择的物体，会提示：Zero object of this type!</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155847.png" alt="20230106155847"></p>
+<hr>
+<blockquote>
+<p>☃️将鼠标悬停在按钮上会有功能的相应提示</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106161621.png" alt="20230106161621"></p>
+<hr>
+<blockquote>
+<p>☃️下拉help菜单可以阅读此工具的帮助文档（也就是这篇）</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106161816.png" alt="20230106161816"></p>
+<blockquote>
+<p>🐨以上就是select tool的介绍！<br>🐨此文档目前只用于托管在线文档测试！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>-Help Doc</category>
+      </categories>
+      <tags>
+        <tag>-Help Doc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>百人计划笔记01_1.1：图形渲染管线</title>
     <url>/2023/02/11/TA100_1_1_renderPipeline/</url>
     <content><![CDATA[<h1 id="1-1：图形渲染管线-【renderPipeline】"><a href="#1-1：图形渲染管线-【renderPipeline】" class="headerlink" title="1.1：图形渲染管线 【renderPipeline】"></a>1.1：图形渲染管线 【renderPipeline】</h1><h2 id="百人计划笔记01"><a href="#百人计划笔记01" class="headerlink" title="百人计划笔记01"></a>百人计划笔记01</h2><blockquote>
@@ -181,97 +243,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Houdini去年（2022）的程序化生成总结~</title>
-    <url>/2023/06/19/houdini_procedural_modeling2022/</url>
-    <content><![CDATA[<h1 id="😈总结一下去年（2022）的Houdini"><a href="#😈总结一下去年（2022）的Houdini" class="headerlink" title="😈总结一下去年（2022）的Houdini~"></a>😈总结一下去年（2022）的Houdini~</h1><blockquote>
-<p>🍺最开始做Houdini程序化资产的时候还没有现在这个个人网站，于是现在填补一下发发，总结一下<br>🍺嘛~ 现在有一阵子没碰houdini了，希望最近继续富有激情的学习Houdini~</p>
-</blockquote>
-<ul>
-<li>以下的Breakdown均发在bilibili了，连接也会在下面放出~ 其实都是最开始接触Houdini的时候做的，当时最感兴趣的还得是Sop模块，现在看来我做的不太好，只能说今年还会继续改进。</li>
-<li>当然了~ 目前已经开始着手学习Houdini到UE5这一流程，请期待后续的更新！</li>
-</ul>
-<h2 id="👻BreakDown视频"><a href="#👻BreakDown视频" class="headerlink" title="👻BreakDown视频"></a>👻BreakDown视频</h2><blockquote>
-<p>以下是三个Breakdown,具体放在我的Blibili了，可以点击查看~<br><a href="https://www.bilibili.com/video/BV1VT4y1B7QL/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">1.City In The Sky</a><br><a href="https://www.bilibili.com/video/BV1vW4y1U7Ly/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">2.TrainNight</a><br><a href="https://www.bilibili.com/video/BV1te411u7TE/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">3.Env</a></p>
-</blockquote>
-<h2 id="👻BreakDown图文"><a href="#👻BreakDown图文" class="headerlink" title="👻BreakDown图文"></a>👻BreakDown图文</h2><h3 id="City-In-the-Sky"><a href="#City-In-the-Sky" class="headerlink" title="City In the Sky"></a>City In the Sky</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_01.png" alt="Tech_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_02.png" alt="Tech_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ivyTool.gif" alt="ivyTool"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bricksGenerator.gif" alt="bricksGenerator"></p>
-<hr>
-<h3 id="TrainNight"><a href="#TrainNight" class="headerlink" title="TrainNight"></a>TrainNight</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_03.png" alt="Tech_03"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_04.png" alt="Tech_04"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/nt-bdgenerator.gif" alt="nt-bdgenerator"></p>
-<hr>
-<h3 id="Env"><a href="#Env" class="headerlink" title="Env"></a>Env</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_05.png" alt="Tech_05"></p>
-<ul>
-<li>详细展示可以查阅我的b站<a href="https://space.bilibili.com/552910222?spm_id_from=333.788.0.0">ZeTiiCannotStop</a>，也欢迎去b站私信我与我讨论~</li>
-</ul>
-]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-procedural modeling</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Select Tool 使用文档】 （测试在线文档）</title>
-    <url>/2023/01/06/TAcourse_week06_selectTool_helpDoc/</url>
-    <content><![CDATA[<h1 id="【Select-Tool-使用文档】-（测试在线文档）"><a href="#【Select-Tool-使用文档】-（测试在线文档）" class="headerlink" title="【Select Tool 使用文档】 （测试在线文档）"></a><center>【Select Tool 使用文档】 （测试在线文档）</center></h1><h2 id="🐢工具介绍"><a href="#🐢工具介绍" class="headerlink" title="🐢工具介绍"></a>🐢工具介绍</h2><blockquote>
-<p>✨此工具用于选择不同类型的模型<br>✨按键之间都是独立的，不会混合选择的类型<br>✨被选中的模型会在工具中显示出来</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155106.png" alt="20230106155106"></p>
-<hr>
-<hr>
-<h2 id="🐢使用指南"><a href="#🐢使用指南" class="headerlink" title="🐢使用指南"></a>🐢使用指南</h2><blockquote>
-<p>🌻选择polymeshes如下图：  </p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155132.png" alt="20230106155132"></p>
-<hr>
-<blockquote>
-<p>🌻选择Nurbs Meshes如下图： </p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155358.png" alt="20230106155358"></p>
-<hr>
-<blockquote>
-<p>🌻选择Curves如下图：</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155500.png" alt="20230106155500"></p>
-<hr>
-<blockquote>
-<p>☃️若场景中没有此类选择的物体，会提示：Zero object of this type!</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106155847.png" alt="20230106155847"></p>
-<hr>
-<blockquote>
-<p>☃️将鼠标悬停在按钮上会有功能的相应提示</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106161621.png" alt="20230106161621"></p>
-<hr>
-<blockquote>
-<p>☃️下拉help菜单可以阅读此工具的帮助文档（也就是这篇）</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230106161816.png" alt="20230106161816"></p>
-<blockquote>
-<p>🐨以上就是select tool的介绍！<br>🐨此文档目前只用于托管在线文档测试！</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>-Help Doc</category>
-      </categories>
-      <tags>
-        <tag>-Help Doc</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Houdini湖边小屋学习（一）</title>
-    <url>/2022/09/13/houdini_lakeHouse_p1/</url>
-    <content><![CDATA[<p>🐸本文为我的houdini湖边小屋笔记第一篇内容，作为我PCG的进阶学习部分来记录一下~~~<br>🐸目前是<strong>第一篇</strong><br>🐸加油加油！</p>
-<hr>
-<h1 id="湖边小屋第一篇"><a href="#湖边小屋第一篇" class="headerlink" title="湖边小屋第一篇"></a>湖边小屋第一篇</h1><h2 id="第一部分-Base-shape："><a href="#第一部分-Base-shape：" class="headerlink" title="第一部分 Base shape："></a>第一部分 Base shape：</h2>]]></content>
-      <categories>
-        <category>-Houdini</category>
-      </categories>
-      <tags>
-        <tag>-PCG</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Houdini 中for-each 和for-loop 节点</title>
     <url>/2022/09/13/houdini_foreach/</url>
     <content><![CDATA[<h1 id="Houdini-中for-each-和for-loop-节点"><a href="#Houdini-中for-each-和for-loop-节点" class="headerlink" title="Houdini 中for-each 和for-loop 节点"></a>Houdini 中for-each 和for-loop 节点</h1><p>学习houdini时间不长，刚入门的时候就一直对foreach的使用比较迷糊，在这里写一篇学习笔记来认识一下这个使用方式，比较基础 。如果有问题，请各位大佬及时补充和指正！</p>
@@ -322,6 +293,35 @@
       </categories>
       <tags>
         <tag>-Houdini节点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Houdini去年（2022）的程序化生成总结~</title>
+    <url>/2023/06/19/houdini_procedural_modeling2022/</url>
+    <content><![CDATA[<h1 id="😈总结一下去年（2022）的Houdini"><a href="#😈总结一下去年（2022）的Houdini" class="headerlink" title="😈总结一下去年（2022）的Houdini~"></a>😈总结一下去年（2022）的Houdini~</h1><blockquote>
+<p>🍺最开始做Houdini程序化资产的时候还没有现在这个个人网站，于是现在填补一下发发，总结一下<br>🍺嘛~ 现在有一阵子没碰houdini了，希望最近继续富有激情的学习Houdini~</p>
+</blockquote>
+<ul>
+<li>以下的Breakdown均发在bilibili了，连接也会在下面放出~ 其实都是最开始接触Houdini的时候做的，当时最感兴趣的还得是Sop模块，现在看来我做的不太好，只能说今年还会继续改进。</li>
+<li>当然了~ 目前已经开始着手学习Houdini到UE5这一流程，请期待后续的更新！</li>
+</ul>
+<h2 id="👻BreakDown视频"><a href="#👻BreakDown视频" class="headerlink" title="👻BreakDown视频"></a>👻BreakDown视频</h2><blockquote>
+<p>以下是三个Breakdown,具体放在我的Blibili了，可以点击查看~<br><a href="https://www.bilibili.com/video/BV1VT4y1B7QL/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">1.City In The Sky</a><br><a href="https://www.bilibili.com/video/BV1vW4y1U7Ly/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">2.TrainNight</a><br><a href="https://www.bilibili.com/video/BV1te411u7TE/?spm_id_from=333.999.0.0&vd_source=95a1cfccd5b1e6779677de477b25aa31">3.Env</a></p>
+</blockquote>
+<h2 id="👻BreakDown图文"><a href="#👻BreakDown图文" class="headerlink" title="👻BreakDown图文"></a>👻BreakDown图文</h2><h3 id="City-In-the-Sky"><a href="#City-In-the-Sky" class="headerlink" title="City In the Sky"></a>City In the Sky</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_01.png" alt="Tech_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_02.png" alt="Tech_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ivyTool.gif" alt="ivyTool"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/bricksGenerator.gif" alt="bricksGenerator"></p>
+<hr>
+<h3 id="TrainNight"><a href="#TrainNight" class="headerlink" title="TrainNight"></a>TrainNight</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_03.png" alt="Tech_03"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_04.png" alt="Tech_04"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/nt-bdgenerator.gif" alt="nt-bdgenerator"></p>
+<hr>
+<h3 id="Env"><a href="#Env" class="headerlink" title="Env"></a>Env</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Tech_05.png" alt="Tech_05"></p>
+<ul>
+<li>详细展示可以查阅我的b站<a href="https://space.bilibili.com/552910222?spm_id_from=333.788.0.0">ZeTiiCannotStop</a>，也欢迎去b站私信我与我讨论~</li>
+</ul>
+]]></content>
+      <categories>
+        <category>-Houdini</category>
+      </categories>
+      <tags>
+        <tag>-procedural modeling</tag>
       </tags>
   </entry>
   <entry>
@@ -595,229 +595,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</title>
-    <url>/2022/09/22/math_Essense_of_Linear_Algebra_P02/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第二章：线性组合，张成的空间与基"><a href="#3Blue1Brown-线代本质第二章：线性组合，张成的空间与基" class="headerlink" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"></a>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
-<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
-<li>官方一共将此系列分为12节，所以我也会分开写。</li>
-<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
-<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
-</ul>
-<hr>
-<h2 id="✏️基向量："><a href="#✏️基向量：" class="headerlink" title="✏️基向量："></a>✏️基向量：</h2><h3 id="✍️在xy坐标系中两个特殊向量："><a href="#✍️在xy坐标系中两个特殊向量：" class="headerlink" title="✍️在xy坐标系中两个特殊向量："></a>✍️在xy坐标系中两个特殊向量：</h3><ul>
-<li>一个指向正右方，长度为1，通常被称为“i-hat”（i帽）或x方向的单位向量。</li>
-<li>另一个指向正上方，长度为1，通常被称为“j-hat”（j帽）或者y方向的单位向量。</li>
-<li><strong>i-hat与j-hat这两个向量有特殊的名称，他们是xy坐标轴的“基向量”（basis vector）。</strong></li>
-<li>这是在表述：当你把坐标看为标量时，基向量实际上就是这些标量的缩放对象。</li>
-</ul>
-<hr>
-<h3 id="✍️例子1："><a href="#✍️例子1：" class="headerlink" title="✍️例子1："></a>✍️例子1：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ihat_jhat.png" alt="ihat_jhat"></p>
-<ul>
-<li><strong>由上图示意看出，（3，-2）可以想象为</strong>：x坐标是一个标量，它将i帽拉升为原来的三倍；y坐标也是一个标量，它将j帽反向并拉伸为原来的两倍。从这个角度看，这个向量实际上是两个经过缩放的向量的和。</li>
-<li>“<strong>缩放向量并且相加</strong>”这一概念十分重要。</li>
-</ul>
-<hr>
-<h3 id="✍️如果我们选择不同的基向量会怎么样："><a href="#✍️如果我们选择不同的基向量会怎么样：" class="headerlink" title="✍️如果我们选择不同的基向量会怎么样："></a>✍️如果我们选择不同的基向量会怎么样：</h3><ul>
-<li><strong>我们完全可以选择不同的基向量，获得一个合理的新坐标系。</strong></li>
-<li>比如随便选一个指向右上方的向量，再随便选择一个指向右下方的向量，想象通过选择两个标量，分别用于缩放二者的其中一个， 然后把他们相加，就可以得到不同的结果。通过改变所选择的向量，我们可以得到所有向量。</li>
-<li>一对新的基向量，同样允许我们在一对数和二维向量之间自由转化。但是这种变化关系与我们之前使用的i帽和j帽的变化关系完全不同。</li>
-<li><strong>每当我们用数字描述向量的时候，它都依赖于我们正在使用的基。</strong></li>
-<li><strong>两个数乘向量的和被称为这两个向量的线性组合（Linear combination）。</strong></li>
-<li><strong>那么线性怎么来的可以考虑为：</strong> 如果固定其中一个标量，让另一个标量自由变化，所产生的终点会描述出一条直线，如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/linearCombination.png" alt="linearCombination"></li>
-</ul>
-<hr>
-<ul>
-<li><strong>如果让两个标量同时自由变换，考虑所有可得到的向量，可能有两种情况（实际是三种）：</strong><ol>
-<li>大部分情况下，对于一对初始向量，你能达到平面中每一个点；所有二维向量都尽在掌握。</li>
-<li>另一种较为糟糕的情况是，当两个初始向量恰好共线时，所产生的向量的终点被限制在一条过原点的直线上。</li>
-<li>事实上还有第三种情况就是，两个向量都是零向量,那就只能在原点了。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E5%8F%98%E6%8D%A2%E7%9A%84%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5.png" alt="向量变换的三种情况"></li>
-</ol>
-</li>
-</ul>
-<hr>
-<h2 id="✏️张成空间（span）："><a href="#✏️张成空间（span）：" class="headerlink" title="✏️张成空间（span）："></a>✏️张成空间（span）：</h2><p><strong>概念：</strong><br>    - <strong>所有可以表示为给定向量线性组合的向量的集合，被成为给定向量张成的空间。</strong></p>
-<ul>
-<li>下图：向量全部线性组合构成的向量集合成为“张成的空间”，a与b在实数范围内变动。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4.png" alt="张成空间"></li>
-</ul>
-<h3 id="✍️二维空间内张成空间："><a href="#✍️二维空间内张成空间：" class="headerlink" title="✍️二维空间内张成空间："></a>✍️二维空间内张成空间：</h3><ul>
-<li>通常情况下，我们用向量的终点代表向量（起点是原点）；用这种方法来看，如果要考虑落在一条直线上所有向量的时候，只需要考虑直线本身就行了。所以也可以考虑为，如果同时考虑xy坐标系中所有向量，将每个向量抽象为它的终点，实际上就不用考虑所有的肩头了，只需要考虑无限大的二维平面本身即可。</li>
-<li>如果考虑一个向量，我们就可以把他看作箭头；如果考虑多个向量，则可以把他们都看作是点。</li>
-<li>对大部分二维向量来说，它们的张成空间是整个无限大的二维平面；但如果共线，他们的张成空间就是一条直线。</li>
-</ul>
-<hr>
-<h3 id="✍️三维空间内张成空间："><a href="#✍️三维空间内张成空间：" class="headerlink" title="✍️三维空间内张成空间："></a>✍️三维空间内张成空间：</h3><h4 id="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："><a href="#在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：" class="headerlink" title="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："></a>在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="两个向量在三维空间"></p>
-<ul>
-<li>这两个向量的张成空间就是他们所有可能的线性组合；也就是缩放再相加之后所有可得到的向量。</li>
-<li>逐渐改变线性组合中的这两个标量，把缩放后的向量相加，然后跟着最终向量的终点走，这个终点会画出三维空间中某个过原点的平面；这个平面就是这两个向量的张成空间。（所有终点落在这个平面上的向量集合是这两个向量的张成空间）</li>
-</ul>
-<h4 id="如果加上第三个向量，他们的张成空间是这样的："><a href="#如果加上第三个向量，他们的张成空间是这样的：" class="headerlink" title="如果加上第三个向量，他们的张成空间是这样的："></a>如果加上第三个向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="三个向量在三维空间"></p>
-<ul>
-<li>选择三个向量分别进行缩放，然后把结果相加。</li>
-<li>这三个向量所有可能的线性作何构成了他们的张成空间。</li>
-<li>如果第三个向量恰好落在前两个向量所张成的平面上，那么他们张成的空间并不改变，还是在这个平面中。</li>
-<li>但是如果随机选一个向量，他几乎不可能落在前两个向量所张成的平面中；这种情况下，由于第三个向量指向不同的方向，我们就能得到所有的三维向量。（可以考虑成：当我们缩放第三个向量的时候，他将前两个向量张成平面来回沿着它的方向移动，从而扫过整个三维空间。）</li>
-</ul>
-<hr>
-<h2 id="✏️Linearly-dependent-和-Linearly-Independent："><a href="#✏️Linearly-dependent-和-Linearly-Independent：" class="headerlink" title="✏️Linearly dependent 和 Linearly Independent："></a>✏️Linearly dependent 和 Linearly Independent：</h2><h4 id="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："><a href="#当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：" class="headerlink" title="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："></a>当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：</h4><ul>
-<li>这种情况说明一组向量中至少有一个是多余的，没有对张成空间做出任何贡献，我们取走这个多余的向量也不减少张成空间，这样的情况下，我们称它为“<strong>线性相关</strong>”（<strong>Linearly dependent</strong>）的。</li>
-</ul>
-<h4 id="如果所有向量都给张成空间添加了新的维度："><a href="#如果所有向量都给张成空间添加了新的维度：" class="headerlink" title="如果所有向量都给张成空间添加了新的维度："></a>如果所有向量都给张成空间添加了新的维度：</h4><ul>
-<li>这种情况就称之为“<strong>线性无关</strong>”（<strong>Linearly Independent</strong>）的。</li>
-</ul>
-<hr>
-<h2 id="✏️基的严格定义（Technical-definition-of-basis）："><a href="#✏️基的严格定义（Technical-definition-of-basis）：" class="headerlink" title="✏️基的严格定义（Technical definition of basis）："></a>✏️基的严格定义（Technical definition of basis）：</h2><ul>
-<li>The basis of a vector space is a set of linearly independent vectors that span the full space<br>(向量空间的一组基是张成该空间的一个线性无关向量集)<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89.png" alt="基的严格定义"></li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>-3Blue1Brown线性代数本质</category>
-      </categories>
-      <tags>
-        <tag>-学数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3Blue1Brown_线代本质第五章：行列式</title>
-    <url>/2022/09/26/math_Essense_of_Linear_Algebra_P05/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第五章：行列式"><a href="#3Blue1Brown-线代本质第五章：行列式" class="headerlink" title="3Blue1Brown_线代本质第五章：行列式"></a>3Blue1Brown_线代本质第五章：行列式</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第五章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
-<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
-<li>官方一共将此系列分为12节，所以我也会分开写。</li>
-<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
-<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
-</ul>
-<hr>
-<h2 id="✏️区域内面积增大减小："><a href="#✏️区域内面积增大减小：" class="headerlink" title="✏️区域内面积增大减小："></a>✏️区域内面积增大减小：</h2><ul>
-<li>想象一些线性空间，有的变换是向外拉伸空间（Generally stretches space），有的则是向内挤压（Generally squashes space）；有件事情对理解这些线性变换很有用，那就是测量这些变换究竟对空间有多少拉伸或挤压；也就是：<strong>测量一个给定区域面积增大或减小的比例。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%8F%98%E6%8D%A2%E5%90%8E%E7%9A%84%E9%9D%A2%E7%A7%AF.png" alt="变换后的面积"></li>
-<li>如上图所示，i帽从（1，0）变换为（3，0），j帽从（0，1）变换为（0，2）；则由i帽和j帽决定的单位正方形的面积从原先的1x1变成了现在的3x2；它的面积增大了6倍。所以我们说这个线性变换将它的面积变为6倍。</li>
-</ul>
-<hr>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%89%AA%E5%88%87%E7%9F%A9%E9%98%B5%E7%9A%84%E9%9D%A2%E7%A7%AF%E5%8F%98%E6%8D%A2.png" alt="剪切矩阵的面积变换"></p>
-<ul>
-<li>【<strong>剪切矩阵</strong>】则是i帽不变还是在（1，0），j帽从（0，1）变为（1，1）；此时由i帽和j帽决定的单位正方形在变换后倾斜为一个平行四边形，但是它的面积是不变的。所以说即便这个变换空间向右挤压，它并不改变面积。</li>
-<li>实际上，只要知道单位正方形面积变化的比例，他就能告诉你其他任意区域的面积变化比例（因为“网格线保持平行且等距分布”）。</li>
-</ul>
-<hr>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%BF%90%E7%94%A8%E8%BF%91%E4%BC%BC%E7%9A%84%E6%96%B9%E6%A0%BC%E7%BC%A9%E6%94%BE.png" alt="运用近似的方格缩放"></p>
-<ul>
-<li>对于不是方形网格的形状，我们可以用许多放个良好近似，只要使用的方格足够小，近似就能足够好。由于所有的小方格都是进行等比缩放，所以整个形状也进行了同样比例的缩放。</li>
-</ul>
-<hr>
-<h2 id="✏️线性变换的行列式（The-“deternminant”-of-a-transformation）："><a href="#✏️线性变换的行列式（The-“deternminant”-of-a-transformation）：" class="headerlink" title="✏️线性变换的行列式（The “deternminant” of a transformation）："></a>✏️线性变换的行列式（The “deternminant” of a transformation）：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt="线性变换行列式"></p>
-<ul>
-<li>比如说，一个线性变换的行列式是3，那么就是说他将一个区域的面积增加为原来的三倍。</li>
-<li>同理一个线性变换的行列式是1&#x2F;2，那么就说他将一个区域的面积减少为原来的二分之一。</li>
-<li>如果一个线性变换的行列式是0，那么说明它将整个平面压缩到一条线，甚至是一个点上。</li>
-<li>如果变换前j帽在i帽的左侧，变换后j帽变成i帽的右侧，那么此时空间定向就发生了改变（Orientation has been reversed）。</li>
-<li><strong>当空间定向改变，行列式为负</strong>，但是行列式的绝对值依然表示区域面积的缩放比例。</li>
-</ul>
-<hr>
-<h3 id="✍️负的面积为什么与定向改变相关？"><a href="#✍️负的面积为什么与定向改变相关？" class="headerlink" title="✍️负的面积为什么与定向改变相关？"></a>✍️负的面积为什么与定向改变相关？</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%BA%E8%B4%9F%E5%80%BC%E7%9A%84%E6%83%85%E5%86%B5.png" alt="行列式为负值的情况"></p>
-<ul>
-<li>考虑i帽靠近j帽时的变换，空间也被更厉害的压缩，意味着行列式趋近于0；当i帽与j帽完全重合时，行列式为0。如果i帽继续沿着这个方向运动，则行列式继续减小为负值。</li>
-</ul>
-<hr>
-<h2 id="✏️三维空间中行列式的变换："><a href="#✏️三维空间中行列式的变换：" class="headerlink" title="✏️三维空间中行列式的变换："></a>✏️三维空间中行列式的变换：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E5%86%85%E7%9A%84%E5%8F%98%E6%8D%A2.png" alt="行列式在三维空间内的变换"></p>
-<ul>
-<li>它告诉你的依然是变换前后的缩放比例，不过三维空间内缩放的是体积。</li>
-<li>在三维空间中我们可以用1x1x1，即i，j，k这三个基向量，这个特殊的立方体来观察行列式的变换。</li>
-<li>我们可以把行列式简单的看作这个平行六面体的体积<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%85%AD%E9%9D%A2%E4%BD%93%E7%9A%84%E4%BD%93%E7%A7%AF.png" alt="平行六面体的体积"></li>
-<li>行列式为0则意味着整个空间被压缩为零体积的东西。也就是一个平面，一条直线或一个点。</li>
-</ul>
-<hr>
-<h3 id="✍️如何计算行列式？："><a href="#✍️如何计算行列式？：" class="headerlink" title="✍️如何计算行列式？："></a>✍️如何计算行列式？：</h3><ul>
-<li>首先它必须得是方形矩阵（行列数相等）。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97%E6%8E%A8%E5%AF%BC.png" alt="行列式面积计算推导"></li>
-<li>ad是平行四边形的面积公式底乘以高，如果c不为0的情况下，这个bc项准确的告诉你平行四边形在对角线方向上拉伸或压缩了多少；则这个公式就可以计算出拉伸后的面积。</li>
-</ul>
-<h3 id="✍️三阶行列式计算公式："><a href="#✍️三阶行列式计算公式：" class="headerlink" title="✍️三阶行列式计算公式："></a>✍️三阶行列式计算公式：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png" alt="三阶行列式计算公式"></p>
-<hr>
-]]></content>
-      <categories>
-        <category>-3Blue1Brown线性代数本质</category>
-      </categories>
-      <tags>
-        <tag>-学数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3Blue1Brown_线代本质第三章：矩阵与线性变换</title>
-    <url>/2022/09/24/math_Essense_of_Linear_Algebra_P03/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第三章：矩阵与线性变换"><a href="#3Blue1Brown-线代本质第三章：矩阵与线性变换" class="headerlink" title="3Blue1Brown_线代本质第三章：矩阵与线性变换"></a>3Blue1Brown_线代本质第三章：矩阵与线性变换</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第三章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
-<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
-<li>官方一共将此系列分为12节，所以我也会分开写。</li>
-<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
-<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
-</ul>
-<hr>
-<h2 id="✏️线性变换："><a href="#✏️线性变换：" class="headerlink" title="✏️线性变换："></a>✏️线性变换：</h2><p>【<strong>注</strong>：这章节讨论在二维空间的样子，以及与矩阵向量乘法的关联，并展示一种不用死记硬背的考虑矩阵向量乘法的方法。】</p>
-<h3 id="✍️解析“线性变换”："><a href="#✍️解析“线性变换”：" class="headerlink" title="✍️解析“线性变换”："></a>✍️解析“线性变换”：</h3><ul>
-<li>Linear Transformation &#x3D; Linear Function</li>
-<li>“变换”（Transformation）本质上是“函数”（function）的一种花哨的说法；它接受输入内容，并输出对应结果。</li>
-<li>变换和函数意义相同还要用不同的词汇表达的原因是：使用“变换”是在暗示以特定的方式来可视化这一“输入”“输出”关系；“变换”这个词在按时我们用运动去思考。</li>
-<li>每一个输入向量都移动到输出向量的位置：将向量看作是点，那么变换就是空间中的点移动到其他点的位置。</li>
-<li><strong>直观的说，如果一个变换具有以下两条性质，我们就可以称它是线性的</strong>：<br>  <strong>1. 直线在变换后仍然保持为直线，不能有所弯曲。</strong><br>  <strong>2. 原点保持固定。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E8%A7%84%E5%88%99.png" alt="线性变换规则"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220924214734.png" alt="20220924214734"></li>
-<li><strong>总的来说，可以把线性变换看作是“保持网格线平行且等距分布”的变换</strong>。部分线性变换比较容易思考，如：网格以原点为轴心进行旋转；其他的则稍加复杂。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2.png" alt="线性变换"></li>
-</ul>
-<hr>
-<h3 id="✍️如何用数值描述线性变换："><a href="#✍️如何用数值描述线性变换：" class="headerlink" title="✍️如何用数值描述线性变换："></a>✍️如何用数值描述线性变换：</h3><ul>
-<li><p>我们给出一个向量坐标，希望得到一个变换后向量的坐标只需要通过：</p>
-<ul>
-<li><strong>记录两个基向量i帽和j帽变换后的位置，其他向量也会随之而动</strong></li>
-</ul>
-</li>
-<li><p>由下图可视，向量v的坐标原本为（-1，2），这个向量可以看作为-1与i帽之积和2与j帽之基的和。如果运用一些变换，使得向量一起运动，并尊重“网格保持平行且等距分布”这个原则，变换后的向量v的位置，就是-1与变换后i帽之积加上2与变换后j帽之积。</p>
-</li>
-<li><p>换句话说，向量v是i帽和j帽的一个特定线性组合；那么变换后的向量v也是变换后i帽与j帽同样的线性组合。这就意味着，你可以只根据变换后的i帽与j帽，就推断出变化后的v。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%80%BC%E6%8F%8F%E8%BF%B0%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2.png" alt="数值描述线性变换"></p>
-</li>
-<li><p>一般情况下，一个向量的坐标是（x，y），变换后的向量就是x乘变换后的i帽，加上y乘变换后的j帽。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%85%AC%E5%BC%8Fpng.png" alt="公式png"></p>
-</li>
-<li><p>一个二维线性变换仅由四个数字完全确定：变换后i帽的两个坐标与变换后j帽的两个作坐标。</p>
-</li>
-<li><p>通常我们将这些坐标装在一个2x2的格子中，称它为2x2矩阵。</p>
-</li>
-</ul>
-<hr>
-<h2 id="✏️矩阵："><a href="#✏️矩阵：" class="headerlink" title="✏️矩阵："></a>✏️矩阵：</h2><ul>
-<li>如果有一个描述线性变换的2x2矩阵，以及一个给定的初始向量，你只需要取初始向量的坐标，将他们分别于矩阵的特定列相乘，然后结果相加即可。这与“缩放基向量再相加”的思想一致。</li>
-<li><strong>矩阵在这里只是一个记号，它含有描述线性变换的信息。</strong></li>
-<li>如下图所示：我们可以把矩阵的第一列（a，c）看作是变换后第一个基向量，把第二列（b，d）看作是变换后第二个基向量；我们将这个变换作用于向量（x，y），它的结果就是（ax+by，cx+dy）。我们可以把它定义为<strong>矩阵向量乘法</strong>。<strong>矩阵放在向量左边，类似一个函数</strong>。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/2x2%E7%9F%A9%E9%98%B5%E5%85%AC%E5%BC%8F.png" alt="2x2矩阵公式"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E4%B9%98%E6%B3%95.png" alt="矩阵向量乘法"></li>
-<li><strong>我们完全可以把矩阵的列看作变换后的基向量，把矩阵向量的乘法看作他们的线性组合。</strong></li>
-<li>线性变换是操纵空间的一种手段；这种变换只需要几个数字就可以描述清楚，这些数字就是变换后的基向量的坐标。</li>
-</ul>
-<hr>
-<h3 id="✍️示例：逆时针旋转90度"><a href="#✍️示例：逆时针旋转90度" class="headerlink" title="✍️示例：逆时针旋转90度"></a>✍️示例：逆时针旋转90度</h3><ul>
-<li>如下图示例，i帽初始为（1，0），j帽初始为（0，1）；如果将他们逆时针旋转90度，那么变换后的i帽就是（0，-1），j帽就是（-1，0）。</li>
-<li>如果此时我们想计算一个向量逆时针旋转90度：可以直接将这个向量（x，y）与变换后的i帽与j帽相乘。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E8%BD%AC90%E5%BA%A6%E6%A1%88%E4%BE%8B.png" alt="向量逆时针旋转90度案例"></li>
-</ul>
-<hr>
-<h3 id="✍️Shear（剪切-x2F-错切）："><a href="#✍️Shear（剪切-x2F-错切）：" class="headerlink" title="✍️Shear（剪切&#x2F;错切）："></a>✍️Shear（剪切&#x2F;错切）：</h3><ul>
-<li>i帽保持为（1，0），j帽移动到坐标（1，1）。为了计算一个向量变换后的位置，可以直接将向量与这个矩阵相乘。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220925165136.png" alt="shear"></li>
-</ul>
-<hr>
-<h3 id="✍️反向思考："><a href="#✍️反向思考：" class="headerlink" title="✍️反向思考："></a>✍️反向思考：</h3><ul>
-<li>如果我们希望推测一个矩阵代表的线性变换是什么样的，我们可以将i帽与j帽先移动到变换后的位置，空间其他剩余部分则跟随二者一起运动，以保持网格线平行且等距分布。</li>
-<li>如果变换后的i帽和变换后的j帽是线性相关的，意味着其中一个向量是另一个的倍数，那么这个线性变换将整个二维空间挤压到他们所在的一条直线上，也就是这儿两个线性相关向量所张成的一维空间。</li>
-</ul>
-<hr>
-<h2 id="✏️总结："><a href="#✏️总结：" class="headerlink" title="✏️总结："></a>✏️总结：</h2><ul>
-<li><strong>总之，线性变换是操纵空间的一种手段，它保持网格线平行且等距分布，并且保持原点不动。</strong></li>
-<li>这种变换只需要几个数字就能够描述清楚，这些数字就是变换后基向量的坐标；以这些坐标为列所构成的矩阵为我们提供了一种描述线性变换的语言。矩阵向量乘法就是计算线性变换作用于给定向量的一种途径。</li>
-<li>矩阵都可以理解为对空间的一种特定变换。</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>-3Blue1Brown线性代数本质</category>
-      </categories>
-      <tags>
-        <tag>-学数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>houdini以及3D数学学习列表合辑</title>
     <url>/2022/09/09/houdini/</url>
     <content><![CDATA[<ul>
@@ -988,6 +765,289 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
 <li><strong>怎么看待向量都无所谓，它的实际作用也很少体现在这些观点的其中一个上，而是更多的体现在它能够在这些观点中相互转化。</strong></li>
 <li>线性代数为数据分析提供了一条将大量数据列表概念化，可视化的渠道。他让数据样式变得非常明晰，并让我们了解特定运算的意义。</li>
 <li>另一方面，线代给物理学家和计算机图形程序员提供了一种语言，让他们通过计算机能处理的数字来描述并操纵空间。</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3Blue1Brown_线代本质第三章：矩阵与线性变换</title>
+    <url>/2022/09/24/math_Essense_of_Linear_Algebra_P03/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第三章：矩阵与线性变换"><a href="#3Blue1Brown-线代本质第三章：矩阵与线性变换" class="headerlink" title="3Blue1Brown_线代本质第三章：矩阵与线性变换"></a>3Blue1Brown_线代本质第三章：矩阵与线性变换</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第三章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️线性变换："><a href="#✏️线性变换：" class="headerlink" title="✏️线性变换："></a>✏️线性变换：</h2><p>【<strong>注</strong>：这章节讨论在二维空间的样子，以及与矩阵向量乘法的关联，并展示一种不用死记硬背的考虑矩阵向量乘法的方法。】</p>
+<h3 id="✍️解析“线性变换”："><a href="#✍️解析“线性变换”：" class="headerlink" title="✍️解析“线性变换”："></a>✍️解析“线性变换”：</h3><ul>
+<li>Linear Transformation &#x3D; Linear Function</li>
+<li>“变换”（Transformation）本质上是“函数”（function）的一种花哨的说法；它接受输入内容，并输出对应结果。</li>
+<li>变换和函数意义相同还要用不同的词汇表达的原因是：使用“变换”是在暗示以特定的方式来可视化这一“输入”“输出”关系；“变换”这个词在按时我们用运动去思考。</li>
+<li>每一个输入向量都移动到输出向量的位置：将向量看作是点，那么变换就是空间中的点移动到其他点的位置。</li>
+<li><strong>直观的说，如果一个变换具有以下两条性质，我们就可以称它是线性的</strong>：<br>  <strong>1. 直线在变换后仍然保持为直线，不能有所弯曲。</strong><br>  <strong>2. 原点保持固定。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E8%A7%84%E5%88%99.png" alt="线性变换规则"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220924214734.png" alt="20220924214734"></li>
+<li><strong>总的来说，可以把线性变换看作是“保持网格线平行且等距分布”的变换</strong>。部分线性变换比较容易思考，如：网格以原点为轴心进行旋转；其他的则稍加复杂。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2.png" alt="线性变换"></li>
+</ul>
+<hr>
+<h3 id="✍️如何用数值描述线性变换："><a href="#✍️如何用数值描述线性变换：" class="headerlink" title="✍️如何用数值描述线性变换："></a>✍️如何用数值描述线性变换：</h3><ul>
+<li><p>我们给出一个向量坐标，希望得到一个变换后向量的坐标只需要通过：</p>
+<ul>
+<li><strong>记录两个基向量i帽和j帽变换后的位置，其他向量也会随之而动</strong></li>
+</ul>
+</li>
+<li><p>由下图可视，向量v的坐标原本为（-1，2），这个向量可以看作为-1与i帽之积和2与j帽之基的和。如果运用一些变换，使得向量一起运动，并尊重“网格保持平行且等距分布”这个原则，变换后的向量v的位置，就是-1与变换后i帽之积加上2与变换后j帽之积。</p>
+</li>
+<li><p>换句话说，向量v是i帽和j帽的一个特定线性组合；那么变换后的向量v也是变换后i帽与j帽同样的线性组合。这就意味着，你可以只根据变换后的i帽与j帽，就推断出变化后的v。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%80%BC%E6%8F%8F%E8%BF%B0%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2.png" alt="数值描述线性变换"></p>
+</li>
+<li><p>一般情况下，一个向量的坐标是（x，y），变换后的向量就是x乘变换后的i帽，加上y乘变换后的j帽。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%85%AC%E5%BC%8Fpng.png" alt="公式png"></p>
+</li>
+<li><p>一个二维线性变换仅由四个数字完全确定：变换后i帽的两个坐标与变换后j帽的两个作坐标。</p>
+</li>
+<li><p>通常我们将这些坐标装在一个2x2的格子中，称它为2x2矩阵。</p>
+</li>
+</ul>
+<hr>
+<h2 id="✏️矩阵："><a href="#✏️矩阵：" class="headerlink" title="✏️矩阵："></a>✏️矩阵：</h2><ul>
+<li>如果有一个描述线性变换的2x2矩阵，以及一个给定的初始向量，你只需要取初始向量的坐标，将他们分别于矩阵的特定列相乘，然后结果相加即可。这与“缩放基向量再相加”的思想一致。</li>
+<li><strong>矩阵在这里只是一个记号，它含有描述线性变换的信息。</strong></li>
+<li>如下图所示：我们可以把矩阵的第一列（a，c）看作是变换后第一个基向量，把第二列（b，d）看作是变换后第二个基向量；我们将这个变换作用于向量（x，y），它的结果就是（ax+by，cx+dy）。我们可以把它定义为<strong>矩阵向量乘法</strong>。<strong>矩阵放在向量左边，类似一个函数</strong>。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/2x2%E7%9F%A9%E9%98%B5%E5%85%AC%E5%BC%8F.png" alt="2x2矩阵公式"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E4%B9%98%E6%B3%95.png" alt="矩阵向量乘法"></li>
+<li><strong>我们完全可以把矩阵的列看作变换后的基向量，把矩阵向量的乘法看作他们的线性组合。</strong></li>
+<li>线性变换是操纵空间的一种手段；这种变换只需要几个数字就可以描述清楚，这些数字就是变换后的基向量的坐标。</li>
+</ul>
+<hr>
+<h3 id="✍️示例：逆时针旋转90度"><a href="#✍️示例：逆时针旋转90度" class="headerlink" title="✍️示例：逆时针旋转90度"></a>✍️示例：逆时针旋转90度</h3><ul>
+<li>如下图示例，i帽初始为（1，0），j帽初始为（0，1）；如果将他们逆时针旋转90度，那么变换后的i帽就是（0，-1），j帽就是（-1，0）。</li>
+<li>如果此时我们想计算一个向量逆时针旋转90度：可以直接将这个向量（x，y）与变换后的i帽与j帽相乘。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E8%BD%AC90%E5%BA%A6%E6%A1%88%E4%BE%8B.png" alt="向量逆时针旋转90度案例"></li>
+</ul>
+<hr>
+<h3 id="✍️Shear（剪切-x2F-错切）："><a href="#✍️Shear（剪切-x2F-错切）：" class="headerlink" title="✍️Shear（剪切&#x2F;错切）："></a>✍️Shear（剪切&#x2F;错切）：</h3><ul>
+<li>i帽保持为（1，0），j帽移动到坐标（1，1）。为了计算一个向量变换后的位置，可以直接将向量与这个矩阵相乘。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20220925165136.png" alt="shear"></li>
+</ul>
+<hr>
+<h3 id="✍️反向思考："><a href="#✍️反向思考：" class="headerlink" title="✍️反向思考："></a>✍️反向思考：</h3><ul>
+<li>如果我们希望推测一个矩阵代表的线性变换是什么样的，我们可以将i帽与j帽先移动到变换后的位置，空间其他剩余部分则跟随二者一起运动，以保持网格线平行且等距分布。</li>
+<li>如果变换后的i帽和变换后的j帽是线性相关的，意味着其中一个向量是另一个的倍数，那么这个线性变换将整个二维空间挤压到他们所在的一条直线上，也就是这儿两个线性相关向量所张成的一维空间。</li>
+</ul>
+<hr>
+<h2 id="✏️总结："><a href="#✏️总结：" class="headerlink" title="✏️总结："></a>✏️总结：</h2><ul>
+<li><strong>总之，线性变换是操纵空间的一种手段，它保持网格线平行且等距分布，并且保持原点不动。</strong></li>
+<li>这种变换只需要几个数字就能够描述清楚，这些数字就是变换后基向量的坐标；以这些坐标为列所构成的矩阵为我们提供了一种描述线性变换的语言。矩阵向量乘法就是计算线性变换作用于给定向量的一种途径。</li>
+<li>矩阵都可以理解为对空间的一种特定变换。</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换</title>
+    <url>/2022/09/25/math_Essense_of_Linear_Algebra_P04/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第四章：矩阵乘法与线性变换复合"><a href="#3Blue1Brown-线代本质第四章：矩阵乘法与线性变换复合" class="headerlink" title="3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合"></a>3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第四章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<p>【<strong>注：本章笔记是第四章加附注一的笔记，也就是《矩阵乘法与线性变换复合》加《三维空间中的线性变换》。</strong>】</p>
+<h2 id="✏️线性复合变换："><a href="#✏️线性复合变换：" class="headerlink" title="✏️线性复合变换："></a>✏️线性复合变换：</h2><ul>
+<li>有时候，我们常常是想要做多种变换，比如“先旋转，后剪切”；这个新的线性变换通常被称为前两个独立变换的“<strong>复合变换</strong>”（Composition）。</li>
+<li>和其他变换一样，我们可以通过追踪i帽和j帽的变换，并用矩阵完全描述这个复合变换。</li>
+<li>两个矩阵相乘有着几何意义，也就是<strong>两个线性变换相继作用</strong>。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5.png" alt="复合矩阵"></li>
+<li>这个矩阵需要从右向左读；首先应用右侧矩阵所描述的变换，然后再应用左侧矩阵所描述的变换。</li>
+<li>它起源于函数的记号，因为我们将函数写在变量左侧。所以每次将两个函数复合的时候，我们需要从右往左读。</li>
+</ul>
+<hr>
+<h3 id="✍️复合矩阵的计算："><a href="#✍️复合矩阵的计算：" class="headerlink" title="✍️复合矩阵的计算："></a>✍️复合矩阵的计算：</h3><ul>
+<li>我们希望对复合矩阵进行计算的时候，计算结果的第一列我们首先要考虑：<strong>i帽去哪里了？</strong></li>
+<li>下图看出，i帽首先落在（1，1）。所以我们在计算时首先将示例中的M1的第一列（1，1）拿出来，与M2进行运算，将M2的变换作用于这个向量，得到最终计算结果的第一列。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5%E7%A4%BA%E4%BE%8B_i%E5%B8%BD%E5%8F%98%E6%8D%A2.png" alt="复合矩阵示例_i帽变换"></li>
+<li>其次，我们要考虑第二列：<strong>j帽去哪了？</strong></li>
+<li>与上文中提到的i帽的计算方式一样，j帽先落在（-2，0），所以我们在计算时将示例中的M1的第一列（-2，0）拿出来，与M2进行运算，将M2的变换作用于这个向量，得到最终计算结果的第二列。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5%E7%A4%BA%E4%BE%8B_j%E5%B8%BD%E5%8F%98%E6%8D%A2.png" alt="复合矩阵示例_j帽变换"></li>
+<li>这一推理具有普适性，对任意矩阵都适用。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F.png" alt="矩阵乘法公式"></li>
+</ul>
+<h3 id="✍️注意矩阵计算顺序不可对调："><a href="#✍️注意矩阵计算顺序不可对调：" class="headerlink" title="✍️注意矩阵计算顺序不可对调："></a>✍️注意矩阵计算顺序不可对调：</h3><ul>
+<li><strong>矩阵乘法不具有交换律。</strong></li>
+<li>如之前的推导公式中，M1M2≠M2M1；即在矩阵运算中“先剪切，后旋转”并不等于“先旋转，后剪切”。</li>
+<li>乘积顺序影响整体的计算。</li>
+</ul>
+<h3 id="✍️结合律（Associativity）："><a href="#✍️结合律（Associativity）：" class="headerlink" title="✍️结合律（Associativity）："></a>✍️结合律（Associativity）：</h3><ul>
+<li><strong>矩阵乘法满足结合律</strong>。</li>
+<li><strong>A（BC） &#x3D; （AB）C</strong></li>
+<li>空间变换来看，线性变换的作用对象是向量，这个计算是线性变换的复合，而不是指把一个作用于另一个。</li>
+<li>以上的等式左边是在说：首先应用C变换和B变换，然后应用A变换；等式右边还是在说：首先应用C变换，其次应用B变换和A变换。</li>
+<li>这只是将同样的三个变换用同样的顺序依次总用，换句话说就是：添加括号与结果无关，他们的计算顺序没有变化（记住矩阵变换始终是从右往左读的）。括号的意义在这里表示某两个要一起做，而不是他们做的顺序提前。</li>
+</ul>
+<hr>
+<hr>
+<hr>
+<h2 id="✏️三维空间中的线性变换："><a href="#✏️三维空间中的线性变换：" class="headerlink" title="✏️三维空间中的线性变换："></a>✏️三维空间中的线性变换：</h2><ul>
+<li>考虑这样一个线性变换，他以三维向量为输入，并以三维向量为输出；我们可以想象他在移动三维空间中的所有点，保持网格线平行且等距分布，并保持原点不动。</li>
+<li>和二维的情形一样，我们看见三维空间中每一个点实际上只是用来代表以它本身为终点的一个向量；而我们所做的变换只是将输入向量移动至对应向量。</li>
+<li>三维线性的变换由基向量的去向完全决定。</li>
+<li>此时就有3个基向量，分别是x方向的i帽，y方向的j帽，z方向的k帽。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E7%9A%84%E5%8F%98%E6%8D%A2.png" alt="三维空间的变换"></li>
+<li>将变换后的三个基向量的坐标记录在一个3x3的矩阵中。这九个数字就完全描述了一个线性变换。</li>
+<li>三维空间内向量的变换公式推导与二维空间几乎一致，它每个坐标都可以看作对相应基向量的缩放。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/3x3%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2.png" alt="3x3矩阵变换"></li>
+<li>3x3矩阵的运用十分广泛,如计算机图形学（Computer Graphics）与机器人学（Robotics）。</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3Blue1Brown_线代本质第五章：行列式</title>
+    <url>/2022/09/26/math_Essense_of_Linear_Algebra_P05/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第五章：行列式"><a href="#3Blue1Brown-线代本质第五章：行列式" class="headerlink" title="3Blue1Brown_线代本质第五章：行列式"></a>3Blue1Brown_线代本质第五章：行列式</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第五章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️区域内面积增大减小："><a href="#✏️区域内面积增大减小：" class="headerlink" title="✏️区域内面积增大减小："></a>✏️区域内面积增大减小：</h2><ul>
+<li>想象一些线性空间，有的变换是向外拉伸空间（Generally stretches space），有的则是向内挤压（Generally squashes space）；有件事情对理解这些线性变换很有用，那就是测量这些变换究竟对空间有多少拉伸或挤压；也就是：<strong>测量一个给定区域面积增大或减小的比例。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%8F%98%E6%8D%A2%E5%90%8E%E7%9A%84%E9%9D%A2%E7%A7%AF.png" alt="变换后的面积"></li>
+<li>如上图所示，i帽从（1，0）变换为（3，0），j帽从（0，1）变换为（0，2）；则由i帽和j帽决定的单位正方形的面积从原先的1x1变成了现在的3x2；它的面积增大了6倍。所以我们说这个线性变换将它的面积变为6倍。</li>
+</ul>
+<hr>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%89%AA%E5%88%87%E7%9F%A9%E9%98%B5%E7%9A%84%E9%9D%A2%E7%A7%AF%E5%8F%98%E6%8D%A2.png" alt="剪切矩阵的面积变换"></p>
+<ul>
+<li>【<strong>剪切矩阵</strong>】则是i帽不变还是在（1，0），j帽从（0，1）变为（1，1）；此时由i帽和j帽决定的单位正方形在变换后倾斜为一个平行四边形，但是它的面积是不变的。所以说即便这个变换空间向右挤压，它并不改变面积。</li>
+<li>实际上，只要知道单位正方形面积变化的比例，他就能告诉你其他任意区域的面积变化比例（因为“网格线保持平行且等距分布”）。</li>
+</ul>
+<hr>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%BF%90%E7%94%A8%E8%BF%91%E4%BC%BC%E7%9A%84%E6%96%B9%E6%A0%BC%E7%BC%A9%E6%94%BE.png" alt="运用近似的方格缩放"></p>
+<ul>
+<li>对于不是方形网格的形状，我们可以用许多放个良好近似，只要使用的方格足够小，近似就能足够好。由于所有的小方格都是进行等比缩放，所以整个形状也进行了同样比例的缩放。</li>
+</ul>
+<hr>
+<h2 id="✏️线性变换的行列式（The-“deternminant”-of-a-transformation）："><a href="#✏️线性变换的行列式（The-“deternminant”-of-a-transformation）：" class="headerlink" title="✏️线性变换的行列式（The “deternminant” of a transformation）："></a>✏️线性变换的行列式（The “deternminant” of a transformation）：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt="线性变换行列式"></p>
+<ul>
+<li>比如说，一个线性变换的行列式是3，那么就是说他将一个区域的面积增加为原来的三倍。</li>
+<li>同理一个线性变换的行列式是1&#x2F;2，那么就说他将一个区域的面积减少为原来的二分之一。</li>
+<li>如果一个线性变换的行列式是0，那么说明它将整个平面压缩到一条线，甚至是一个点上。</li>
+<li>如果变换前j帽在i帽的左侧，变换后j帽变成i帽的右侧，那么此时空间定向就发生了改变（Orientation has been reversed）。</li>
+<li><strong>当空间定向改变，行列式为负</strong>，但是行列式的绝对值依然表示区域面积的缩放比例。</li>
+</ul>
+<hr>
+<h3 id="✍️负的面积为什么与定向改变相关？"><a href="#✍️负的面积为什么与定向改变相关？" class="headerlink" title="✍️负的面积为什么与定向改变相关？"></a>✍️负的面积为什么与定向改变相关？</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E4%B8%BA%E8%B4%9F%E5%80%BC%E7%9A%84%E6%83%85%E5%86%B5.png" alt="行列式为负值的情况"></p>
+<ul>
+<li>考虑i帽靠近j帽时的变换，空间也被更厉害的压缩，意味着行列式趋近于0；当i帽与j帽完全重合时，行列式为0。如果i帽继续沿着这个方向运动，则行列式继续减小为负值。</li>
+</ul>
+<hr>
+<h2 id="✏️三维空间中行列式的变换："><a href="#✏️三维空间中行列式的变换：" class="headerlink" title="✏️三维空间中行列式的变换："></a>✏️三维空间中行列式的变换：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E5%86%85%E7%9A%84%E5%8F%98%E6%8D%A2.png" alt="行列式在三维空间内的变换"></p>
+<ul>
+<li>它告诉你的依然是变换前后的缩放比例，不过三维空间内缩放的是体积。</li>
+<li>在三维空间中我们可以用1x1x1，即i，j，k这三个基向量，这个特殊的立方体来观察行列式的变换。</li>
+<li>我们可以把行列式简单的看作这个平行六面体的体积<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%85%AD%E9%9D%A2%E4%BD%93%E7%9A%84%E4%BD%93%E7%A7%AF.png" alt="平行六面体的体积"></li>
+<li>行列式为0则意味着整个空间被压缩为零体积的东西。也就是一个平面，一条直线或一个点。</li>
+</ul>
+<hr>
+<h3 id="✍️如何计算行列式？："><a href="#✍️如何计算行列式？：" class="headerlink" title="✍️如何计算行列式？："></a>✍️如何计算行列式？：</h3><ul>
+<li>首先它必须得是方形矩阵（行列数相等）。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E8%A1%8C%E5%88%97%E5%BC%8F%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97%E6%8E%A8%E5%AF%BC.png" alt="行列式面积计算推导"></li>
+<li>ad是平行四边形的面积公式底乘以高，如果c不为0的情况下，这个bc项准确的告诉你平行四边形在对角线方向上拉伸或压缩了多少；则这个公式就可以计算出拉伸后的面积。</li>
+</ul>
+<h3 id="✍️三阶行列式计算公式："><a href="#✍️三阶行列式计算公式：" class="headerlink" title="✍️三阶行列式计算公式："></a>✍️三阶行列式计算公式：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png" alt="三阶行列式计算公式"></p>
+<hr>
+]]></content>
+      <categories>
+        <category>-3Blue1Brown线性代数本质</category>
+      </categories>
+      <tags>
+        <tag>-学数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</title>
+    <url>/2022/09/22/math_Essense_of_Linear_Algebra_P02/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第二章：线性组合，张成的空间与基"><a href="#3Blue1Brown-线代本质第二章：线性组合，张成的空间与基" class="headerlink" title="3Blue1Brown_线代本质第二章：线性组合，张成的空间与基"></a>3Blue1Brown_线代本质第二章：线性组合，张成的空间与基</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
+<li>官方一共将此系列分为12节，所以我也会分开写。</li>
+<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
+<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
+</ul>
+<hr>
+<h2 id="✏️基向量："><a href="#✏️基向量：" class="headerlink" title="✏️基向量："></a>✏️基向量：</h2><h3 id="✍️在xy坐标系中两个特殊向量："><a href="#✍️在xy坐标系中两个特殊向量：" class="headerlink" title="✍️在xy坐标系中两个特殊向量："></a>✍️在xy坐标系中两个特殊向量：</h3><ul>
+<li>一个指向正右方，长度为1，通常被称为“i-hat”（i帽）或x方向的单位向量。</li>
+<li>另一个指向正上方，长度为1，通常被称为“j-hat”（j帽）或者y方向的单位向量。</li>
+<li><strong>i-hat与j-hat这两个向量有特殊的名称，他们是xy坐标轴的“基向量”（basis vector）。</strong></li>
+<li>这是在表述：当你把坐标看为标量时，基向量实际上就是这些标量的缩放对象。</li>
+</ul>
+<hr>
+<h3 id="✍️例子1："><a href="#✍️例子1：" class="headerlink" title="✍️例子1："></a>✍️例子1：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/ihat_jhat.png" alt="ihat_jhat"></p>
+<ul>
+<li><strong>由上图示意看出，（3，-2）可以想象为</strong>：x坐标是一个标量，它将i帽拉升为原来的三倍；y坐标也是一个标量，它将j帽反向并拉伸为原来的两倍。从这个角度看，这个向量实际上是两个经过缩放的向量的和。</li>
+<li>“<strong>缩放向量并且相加</strong>”这一概念十分重要。</li>
+</ul>
+<hr>
+<h3 id="✍️如果我们选择不同的基向量会怎么样："><a href="#✍️如果我们选择不同的基向量会怎么样：" class="headerlink" title="✍️如果我们选择不同的基向量会怎么样："></a>✍️如果我们选择不同的基向量会怎么样：</h3><ul>
+<li><strong>我们完全可以选择不同的基向量，获得一个合理的新坐标系。</strong></li>
+<li>比如随便选一个指向右上方的向量，再随便选择一个指向右下方的向量，想象通过选择两个标量，分别用于缩放二者的其中一个， 然后把他们相加，就可以得到不同的结果。通过改变所选择的向量，我们可以得到所有向量。</li>
+<li>一对新的基向量，同样允许我们在一对数和二维向量之间自由转化。但是这种变化关系与我们之前使用的i帽和j帽的变化关系完全不同。</li>
+<li><strong>每当我们用数字描述向量的时候，它都依赖于我们正在使用的基。</strong></li>
+<li><strong>两个数乘向量的和被称为这两个向量的线性组合（Linear combination）。</strong></li>
+<li><strong>那么线性怎么来的可以考虑为：</strong> 如果固定其中一个标量，让另一个标量自由变化，所产生的终点会描述出一条直线，如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/linearCombination.png" alt="linearCombination"></li>
+</ul>
+<hr>
+<ul>
+<li><strong>如果让两个标量同时自由变换，考虑所有可得到的向量，可能有两种情况（实际是三种）：</strong><ol>
+<li>大部分情况下，对于一对初始向量，你能达到平面中每一个点；所有二维向量都尽在掌握。</li>
+<li>另一种较为糟糕的情况是，当两个初始向量恰好共线时，所产生的向量的终点被限制在一条过原点的直线上。</li>
+<li>事实上还有第三种情况就是，两个向量都是零向量,那就只能在原点了。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%90%91%E9%87%8F%E5%8F%98%E6%8D%A2%E7%9A%84%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5.png" alt="向量变换的三种情况"></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="✏️张成空间（span）："><a href="#✏️张成空间（span）：" class="headerlink" title="✏️张成空间（span）："></a>✏️张成空间（span）：</h2><p><strong>概念：</strong><br>    - <strong>所有可以表示为给定向量线性组合的向量的集合，被成为给定向量张成的空间。</strong></p>
+<ul>
+<li>下图：向量全部线性组合构成的向量集合成为“张成的空间”，a与b在实数范围内变动。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%BC%A0%E6%88%90%E7%A9%BA%E9%97%B4.png" alt="张成空间"></li>
+</ul>
+<h3 id="✍️二维空间内张成空间："><a href="#✍️二维空间内张成空间：" class="headerlink" title="✍️二维空间内张成空间："></a>✍️二维空间内张成空间：</h3><ul>
+<li>通常情况下，我们用向量的终点代表向量（起点是原点）；用这种方法来看，如果要考虑落在一条直线上所有向量的时候，只需要考虑直线本身就行了。所以也可以考虑为，如果同时考虑xy坐标系中所有向量，将每个向量抽象为它的终点，实际上就不用考虑所有的肩头了，只需要考虑无限大的二维平面本身即可。</li>
+<li>如果考虑一个向量，我们就可以把他看作箭头；如果考虑多个向量，则可以把他们都看作是点。</li>
+<li>对大部分二维向量来说，它们的张成空间是整个无限大的二维平面；但如果共线，他们的张成空间就是一条直线。</li>
+</ul>
+<hr>
+<h3 id="✍️三维空间内张成空间："><a href="#✍️三维空间内张成空间：" class="headerlink" title="✍️三维空间内张成空间："></a>✍️三维空间内张成空间：</h3><h4 id="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："><a href="#在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：" class="headerlink" title="在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的："></a>在三维空间中取两个指向不同方向的向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="两个向量在三维空间"></p>
+<ul>
+<li>这两个向量的张成空间就是他们所有可能的线性组合；也就是缩放再相加之后所有可得到的向量。</li>
+<li>逐渐改变线性组合中的这两个标量，把缩放后的向量相加，然后跟着最终向量的终点走，这个终点会画出三维空间中某个过原点的平面；这个平面就是这两个向量的张成空间。（所有终点落在这个平面上的向量集合是这两个向量的张成空间）</li>
+</ul>
+<h4 id="如果加上第三个向量，他们的张成空间是这样的："><a href="#如果加上第三个向量，他们的张成空间是这样的：" class="headerlink" title="如果加上第三个向量，他们的张成空间是这样的："></a>如果加上第三个向量，他们的张成空间是这样的：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4.png" alt="三个向量在三维空间"></p>
+<ul>
+<li>选择三个向量分别进行缩放，然后把结果相加。</li>
+<li>这三个向量所有可能的线性作何构成了他们的张成空间。</li>
+<li>如果第三个向量恰好落在前两个向量所张成的平面上，那么他们张成的空间并不改变，还是在这个平面中。</li>
+<li>但是如果随机选一个向量，他几乎不可能落在前两个向量所张成的平面中；这种情况下，由于第三个向量指向不同的方向，我们就能得到所有的三维向量。（可以考虑成：当我们缩放第三个向量的时候，他将前两个向量张成平面来回沿着它的方向移动，从而扫过整个三维空间。）</li>
+</ul>
+<hr>
+<h2 id="✏️Linearly-dependent-和-Linearly-Independent："><a href="#✏️Linearly-dependent-和-Linearly-Independent：" class="headerlink" title="✏️Linearly dependent 和 Linearly Independent："></a>✏️Linearly dependent 和 Linearly Independent：</h2><h4 id="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："><a href="#当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：" class="headerlink" title="当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下："></a>当向量共线的情况，或第三个向量恰好落在之前向量生成的平面的情况下：</h4><ul>
+<li>这种情况说明一组向量中至少有一个是多余的，没有对张成空间做出任何贡献，我们取走这个多余的向量也不减少张成空间，这样的情况下，我们称它为“<strong>线性相关</strong>”（<strong>Linearly dependent</strong>）的。</li>
+</ul>
+<h4 id="如果所有向量都给张成空间添加了新的维度："><a href="#如果所有向量都给张成空间添加了新的维度：" class="headerlink" title="如果所有向量都给张成空间添加了新的维度："></a>如果所有向量都给张成空间添加了新的维度：</h4><ul>
+<li>这种情况就称之为“<strong>线性无关</strong>”（<strong>Linearly Independent</strong>）的。</li>
+</ul>
+<hr>
+<h2 id="✏️基的严格定义（Technical-definition-of-basis）："><a href="#✏️基的严格定义（Technical-definition-of-basis）：" class="headerlink" title="✏️基的严格定义（Technical definition of basis）："></a>✏️基的严格定义（Technical definition of basis）：</h2><ul>
+<li>The basis of a vector space is a set of linearly independent vectors that span the full space<br>(向量空间的一组基是张成该空间的一个线性无关向量集)<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E7%9A%84%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89.png" alt="基的严格定义"></li>
 </ul>
 <hr>
 ]]></content>
@@ -1205,57 +1265,75 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合；三维空间中的线性变换</title>
-    <url>/2022/09/25/math_Essense_of_Linear_Algebra_P04/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第四章：矩阵乘法与线性变换复合"><a href="#3Blue1Brown-线代本质第四章：矩阵乘法与线性变换复合" class="headerlink" title="3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合"></a>3Blue1Brown_线代本质第四章：矩阵乘法与线性变换复合</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第四章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+    <title>3Blue1Brown_线代本质第十章：特征向量与特征值</title>
+    <url>/2022/10/06/math_Essense_of_Linear_Algebra_P10/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十章：特征向量与特征值"><a href="#3Blue1Brown-线代本质第十章：特征向量与特征值" class="headerlink" title="3Blue1Brown_线代本质第十章：特征向量与特征值"></a>3Blue1Brown_线代本质第十章：特征向量与特征值</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第十章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
 <li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
 <li>官方一共将此系列分为12节，所以我也会分开写。</li>
 <li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
 <li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
 </ul>
 <hr>
-<p>【<strong>注：本章笔记是第四章加附注一的笔记，也就是《矩阵乘法与线性变换复合》加《三维空间中的线性变换》。</strong>】</p>
-<h2 id="✏️线性复合变换："><a href="#✏️线性复合变换：" class="headerlink" title="✏️线性复合变换："></a>✏️线性复合变换：</h2><ul>
-<li>有时候，我们常常是想要做多种变换，比如“先旋转，后剪切”；这个新的线性变换通常被称为前两个独立变换的“<strong>复合变换</strong>”（Composition）。</li>
-<li>和其他变换一样，我们可以通过追踪i帽和j帽的变换，并用矩阵完全描述这个复合变换。</li>
-<li>两个矩阵相乘有着几何意义，也就是<strong>两个线性变换相继作用</strong>。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5.png" alt="复合矩阵"></li>
-<li>这个矩阵需要从右向左读；首先应用右侧矩阵所描述的变换，然后再应用左侧矩阵所描述的变换。</li>
-<li>它起源于函数的记号，因为我们将函数写在变量左侧。所以每次将两个函数复合的时候，我们需要从右往左读。</li>
+<h2 id="✏️特征向量与特征值（Eigenvectors-and-Eigenvalues）："><a href="#✏️特征向量与特征值（Eigenvectors-and-Eigenvalues）：" class="headerlink" title="✏️特征向量与特征值（Eigenvectors and Eigenvalues）："></a>✏️特征向量与特征值（Eigenvectors and Eigenvalues）：</h2><h3 id="✍️举例描述："><a href="#✍️举例描述：" class="headerlink" title="✍️举例描述："></a>✍️举例描述：</h3><ul>
+<li>首先，考虑二维空间中的某个线性变换，它将基向量i帽变换到坐标（3，0），j帽变换到坐标（1，2）。 我们关注它对一个特定向量的作用，并且考虑这个向量张成的空间，也就是通过原点和向量尖端的直线。大部分向量在变换中都离开了其张成的空间，意思是如果向量正好落在这条直线上，感觉更像是巧合。不过，某些特殊向量的确留在它们张成的空间里，与i围着矩阵对他的作用仅仅是拉伸或者压缩而已，如同一个标量。</li>
+<li>在上文提到的变换中，基向量i帽就是这样一个特殊向量；i帽张成的空间是x轴，从矩阵的第一列看出，i帽变成了原来的三倍，但任然留在x轴上。</li>
+<li>此外因为线性变换的性质，x轴上的任何其他向量都只是被拉伸为原来的三倍，因此也就留在它们张成的空间里。</li>
+<li>有一个略显隐蔽的向量（-1，1），它在变换中也留在自己张成的空间里；它最终被拉伸为原来的两倍。同上，线性性质暗示着一点，处在他所张成的对角线上的其他任何一个向量也仅仅被拉伸为原来的两倍。</li>
+<li>对这个变换而言，以上就是所拥有这一特殊性质（留在它们张成的空间里）的向量。x轴上的向量被拉伸为原来的三倍，而对角线上的向量被拉伸为原来的两倍。任何其他向量在变换中都有或多或少的旋转，从而离开它张成的直线。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_01.png" alt="特征向量_01"></li>
+<li><strong>这些特殊的向量就被称为变换的“特征向量”；每个特征向量都有一个所属的值，被称为“特征值”，即衡量特征向量在变换中拉伸或压缩比例的因子。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_02.png" alt="特征向量_02"></li>
 </ul>
 <hr>
-<h3 id="✍️复合矩阵的计算："><a href="#✍️复合矩阵的计算：" class="headerlink" title="✍️复合矩阵的计算："></a>✍️复合矩阵的计算：</h3><ul>
-<li>我们希望对复合矩阵进行计算的时候，计算结果的第一列我们首先要考虑：<strong>i帽去哪里了？</strong></li>
-<li>下图看出，i帽首先落在（1，1）。所以我们在计算时首先将示例中的M1的第一列（1，1）拿出来，与M2进行运算，将M2的变换作用于这个向量，得到最终计算结果的第一列。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5%E7%A4%BA%E4%BE%8B_i%E5%B8%BD%E5%8F%98%E6%8D%A2.png" alt="复合矩阵示例_i帽变换"></li>
-<li>其次，我们要考虑第二列：<strong>j帽去哪了？</strong></li>
-<li>与上文中提到的i帽的计算方式一样，j帽先落在（-2，0），所以我们在计算时将示例中的M1的第一列（-2，0）拿出来，与M2进行运算，将M2的变换作用于这个向量，得到最终计算结果的第二列。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A4%8D%E5%90%88%E7%9F%A9%E9%98%B5%E7%A4%BA%E4%BE%8B_j%E5%B8%BD%E5%8F%98%E6%8D%A2.png" alt="复合矩阵示例_j帽变换"></li>
-<li>这一推理具有普适性，对任意矩阵都适用。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F.png" alt="矩阵乘法公式"></li>
-</ul>
-<h3 id="✍️注意矩阵计算顺序不可对调："><a href="#✍️注意矩阵计算顺序不可对调：" class="headerlink" title="✍️注意矩阵计算顺序不可对调："></a>✍️注意矩阵计算顺序不可对调：</h3><ul>
-<li><strong>矩阵乘法不具有交换律。</strong></li>
-<li>如之前的推导公式中，M1M2≠M2M1；即在矩阵运算中“先剪切，后旋转”并不等于“先旋转，后剪切”。</li>
-<li>乘积顺序影响整体的计算。</li>
-</ul>
-<h3 id="✍️结合律（Associativity）："><a href="#✍️结合律（Associativity）：" class="headerlink" title="✍️结合律（Associativity）："></a>✍️结合律（Associativity）：</h3><ul>
-<li><strong>矩阵乘法满足结合律</strong>。</li>
-<li><strong>A（BC） &#x3D; （AB）C</strong></li>
-<li>空间变换来看，线性变换的作用对象是向量，这个计算是线性变换的复合，而不是指把一个作用于另一个。</li>
-<li>以上的等式左边是在说：首先应用C变换和B变换，然后应用A变换；等式右边还是在说：首先应用C变换，其次应用B变换和A变换。</li>
-<li>这只是将同样的三个变换用同样的顺序依次总用，换句话说就是：添加括号与结果无关，他们的计算顺序没有变化（记住矩阵变换始终是从右往左读的）。括号的意义在这里表示某两个要一起做，而不是他们做的顺序提前。</li>
+<h3 id="✍️特征值可以为负吗？："><a href="#✍️特征值可以为负吗？：" class="headerlink" title="✍️特征值可以为负吗？："></a>✍️特征值可以为负吗？：</h3><ul>
+<li>可以，并且与特征值为正的情况下并无差别。</li>
+<li>举个例子，你有一个特征值-1&#x2F;2的特征向量，意味着这给个向量被反向，并且被压缩成原来的一半。但是重点在于，它停留在它张成的直线上，并未发生旋转。</li>
+<li>考虑一个三维空间中的旋转，如果你能找到这个旋转的特征向量，也就是留在他张成空间里的向量，那么你找到的就是旋转轴（axis of rotation）。而且把一个三维旋转看成绕某个轴旋转一定角度，要比考虑相应的3x3矩阵直观的多。顺带一提，在这种情况下，相应的特征值必须为1，因为旋转并不缩放任何一个向量，所以向量的长度保持不变。</li>
+<li>对于任意矩阵描述的线性变换，你可以通过将矩阵的列看作变换后的基向量来理解它。但是理解线性变换作用的关键往往是较少依赖于你的特定坐标系；更好的方法是求出它的特征向量和特征值。</li>
 </ul>
 <hr>
-<hr>
-<hr>
-<h2 id="✏️三维空间中的线性变换："><a href="#✏️三维空间中的线性变换：" class="headerlink" title="✏️三维空间中的线性变换："></a>✏️三维空间中的线性变换：</h2><ul>
-<li>考虑这样一个线性变换，他以三维向量为输入，并以三维向量为输出；我们可以想象他在移动三维空间中的所有点，保持网格线平行且等距分布，并保持原点不动。</li>
-<li>和二维的情形一样，我们看见三维空间中每一个点实际上只是用来代表以它本身为终点的一个向量；而我们所做的变换只是将输入向量移动至对应向量。</li>
-<li>三维线性的变换由基向量的去向完全决定。</li>
-<li>此时就有3个基向量，分别是x方向的i帽，y方向的j帽，z方向的k帽。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E7%9A%84%E5%8F%98%E6%8D%A2.png" alt="三维空间的变换"></li>
-<li>将变换后的三个基向量的坐标记录在一个3x3的矩阵中。这九个数字就完全描述了一个线性变换。</li>
-<li>三维空间内向量的变换公式推导与二维空间几乎一致，它每个坐标都可以看作对相应基向量的缩放。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/3x3%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2.png" alt="3x3矩阵变换"></li>
-<li>3x3矩阵的运用十分广泛,如计算机图形学（Computer Graphics）与机器人学（Robotics）。</li>
+<h3 id="✍️计算思想："><a href="#✍️计算思想：" class="headerlink" title="✍️计算思想："></a>✍️计算思想：</h3><ul>
+<li>用符号表示的话，下图所示就是特征向量的概念。A是代表某个变换的矩阵，v是特征向量；λ（lambda）是一个数，也就是对应的特征值。</li>
+<li>这个等式也就是说：矩阵向量乘积，也就是A乘以v，等于特征向量v乘以某个数λ。</li>
+<li>因此求解矩阵A的特征向量和特征值，实际上就是求解使得这个等式成立的向量v和数λ。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_01.png" alt="特征向量_计算_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_02.png" alt="特征向量_计算_02"></li>
+<li>等号左侧代表的是矩阵向量乘积，但是等号右侧代表的是向量数乘。所以我们首先将等号右侧重写为某个矩阵向量乘积，其中，矩阵的作用效果是将任一向量乘以λ；这个矩阵的列代表着变换后的基向量，而每个基向量仅仅与λ相乘。所以这个矩阵的对角元素均为λ，而其余位置都是0。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_03.png" alt="特征向量_计算_03"></li>
+<li>通常的书写方式是提出因子λ，写作λ乘以I，这里的I就是单位矩阵，对角元均为1；现在两侧就都是矩阵向量乘积的形式。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_04.png" alt="特征向量_计算_04"></li>
 </ul>
 <hr>
+<ul>
+<li>如下图所示，此时，我们就能将等号右侧的东西移到左侧，然后提出因子v。现在我们得到的是一个新的矩阵：A减去λ乘以单位矩阵。我们就寻找一个向量v，使得这个新矩阵与v相乘结果为零向量。如果v本身就是零向量的话，这个等式恒成立，但这没什么意思，因为我们希望的是一个非零特征向量；所以我们寻找的是一个det（A-λI）&#x3D; 0 的情况。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_05.png" alt="特征向量_计算_05"></li>
+<li>所以，<strong>空间压缩，对应的就是矩阵的行列式为零的情况</strong>。举个例子，假设你有一个矩阵，列为（2，1）和（2，3），考虑每个对角元都减去某个变量λ；然后逐渐调整λ的值，当λ的值改变时，矩阵本身发生改变，因此行列式也在改变。目标在于找到一个λ使得这个行列式为零。也就是说调整后的变换将空间压缩到一个更低的维度上。在这个列子中，λ等于1时恰到好处。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_06.png" alt="特征向量_计算_06"></li>
+<li>当然，如果选择其他矩阵，那特征值不一定是1，λ就需要取其他的值来使行列式为零。</li>
+<li>当λ等于1时，A减去λ乘以单位矩阵将空间压缩到一条直线上，这意味着存在一个非零向量v，使得A减去λ乘以单位矩阵的结果乘以v等于零向量。记住一点就是：我们关注它是因为它意味着A乘以v等于λ乘以v。也就是说向量v是A的一个特征向量，在变换中停留在它张成的空间里。</li>
+<li>在上述的例子中，v对应的特征值是1，所以它实际上保持不变。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_07.png" alt="特征向量_计算_07"></li>
+</ul>
+<hr>
+<h4 id="二维线性变换不一定有特征向量："><a href="#二维线性变换不一定有特征向量：" class="headerlink" title="二维线性变换不一定有特征向量："></a>二维线性变换不一定有特征向量：</h4><ul>
+<li>举例来说，想象一个90度旋转，它并没有特征向量，因为每一个向量都发生了旋转并离开了其张成的空间。</li>
+</ul>
+<h4 id="只有一个特征值，但是特征向量不止在一条直线上："><a href="#只有一个特征值，但是特征向量不止在一条直线上：" class="headerlink" title="只有一个特征值，但是特征向量不止在一条直线上："></a>只有一个特征值，但是特征向量不止在一条直线上：</h4><ul>
+<li>一个简单的例子：将所有向量变为两倍的矩阵，唯一的特征值是2，但是平面内每一个向量都是属于这个特征值的特征向量。</li>
+</ul>
+<hr>
+<h2 id="✏️特征基（Eigenbasis）："><a href="#✏️特征基（Eigenbasis）：" class="headerlink" title="✏️特征基（Eigenbasis）："></a>✏️特征基（Eigenbasis）：</h2><h4 id="如果基向量恰好是特征向量，会发生什么？"><a href="#如果基向量恰好是特征向量，会发生什么？" class="headerlink" title="如果基向量恰好是特征向量，会发生什么？"></a>如果基向量恰好是特征向量，会发生什么？</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%9F%BA_01.png" alt="特征基_01"></p>
+<ul>
+<li>如上图所示，比如说，可能i帽变为原来的（-1）倍，j帽变为原来的2倍；将它们的新坐标作为矩阵的列，注意它们的倍数-1和2，也就是i帽和j帽所属的特征值，位于矩阵的对角线上，而其他的元素均为0。</li>
+<li>除了对角元素以外其他元素均为0的矩阵被称为<strong>对角矩阵</strong>（Diagonal Matrix）。解读它的方法是，所有的基向量都是特征向量。矩阵的对角元是它们所属的特征值。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5.png" alt="对角矩阵"></li>
+<li>对角矩阵在很多方面都更容易处理，其中一个重要方面是，矩阵与自己多次相乘的结果更容易计算；因为对角矩阵仅仅让基向量与某个特征值相乘，所以多次应用矩阵乘法，比如一百次，也只是将每个基向量与对应特征值的一百次幂相乘。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png" alt="对角矩阵乘法"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95_02.png" alt="对角矩阵乘法_02"></li>
+<li>相比之下，尝试计算一个非对角矩阵的一百次幂，就很不容易。</li>
+</ul>
+<hr>
+<ul>
+<li>我们知道了特征向量的计算更为简便，所以可以通过变换坐标系，使得特征向量就是基向量，并用特征向量作为基。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5_01.png" alt="基变换矩阵_01"></li>
+<li>取出你想用做新基的向量的坐标，在这里指的是两个特征向量，然后将坐标作为一个矩阵的列，这个矩阵就是<strong>基变换矩阵</strong>，在右侧写下基变换矩阵，在左侧写下基变换矩阵的逆，当你将原始的变换夹在两个矩阵中间时，所得的矩阵代表队是同一个变换，不过是从新基向量所构成的坐标系的角度来看的。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5_02.png" alt="基变换矩阵_02"></li>
+<li>用特征向量来完成这件事的意义在于，这个新矩必然是对角的，并且对角元为对应的特征值。这是因为，他所处的坐标系的基向量在变换中只进行了缩放。</li>
+<li><strong>一组基向量（同样是特征向量）构成的集合被称为一组“特征基”</strong>，这也非常合理。</li>
+<li>所以说，如果你要计算这个矩阵的一百次幂，一种更容易的做法是先变换到特征基，在那个坐标系中计算一百次幂之后，再转换回标准坐标系。</li>
+</ul>
+<h3 id="✍️并非所有矩阵都可以对角化"><a href="#✍️并非所有矩阵都可以对角化" class="headerlink" title="✍️并非所有矩阵都可以对角化"></a>✍️并非所有矩阵都可以对角化</h3><ul>
+<li>切记，并不是所有变换都能进行这一过程，并非所有矩阵都可以对角化。</li>
+<li>比如剪切变换，它的特征向量不够多，并不能张成全空间。</li>
+<li>如果你能找到一组特征基（能张成全空间的特征向量），矩阵运算就会变得非常轻松。</li>
+</ul>
 ]]></content>
       <categories>
         <category>-3Blue1Brown线性代数本质</category>
@@ -1265,66 +1343,60 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>3Blue1Brown_线代本质第九章：基变换</title>
-    <url>/2022/10/03/math_Essense_of_Linear_Algebra_P09/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第九章：基变换"><a href="#3Blue1Brown-线代本质第九章：基变换" class="headerlink" title="3Blue1Brown_线代本质第九章：基变换"></a>3Blue1Brown_线代本质第九章：基变换</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第九章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+    <title>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</title>
+    <url>/2022/10/08/math_Essense_of_Linear_Algebra_P12/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释"><a href="#3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释" class="headerlink" title="3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释"></a>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第十二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+<li>《<strong>线代本质》的内容在我的第十一章的笔记就是完结篇，这篇第十二章《克莱姆法则，几何解释》由于官方账号发在一起了，所以我也当作这个系列一起写了</strong></li>
 <li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
 <li>官方一共将此系列分为12节，所以我也会分开写。</li>
 <li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
 <li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
 </ul>
 <hr>
-<h2 id="✏️基变换："><a href="#✏️基变换：" class="headerlink" title="✏️基变换："></a>✏️基变换：</h2><h3 id="✍️基的选择："><a href="#✍️基的选择：" class="headerlink" title="✍️基的选择："></a>✍️基的选择：</h3><ul>
-<li>发生在向量与一组数之间的任意一种转化，都被称为一个坐标系（coordinate system），而其中两个特殊的向量i帽和j帽，被我们称为这个标准坐标的基向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_01.png" alt="基变换_01"></li>
-<li>如上图所示，如果使用另一组不同的基向量，分别称之为b1和b2，它的第一个基向量b1指向右上方，第二个基向量b2指向左上方。如果在这个变换中，用坐标（5&#x2F;3.1&#x2F;3）来描述它，这意味着，根据他的两个基向量，获得那个向量的方法是b1乘以5&#x2F;3,b2乘以1&#x2F;3,再将两个结果相加。</li>
-<li>总之，无论何时，我们用坐标来描述一个向量，将第一个坐标乘以b1，第二个坐标乘以b2，然后将两者相加，他最终得到的向量 ，会和我们认为的相同坐标的向量完全不同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_02.png" alt="基变换_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_03.png" alt="基变换_03"></li>
-<li>如上图两个向量的表示方法看出，虽然我们都在关注空间中同一个向量，但可以用不同的语言（空间）和数字来描述它，使得结果大不相同。</li>
-<li>如果我们使用普通的坐标系，并用方形网格表示单位，那么<strong>这些网格只是提供了一个可视化坐标系的途径，因此，它依赖我们对基的选择。因为在空间中，本身是没有网格的</strong>。</li>
-<li><strong>如果用不同的方式绘制这个网格，它同样是一个框架，也只不过是有助于用另一种方式理解坐标含义的可视化工具。</strong></li>
-<li>但是无论如何绘制这个网格，<strong>大家的原点总会是在（0，0），因此大家的原点是重合的。</strong> 它就是任何向量乘以0时你所得到的坐标。</li>
-<li>但是，其他方式绘制的坐标轴的方向与网格间距有所不同，这依赖于它对基的选择。</li>
+<h2 id="✏️克莱姆法则，几何解释："><a href="#✏️克莱姆法则，几何解释：" class="headerlink" title="✏️克莱姆法则，几何解释："></a>✏️克莱姆法则，几何解释：</h2><h3 id="✍️克莱姆法则以及背后的几何原理："><a href="#✍️克莱姆法则以及背后的几何原理：" class="headerlink" title="✍️克莱姆法则以及背后的几何原理："></a>✍️克莱姆法则以及背后的几何原理：</h3><ul>
+<li><strong>克莱姆法则是线性代数中一个关于求解线性方程组的定理。它适用于变量和方程数目相等的线性方程组。</strong></li>
+<li>克莱姆法则并不是计算线性方程组最好的方法，比如高斯消元法（Gaussian Elimination）会算的更快。这一部分内容就可以当作是扩展视野，它会帮你加深对线性方程组的理解。</li>
+<li>在知道了这方面的知识后，你就会发现行列式或者线性方程组，这些知识都非常相关。</li>
+<li><strong>举例来说：这里有x和y两个未知数和两个方程，原则上来说，只要未知数和方程个数一样，我们所说的都适用。</strong></li>
+<li><strong>目前，我们将只讨论非零行列式的情况。这意味着线性变换后不改变维数。每个输入向量有且仅有一个输出向量；且每一个输出向量也仅对应一个输入向量。</strong></li>
 </ul>
 <hr>
-<h3 id="✍️如何在不同的坐标系之间进行转化？："><a href="#✍️如何在不同的坐标系之间进行转化？：" class="headerlink" title="✍️如何在不同的坐标系之间进行转化？："></a>✍️如何在不同的坐标系之间进行转化？：</h3><ul>
-<li>一旦你将矩阵向量乘法理解为应用一个特定的线性变换，就会有一种非常直观的方法来考虑这里发生的事。</li>
-<li>一个矩阵列为某个特殊的基向量时，这个矩阵可以看作一个线性变换，它将我们的基向量i帽和j帽，也就是我们眼中的（1，0）和（0，1），变换为那个特殊的基向量，也就是特殊被重新定义的（1，0）和（0，1）.</li>
-<li>变换后的向量仍旧时相同的线性组合，不过使用的时新的基向量。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_04.png" alt="基变换_04"></li>
+<h3 id="✍️正交变换（Orthonormal）："><a href="#✍️正交变换（Orthonormal）：" class="headerlink" title="✍️正交变换（Orthonormal）："></a>✍️正交变换（Orthonormal）：</h3><ul>
+<li>那些不改变点积的矩阵变换有一个特殊的名字：“正交变换”（Orthonormal）。它们使基向量在变化后依然保持单位长度且互相垂直。</li>
+<li>可以想象成是旋转矩阵，相当于刚体运动，没有拉伸，压缩或者变形。</li>
+<li>用正交矩阵来求解线性系统非常简单，因为点积保持不变，所以已知的输出向量和矩阵的列向量的点积，分别等同于未知输入向量和各个基向量的点积。也就是输入向量的每一个坐标。</li>
+<li>因此，在特殊情况下，x等于第一列向量已知向量的点积，y等于第二列向量与已知向量的点积。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2.png" alt="正交变换"></li>
+<li>注意：这个思路对于大多数线性方程组都不成立，但是他给了我们一个方向去思考：有没有另一种对输入向量坐标值的几何解释，能在矩阵变换后保持不变呢？</li>
 </ul>
 <hr>
-<h3 id="✍️逆（Inverse）："><a href="#✍️逆（Inverse）：" class="headerlink" title="✍️逆（Inverse）："></a>✍️逆（Inverse）：</h3><ul>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_05.png" alt="基变换_05"></li>
-<li>一个变换的逆是一个新的变换，它将所选的变换逆向进行。实践当中，尤其是在超过二维空间中研究时，你可以用计算机来计算矩阵的逆。</li>
-<li>如果想知道一个矩阵变换的逆，那我们用这个基变换矩阵的逆乘以我们所使用的向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86_01.png" alt="基变换矩阵的逆_01"></li>
-<li>以上就是如何在坐标系之间对单个向量的描述进行相互转化。</li>
-<li>一个矩阵代表的是一个特殊的基向量，却用我们的坐标来描述；对于一个向量，这个矩阵将它的语言描述转化为我们的语言描述。</li>
-<li>逆矩阵则与之相反。</li>
-<li>向量并不是唯一用坐标表示的东西</li>
+<h4 id="在二维空间中："><a href="#在二维空间中：" class="headerlink" title="在二维空间中："></a>在二维空间中：</h4><ul>
+<li>如果逆非常熟悉行列式，你可能会想到一个很棒的想法：这个由第一个基向量i和位置的输入向量[x；y]组成的平行四边形；面积是长度为1的底，乘上与底边垂直的高（也就是输入向量y的坐标值）。</li>
+<li>因此，我们拐了一个弯，用这个平行四边形的面积来表示y值。</li>
+<li>更准确的说，你应该考虑这个平行四边形的有向面积。如下图所示。</li>
+<li>正如行列式的那样，如果向量y的坐标为负，那么四边形的面积也为负。前提是你把基向量i放在第一位来定义平行四边形。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E7%9A%84%E6%9C%89%E5%90%91%E9%9D%A2%E7%A7%AF.png" alt="平行四边形的有向面积"></li>
+<li>同样，观察由未知的输入向量和第二基向量j组成的平行四边形；它的面积等于向量的x坐标。</li>
+<li>用这种方式表示x的值也有点奇怪。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E7%9A%84%E6%9C%89%E5%90%91%E9%9D%A2%E7%A7%AF%EF%BC%88%E4%BB%A5j%E4%B8%BA%E5%BA%95%EF%BC%89.png" alt="平行四边形的有向面积（以j为底）"></li>
 </ul>
 <hr>
+<h4 id="在三维空间中："><a href="#在三维空间中：" class="headerlink" title="在三维空间中："></a>在三维空间中：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%85%AD%E9%9D%A2%E4%BD%93%E9%9D%A2%E7%A7%AF.png" alt="平行六面体面积"></p>
 <ul>
-<li>考虑某个线性变换，譬如逆时针旋转90度；用矩阵代表它的时候，我们是在跟踪i帽和j帽的去向；i帽变换后坐标是（0，1），j帽变换后坐标是（-1，0）；这些坐标也就成为了矩阵的列。</li>
-<li>但是这种表示与我们对基向量的选择密切相关，因为我们跟踪的是i帽和j帽，并且是在我们自己的坐标系中记录着他们的去向。</li>
-</ul>
-<h3 id="✍️如何转化一个矩阵？："><a href="#✍️如何转化一个矩阵？：" class="headerlink" title="✍️如何转化一个矩阵？："></a>✍️如何转化一个矩阵？：</h3><blockquote>
-<p>注：以下描述的我们的语言是我们使用的语言，代表我们使用的基向量和坐标系；另一种语言表述的变换暂用詹妮弗的语言代替，詹妮弗跟我们使用不同的坐标系和基向量。</p>
-</blockquote>
-<ol>
-<li>我们从詹妮弗的语言描述的任意向量出发。</li>
-<li>首先，我们不用它的语言描述这一过程，而是用基变换矩阵，转化为用我们的语言描述。这个矩阵的列代表是用我们的语言描述她的基向量。此时给出的是同一个向量，只不过是用我们的语言描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_01.png" alt="如何转化一个矩阵_01"></li>
-<li>然后，将所得结果左乘线性变换矩阵；此时给出的是变换后的向量，但仍然是我们的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_02.png" alt="如何转化一个矩阵_02"></li>
-<li>最后一步，像之前一样将所的结果左乘基变换矩阵的逆，从而得到变换后的向量，然而使用詹妮弗的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_03.png" alt="如何转化一个矩阵_03"></li>
-</ol>
-<ul>
-<li>因为我们能够对詹妮弗语言描述的任一向量做同样的事情，首先应用基变换，然后应用线性变换，最后应用基变换的逆。这三个矩阵的复合给出的就是用詹妮弗语言买哦书店线性变换矩阵。它接收由詹妮弗语言描述的向量。，并输出用詹妮弗语言描述的变换后的向量。</li>
-<li>所以如果詹妮弗用这个计算结果的矩阵与她坐标系中的一个向量相乘，结果就是在她坐标系中描述该向量旋转90度的结果。</li>
+<li>考虑向量与另外两个基向量i和j所组成的平行六面体，底面是由基向量i和j组成的正方形，面积是1；所以他的体积等于它的高，也就是我们这个向量的z坐标。</li>
+<li>同样的，用这个奇怪的方法来描述向量在某一个轴上的坐标值，可以先考虑向量，和除了这个轴紫外的两个基向量组成的平行六面体。然后其体积就是对应的坐标值。</li>
+<li>另外，我们可以讨论平行六面体的有向体积，就是之前在行列式中提到过的右手法则。这时，你列出的这三个向量的顺序就很重要了。这样就表明坐标的正负性也是有意义的。</li>
 </ul>
 <hr>
-<h3 id="✍️总结："><a href="#✍️总结：" class="headerlink" title="✍️总结："></a>✍️总结：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%AD%A6%E4%B8%8A%E7%9A%84%E8%BD%AC%E7%A7%BB%E4%BD%9C%E7%94%A8.png" alt="数学上的转移作用"></p>
-<ul>
-<li>每当你看到这样一个表达式：A逆乘以M乘以A，这就暗示着一种数学上的转移作用。中间的矩阵代表一种你所见的变换，而外侧两个矩阵代表着转移作用，也就是视角上的转化。矩阵乘积任然代表着同一个变换，只不过是从其他人的角度来看的。</li>
+<h3 id="✍️将坐标值和面积或体积联系起来的意义："><a href="#✍️将坐标值和面积或体积联系起来的意义：" class="headerlink" title="✍️将坐标值和面积或体积联系起来的意义："></a>✍️将坐标值和面积或体积联系起来的意义：</h3><ul>
+<li>因为当你做矩阵变换后，平行四边形的面积不一定保持不变，可能成比例的增大或减小。但是，所有面积伸缩的比例都是一样的，都等于给定变换矩阵的行列式。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%89%80%E6%9C%89%E9%9D%A2%E7%A7%AF%E4%BC%B8%E7%BC%A9%E7%9A%84%E6%AF%94%E4%BE%8B%E9%83%BD%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt="所有面积伸缩的比例都等于给定行列式"></li>
+<li>考虑一个新的平行四边形；第一条边是变换后的第一基向量（也就是矩阵的第一列）；第二条边是变换后的[x,y]，那它的面积是多大呢？</li>
+<li>其实这就是我们之前提及的平行四边形的变换。变换前，面积是未知输入向量的y坐标值，所以变换后的面积等于矩阵的行列式乘以y值。</li>
+<li>所以可以用输出的平行四边形面积除以矩阵的行列式计算出y。既然我们已知最终变换后的向量，那么可以构造一个新矩阵，第一列和我们原先的矩阵相同，而第二列是输出向量，然后取新矩阵的行列式。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%96%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF.png" alt="新平行四边形面积"></li>
+<li>我们只需使用到变换后的两个向量，也就是矩阵的列向量和已知输出向量，就能计算出位置输入向量的y值，此时方程已经解好一半了。</li>
+<li>我们可以用相同的方法得出x值。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%96%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF_x.png" alt="新平行四边形面积_x"></li>
+<li><strong>这个线性方程组的解法，被称为克莱姆法则。</strong></li>
+<li>三维或者多维的计算结果也基本如此。</li>
 </ul>
+<hr>
 ]]></content>
       <categories>
         <category>-3Blue1Brown线性代数本质</category>
@@ -1566,74 +1638,135 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>3Blue1Brown_线代本质第十章：特征向量与特征值</title>
-    <url>/2022/10/06/math_Essense_of_Linear_Algebra_P10/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十章：特征向量与特征值"><a href="#3Blue1Brown-线代本质第十章：特征向量与特征值" class="headerlink" title="3Blue1Brown_线代本质第十章：特征向量与特征值"></a>3Blue1Brown_线代本质第十章：特征向量与特征值</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第十章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
+    <title>2023阶段作品集</title>
+    <url>/2023/04/28/protfolio_2023/</url>
+    <content><![CDATA[<h1 id="2023阶段作品集"><a href="#2023阶段作品集" class="headerlink" title="2023阶段作品集"></a>2023阶段作品集</h1><blockquote>
+<p>🍺你好，这里是我阶段性作品的更新！今后会不断完善！<br>🍺今后会将重点放在SD，Houdini以及UE的效果上，请期待后续！<br>🍺关于所展示的效果，我大部分均在bilibili放出了分解，请前去：<a href="https://space.bilibili.com/552910222?spm_id_from=333.788.0.0">ZeTiiCannotstop的blibili</a>  来查看</p>
+</blockquote>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/00_cover.png" alt="00_cover"></p>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/00_01.png" alt="00_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p01.png" alt="p01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p02.png" alt="p02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p03.png" alt="p03"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p04.png" alt="p04"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p05.png" alt="p05"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p06.png" alt="p06"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p07.png" alt="p07"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p08.png" alt="p08"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p09.png" alt="p09"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p10.png" alt="p10"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p11.png" alt="p11"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p12.png" alt="p12"></p>
+]]></content>
+      <categories>
+        <category>-Protfolio</category>
+      </categories>
+      <tags>
+        <tag>-Protfolio</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Substance Designer这一阵子的练习汇总（一）</title>
+    <url>/2022/12/10/sd_sdPractice_woodPeeling/</url>
+    <content><![CDATA[<h1 id="这里是关于SD生成器的"><a href="#这里是关于SD生成器的" class="headerlink" title="这里是关于SD生成器的"></a><center>这里是关于SD生成器的</center></h1><h3 id="木漆剥落生成器以及水彩笔触生成器"><a href="#木漆剥落生成器以及水彩笔触生成器" class="headerlink" title="木漆剥落生成器以及水彩笔触生成器"></a><center>木漆剥落生成器以及水彩笔触生成器</center></h3>
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
+src="//player.bilibili.com/player.html?aid=390513592&bvid=BV1vd4y1t7Ca&cid=902733440&page=1" scrolling="no" border="0" 
+frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
+height: 100%; left: 0; top: 0;"> </iframe></div>
+
+
+
+]]></content>
+      <categories>
+        <category>-Substance Designer</category>
+      </categories>
+      <tags>
+        <tag>-Substance Designer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SD贴纸翻折效果复现</title>
+    <url>/2023/04/23/sd_stickerRoll/</url>
+    <content><![CDATA[<h1 id="SD贴纸翻折效果复现"><a href="#SD贴纸翻折效果复现" class="headerlink" title="SD贴纸翻折效果复现"></a><center>SD贴纸翻折效果复现</center></h1><h3 id="实现贴纸或者叶片一类的效果"><a href="#实现贴纸或者叶片一类的效果" class="headerlink" title="实现贴纸或者叶片一类的效果"></a><center>实现贴纸或者叶片一类的效果</center></h3><ul>
+<li>先看视频链接：
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
+src="//player.bilibili.com/player.html?aid=994290041&bvid=BV1Bs4y1D7AZ&cid=1075703165&page=1" scrolling="no" border="0" 
+frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
+height: 100%; left: 0; top: 0;"> </iframe></div>
+
+</li>
+</ul>
+<h2 id="图片示意"><a href="#图片示意" class="headerlink" title="图片示意"></a>图片示意</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTOP12_1.png" alt="sdTOP12_1"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/st_02.png" alt="st_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/st_03.png" alt="st_03"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/st_04.png" alt="st_04"></p>
+<h2 id="实现方式："><a href="#实现方式：" class="headerlink" title="实现方式："></a>实现方式：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/2023423-195718.png" alt="2023423-195718"></p>
+<ul>
+<li>参考哔哩哔哩大佬的方案：<strong>程序化螺丝钉</strong></li>
+<li>主要是通过旋转角度配合位移矩阵，再配合value processsor对offset的数值进行同步处理，然后将遮罩的部分反转，将offset变换后再挪回去<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423200345.png" alt="20230423200345"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423200412.png" alt="20230423200412"></li>
+<li>翻折的部分实际上是x到-x的变换，过渡是一个白到黑的gradient mask做出视觉上的凸起。</li>
+<li>总体的过程只是一个视觉上的trick，还是挺奇妙的。</li>
+<li>参数也很简单，就是翻折角度（起始点）；以及剥落的距离（offset）<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423201208.png" alt="20230423201208"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423201225.png" alt="20230423201225"></li>
+</ul>
+<h2 id="之后对于此类效果的改进计划："><a href="#之后对于此类效果的改进计划：" class="headerlink" title="之后对于此类效果的改进计划："></a>之后对于此类效果的改进计划：</h2><ul>
+<li>之后会完成对于position的改进，由滑杆的处理方式变为position定位点。</li>
+<li>其次准备实现卷曲效果，像是树叶枯萎后卷起来的样子的程序化处理</li>
+</ul>
+]]></content>
+      <categories>
+        <category>-Substance Designer</category>
+      </categories>
+      <tags>
+        <tag>-Substance Designer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3Blue1Brown_线代本质第九章：基变换</title>
+    <url>/2022/10/03/math_Essense_of_Linear_Algebra_P09/</url>
+    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第九章：基变换"><a href="#3Blue1Brown-线代本质第九章：基变换" class="headerlink" title="3Blue1Brown_线代本质第九章：基变换"></a>3Blue1Brown_线代本质第九章：基变换</h1><ul>
+<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第九章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
 <li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
 <li>官方一共将此系列分为12节，所以我也会分开写。</li>
 <li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
 <li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
 </ul>
 <hr>
-<h2 id="✏️特征向量与特征值（Eigenvectors-and-Eigenvalues）："><a href="#✏️特征向量与特征值（Eigenvectors-and-Eigenvalues）：" class="headerlink" title="✏️特征向量与特征值（Eigenvectors and Eigenvalues）："></a>✏️特征向量与特征值（Eigenvectors and Eigenvalues）：</h2><h3 id="✍️举例描述："><a href="#✍️举例描述：" class="headerlink" title="✍️举例描述："></a>✍️举例描述：</h3><ul>
-<li>首先，考虑二维空间中的某个线性变换，它将基向量i帽变换到坐标（3，0），j帽变换到坐标（1，2）。 我们关注它对一个特定向量的作用，并且考虑这个向量张成的空间，也就是通过原点和向量尖端的直线。大部分向量在变换中都离开了其张成的空间，意思是如果向量正好落在这条直线上，感觉更像是巧合。不过，某些特殊向量的确留在它们张成的空间里，与i围着矩阵对他的作用仅仅是拉伸或者压缩而已，如同一个标量。</li>
-<li>在上文提到的变换中，基向量i帽就是这样一个特殊向量；i帽张成的空间是x轴，从矩阵的第一列看出，i帽变成了原来的三倍，但任然留在x轴上。</li>
-<li>此外因为线性变换的性质，x轴上的任何其他向量都只是被拉伸为原来的三倍，因此也就留在它们张成的空间里。</li>
-<li>有一个略显隐蔽的向量（-1，1），它在变换中也留在自己张成的空间里；它最终被拉伸为原来的两倍。同上，线性性质暗示着一点，处在他所张成的对角线上的其他任何一个向量也仅仅被拉伸为原来的两倍。</li>
-<li>对这个变换而言，以上就是所拥有这一特殊性质（留在它们张成的空间里）的向量。x轴上的向量被拉伸为原来的三倍，而对角线上的向量被拉伸为原来的两倍。任何其他向量在变换中都有或多或少的旋转，从而离开它张成的直线。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_01.png" alt="特征向量_01"></li>
-<li><strong>这些特殊的向量就被称为变换的“特征向量”；每个特征向量都有一个所属的值，被称为“特征值”，即衡量特征向量在变换中拉伸或压缩比例的因子。</strong><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_02.png" alt="特征向量_02"></li>
+<h2 id="✏️基变换："><a href="#✏️基变换：" class="headerlink" title="✏️基变换："></a>✏️基变换：</h2><h3 id="✍️基的选择："><a href="#✍️基的选择：" class="headerlink" title="✍️基的选择："></a>✍️基的选择：</h3><ul>
+<li>发生在向量与一组数之间的任意一种转化，都被称为一个坐标系（coordinate system），而其中两个特殊的向量i帽和j帽，被我们称为这个标准坐标的基向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_01.png" alt="基变换_01"></li>
+<li>如上图所示，如果使用另一组不同的基向量，分别称之为b1和b2，它的第一个基向量b1指向右上方，第二个基向量b2指向左上方。如果在这个变换中，用坐标（5&#x2F;3.1&#x2F;3）来描述它，这意味着，根据他的两个基向量，获得那个向量的方法是b1乘以5&#x2F;3,b2乘以1&#x2F;3,再将两个结果相加。</li>
+<li>总之，无论何时，我们用坐标来描述一个向量，将第一个坐标乘以b1，第二个坐标乘以b2，然后将两者相加，他最终得到的向量 ，会和我们认为的相同坐标的向量完全不同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_02.png" alt="基变换_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_03.png" alt="基变换_03"></li>
+<li>如上图两个向量的表示方法看出，虽然我们都在关注空间中同一个向量，但可以用不同的语言（空间）和数字来描述它，使得结果大不相同。</li>
+<li>如果我们使用普通的坐标系，并用方形网格表示单位，那么<strong>这些网格只是提供了一个可视化坐标系的途径，因此，它依赖我们对基的选择。因为在空间中，本身是没有网格的</strong>。</li>
+<li><strong>如果用不同的方式绘制这个网格，它同样是一个框架，也只不过是有助于用另一种方式理解坐标含义的可视化工具。</strong></li>
+<li>但是无论如何绘制这个网格，<strong>大家的原点总会是在（0，0），因此大家的原点是重合的。</strong> 它就是任何向量乘以0时你所得到的坐标。</li>
+<li>但是，其他方式绘制的坐标轴的方向与网格间距有所不同，这依赖于它对基的选择。</li>
 </ul>
 <hr>
-<h3 id="✍️特征值可以为负吗？："><a href="#✍️特征值可以为负吗？：" class="headerlink" title="✍️特征值可以为负吗？："></a>✍️特征值可以为负吗？：</h3><ul>
-<li>可以，并且与特征值为正的情况下并无差别。</li>
-<li>举个例子，你有一个特征值-1&#x2F;2的特征向量，意味着这给个向量被反向，并且被压缩成原来的一半。但是重点在于，它停留在它张成的直线上，并未发生旋转。</li>
-<li>考虑一个三维空间中的旋转，如果你能找到这个旋转的特征向量，也就是留在他张成空间里的向量，那么你找到的就是旋转轴（axis of rotation）。而且把一个三维旋转看成绕某个轴旋转一定角度，要比考虑相应的3x3矩阵直观的多。顺带一提，在这种情况下，相应的特征值必须为1，因为旋转并不缩放任何一个向量，所以向量的长度保持不变。</li>
-<li>对于任意矩阵描述的线性变换，你可以通过将矩阵的列看作变换后的基向量来理解它。但是理解线性变换作用的关键往往是较少依赖于你的特定坐标系；更好的方法是求出它的特征向量和特征值。</li>
+<h3 id="✍️如何在不同的坐标系之间进行转化？："><a href="#✍️如何在不同的坐标系之间进行转化？：" class="headerlink" title="✍️如何在不同的坐标系之间进行转化？："></a>✍️如何在不同的坐标系之间进行转化？：</h3><ul>
+<li>一旦你将矩阵向量乘法理解为应用一个特定的线性变换，就会有一种非常直观的方法来考虑这里发生的事。</li>
+<li>一个矩阵列为某个特殊的基向量时，这个矩阵可以看作一个线性变换，它将我们的基向量i帽和j帽，也就是我们眼中的（1，0）和（0，1），变换为那个特殊的基向量，也就是特殊被重新定义的（1，0）和（0，1）.</li>
+<li>变换后的向量仍旧时相同的线性组合，不过使用的时新的基向量。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_04.png" alt="基变换_04"></li>
 </ul>
 <hr>
-<h3 id="✍️计算思想："><a href="#✍️计算思想：" class="headerlink" title="✍️计算思想："></a>✍️计算思想：</h3><ul>
-<li>用符号表示的话，下图所示就是特征向量的概念。A是代表某个变换的矩阵，v是特征向量；λ（lambda）是一个数，也就是对应的特征值。</li>
-<li>这个等式也就是说：矩阵向量乘积，也就是A乘以v，等于特征向量v乘以某个数λ。</li>
-<li>因此求解矩阵A的特征向量和特征值，实际上就是求解使得这个等式成立的向量v和数λ。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_01.png" alt="特征向量_计算_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_02.png" alt="特征向量_计算_02"></li>
-<li>等号左侧代表的是矩阵向量乘积，但是等号右侧代表的是向量数乘。所以我们首先将等号右侧重写为某个矩阵向量乘积，其中，矩阵的作用效果是将任一向量乘以λ；这个矩阵的列代表着变换后的基向量，而每个基向量仅仅与λ相乘。所以这个矩阵的对角元素均为λ，而其余位置都是0。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_03.png" alt="特征向量_计算_03"></li>
-<li>通常的书写方式是提出因子λ，写作λ乘以I，这里的I就是单位矩阵，对角元均为1；现在两侧就都是矩阵向量乘积的形式。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_04.png" alt="特征向量_计算_04"></li>
-</ul>
-<hr>
-<ul>
-<li>如下图所示，此时，我们就能将等号右侧的东西移到左侧，然后提出因子v。现在我们得到的是一个新的矩阵：A减去λ乘以单位矩阵。我们就寻找一个向量v，使得这个新矩阵与v相乘结果为零向量。如果v本身就是零向量的话，这个等式恒成立，但这没什么意思，因为我们希望的是一个非零特征向量；所以我们寻找的是一个det（A-λI）&#x3D; 0 的情况。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_05.png" alt="特征向量_计算_05"></li>
-<li>所以，<strong>空间压缩，对应的就是矩阵的行列式为零的情况</strong>。举个例子，假设你有一个矩阵，列为（2，1）和（2，3），考虑每个对角元都减去某个变量λ；然后逐渐调整λ的值，当λ的值改变时，矩阵本身发生改变，因此行列式也在改变。目标在于找到一个λ使得这个行列式为零。也就是说调整后的变换将空间压缩到一个更低的维度上。在这个列子中，λ等于1时恰到好处。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_06.png" alt="特征向量_计算_06"></li>
-<li>当然，如果选择其他矩阵，那特征值不一定是1，λ就需要取其他的值来使行列式为零。</li>
-<li>当λ等于1时，A减去λ乘以单位矩阵将空间压缩到一条直线上，这意味着存在一个非零向量v，使得A减去λ乘以单位矩阵的结果乘以v等于零向量。记住一点就是：我们关注它是因为它意味着A乘以v等于λ乘以v。也就是说向量v是A的一个特征向量，在变换中停留在它张成的空间里。</li>
-<li>在上述的例子中，v对应的特征值是1，所以它实际上保持不变。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F_%E8%AE%A1%E7%AE%97_07.png" alt="特征向量_计算_07"></li>
-</ul>
-<hr>
-<h4 id="二维线性变换不一定有特征向量："><a href="#二维线性变换不一定有特征向量：" class="headerlink" title="二维线性变换不一定有特征向量："></a>二维线性变换不一定有特征向量：</h4><ul>
-<li>举例来说，想象一个90度旋转，它并没有特征向量，因为每一个向量都发生了旋转并离开了其张成的空间。</li>
-</ul>
-<h4 id="只有一个特征值，但是特征向量不止在一条直线上："><a href="#只有一个特征值，但是特征向量不止在一条直线上：" class="headerlink" title="只有一个特征值，但是特征向量不止在一条直线上："></a>只有一个特征值，但是特征向量不止在一条直线上：</h4><ul>
-<li>一个简单的例子：将所有向量变为两倍的矩阵，唯一的特征值是2，但是平面内每一个向量都是属于这个特征值的特征向量。</li>
-</ul>
-<hr>
-<h2 id="✏️特征基（Eigenbasis）："><a href="#✏️特征基（Eigenbasis）：" class="headerlink" title="✏️特征基（Eigenbasis）："></a>✏️特征基（Eigenbasis）：</h2><h4 id="如果基向量恰好是特征向量，会发生什么？"><a href="#如果基向量恰好是特征向量，会发生什么？" class="headerlink" title="如果基向量恰好是特征向量，会发生什么？"></a>如果基向量恰好是特征向量，会发生什么？</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E7%89%B9%E5%BE%81%E5%9F%BA_01.png" alt="特征基_01"></p>
-<ul>
-<li>如上图所示，比如说，可能i帽变为原来的（-1）倍，j帽变为原来的2倍；将它们的新坐标作为矩阵的列，注意它们的倍数-1和2，也就是i帽和j帽所属的特征值，位于矩阵的对角线上，而其他的元素均为0。</li>
-<li>除了对角元素以外其他元素均为0的矩阵被称为<strong>对角矩阵</strong>（Diagonal Matrix）。解读它的方法是，所有的基向量都是特征向量。矩阵的对角元是它们所属的特征值。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5.png" alt="对角矩阵"></li>
-<li>对角矩阵在很多方面都更容易处理，其中一个重要方面是，矩阵与自己多次相乘的结果更容易计算；因为对角矩阵仅仅让基向量与某个特征值相乘，所以多次应用矩阵乘法，比如一百次，也只是将每个基向量与对应特征值的一百次幂相乘。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95.png" alt="对角矩阵乘法"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95_02.png" alt="对角矩阵乘法_02"></li>
-<li>相比之下，尝试计算一个非对角矩阵的一百次幂，就很不容易。</li>
+<h3 id="✍️逆（Inverse）："><a href="#✍️逆（Inverse）：" class="headerlink" title="✍️逆（Inverse）："></a>✍️逆（Inverse）：</h3><ul>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2_05.png" alt="基变换_05"></li>
+<li>一个变换的逆是一个新的变换，它将所选的变换逆向进行。实践当中，尤其是在超过二维空间中研究时，你可以用计算机来计算矩阵的逆。</li>
+<li>如果想知道一个矩阵变换的逆，那我们用这个基变换矩阵的逆乘以我们所使用的向量。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86_01.png" alt="基变换矩阵的逆_01"></li>
+<li>以上就是如何在坐标系之间对单个向量的描述进行相互转化。</li>
+<li>一个矩阵代表的是一个特殊的基向量，却用我们的坐标来描述；对于一个向量，这个矩阵将它的语言描述转化为我们的语言描述。</li>
+<li>逆矩阵则与之相反。</li>
+<li>向量并不是唯一用坐标表示的东西</li>
 </ul>
 <hr>
 <ul>
-<li>我们知道了特征向量的计算更为简便，所以可以通过变换坐标系，使得特征向量就是基向量，并用特征向量作为基。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5_01.png" alt="基变换矩阵_01"></li>
-<li>取出你想用做新基的向量的坐标，在这里指的是两个特征向量，然后将坐标作为一个矩阵的列，这个矩阵就是<strong>基变换矩阵</strong>，在右侧写下基变换矩阵，在左侧写下基变换矩阵的逆，当你将原始的变换夹在两个矩阵中间时，所得的矩阵代表队是同一个变换，不过是从新基向量所构成的坐标系的角度来看的。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%9F%BA%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5_02.png" alt="基变换矩阵_02"></li>
-<li>用特征向量来完成这件事的意义在于，这个新矩必然是对角的，并且对角元为对应的特征值。这是因为，他所处的坐标系的基向量在变换中只进行了缩放。</li>
-<li><strong>一组基向量（同样是特征向量）构成的集合被称为一组“特征基”</strong>，这也非常合理。</li>
-<li>所以说，如果你要计算这个矩阵的一百次幂，一种更容易的做法是先变换到特征基，在那个坐标系中计算一百次幂之后，再转换回标准坐标系。</li>
+<li>考虑某个线性变换，譬如逆时针旋转90度；用矩阵代表它的时候，我们是在跟踪i帽和j帽的去向；i帽变换后坐标是（0，1），j帽变换后坐标是（-1，0）；这些坐标也就成为了矩阵的列。</li>
+<li>但是这种表示与我们对基向量的选择密切相关，因为我们跟踪的是i帽和j帽，并且是在我们自己的坐标系中记录着他们的去向。</li>
 </ul>
-<h3 id="✍️并非所有矩阵都可以对角化"><a href="#✍️并非所有矩阵都可以对角化" class="headerlink" title="✍️并非所有矩阵都可以对角化"></a>✍️并非所有矩阵都可以对角化</h3><ul>
-<li>切记，并不是所有变换都能进行这一过程，并非所有矩阵都可以对角化。</li>
-<li>比如剪切变换，它的特征向量不够多，并不能张成全空间。</li>
-<li>如果你能找到一组特征基（能张成全空间的特征向量），矩阵运算就会变得非常轻松。</li>
+<h3 id="✍️如何转化一个矩阵？："><a href="#✍️如何转化一个矩阵？：" class="headerlink" title="✍️如何转化一个矩阵？："></a>✍️如何转化一个矩阵？：</h3><blockquote>
+<p>注：以下描述的我们的语言是我们使用的语言，代表我们使用的基向量和坐标系；另一种语言表述的变换暂用詹妮弗的语言代替，詹妮弗跟我们使用不同的坐标系和基向量。</p>
+</blockquote>
+<ol>
+<li>我们从詹妮弗的语言描述的任意向量出发。</li>
+<li>首先，我们不用它的语言描述这一过程，而是用基变换矩阵，转化为用我们的语言描述。这个矩阵的列代表是用我们的语言描述她的基向量。此时给出的是同一个向量，只不过是用我们的语言描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_01.png" alt="如何转化一个矩阵_01"></li>
+<li>然后，将所得结果左乘线性变换矩阵；此时给出的是变换后的向量，但仍然是我们的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_02.png" alt="如何转化一个矩阵_02"></li>
+<li>最后一步，像之前一样将所的结果左乘基变换矩阵的逆，从而得到变换后的向量，然而使用詹妮弗的语言来描述的。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%A6%82%E4%BD%95%E8%BD%AC%E5%8C%96%E4%B8%80%E4%B8%AA%E7%9F%A9%E9%98%B5_03.png" alt="如何转化一个矩阵_03"></li>
+</ol>
+<ul>
+<li>因为我们能够对詹妮弗语言描述的任一向量做同样的事情，首先应用基变换，然后应用线性变换，最后应用基变换的逆。这三个矩阵的复合给出的就是用詹妮弗语言买哦书店线性变换矩阵。它接收由詹妮弗语言描述的向量。，并输出用詹妮弗语言描述的变换后的向量。</li>
+<li>所以如果詹妮弗用这个计算结果的矩阵与她坐标系中的一个向量相乘，结果就是在她坐标系中描述该向量旋转90度的结果。</li>
+</ul>
+<hr>
+<h3 id="✍️总结："><a href="#✍️总结：" class="headerlink" title="✍️总结："></a>✍️总结：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%95%B0%E5%AD%A6%E4%B8%8A%E7%9A%84%E8%BD%AC%E7%A7%BB%E4%BD%9C%E7%94%A8.png" alt="数学上的转移作用"></p>
+<ul>
+<li>每当你看到这样一个表达式：A逆乘以M乘以A，这就暗示着一种数学上的转移作用。中间的矩阵代表一种你所见的变换，而外侧两个矩阵代表着转移作用，也就是视角上的转化。矩阵乘积任然代表着同一个变换，只不过是从其他人的角度来看的。</li>
 </ul>
 ]]></content>
       <categories>
@@ -1652,105 +1785,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
 <p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTop_sand.png" alt="sdTop_sand"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sand_realistic001_render.png" alt="sand_realistic001_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sand_realistic001_render2.png" alt="sand_realistic001_render2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sand_stylized001_render.png" alt="sand_stylized001_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sand_stylized002_render.png" alt="sand_stylized002_render"></p>
 <p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTOP4.png" alt="sdTOP4"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wood_patterns_stylized01_render.png" alt="wood_patterns_stylized01_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Ground_woodPlanks01_render.png" alt="Ground_woodPlanks01_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/WOOD_wall_mix01_render.png" alt="WOOD_wall_mix01_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/WOOD_pattern02_render.png" alt="WOOD_pattern02_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/woodBoards001_scrachesPeeling_old_Render.png" alt="woodBoards001_scrachesPeeling_old_Render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/woodBoards001_scrachesPeeling_old_Render2.png" alt="woodBoards001_scrachesPeeling_old_Render2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/woodBoards002_horizontalBoards_colorMix_Render.png" alt="woodBoards002_horizontalBoards_colorMix_Render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/WOOD_board002_hotizontal_render.png" alt="WOOD_board002_hotizontal_render"></p>
 <p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/top.png" alt="top"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Ground_Tile2_render.png" alt="Ground_Tile2_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Ground_Tile0_render.png" alt="Ground_Tile0_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Bricks_Tile01_render.png" alt="Bricks_Tile01_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Ground_Tile1_render.png" alt="Ground_Tile1_render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/metalPlates001_rustPeeling_Render.png" alt="metalPlates001_rustPeeling_Render"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/metalPlates001_rustPeeling_Render2.png" alt="metalPlates001_rustPeeling_Render2"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wall_smooth_render.png" alt="wall_smooth_render"></p>
-]]></content>
-      <categories>
-        <category>-Substance Designer</category>
-      </categories>
-      <tags>
-        <tag>-Substance Designer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2023阶段作品集</title>
-    <url>/2023/04/28/protfolio_2023/</url>
-    <content><![CDATA[<h1 id="2023阶段作品集"><a href="#2023阶段作品集" class="headerlink" title="2023阶段作品集"></a>2023阶段作品集</h1><blockquote>
-<p>🍺你好，这里是我阶段性作品的更新！今后会不断完善！<br>🍺今后会将重点放在SD，Houdini以及UE的效果上，请期待后续！<br>🍺关于所展示的效果，我大部分均在bilibili放出了分解，请前去：<a href="https://space.bilibili.com/552910222?spm_id_from=333.788.0.0">ZeTiiCannotstop的blibili</a>  来查看</p>
-</blockquote>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/00_cover.png" alt="00_cover"></p>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/00_01.png" alt="00_01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p01.png" alt="p01"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p02.png" alt="p02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p03.png" alt="p03"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p04.png" alt="p04"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p05.png" alt="p05"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p06.png" alt="p06"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p07.png" alt="p07"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p08.png" alt="p08"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p09.png" alt="p09"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p10.png" alt="p10"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p11.png" alt="p11"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/p12.png" alt="p12"></p>
-]]></content>
-      <categories>
-        <category>-Protfolio</category>
-      </categories>
-      <tags>
-        <tag>-Protfolio</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</title>
-    <url>/2022/10/08/math_Essense_of_Linear_Algebra_P12/</url>
-    <content><![CDATA[<h1 id="3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释"><a href="#3Blue1Brown-线代本质第十二章：克莱姆法则，几何解释" class="headerlink" title="3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释"></a>3Blue1Brown_线代本质第十二章：克莱姆法则，几何解释</h1><ul>
-<li>我开始了<strong>3蓝1棕</strong>的<strong>线性代数本质</strong>的学习，我没什么基础所以在此做了笔记，这里是第十二章打卡，学习永远不怕晚哈！如有问题请各位大佬及时指正！</li>
-<li>《<strong>线代本质》的内容在我的第十一章的笔记就是完结篇，这篇第十二章《克莱姆法则，几何解释》由于官方账号发在一起了，所以我也当作这个系列一起写了</strong></li>
-<li>在b站它的<a href="https://www.bilibili.com/video/BV1ys411472E/?p=2&vd_source=95a1cfccd5b1e6779677de477b25aa31">链接在此</a>。</li>
-<li>官方一共将此系列分为12节，所以我也会分开写。</li>
-<li>我会把相关的这一系列笔记链接在每一篇的最下面，写完就会更新，有需要的朋友可以自行跳转！</li>
-<li>这就是普通的记录，比较基础，没什么有新意的地方。厉害的大佬或相关专业的大佬可以自行跳过此笔记！</li>
-</ul>
-<hr>
-<h2 id="✏️克莱姆法则，几何解释："><a href="#✏️克莱姆法则，几何解释：" class="headerlink" title="✏️克莱姆法则，几何解释："></a>✏️克莱姆法则，几何解释：</h2><h3 id="✍️克莱姆法则以及背后的几何原理："><a href="#✍️克莱姆法则以及背后的几何原理：" class="headerlink" title="✍️克莱姆法则以及背后的几何原理："></a>✍️克莱姆法则以及背后的几何原理：</h3><ul>
-<li><strong>克莱姆法则是线性代数中一个关于求解线性方程组的定理。它适用于变量和方程数目相等的线性方程组。</strong></li>
-<li>克莱姆法则并不是计算线性方程组最好的方法，比如高斯消元法（Gaussian Elimination）会算的更快。这一部分内容就可以当作是扩展视野，它会帮你加深对线性方程组的理解。</li>
-<li>在知道了这方面的知识后，你就会发现行列式或者线性方程组，这些知识都非常相关。</li>
-<li><strong>举例来说：这里有x和y两个未知数和两个方程，原则上来说，只要未知数和方程个数一样，我们所说的都适用。</strong></li>
-<li><strong>目前，我们将只讨论非零行列式的情况。这意味着线性变换后不改变维数。每个输入向量有且仅有一个输出向量；且每一个输出向量也仅对应一个输入向量。</strong></li>
-</ul>
-<hr>
-<h3 id="✍️正交变换（Orthonormal）："><a href="#✍️正交变换（Orthonormal）：" class="headerlink" title="✍️正交变换（Orthonormal）："></a>✍️正交变换（Orthonormal）：</h3><ul>
-<li>那些不改变点积的矩阵变换有一个特殊的名字：“正交变换”（Orthonormal）。它们使基向量在变化后依然保持单位长度且互相垂直。</li>
-<li>可以想象成是旋转矩阵，相当于刚体运动，没有拉伸，压缩或者变形。</li>
-<li>用正交矩阵来求解线性系统非常简单，因为点积保持不变，所以已知的输出向量和矩阵的列向量的点积，分别等同于未知输入向量和各个基向量的点积。也就是输入向量的每一个坐标。</li>
-<li>因此，在特殊情况下，x等于第一列向量已知向量的点积，y等于第二列向量与已知向量的点积。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2.png" alt="正交变换"></li>
-<li>注意：这个思路对于大多数线性方程组都不成立，但是他给了我们一个方向去思考：有没有另一种对输入向量坐标值的几何解释，能在矩阵变换后保持不变呢？</li>
-</ul>
-<hr>
-<h4 id="在二维空间中："><a href="#在二维空间中：" class="headerlink" title="在二维空间中："></a>在二维空间中：</h4><ul>
-<li>如果逆非常熟悉行列式，你可能会想到一个很棒的想法：这个由第一个基向量i和位置的输入向量[x；y]组成的平行四边形；面积是长度为1的底，乘上与底边垂直的高（也就是输入向量y的坐标值）。</li>
-<li>因此，我们拐了一个弯，用这个平行四边形的面积来表示y值。</li>
-<li>更准确的说，你应该考虑这个平行四边形的有向面积。如下图所示。</li>
-<li>正如行列式的那样，如果向量y的坐标为负，那么四边形的面积也为负。前提是你把基向量i放在第一位来定义平行四边形。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E7%9A%84%E6%9C%89%E5%90%91%E9%9D%A2%E7%A7%AF.png" alt="平行四边形的有向面积"></li>
-<li>同样，观察由未知的输入向量和第二基向量j组成的平行四边形；它的面积等于向量的x坐标。</li>
-<li>用这种方式表示x的值也有点奇怪。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E7%9A%84%E6%9C%89%E5%90%91%E9%9D%A2%E7%A7%AF%EF%BC%88%E4%BB%A5j%E4%B8%BA%E5%BA%95%EF%BC%89.png" alt="平行四边形的有向面积（以j为底）"></li>
-</ul>
-<hr>
-<h4 id="在三维空间中："><a href="#在三维空间中：" class="headerlink" title="在三维空间中："></a>在三维空间中：</h4><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E5%B9%B3%E8%A1%8C%E5%85%AD%E9%9D%A2%E4%BD%93%E9%9D%A2%E7%A7%AF.png" alt="平行六面体面积"></p>
-<ul>
-<li>考虑向量与另外两个基向量i和j所组成的平行六面体，底面是由基向量i和j组成的正方形，面积是1；所以他的体积等于它的高，也就是我们这个向量的z坐标。</li>
-<li>同样的，用这个奇怪的方法来描述向量在某一个轴上的坐标值，可以先考虑向量，和除了这个轴紫外的两个基向量组成的平行六面体。然后其体积就是对应的坐标值。</li>
-<li>另外，我们可以讨论平行六面体的有向体积，就是之前在行列式中提到过的右手法则。这时，你列出的这三个向量的顺序就很重要了。这样就表明坐标的正负性也是有意义的。</li>
-</ul>
-<hr>
-<h3 id="✍️将坐标值和面积或体积联系起来的意义："><a href="#✍️将坐标值和面积或体积联系起来的意义：" class="headerlink" title="✍️将坐标值和面积或体积联系起来的意义："></a>✍️将坐标值和面积或体积联系起来的意义：</h3><ul>
-<li>因为当你做矩阵变换后，平行四边形的面积不一定保持不变，可能成比例的增大或减小。但是，所有面积伸缩的比例都是一样的，都等于给定变换矩阵的行列式。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%89%80%E6%9C%89%E9%9D%A2%E7%A7%AF%E4%BC%B8%E7%BC%A9%E7%9A%84%E6%AF%94%E4%BE%8B%E9%83%BD%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E8%A1%8C%E5%88%97%E5%BC%8F.png" alt="所有面积伸缩的比例都等于给定行列式"></li>
-<li>考虑一个新的平行四边形；第一条边是变换后的第一基向量（也就是矩阵的第一列）；第二条边是变换后的[x,y]，那它的面积是多大呢？</li>
-<li>其实这就是我们之前提及的平行四边形的变换。变换前，面积是未知输入向量的y坐标值，所以变换后的面积等于矩阵的行列式乘以y值。</li>
-<li>所以可以用输出的平行四边形面积除以矩阵的行列式计算出y。既然我们已知最终变换后的向量，那么可以构造一个新矩阵，第一列和我们原先的矩阵相同，而第二列是输出向量，然后取新矩阵的行列式。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%96%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF.png" alt="新平行四边形面积"></li>
-<li>我们只需使用到变换后的两个向量，也就是矩阵的列向量和已知输出向量，就能计算出位置输入向量的y值，此时方程已经解好一半了。</li>
-<li>我们可以用相同的方法得出x值。如下图所示。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/%E6%96%B0%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2%E9%9D%A2%E7%A7%AF_x.png" alt="新平行四边形面积_x"></li>
-<li><strong>这个线性方程组的解法，被称为克莱姆法则。</strong></li>
-<li>三维或者多维的计算结果也基本如此。</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>-3Blue1Brown线性代数本质</category>
-      </categories>
-      <tags>
-        <tag>-学数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Substance Designer这一阵子的练习汇总（一）</title>
-    <url>/2022/12/10/sd_sdPractice_woodPeeling/</url>
-    <content><![CDATA[<h1 id="这里是关于SD生成器的"><a href="#这里是关于SD生成器的" class="headerlink" title="这里是关于SD生成器的"></a><center>这里是关于SD生成器的</center></h1><h3 id="木漆剥落生成器以及水彩笔触生成器"><a href="#木漆剥落生成器以及水彩笔触生成器" class="headerlink" title="木漆剥落生成器以及水彩笔触生成器"></a><center>木漆剥落生成器以及水彩笔触生成器</center></h3>
-
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
-src="//player.bilibili.com/player.html?aid=390513592&bvid=BV1vd4y1t7Ca&cid=902733440&page=1" scrolling="no" border="0" 
-frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
-height: 100%; left: 0; top: 0;"> </iframe></div>
-
-
-
 ]]></content>
       <categories>
         <category>-Substance Designer</category>
@@ -1954,6 +1988,100 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
 <h2 id="🚩【十二：Reflections：】"><a href="#🚩【十二：Reflections：】" class="headerlink" title="🚩【十二：Reflections：】"></a>🚩【十二：Reflections：】</h2><ul>
 <li>反射较为资源</li>
 <li>使用planer reflection来得到平面的反射（本质是在镜像它），平面的物体适用，但此不适用于有机形状。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>-UE4</category>
+      </categories>
+      <tags>
+        <tag>-灯光</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE_Lighting Type</title>
+    <url>/2022/11/03/ue_LightingType/</url>
+    <content><![CDATA[<h1 id="UE4-虚幻引擎基础照明-灯光类型"><a href="#UE4-虚幻引擎基础照明-灯光类型" class="headerlink" title="UE4_虚幻引擎基础照明_灯光类型"></a>UE4_虚幻引擎基础照明_灯光类型</h1><blockquote>
+<p>🍉本学习笔记是对UE灯光基础类型的理解，特此做记录，大佬自行跳过哈！</p>
+</blockquote>
+<hr>
+<h2 id="✏️场景照明基础设置："><a href="#✏️场景照明基础设置：" class="headerlink" title="✏️场景照明基础设置："></a>✏️场景照明基础设置：</h2><ol>
+<li><strong>Sky Light</strong>（提供间接照明）</li>
+<li><strong>Directional Light</strong>（提供直接照明和光源方向）</li>
+<li><strong>Point Lights</strong>（点光源）</li>
+<li><strong>Spot Light</strong> （聚光灯）</li>
+<li><strong>Rect Light</strong> （面光源）</li>
+</ol>
+<ul>
+<li>以上提到的就是最常见的灯光，下面会介绍以上灯光几个常用属性便于打光时进行一个较为基础的设置。</li>
+</ul>
+<hr>
+<h3 id="✍️使用【Directional-Light】需要注意的设置有如下几点："><a href="#✍️使用【Directional-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Directional Light】需要注意的设置有如下几点："></a>✍️使用【Directional Light】需要注意的设置有如下几点：</h3><ol>
+<li><p><strong>【Mobility】</strong></p>
+<ul>
+<li><strong>static</strong>（静止），灯光全部会被烘培，纯静态光源，非实时，消耗最低，游戏中无法改变光源。</li>
+<li><strong>stationary</strong>（静态），只烘培静态几何体的投影和反射光找，其他则为动态光源，此设置还允许光源在游戏中改变颜色和强度，但其并不会移动，且允许部分烘焙光照。</li>
+<li><strong>movable</strong>（可移动），纯动态光源，可实时移动并动态投射阴影，消耗最多，拥有最高灵活性。</li>
+</ul>
+</li>
+<li><p><strong>【Light】</strong></p>
+</li>
+</ol>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/directionalLight_Light.png" alt="directionalLight_Light"></p>
+<ul>
+<li><strong>Intensity</strong>，光照强度，场景光照量的多少</li>
+<li><strong>Light color&#x2F; temperature</strong>，光照颜色，最好使用Temperature（开尔文）以取得真实的照明效果</li>
+<li><strong>source angle&#x2F;source soft angle</strong>，针对柔化阴影</li>
+<li><strong>affects world</strong>，开启或关闭灯光的影响</li>
+<li><strong>cast shadows</strong>，是否投射阴影</li>
+<li><strong>indirect lighting Intensity</strong>，如果将此提高，则此灯光再其中贡献更多的照明效果，可用于在阴影区域获得更多的反射光。</li>
+</ul>
+<hr>
+<h3 id="✍️使用【Sky-Light】需要注意的设置有如下几点："><a href="#✍️使用【Sky-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Sky Light】需要注意的设置有如下几点："></a>✍️使用【Sky Light】需要注意的设置有如下几点：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/SkyLight_Light.png" alt="SkyLight_Light"></p>
+<ol>
+<li><strong>【Cube Map】</strong><ul>
+<li>帮助投射颜色</li>
+<li>通常我们不会在这种类似HDR的照明下更改过多的灯光设置，所以尽量保持默认就可以。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="✍️使用【Point-Light】需要注意的设置有如下几点："><a href="#✍️使用【Point-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Point Light】需要注意的设置有如下几点："></a>✍️使用【Point Light】需要注意的设置有如下几点：</h3><ul>
+<li>是最常使用的灯光，点光源，大部分命名相同的属性与directional Light相同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/spotLight_Light.png" alt="pointLight_Light"><ul>
+<li><strong>Attenuation Radius</strong>，衰减半径，可以理解是光照的距离或光照影响的半径，越大越远。</li>
+<li><strong>source Radius</strong>，灯光半径，可以场景光中得到一些更柔和的灯光阴影，也有助于灯光获取更多信息，默认0的时候是一个很小的光源点。</li>
+<li><strong>source Length</strong>，灯光长度，通常与source radius一起使用，在不想增加衰减半径的情况下，可以通过source Length来调整灯光影响的范围，看起来更加自然。</li>
+<li><strong>use Inverse Squared Falloff</strong>，是否使用反比平方比。这是灯光的一种算法，是一种不同类型的光源衰减，主要是用来复制真实世界中的光源行为。它会让光照在靠近其源时非常亮，而在远离源时很快就变暗。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Lighting_4_2.jpg" alt="反比平方比"></p>
+<h4 id="反比平方比的理解："><a href="#反比平方比的理解：" class="headerlink" title="反比平方比的理解："></a>反比平方比的理解：</h4><ul>
+<li><p>使用平方反比衰减同时会改变光源的根本行为。首先，亮度从任意值变更为在 流明 中进行计算。这表示使用指数衰减（默认）的亮度为3的光源看起来是亮的，但如果您将其切换到平方反比衰减，光源仅有3流明，这时光源基本上看不见。</p>
+</li>
+<li><p>光源半径在使用平方反比衰减时也会改变。在使用默认的指数衰减时，半径可视为光源运动的范围，同时越接近半径范围，光照越会衰减。在使用平方反比衰减时，半径更像是一个限定值，对于衰减发生的实际范围不会产生影响。这表示您 可以 为获得最为真实的光源衰减而把半径值设置得非常高。但是，考虑到重叠的固定光源问题，一般情况下不要这样操作。</p>
+</li>
+</ul>
+<hr>
+<h3 id="✍️使用【Spot-Light】需要注意的设置有如下几点："><a href="#✍️使用【Spot-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Spot Light】需要注意的设置有如下几点："></a>✍️使用【Spot Light】需要注意的设置有如下几点：</h3><ul>
+<li>实际上设置与点光源很相似，也是常用照明形式，是锥形的聚光灯投射形式。</li>
+<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/spotLights_Light.png" alt="spotLights_Light"></li>
+<li><strong>inner cone angle&#x2F;outter cone angle</strong>，内外半径</li>
+<li>其余大致设置与point light相似</li>
+</ul>
+<hr>
+<h3 id="✍️使用【Rect-Light】需要注意的设置有如下几点："><a href="#✍️使用【Rect-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Rect Light】需要注意的设置有如下几点："></a>✍️使用【Rect Light】需要注意的设置有如下几点：</h3><ul>
+<li>有点像从一个实际的矩形散发出来的光，起着光源作用。</li>
+<li>它在性能方面消耗较多，需要谨慎使用。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/RectLight_Light.png" alt="RectLight_Light"></li>
+<li><strong>source Width&#x2F;source Height</strong>, 光源的长宽，注意如果直接缩放灯光其实是不会对灯光大小范围产生变化的，此时就需要设置灯光属性中的长宽。</li>
+<li>其他设置与其他光源没有不同。</li>
+</ul>
+<hr>
+<h2 id="✏️灯光优化："><a href="#✏️灯光优化：" class="headerlink" title="✏️灯光优化："></a>✏️灯光优化：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/UEviewMode.png" alt="UEviewMode"></p>
+<ul>
+<li>可以去带viewport中<strong>Detail Lighting</strong>的模式下进行灯光的调试，此模式不带材质的颜色信息，材质均会显示50%的灰度，但是依旧能看见法线以及粗糙度。这一模式可以帮助准确的查看灯光的颜色和强度。</li>
+<li><strong>Light complexity</strong> 可以看见灯光的复合程度，从蓝到绿到红到白的这样一种变化，这是性能的可视化表现，其中消耗最高的是白色，以此类推。</li>
+<li><strong>stationary Light overLap</strong>，此模式可以看清场景内使用stationary light投射出的动态阴影，但是它对于重叠的灯光范围（灯光半径相交的部分）有限制，最多使用四盏overlapping stationary lights。太多的灯光重叠，引擎会只计算那些有效的部分并且踢掉其中的一些多的。</li>
+<li>使用starter content中的<strong>color calibrator</strong>来检查场景内光源。</li>
 </ul>
 ]]></content>
       <categories>
@@ -2371,100 +2499,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>UE_Lighting Type</title>
-    <url>/2022/11/03/ue_LightingType/</url>
-    <content><![CDATA[<h1 id="UE4-虚幻引擎基础照明-灯光类型"><a href="#UE4-虚幻引擎基础照明-灯光类型" class="headerlink" title="UE4_虚幻引擎基础照明_灯光类型"></a>UE4_虚幻引擎基础照明_灯光类型</h1><blockquote>
-<p>🍉本学习笔记是对UE灯光基础类型的理解，特此做记录，大佬自行跳过哈！</p>
-</blockquote>
-<hr>
-<h2 id="✏️场景照明基础设置："><a href="#✏️场景照明基础设置：" class="headerlink" title="✏️场景照明基础设置："></a>✏️场景照明基础设置：</h2><ol>
-<li><strong>Sky Light</strong>（提供间接照明）</li>
-<li><strong>Directional Light</strong>（提供直接照明和光源方向）</li>
-<li><strong>Point Lights</strong>（点光源）</li>
-<li><strong>Spot Light</strong> （聚光灯）</li>
-<li><strong>Rect Light</strong> （面光源）</li>
-</ol>
-<ul>
-<li>以上提到的就是最常见的灯光，下面会介绍以上灯光几个常用属性便于打光时进行一个较为基础的设置。</li>
-</ul>
-<hr>
-<h3 id="✍️使用【Directional-Light】需要注意的设置有如下几点："><a href="#✍️使用【Directional-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Directional Light】需要注意的设置有如下几点："></a>✍️使用【Directional Light】需要注意的设置有如下几点：</h3><ol>
-<li><p><strong>【Mobility】</strong></p>
-<ul>
-<li><strong>static</strong>（静止），灯光全部会被烘培，纯静态光源，非实时，消耗最低，游戏中无法改变光源。</li>
-<li><strong>stationary</strong>（静态），只烘培静态几何体的投影和反射光找，其他则为动态光源，此设置还允许光源在游戏中改变颜色和强度，但其并不会移动，且允许部分烘焙光照。</li>
-<li><strong>movable</strong>（可移动），纯动态光源，可实时移动并动态投射阴影，消耗最多，拥有最高灵活性。</li>
-</ul>
-</li>
-<li><p><strong>【Light】</strong></p>
-</li>
-</ol>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/directionalLight_Light.png" alt="directionalLight_Light"></p>
-<ul>
-<li><strong>Intensity</strong>，光照强度，场景光照量的多少</li>
-<li><strong>Light color&#x2F; temperature</strong>，光照颜色，最好使用Temperature（开尔文）以取得真实的照明效果</li>
-<li><strong>source angle&#x2F;source soft angle</strong>，针对柔化阴影</li>
-<li><strong>affects world</strong>，开启或关闭灯光的影响</li>
-<li><strong>cast shadows</strong>，是否投射阴影</li>
-<li><strong>indirect lighting Intensity</strong>，如果将此提高，则此灯光再其中贡献更多的照明效果，可用于在阴影区域获得更多的反射光。</li>
-</ul>
-<hr>
-<h3 id="✍️使用【Sky-Light】需要注意的设置有如下几点："><a href="#✍️使用【Sky-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Sky Light】需要注意的设置有如下几点："></a>✍️使用【Sky Light】需要注意的设置有如下几点：</h3><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/SkyLight_Light.png" alt="SkyLight_Light"></p>
-<ol>
-<li><strong>【Cube Map】</strong><ul>
-<li>帮助投射颜色</li>
-<li>通常我们不会在这种类似HDR的照明下更改过多的灯光设置，所以尽量保持默认就可以。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h3 id="✍️使用【Point-Light】需要注意的设置有如下几点："><a href="#✍️使用【Point-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Point Light】需要注意的设置有如下几点："></a>✍️使用【Point Light】需要注意的设置有如下几点：</h3><ul>
-<li>是最常使用的灯光，点光源，大部分命名相同的属性与directional Light相同。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/spotLight_Light.png" alt="pointLight_Light"><ul>
-<li><strong>Attenuation Radius</strong>，衰减半径，可以理解是光照的距离或光照影响的半径，越大越远。</li>
-<li><strong>source Radius</strong>，灯光半径，可以场景光中得到一些更柔和的灯光阴影，也有助于灯光获取更多信息，默认0的时候是一个很小的光源点。</li>
-<li><strong>source Length</strong>，灯光长度，通常与source radius一起使用，在不想增加衰减半径的情况下，可以通过source Length来调整灯光影响的范围，看起来更加自然。</li>
-<li><strong>use Inverse Squared Falloff</strong>，是否使用反比平方比。这是灯光的一种算法，是一种不同类型的光源衰减，主要是用来复制真实世界中的光源行为。它会让光照在靠近其源时非常亮，而在远离源时很快就变暗。</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/Lighting_4_2.jpg" alt="反比平方比"></p>
-<h4 id="反比平方比的理解："><a href="#反比平方比的理解：" class="headerlink" title="反比平方比的理解："></a>反比平方比的理解：</h4><ul>
-<li><p>使用平方反比衰减同时会改变光源的根本行为。首先，亮度从任意值变更为在 流明 中进行计算。这表示使用指数衰减（默认）的亮度为3的光源看起来是亮的，但如果您将其切换到平方反比衰减，光源仅有3流明，这时光源基本上看不见。</p>
-</li>
-<li><p>光源半径在使用平方反比衰减时也会改变。在使用默认的指数衰减时，半径可视为光源运动的范围，同时越接近半径范围，光照越会衰减。在使用平方反比衰减时，半径更像是一个限定值，对于衰减发生的实际范围不会产生影响。这表示您 可以 为获得最为真实的光源衰减而把半径值设置得非常高。但是，考虑到重叠的固定光源问题，一般情况下不要这样操作。</p>
-</li>
-</ul>
-<hr>
-<h3 id="✍️使用【Spot-Light】需要注意的设置有如下几点："><a href="#✍️使用【Spot-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Spot Light】需要注意的设置有如下几点："></a>✍️使用【Spot Light】需要注意的设置有如下几点：</h3><ul>
-<li>实际上设置与点光源很相似，也是常用照明形式，是锥形的聚光灯投射形式。</li>
-<li><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/spotLights_Light.png" alt="spotLights_Light"></li>
-<li><strong>inner cone angle&#x2F;outter cone angle</strong>，内外半径</li>
-<li>其余大致设置与point light相似</li>
-</ul>
-<hr>
-<h3 id="✍️使用【Rect-Light】需要注意的设置有如下几点："><a href="#✍️使用【Rect-Light】需要注意的设置有如下几点：" class="headerlink" title="✍️使用【Rect Light】需要注意的设置有如下几点："></a>✍️使用【Rect Light】需要注意的设置有如下几点：</h3><ul>
-<li>有点像从一个实际的矩形散发出来的光，起着光源作用。</li>
-<li>它在性能方面消耗较多，需要谨慎使用。<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/RectLight_Light.png" alt="RectLight_Light"></li>
-<li><strong>source Width&#x2F;source Height</strong>, 光源的长宽，注意如果直接缩放灯光其实是不会对灯光大小范围产生变化的，此时就需要设置灯光属性中的长宽。</li>
-<li>其他设置与其他光源没有不同。</li>
-</ul>
-<hr>
-<h2 id="✏️灯光优化："><a href="#✏️灯光优化：" class="headerlink" title="✏️灯光优化："></a>✏️灯光优化：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/UEviewMode.png" alt="UEviewMode"></p>
-<ul>
-<li>可以去带viewport中<strong>Detail Lighting</strong>的模式下进行灯光的调试，此模式不带材质的颜色信息，材质均会显示50%的灰度，但是依旧能看见法线以及粗糙度。这一模式可以帮助准确的查看灯光的颜色和强度。</li>
-<li><strong>Light complexity</strong> 可以看见灯光的复合程度，从蓝到绿到红到白的这样一种变化，这是性能的可视化表现，其中消耗最高的是白色，以此类推。</li>
-<li><strong>stationary Light overLap</strong>，此模式可以看清场景内使用stationary light投射出的动态阴影，但是它对于重叠的灯光范围（灯光半径相交的部分）有限制，最多使用四盏overlapping stationary lights。太多的灯光重叠，引擎会只计算那些有效的部分并且踢掉其中的一些多的。</li>
-<li>使用starter content中的<strong>color calibrator</strong>来检查场景内光源。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>-UE4</category>
-      </categories>
-      <tags>
-        <tag>-灯光</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UE5和SD_美漫风格的火车场景</title>
     <url>/2023/06/20/ue_TrainSC/</url>
     <content><![CDATA[<h1 id="UE整点心潮澎湃的风格！"><a href="#UE整点心潮澎湃的风格！" class="headerlink" title="UE整点心潮澎湃的风格！"></a>UE整点心潮澎湃的风格！</h1><blockquote>
@@ -2490,37 +2524,25 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>SD贴纸翻折效果复现</title>
-    <url>/2023/04/23/sd_stickerRoll/</url>
-    <content><![CDATA[<h1 id="SD贴纸翻折效果复现"><a href="#SD贴纸翻折效果复现" class="headerlink" title="SD贴纸翻折效果复现"></a><center>SD贴纸翻折效果复现</center></h1><h3 id="实现贴纸或者叶片一类的效果"><a href="#实现贴纸或者叶片一类的效果" class="headerlink" title="实现贴纸或者叶片一类的效果"></a><center>实现贴纸或者叶片一类的效果</center></h3><ul>
-<li>先看视频链接：
+    <title>UE4以及相关工具学习列表合辑</title>
+    <url>/2022/09/09/unreal/</url>
+    <content><![CDATA[<p>这篇是我的UE学习记录了，也算是我的UE学习置顶占位。2022是我学习UE的第一年，来记录一下<br>然后写的不一定是教程笔记哈，有些别的好的我也会随意写写放上来。<br>详细如下，都有各个的部分的站内链接<br>每篇写好了就会更新！<br>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</p>
+<hr>
+<h1 id="🚩UE材质基础"><a href="#🚩UE材质基础" class="headerlink" title="🚩UE材质基础"></a>🚩UE材质基础</h1><h2 id="UE4官方材质课-基础篇"><a href="#UE4官方材质课-基础篇" class="headerlink" title="UE4官方材质课_基础篇"></a>UE4官方材质课_基础篇</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/uefoundation_cover.png" alt="uefoundation_cover"><br><strong>站内link：</strong></p>
+<a href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇">UE4官方材质课_基础篇</a>
 
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
-src="//player.bilibili.com/player.html?aid=994290041&bvid=BV1Bs4y1D7AZ&cid=1075703165&page=1" scrolling="no" border="0" 
-frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
-height: 100%; left: 0; top: 0;"> </iframe></div>
+<hr>
+<h1 id="🚩WTF-is-Material？学习"><a href="#🚩WTF-is-Material？学习" class="headerlink" title="🚩WTF is Material？学习"></a>🚩WTF is Material？学习</h1><h2 id="UE4-虚幻引擎材质节点以及蓝图的学习"><a href="#UE4-虚幻引擎材质节点以及蓝图的学习" class="headerlink" title="UE4_虚幻引擎材质节点以及蓝图的学习"></a>UE4_虚幻引擎材质节点以及蓝图的学习</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wtfISMat.png" alt="wtfISMat"><br><strong>站内link：</strong></p>
+<a href="/2022/10/14/ue_WTF_is_Material_all/" title="UE4_虚幻引擎材质节点以及蓝图的学习">UE4_虚幻引擎材质节点以及蓝图的学习</a>
 
-</li>
-</ul>
-<h2 id="图片示意"><a href="#图片示意" class="headerlink" title="图片示意"></a>图片示意</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/sdTOP12_1.png" alt="sdTOP12_1"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/st_02.png" alt="st_02"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/st_03.png" alt="st_03"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/st_04.png" alt="st_04"></p>
-<h2 id="实现方式："><a href="#实现方式：" class="headerlink" title="实现方式："></a>实现方式：</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/2023423-195718.png" alt="2023423-195718"></p>
-<ul>
-<li>参考哔哩哔哩大佬的方案：<strong>程序化螺丝钉</strong></li>
-<li>主要是通过旋转角度配合位移矩阵，再配合value processsor对offset的数值进行同步处理，然后将遮罩的部分反转，将offset变换后再挪回去<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423200345.png" alt="20230423200345"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423200412.png" alt="20230423200412"></li>
-<li>翻折的部分实际上是x到-x的变换，过渡是一个白到黑的gradient mask做出视觉上的凸起。</li>
-<li>总体的过程只是一个视觉上的trick，还是挺奇妙的。</li>
-<li>参数也很简单，就是翻折角度（起始点）；以及剥落的距离（offset）<br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423201208.png" alt="20230423201208"><br><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20230423201225.png" alt="20230423201225"></li>
-</ul>
-<h2 id="之后对于此类效果的改进计划："><a href="#之后对于此类效果的改进计划：" class="headerlink" title="之后对于此类效果的改进计划："></a>之后对于此类效果的改进计划：</h2><ul>
-<li>之后会完成对于position的改进，由滑杆的处理方式变为position定位点。</li>
-<li>其次准备实现卷曲效果，像是树叶枯萎后卷起来的样子的程序化处理</li>
-</ul>
-]]></content>
+<hr>
+<h1 id="🚩UE灯光技巧："><a href="#🚩UE灯光技巧：" class="headerlink" title="🚩UE灯光技巧："></a>🚩UE灯光技巧：</h1><h2 id="一：UE灯光流程以及方案（Light-a-project-in-UE）"><a href="#一：UE灯光流程以及方案（Light-a-project-in-UE）" class="headerlink" title="一：UE灯光流程以及方案（Light a project in UE）"></a>一：UE灯光流程以及方案（Light a project in UE）</h2><p><strong>站内link：</strong></p>
+<a href="/2022/09/18/ue_Light_a_Project_in_UE/" title="Light_a_Project_in_UE">Light_a_Project_in_UE</a>]]></content>
       <categories>
-        <category>-Substance Designer</category>
+        <category>-UE4</category>
       </categories>
       <tags>
-        <tag>-Substance Designer</tag>
+        <tag>-学习</tag>
       </tags>
   </entry>
   <entry>
@@ -2530,12 +2552,6 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
 <p>🍺这是一个测试，看看图片在云上是否还能正确保存<br>(这是来自2025年的检查。。。太久没上了看看是否上传内容有任何错误)</p>
 </blockquote>
 <p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/20250208153740.png" alt="20250208153740"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>这是一篇测试</title>
-    <url>/2022/09/07/%E6%B5%8B%E8%AF%95%E4%B8%80/</url>
-    <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！<br>这里只是一个简陋的文本所以跳过就行</p>
 ]]></content>
   </entry>
   <entry>
@@ -3273,25 +3289,9 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       </tags>
   </entry>
   <entry>
-    <title>UE4以及相关工具学习列表合辑</title>
-    <url>/2022/09/09/unreal/</url>
-    <content><![CDATA[<p>这篇是我的UE学习记录了，也算是我的UE学习置顶占位。2022是我学习UE的第一年，来记录一下<br>然后写的不一定是教程笔记哈，有些别的好的我也会随意写写放上来。<br>详细如下，都有各个的部分的站内链接<br>每篇写好了就会更新！<br>博客是新开的，整理上来需要时间，如果有兴趣讨论的朋友也可通过我主页的联系方式找我哈！</p>
-<hr>
-<h1 id="🚩UE材质基础"><a href="#🚩UE材质基础" class="headerlink" title="🚩UE材质基础"></a>🚩UE材质基础</h1><h2 id="UE4官方材质课-基础篇"><a href="#UE4官方材质课-基础篇" class="headerlink" title="UE4官方材质课_基础篇"></a>UE4官方材质课_基础篇</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/uefoundation_cover.png" alt="uefoundation_cover"><br><strong>站内link：</strong></p>
-<a href="/2022/09/13/ue_MatClass_foundation/" title="UE4官方材质课_基础篇">UE4官方材质课_基础篇</a>
-
-<hr>
-<h1 id="🚩WTF-is-Material？学习"><a href="#🚩WTF-is-Material？学习" class="headerlink" title="🚩WTF is Material？学习"></a>🚩WTF is Material？学习</h1><h2 id="UE4-虚幻引擎材质节点以及蓝图的学习"><a href="#UE4-虚幻引擎材质节点以及蓝图的学习" class="headerlink" title="UE4_虚幻引擎材质节点以及蓝图的学习"></a>UE4_虚幻引擎材质节点以及蓝图的学习</h2><p><img src="https://ztcnntstop.oss-cn-shanghai.aliyuncs.com/wtfISMat.png" alt="wtfISMat"><br><strong>站内link：</strong></p>
-<a href="/2022/10/14/ue_WTF_is_Material_all/" title="UE4_虚幻引擎材质节点以及蓝图的学习">UE4_虚幻引擎材质节点以及蓝图的学习</a>
-
-<hr>
-<h1 id="🚩UE灯光技巧："><a href="#🚩UE灯光技巧：" class="headerlink" title="🚩UE灯光技巧："></a>🚩UE灯光技巧：</h1><h2 id="一：UE灯光流程以及方案（Light-a-project-in-UE）"><a href="#一：UE灯光流程以及方案（Light-a-project-in-UE）" class="headerlink" title="一：UE灯光流程以及方案（Light a project in UE）"></a>一：UE灯光流程以及方案（Light a project in UE）</h2><p><strong>站内link：</strong></p>
-<a href="/2022/09/18/ue_Light_a_Project_in_UE/" title="Light_a_Project_in_UE">Light_a_Project_in_UE</a>]]></content>
-      <categories>
-        <category>-UE4</category>
-      </categories>
-      <tags>
-        <tag>-学习</tag>
-      </tags>
+    <title>这是一篇测试</title>
+    <url>/2022/09/07/%E6%B5%8B%E8%AF%95%E4%B8%80/</url>
+    <content><![CDATA[<p>这是一个测试，看看第一篇是否顺利保存并打开！<br>这里只是一个简陋的文本所以跳过就行</p>
+]]></content>
   </entry>
 </search>
